@@ -1,0 +1,89 @@
+language: node_js
+node_js: "10.24"
+cache: yarn
+
+_production-job: &production-job
+  stage: production
+  name: SERVICE_NAME
+  script: scripts/deploy.js SERVICE_NAME
+  install: skip
+  env:
+    - "ENVIRONMENT=production RANCHER_CLUSTERID=TBD"
+
+_staging-job: &staging-job
+  stage: staging
+  name: SERVICE_NAME
+  script: scripts/deploy.js SERVICE_NAME
+  install: skip
+  env:
+    - "ENVIRONMENT=staging RANCHER_CLUSTERID=TBD"
+
+stages:
+  - name: test
+
+  - name: production-started
+    if: tag =~ /^v\d+\.\d+\.\d+$/
+  - name: production
+    if: tag =~ /^v\d+\.\d+\.\d+$/
+  - name: production-finished
+    if: tag =~ /^v\d+\.\d+\.\d+$/
+
+  - name: staging-started
+    if: tag is present
+  - name: staging
+    if: tag is present
+  - name: staging-finished
+    if: tag is present
+
+jobs:
+  include:
+    - stage: test
+      env: [NODE_ENV=test]
+
+    - <<: *production-job
+      stage: production-started
+      name: Deployment Started
+      script: npx @parameter1/base-cms-website-deployment-tool notify-started
+    - <<: *staging-job
+      stage: staging-started
+      name: Deployment Started
+      script: npx @parameter1/base-cms-website-deployment-tool notify-started
+
+    ##########################
+    # vvv ADD SITES HERE vvv #
+    ##########################
+
+    - <<: *production-job
+      name: athleticbusiness.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy athleticbusiness.com virgon-websites
+    - <<: *staging-job
+      name: athleticbusiness.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy athleticbusiness.com staging-websites-virgon
+
+    - <<: *production-job
+      name: woodfloorbusiness.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy woodfloorbusiness.com virgon-websites
+    - <<: *staging-job
+      name: woodfloorbusiness.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy woodfloorbusiness.com staging-websites-virgon
+
+    - <<: *production-job
+      name: aquamagazine.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy aquamagazine.com virgon-websites
+    - <<: *staging-job
+      name: aquamagazine.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy aquamagazine.com staging-websites-virgon
+
+
+    ##########################
+    # ^^^ ADD SITES HERE ^^^ #
+    ##########################
+
+    - <<: *production-job
+      stage: production-finished
+      name: Deployment Finished
+      script: npx @parameter1/base-cms-website-deployment-tool notify-finished
+    - <<: *staging-job
+      stage: staging-finished
+      name: Deployment Finished
+      script: npx @parameter1/base-cms-website-deployment-tool notify-finished
