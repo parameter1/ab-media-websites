@@ -85,7 +85,7 @@ services:
       EXPOSED_PORT: 9801
       LIVERELOAD_PORT: 19801
       TENANT_KEY: abmedia_all
-      SITE_ID: TBD
+      SITE_ID: 60cca5748f0b6f7b018b4567
     ports:
       - "9801:80"
       - "19801:19801"
