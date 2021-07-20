@@ -1,0 +1,11 @@
+{
+  "<global-ovd-reader-rigs-submit-promo-block>": {
+    "template": "./ovd-reader-rigs-submit.marko"
+  },
+  "<global-tlc-attachments-idea-promo-block>": {
+    "template": "./tlc-attachments-idea.marko"
+  },
+  "<global-tps-used-truck-guide-promo-block>": {
+    "template": "./tps-used-truck-guide.marko"
+  }
+}
