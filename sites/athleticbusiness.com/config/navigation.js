@@ -10,7 +10,7 @@ const topics = {
 };
 
 const utilities = [
-  { href: 'http://www.athleticbusiness.info', label: 'Advertise', target: '_blank' },
+  { href: 'https://www.athleticbusiness.info', label: 'Advertise', target: '_blank' },
   { href: '/page/contact-us', label: 'Contact Us' },
   { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land', label: 'Subscribe', target: '_blank' },
 ];
