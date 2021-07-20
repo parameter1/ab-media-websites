@@ -34,11 +34,11 @@ module.exports = {
   // uses inline omeda form
   signupBanner: {
     ...defaults,
-    imagePath: 'static/newsletter-pushdown/ab-full.png',
+    imagePath: 'static/newsletter-pushdown/aqua-full.png',
   },
   pushdown: {
     ...defaults,
-    imagePath: 'static/newsletter-pushdown/ab-half.png',
+    imagePath: 'static/newsletter-pushdown/aqua-half.png',
     description: 'NOT_SET',
   },
 
