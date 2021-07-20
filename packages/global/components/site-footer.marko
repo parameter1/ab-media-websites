@@ -106,11 +106,13 @@ $ const tagline = site.get("tagline");
   </default-theme-site-footer-container>
   <default-theme-site-footer-container block-name=blockName modifiers=["primary"]>
     <marko-web-element block-name=blockName name="inner-container">
+
+      $ const imageHost = config.website("imageHost");
       <marko-web-img
         alt="AB Media, Inc. Logo"
-        src="https://p1-cms-assets.imgix.net/files/base/randallreilly/all/image/static/rr-logo.svg?w=200"
-        srcset="https://p1-cms-assets.imgix.net/files/base/randallreilly/all/image/static/rr-logo.svg?w=400 2x"
-        link={ href: "https://www.randallreilly.com", class: `${blockName}__corporate-link` }
+        src=`https://${imageHost}/files/base/randallreilly/all/image/static/abmedia-red-white.png?w=200`
+        srcset=`https://${imageHost}/files/base/randallreilly/all/image/static/abmedia-red-white.png?w=400 2x`
+        link={ href: "https://www.abmedia.biz", class: `${blockName}__corporate-link` }
         class=`${blockName}__corporate-logo`
       />
 
