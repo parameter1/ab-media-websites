@@ -1,0 +1,69 @@
+$ const { id, alias, name, pageNode } = input;
+
+<global-website-section-home-layout
+  id=id
+  alias=alias
+  name=name
+  page-node=pageNode
+>
+  <!-- <@head>
+    <meta name="google-site-verification" content="NOT_SET" />
+  </@head> -->
+
+  <!-- <@section modifiers=["break-container"]>
+    <global-opinion-block alias="perspectives" />
+  </@section> -->
+
+  <!-- <@section>
+    <global-section-list-deck-block aliases=["trucks", "business", "technology"] />
+  </@section> -->
+
+  <@section|{ aliases }|>
+    <global-gam-define-display-ad
+      name="rotation"
+      position="home_page"
+      aliases=aliases
+      modifiers=["inter-block"]
+    />
+  </@section>
+
+  <!-- <@section>
+    <global-partners-in-business-block alias="videos" default-description="The latest news, reviews and announcements from CCJ editors" />
+  </@section> -->
+
+  <!-- <@section>
+    <global-callout-cards-block>
+      <@slot>
+        <global-ccj-top-250-block />
+      </@slot>
+      <@slot>
+        <global-white-papers-block />
+      </@slot>
+    </global-callout-cards-block>
+  </@section> -->
+
+  <!-- <@section>
+    <global-client-side-most-popular-block />
+  </@section> -->
+
+  <@section|{ aliases }|>
+    <global-gam-define-display-ad
+      name="rotation"
+      position="home_page"
+      aliases=aliases
+      modifiers=["inter-block"]
+    />
+  </@section>
+
+  <!-- <@section>
+    <global-gear-block alias="products" default-description="Parts, components and accessories from OE and aftermarket suppliers" />
+  </@section> -->
+
+  <!-- <@section>
+    <global-reader-rigs-block alias="economic-trends/indicators" default-description="" />
+  </@section> -->
+
+  <!-- <@section>
+    <global-resource-library-block alias="resource-library" />
+  </@section> -->
+</global-website-section-home-layout>

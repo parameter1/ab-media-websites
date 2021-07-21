@@ -8,7 +8,7 @@ _production-job: &production-job
   script: scripts/deploy.js SERVICE_NAME
   install: skip
   env:
-    - "ENVIRONMENT=production RANCHER_CLUSTERID=TBD"
+    - "ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm"
 
 _staging-job: &staging-job
   stage: staging
@@ -16,7 +16,7 @@ _staging-job: &staging-job
   script: scripts/deploy.js SERVICE_NAME
   install: skip
   env:
-    - "ENVIRONMENT=staging RANCHER_CLUSTERID=TBD"
+    - "ENVIRONMENT=staging RANCHER_CLUSTERID=c-njflm"
 
 stages:
   - name: test
@@ -58,21 +58,21 @@ jobs:
       script: npx @parameter1/base-cms-website-deployment-tool deploy athleticbusiness.com virgon-websites
     - <<: *staging-job
       name: athleticbusiness.com
-      script: npx @parameter1/base-cms-website-deployment-tool deploy athleticbusiness.com staging-websites-virgon
+      script: npx @parameter1/base-cms-website-deployment-tool deploy athleticbusiness.com leonis-websites
 
     - <<: *production-job
       name: woodfloorbusiness.com
       script: npx @parameter1/base-cms-website-deployment-tool deploy woodfloorbusiness.com virgon-websites
     - <<: *staging-job
       name: woodfloorbusiness.com
-      script: npx @parameter1/base-cms-website-deployment-tool deploy woodfloorbusiness.com staging-websites-virgon
+      script: npx @parameter1/base-cms-website-deployment-tool deploy woodfloorbusiness.com leonis-websites
 
     - <<: *production-job
       name: aquamagazine.com
       script: npx @parameter1/base-cms-website-deployment-tool deploy aquamagazine.com virgon-websites
     - <<: *staging-job
       name: aquamagazine.com
-      script: npx @parameter1/base-cms-website-deployment-tool deploy aquamagazine.com staging-websites-virgon
+      script: npx @parameter1/base-cms-website-deployment-tool deploy aquamagazine.com leonis-websites
 
 
     ##########################

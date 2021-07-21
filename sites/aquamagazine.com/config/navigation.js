@@ -10,9 +10,9 @@ const topics = {
 };
 
 const utilities = [
-  { href: 'https://www.athleticbusiness.info', label: 'Advertise', target: '_blank' },
+  { href: 'https://info.aquamagazine.com', label: 'Advertise', target: '_blank' },
   { href: '/page/contact-us', label: 'Contact Us' },
-  { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land', label: 'Subscribe', target: '_blank' },
+  { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land', label: 'Subscribe', target: '_blank' },
 ];
 
 const mobileMenu = {
@@ -22,7 +22,7 @@ const mobileMenu = {
   ],
   secondary: [
     ...topics.secondary,
-    { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land', label: 'Subscribe', target: '_blank' },
+    { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land', label: 'Subscribe', target: '_blank' },
   ],
 };
 
@@ -51,7 +51,7 @@ module.exports = {
     items: [
       { href: '/page/about', label: 'About' },
       { href: '/page/contact-us', label: 'Contact Us' },
-      { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land', label: 'Subscribe', target: '_blank' },
+      { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=aqua_land', label: 'Subscribe', target: '_blank' },
       { href: '/page/privacy-policy', label: 'Privacy Policy' },
       { href: '/site-map', label: 'Site Map' },
     ],
