@@ -1,11 +1,15 @@
 const topics = {
   primary: [
-    { href: '/path', label: 'Path' },
+    { href: '/retail', label: 'Retail' },
+    { href: '/service', label: 'Service' },
+    { href: '/builder', label: 'Builder' },
+    { href: '/products', label: 'Products' },
+    { href: '/homeowners-diy', label: 'Homeowners/DIY' },
   ],
   expanded: [
   ],
   secondary: [
-    { href: '/path', label: 'Path' },
+    // { href: '/path', label: 'Path' },
   ],
 };
 
@@ -58,7 +62,7 @@ module.exports = {
     topics: topics.primary,
     more: [
       ...utilities,
-      { href: '/path', label: 'Path' },
+      // { href: '/path', label: 'Path' },
     ],
   },
 };
