@@ -1,0 +1,8 @@
+{
+  "<site-content-toolbox-promo-block>": {
+    "template": "./content-toolbox.marko"
+  },
+  "<site-resource-book-promo-block>": {
+    "template": "./resource-book.marko"
+  }
+}

@@ -1,7 +1,7 @@
 const baseConfig = {
   action: 'https://athleticbusiness.dragonforms.com/loading.do',
   hiddenInputs: [
-    { name: 'omedasite', value: 'NOT_SET' },
+    { name: 'omedasite', value: 'aqua_pref' },
   ],
 };
 
@@ -45,12 +45,12 @@ module.exports = {
   // links off to seperate omeda dragonform
   signupBannerLarge: {
     ...baseConfig,
-    name: 'NOT_SET',
-    description: 'NOT_SET',
+    name: 'Newsletter for Aquatic Professionals',
+    description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
   signupFooter: {
     ...baseConfig,
-    name: 'NOT_SET',
-    description: 'NOT_SET',
+    name: 'Newsletter for Aquatic Professionals',
+    description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
 };

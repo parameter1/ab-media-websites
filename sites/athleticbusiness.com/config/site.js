@@ -38,9 +38,6 @@ module.exports = {
     { provider: 'youtube', href: 'https://www.instagram.com/athleticbiz/', target: '_blank' },
   ],
   podcastLinks: [],
-  gcse: {
-    id: 'NOT_SET',
-  },
   gtm: {
     containerId: 'NOT_SET',
   },

@@ -1,11 +1,15 @@
 const topics = {
   primary: [
-    { href: '/path', label: 'Path' },
+    { href: '/wood-flooring', label: 'Wood Flooring' },
+    { href: '/installation', label: 'Installation' },
+    { href: '/sanding', label: 'Sanding' },
+    { href: '/finishing', label: 'Finishing' },
+    { href: '/business', label: 'Business' },
   ],
   expanded: [
   ],
   secondary: [
-    { href: '/path', label: 'Path' },
+    // { href: '/path', label: 'Path' },
   ],
 };
 
@@ -58,7 +62,7 @@ module.exports = {
     topics: topics.primary,
     more: [
       ...utilities,
-      { href: '/path', label: 'Path' },
+      // { href: '/path', label: 'Path' },
     ],
   },
 };

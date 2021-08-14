@@ -2,7 +2,7 @@ const configureNativeX = require('@ab-media/package-global/config/native-x');
 
 const config = configureNativeX();
 
-config.enabled = true;
+config.enabled = false;
 
 config
   .setAliasPlacements('default', [

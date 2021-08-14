@@ -33,6 +33,9 @@
   "<global-most-popular-block>": {
     "template": "./most-popular.marko"
   },
+  "<global-most-popular-temp-block>": {
+    "template": "./most-popular-temp.marko"
+  },
   "<global-read-next-block>": {
     "template": "./read-next.marko"
   },

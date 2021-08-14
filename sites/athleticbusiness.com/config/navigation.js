@@ -1,11 +1,16 @@
 const topics = {
   primary: [
-    { href: '/path', label: 'Path' },
+    { href: '/facilities', label: 'Facilities' },
+    { href: '/operations', label: 'Operations' },
+    { href: '/leadership', label: 'Leadership' },
+    { href: '/multimedia', label: 'Multimedia' },
   ],
   expanded: [
+    // { href: 'https://www.abshow.com', label: 'AB Show', target: '_blank' },
   ],
   secondary: [
-    { href: '/path', label: 'Path' },
+    { href: 'https://www.abshow.com', label: 'AB Show', target: '_blank' },
+    // { href: '/operations', label: 'Operations' },
   ],
 };
 
@@ -42,7 +47,10 @@ module.exports = {
     items: [],
   },
   secondary: {
-    items: topics.primary,
+    items: [
+      ...topics.primary,
+      { href: 'https://www.abshow.com', label: 'AB Show', target: '_blank' },
+    ],
   },
   tertiary: {
     items: [],
@@ -58,7 +66,7 @@ module.exports = {
     topics: topics.primary,
     more: [
       ...utilities,
-      { href: '/path', label: 'Path' },
+      // { href: '/path', label: 'Path' },
     ],
   },
 };

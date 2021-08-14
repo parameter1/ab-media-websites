@@ -1,16 +1,22 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import DefineDisplayAd from "../../gam/define-display-ad";
 
 $ const { site } = out.global;
-$ const { id, type, pageNode, showReadNextBlock, showBottomAdBlock, showTopStoryBlock, ...rest } = input;
+$ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
 
+$ const showReadNextBlock = defaultValue(input.showReadNextBlock, true);
+$ const showBottomAdBlock = defaultValue(input.showBottomAdBlock, true);
+$ const showTopStoryBlock = defaultValue(input.showTopStoryBlock, false);
 $ const displayPrimaryImage = ["media-gallery"].includes(type) ? false : true;
 $ const displayPublishedDate = ["company", "contact", "whitepaper"].includes(type) ? false : true;
 $ const displayReadNext = showReadNextBlock && ["article"].includes(type);
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
-$ const displayComments = ["contact"].includes(type) ? false : true;
-$ const displayNewsletterSignup = ["contact"].includes(type) ? false : true;
+<!-- $ const displayComments = ["contact"].includes(type) ? false : true; -->
+$ const displayComments = false;
+<!-- $ const displayNewsletterSignup = ["contact"].includes(type) ? false : true; -->
+$ const displayNewsletterSignup = false;
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
 
 <global-content-wrapper-layout
@@ -26,7 +32,6 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
       aliases=aliases
       modifiers=["inter-block"]
     />
-    <global-gam-wallpaper-ad aliases=aliases position="content_page" />
   </@section>
 
   <@section|{ blockName, content, aliases, authors }| modifiers=["content-header"]>
@@ -151,6 +156,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
       </default-theme-page-contents>
     </div>
   </@section>
+
   <if(showBottomAdBlock)>
     <@section|{ aliases }|>
       <global-gam-define-display-ad
@@ -162,11 +168,12 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
     </@section>
   </if>
 
-  <if(showTopStoryBlock)>
-    <@section>
-      <global-top-stories-block />
-    </@section>
-  </if>
+  <@section|{ content }|>
+    <global-related-stories-block
+      content-id=content.id
+      section-id=content.primarySection.id
+    />
+  </@section>
 
   <for|s| of=sections>
     <@section|{ blockName, content, aliases }| modifiers=s.modifiers>

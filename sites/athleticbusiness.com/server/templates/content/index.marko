@@ -6,34 +6,12 @@ $ const { id, type, pageNode, ...rest } = input;
   page-node=pageNode
   ...rest
 >
-  <!-- <@section>
-    <global-callout-cards-block>
-      <@slot>
-        <global-ccj-top-250-block />
-      </@slot>
-      <@slot>
-        <global-white-papers-block />
-      </@slot>
-    </global-callout-cards-block>
-  </@section> -->
-
-  <@section|{ aliases }|>
-    <global-gam-define-display-ad
-      name="rotation"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
-  </@section>
-
-  <@section|{ content }|>
-    <global-related-stories-block
-      content-id=content.id
-      section-id=content.primarySection.id
-    />
+  <@section>
+    <site-promo-card-rotation-block />
   </@section>
 
   <@section>
-    <global-client-side-most-popular-block />
+    <!-- <global-client-side-most-popular-block /> -->
+    <global-most-popular-temp-block />
   </@section>
 </global-content-default-layout>

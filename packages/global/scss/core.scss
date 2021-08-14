@@ -208,3 +208,11 @@ label {
   @extend .embed-responsive;
   @extend .embed-responsive-16by9;
 }
+
+[data-embed-type][data-embed-align="left"] {
+  clear: left;
+}
+
+[data-embed-type][data-embed-align="right"] {
+  clear: right;
+}

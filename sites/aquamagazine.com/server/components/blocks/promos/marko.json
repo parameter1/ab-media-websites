@@ -1,0 +1,8 @@
+{
+  "<site-aqua-toolbox-promo-block>": {
+    "template": "./aqua-toolbox.marko"
+  },
+  "<site-buyers-guide-promo-block>": {
+    "template": "./buyers-guide.marko"
+  }
+}
