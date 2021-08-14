@@ -1,7 +1,7 @@
 const GAMConfiguration = require('@parameter1/base-cms-marko-web-gam/config');
 
 module.exports = ({
-  accountId = 'NOT_SET',
+  accountId = '1035663',
   basePath,
 } = {}) => {
   const config = new GAMConfiguration(accountId, { basePath });
@@ -9,65 +9,43 @@ module.exports = ({
   config
     .setTemplate('LEADERBOARD', {
       size: [
-        [970, 90],
-        [728, 90],
-        [320, 100],
-        [300, 250],
-        [320, 50],
-        [265, 149], // Featured Pushdown / Fluid Banner
+        [970, 250],
         [1060, 596],
         [736, 414],
         [428, 241],
+        [265, 149],
       ],
       sizeMapping: [
-        { viewport: [1070, 0], size: [[970, 90], [728, 90], [265, 149], [1060, 596]] },
-        { viewport: [980, 0], size: [[970, 90], [728, 90], [265, 149], [736, 414]] },
-        { viewport: [750, 0], size: [[728, 90], [265, 149], [736, 414]] },
-        { viewport: [300, 0], size: [[320, 100], [300, 250], [320, 50], [265, 149], [428, 241]] },
+        { viewport: [1070, 0], size: [[970, 90], [1060, 596]] },
+        { viewport: [980, 0], size: [[970, 90], [736, 414]] },
+        { viewport: [750, 0], size: [[300, 100], [736, 414]] },
+        { viewport: [300, 0], size: [[300, 100], [428, 241], [265, 149]] },
       ],
     })
+    .setTemplate('RAIL', {
+      size: [300, 250],
+    })
     .setTemplate('ROTATION', {
-      size: [[970, 250], [970, 90], [728, 90], [320, 100]],
+      size: [[970, 250], [970, 90], [728, 90]],
       sizeMapping: [
-        { viewport: [980, 0], size: [[970, 250], [970, 90], [970, 66], [728, 90]] },
+        { viewport: [980, 0], size: [[970, 250], [970, 90], [728, 90]] },
         { viewport: [750, 0], size: [[728, 90], [300, 250]] },
-        { viewport: [300, 0], size: [[300, 50], [300, 250], [320, 100]] },
+        { viewport: [300, 0], size: [[300, 50], [300, 100], [300, 250]] },
       ],
     })
     .setTemplate('INLINE-CONTENT-MOBILE', {
-      size: [[970, 250], [970, 90], [728, 90], [320, 100]],
+      size: [[970, 250], [970, 90], [728, 90]],
       sizeMapping: [
         { viewport: [980, 0], size: [] },
-        { viewport: [300, 0], size: [[300, 50], [300, 250], [320, 100]] },
+        { viewport: [300, 0], size: [[300, 50], [300, 100], [300, 250]] },
       ],
     })
     .setTemplate('INLINE-CONTENT-DESKTOP', {
-      size: [[970, 250], [970, 90], [728, 90], [320, 100]],
+      size: [[970, 250], [970, 90], [728, 90]],
       sizeMapping: [
-        { viewport: [980, 0], size: [[970, 250], [970, 90], [970, 66], [728, 90]] },
+        { viewport: [980, 0], size: [[970, 250], [970, 90], [728, 90]] },
         { viewport: [750, 0], size: [[728, 90], [300, 250]] },
         { viewport: [0, 0], size: [] },
-      ],
-    })
-    .setTemplate('WALLPAPER', {
-      size: [[300, 600], [100, 600]],
-      sizeMapping: [
-        { viewport: [1400, 0], size: [300, 600] },
-        { viewport: [0, 0], size: [] },
-      ],
-    })
-    .setTemplate('GEAR', {
-      size: [300, 250],
-      sizeMapping: [
-        { viewport: [980, 0], size: [300, 250] },
-        { viewport: [0, 0], size: [] },
-      ],
-    })
-    .setTemplate('GEAR-MOBILE', {
-      size: [300, 250],
-      sizeMapping: [
-        { viewport: [980, 0], size: [] },
-        { viewport: [300, 0], size: [300, 250] },
       ],
     });
 
