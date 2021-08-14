@@ -156,6 +156,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
       </default-theme-page-contents>
     </div>
   </@section>
+
   <if(showBottomAdBlock)>
     <@section|{ aliases }|>
       <global-gam-define-display-ad
@@ -167,6 +168,12 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
     </@section>
   </if>
 
+  <@section|{ content }|>
+    <global-related-stories-block
+      content-id=content.id
+      section-id=content.primarySection.id
+    />
+  </@section>
 
   <for|s| of=sections>
     <@section|{ blockName, content, aliases }| modifiers=s.modifiers>
