@@ -10,13 +10,13 @@ $ const { id, alias, name, pageNode } = input;
     <meta name="google-site-verification" content="NOT_SET" />
   </@head> -->
 
-  <!-- <@section modifiers=["break-container"]>
-    <global-opinion-block alias="perspectives" />
-  </@section> -->
+  <@section modifiers=["break-container"]>
+    <global-opinion-block alias="industry-press-room" />
+  </@section>
 
-  <!-- <@section>
-    <global-section-list-deck-block aliases=["trucks", "business", "technology"] />
-  </@section> -->
+  <@section>
+    <global-section-list-deck-block aliases=["facilities", "operations", "leadership"] />
+  </@section>
 
   <@section|{ aliases }|>
     <global-gam-define-display-ad
@@ -27,26 +27,13 @@ $ const { id, alias, name, pageNode } = input;
     />
   </@section>
 
-  <!-- <@section>
-    <global-partners-in-business-block alias="videos" default-description="The latest news, reviews and announcements from CCJ editors" />
-  </@section> -->
-
-  <@section|{ aliases }|>
-    <global-gam-define-display-ad
-      name="rotation"
-      position="home_page"
-      aliases=aliases
-      modifiers=["inter-block"]
+  <@section>
+    <global-partners-in-business-block
+      alias="architectural-showcase"
+      default-description="AB's Architectural Showcase features the newest and most innovative athletic, recreation and fitness facilities from around the world. Find out how you can be a part of it."
     />
   </@section>
 
-  <!-- <@section>
-    <global-gear-block alias="products" default-description="Parts, components and accessories from OE and aftermarket suppliers" />
-  </@section> -->
-
-  <!-- <@section>
-    <global-reader-rigs-block alias="economic-trends/indicators" default-description="" />
-  </@section> -->
   <@section>
     <site-promo-card-rotation-block />
   </@section>
