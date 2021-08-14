@@ -167,11 +167,6 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
     </@section>
   </if>
 
-  <if(showTopStoryBlock)>
-    <@section>
-      <global-top-stories-block />
-    </@section>
-  </if>
 
   <for|s| of=sections>
     <@section|{ blockName, content, aliases }| modifiers=s.modifiers>
