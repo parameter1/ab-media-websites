@@ -39,9 +39,6 @@ module.exports = {
     { provider: 'instagram', href: 'https://www.instagram.com/woodfloorbusiness/', target: '_blank' },
   ],
   podcastLinks: [],
-  gcse: {
-    id: 'NOT_SET',
-  },
   gtm: {
     containerId: 'NOT_SET',
   },
