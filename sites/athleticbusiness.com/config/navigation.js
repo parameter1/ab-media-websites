@@ -1,3 +1,5 @@
+const subscribe = require('./subscribe');
+
 const topics = {
   primary: [
     { href: '/facilities', label: 'Facilities' },
@@ -17,7 +19,7 @@ const topics = {
 const utilities = [
   { href: 'https://www.athleticbusiness.info', label: 'Advertise', target: '_blank' },
   { href: '/page/contact-us', label: 'Contact Us' },
-  { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land', label: 'Subscribe', target: '_blank' },
+  subscribe,
 ];
 
 const mobileMenu = {
@@ -27,7 +29,7 @@ const mobileMenu = {
   ],
   secondary: [
     ...topics.secondary,
-    { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land', label: 'Subscribe', target: '_blank' },
+    subscribe,
   ],
 };
 
