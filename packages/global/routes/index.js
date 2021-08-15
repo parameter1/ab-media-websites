@@ -7,8 +7,9 @@ const printContent = require('./print-content');
 const publicFiles = require('./public-files');
 const redirects = require('./redirects');
 const renderBlock = require('./render-block');
+const search = require('./search');
 
-module.exports = (app) => {
+module.exports = (app, siteConfig) => {
   // Feed
   feed(app);
 
@@ -32,6 +33,9 @@ module.exports = (app) => {
 
   // Remote component/block loader
   renderBlock(app);
+
+  // Search routes
+  search(app, siteConfig);
 
   // HTML Sitemap
   htmlSitemap(app);
