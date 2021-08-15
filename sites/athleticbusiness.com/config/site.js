@@ -4,6 +4,7 @@ const nativeX = require('./native-x');
 const identityX = require('./identity-x');
 const newsletter = require('./newsletter');
 const search = require('./search');
+const subscribe = require('./subscribe');
 
 module.exports = {
   navigation,
@@ -13,6 +14,7 @@ module.exports = {
   newsletter,
   search,
   company: 'AB Media, Inc.',
+  subscribe,
   p1events: {
     tenant: 'abmedia',
     enabled: true,

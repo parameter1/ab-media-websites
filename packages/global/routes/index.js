@@ -29,7 +29,7 @@ module.exports = (app, siteConfig) => {
   publicFiles(app);
 
   // Redirects
-  redirects(app);
+  redirects(app, siteConfig);
 
   // Remote component/block loader
   renderBlock(app);
