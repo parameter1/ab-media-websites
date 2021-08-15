@@ -13,9 +13,9 @@ const newsletterState = require('./middleware/newsletter-state');
 const oembedHandler = require('./oembed-handler');
 const omedaConfig = require('./config/omeda');
 
-const routes = siteRoutes => (app) => {
+const routes = siteRoutes => (app, siteConfig) => {
   // Shared/global routes (all sites)
-  sharedRoutes(app);
+  sharedRoutes(app, siteConfig);
   // Load site routes
   siteRoutes(app);
 };
@@ -29,7 +29,7 @@ module.exports = (options = {}) => {
   };
   return startServer({
     ...options,
-    routes: routes(options.routes),
+    routes: routes(options.routes, options.siteConfig),
     document: options.document || document,
     components: options.components || components,
     fragments: options.fragments || fragments,
