@@ -1,6 +1,6 @@
 const configureGAM = require('@ab-media/package-global/config/gam');
 
-const config = configureGAM({ basePath: 'base' });
+const config = configureGAM({ basePath: 'aqua' });
 
 config.lazyLoad = {
   enabled: true, // set to true to enable lazy loading
