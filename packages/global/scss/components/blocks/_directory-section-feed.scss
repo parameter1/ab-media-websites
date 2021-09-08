@@ -4,6 +4,28 @@
     #{ $self }__node {
       @include marko-web-node-list-border(border-bottom);
     }
+    .section-feed-content-node {
+      flex-direction: row;
+      &__image-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        margin-right: 15px;
+        @include media-breakpoint-up(md) {
+          width: auto;
+          height: auto;
+        }
+        a {
+          align-self: center;
+        }
+      }
+      &__image {
+        width: auto;
+        height: auto;
+      }
+    }
   }
   &--featured-listings {
     #{ $self }__node {
@@ -18,6 +40,11 @@
       padding: 15px;
       color: $white;
       background-color: $primary;
+    }
+    .section-feed-content-node {
+      &__body {
+        margin: 0 15px;
+      }
     }
   }
 }
