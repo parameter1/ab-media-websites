@@ -29,6 +29,7 @@ $ const currentPage = search.getCurrentPage();
       <if(currentPage > 1)>${value}: Page ${currentPage}</if>
       <else>${value}</else>
     </marko-web-website-section-name>
+    <marko-web-website-section-description block-name=blockName obj=section />
     <default-theme-breadcrumbs modifiers=["directory"]>
       $ const children = getAsArray(section, "hierarchy");
       <for|child| of=children>
