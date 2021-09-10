@@ -1,6 +1,6 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
 
-import queryFragment from "../../graphql/fragments/section-feed-block";
+import queryFragment from "../../graphql/fragments/directory-section-feed-block";
 
 $ const { id, alias, name, pageNode } = input;
 $ const { $markoWebSearch: search } = out.global;
@@ -105,7 +105,7 @@ $ const currentPage = search.getCurrentPage();
                         </@header>
                         <@nodes nodes=nodes>
                           <@slot|{ node }|>
-                            <global-directory-section-feed-content-node node=node with-dates=false />
+                            <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
                           </@slot>
                         </@nodes>
                       </marko-web-node-list>
