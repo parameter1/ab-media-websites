@@ -6,6 +6,9 @@
     }
     .section-feed-content-node {
       flex-direction: row;
+      @include media-breakpoint-down(md) {
+        flex-direction: column-reverse;
+      }
       &__image-wrapper {
         display: flex;
         flex-direction: column;
@@ -20,11 +23,32 @@
         a {
           align-self: center;
         }
+        @include media-breakpoint-down(md) {
+          margin-top: 15px;
+          margin-bottom: 15px;
+        }
       }
       &__image {
         width: auto;
         max-width: 100%;
         height: auto;
+        border: none;
+      }
+      &__content-teaser {
+        margin-bottom: 15px;
+      }
+      &--listing-details,
+      &--contact-info {
+        display: flex;
+        flex-direction: column;
+        @include skin-typography($style: "teaser-text-1", $link-style: "primary", $breakpoint: sm);
+        word-break: break-word;
+      }
+      &--contact-info {
+        a {
+          font-weight: $font-weight-bold;
+          color: $primary;
+        }
       }
     }
   }
