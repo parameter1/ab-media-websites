@@ -8,11 +8,9 @@ $ const primarySection = getAsObject(content, "primarySection");
 $ const containerAttrs = getAsObject(input, "containerAttrs");
 $ const linkAttrs = getAsObject(input, "linkAttrs");
 
-$ const withBody = defaultValue(input.withBody, false);
-$ const withDates = defaultValue(input.withDates, true);
-$ const withSection = defaultValue(input.withSection, true);
-$ const withTeaser = defaultValue(input.withTeaser, true);
+$ const withSection = defaultValue(input.withSection, false);
 $ const displayImage = defaultValue(input.displayImage, true);
+$ const isFeatured = defaultValue(input.isFeatured, false);
 
 $ const imageOptions = {
   w: 250,
@@ -39,26 +37,40 @@ $ const blockName = "section-feed-content-node";
         obj=content
         link={ attrs: linkAttrs }
       />
-      <if(withTeaser)>
-        <marko-web-content-teaser
-          block-name=blockName
-          obj=content
-          link={ attrs: linkAttrs }
-        />
+      <if(isFeatured)>
+        <marko-web-block name=blockName modifiers=["listing-details"] >
+          <marko-web-content-teaser
+            block-name=blockName
+            obj=content
+            link={ attrs: linkAttrs }
+          />
+          <marko-web-block name=blockName modifiers=["contact-info"] >
+            <marko-web-content-address1 block-name=blockName obj=content />
+            <marko-web-content-address2 block-name=blockName obj=content />
+            <marko-web-content-city-state-zip block-name=blockName obj=content />
+            <marko-web-content-tollfree block-name=blockName obj=content />
+            <marko-web-link
+              href=content.siteContext.path
+              attrs=linkAttrs
+            >
+              Request Quote &raquo;
+            </marko-web-link>
+            <marko-web-content-website
+              block-name=blockName
+              obj=content
+              link=true
+              attrs={ target: "_blank" }
+            >
+              Website &raquo;
+            </marko-web-content-website>
+          </marko-web-block>
+        </marko-web-block>
       </if>
-      <if(withBody)>
-        <marko-web-content-body
-          block-name=blockName
-          obj=content
-        />
-      </if>
-      <if(withDates)>
-        <marko-web-content-published
-          block-name=blockName
-          obj=content
-          format="MMMM D, YYYY"
-        />
-      </if>
+      <else-if(content.city && content.state)>
+        <marko-web-content-city-state-zip block-name=blockName obj=content>
+          ${content.city}, ${content.state}
+        </marko-web-content-city-state-zip>
+      </else-if>
     </marko-web-element>
   </marko-web-element>
   <if(displayImage && primaryImage.src)>
