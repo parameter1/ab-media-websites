@@ -33,7 +33,9 @@
         &__center {
           display: flex;
           align-self: flex-start;
-          justify-content: center;
+          @media (min-width: map-get($theme-site-header-breakpoints, small-logo)) {
+            justify-content: center;
+          }
         }
         &__center.col-lg-6 {
           justify-content: flex-start;
