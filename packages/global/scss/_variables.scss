@@ -143,6 +143,7 @@ $skin-content-primary-image-max-width: 880px;
 $theme-page-title-font-weight: $font-weight-bold;
 
 // Header
+$navbarStyle: "navbar" !default;
 $theme-site-header-box-shadow: none !default;
 $theme-site-header-breakpoints: () !default;
 $theme-site-header-breakpoints: map-merge(
@@ -160,7 +161,11 @@ $theme-site-header-breakpoints: map-merge(
 $skin-desktop-menu-breakpoint: map-get($theme-site-header-breakpoints, hide-secondary);
 $theme-site-navbar-brand-margin-x: 36px !default;
 
-$theme-site-navbar-logo-height: 46px !default;
+@if $navbarStyle == "navbar2" {
+  $theme-site-navbar-logo-height: 60px !default;
+} @else {
+  $theme-site-navbar-logo-height: 46px !default;
+}
 $theme-site-navbar-logo-height-sm: 35px !default;
 
 $theme-site-navbar-primary-height-sm: 0;
