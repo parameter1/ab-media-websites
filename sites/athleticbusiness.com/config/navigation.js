@@ -50,20 +50,20 @@ module.exports = {
       title: 'AB Magazine',
       callToAction: 'Subscribe',
       image: {
-        src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-cover-09-21.jpg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70&amp;w=85&amp;crop=top',
+        src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-cover-09-21.jpg?auto=format%2Ccompress&fit=crop&h=78&q=70&w=85&crop=top',
         srcset: [
-          'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-cover-09-21.jpg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70 2x&amp;w=85&amp;crop=top',
+          'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-cover-09-21.jpg?auto=format%2Ccompress&fit=crop&h=78&q=70&dpr=2&w=85&crop=top',
         ],
       },
-      link: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=ab_land',
+      link: subscribe.href,
     },
     // {
     //   title: 'AB Show 2021 in San Antonio',
     //   callToAction: 'Learn More',
     //   image: {
-    //     src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ABshow21_tile100.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70&amp;w=85&amp;crop=top',
+    //     src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ABshow21_tile100.jpeg?auto=format%2Ccompress&fit=crop&h=78&q=70&w=85&crop=top',
     //     srcset: [
-    //       'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ABshow21_tile100.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70 2x&amp;w=85&amp;crop=top',
+    //       'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ABshow21_tile100.jpeg?auto=format%2Ccompress&fit=crop&h=78&q=70&dpr=2&w=85&crop=top',
     //     ],
     //   },
     //   link: 'https://www.abshow.com/',
@@ -72,9 +72,9 @@ module.exports = {
     //   title: 'AB Buyers Guide',
     //   callToAction: 'Read More',
     //   image: {
-    //     src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-bg-promo.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70&amp;w=85&amp;crop=top',
+    //     src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-bg-promo.jpeg?auto=format%2Ccompress&fit=crop&h=78&q=70&w=85&crop=top',
     //     srcset: [
-    //       'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-bg-promo.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70 2x&amp;w=85&amp;crop=top',
+    //       'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-bg-promo.jpeg?auto=format%2Ccompress&fit=crop&h=78&q=70&dpr=2&w=85&crop=top',
     //     ],
     //   },
     //   link: 'https://www.athleticbusiness.com/buyers-guide',
