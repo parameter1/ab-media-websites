@@ -40,13 +40,14 @@ const desktopMenu = {
 };
 
 module.exports = {
+  type: 'navbar2',
   desktopMenu,
   mobileMenu,
   primary: {
-    items: [],
+    items: topics.primary,
   },
   secondary: {
-    items: topics.primary,
+    items: [],
   },
   tertiary: {
     items: [],
