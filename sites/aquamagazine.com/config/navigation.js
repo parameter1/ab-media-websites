@@ -41,30 +41,6 @@ const desktopMenu = {
 
 module.exports = {
   type: 'navbar2',
-  promos: [
-    {
-      title: 'Aqua Toolbox',
-      callToAction: 'Learn More',
-      image: {
-        src: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/Bookpile.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70&amp;w=85&amp;crop=top',
-        srcset: [
-          'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/Bookpile.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70 2x&amp;w=85&amp;crop=top',
-        ],
-      },
-      link: 'https://library.aquamagazine.com/',
-    },
-    {
-      title: 'Buyers Guide',
-      callToAction: 'Read More',
-      image: {
-        src: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/geometric15square.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70&amp;w=85&amp;crop=top',
-        srcset: [
-          'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/geometric15square.jpeg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70 2x&amp;w=85&amp;crop=top',
-        ],
-      },
-      link: 'https://www.aquamagazine.com/buyers-guide',
-    },
-  ],
   desktopMenu,
   mobileMenu,
   primary: {

@@ -41,19 +41,6 @@ const desktopMenu = {
 
 module.exports = {
   type: 'navbar2',
-  promos: [
-    {
-      title: 'Wood Floor Business Magazine',
-      callToAction: 'Subscribe',
-      image: {
-        src: 'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb/wfb-toolbox-homepage.jpg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70&amp;w=85&amp;crop=top',
-        srcset: [
-          'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb/wfb-toolbox-homepage.jpg?auto=format%2Ccompress&amp;fit=crop&amp;h=78&amp;q=70 2x&amp;w=85&amp;crop=top',
-        ],
-      },
-      link: 'https://toolbox.woodfloorbusiness.com/',
-    },
-  ],
   desktopMenu,
   mobileMenu,
   primary: {
