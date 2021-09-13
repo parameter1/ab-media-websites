@@ -41,6 +41,19 @@ const desktopMenu = {
 
 module.exports = {
   type: 'navbar2',
+  promos: [
+    {
+      title: 'AB Magazine',
+      callToAction: 'Subscribe',
+      image: {
+        src: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/aqua-09-2021.png?auto=format%2Ccompress&fit=crop&h=78&q=70&w=85&crop=top',
+        srcset: [
+          'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/aqua-09-2021.png?auto=format%2Ccompress&fit=crop&h=78&q=70&dpr=2&w=85&crop=top',
+        ],
+      },
+      link: subscribe.href,
+    },
+  ],
   desktopMenu,
   mobileMenu,
   primary: {
