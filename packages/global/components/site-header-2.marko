@@ -10,7 +10,6 @@ $ const navigation = {
   secondary: site.getAsArray("navigation.secondary.items"),
   tertiary: site.getAsArray("navigation.tertiary.items"),
 };
-$ console.log(site.getAsArray("navigation.promos"), shuffle(site.getAsArray("navigation.promos")))
 $ const promo = shuffle(site.getAsArray("navigation.promos"))[0];
 $ const headerColClass = promo ? "col-lg-4" : "col-lg-6";
 
