@@ -4,6 +4,7 @@ const topics = {
     { href: '/service', label: 'Service' },
     { href: '/builder', label: 'Builder' },
     { href: '/products', label: 'Products' },
+    { href: '/news', label: 'News' },
     { href: '/homeowners-diy', label: 'Homeowners/DIY' },
   ],
   expanded: [
