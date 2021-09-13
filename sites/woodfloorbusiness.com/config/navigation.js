@@ -1,3 +1,5 @@
+const subscribe = require('./subscribe');
+
 const topics = {
   primary: [
     { href: '/wood-flooring', label: 'Wood Flooring' },
@@ -16,7 +18,7 @@ const topics = {
 const utilities = [
   { href: 'https://info.woodfloorbusiness.com', label: 'Advertise', target: '_blank' },
   { href: '/page/contact-us', label: 'Contact Us' },
-  { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=wfb_land', label: 'Subscribe', target: '_blank' },
+  subscribe,
 ];
 
 const mobileMenu = {
@@ -26,7 +28,7 @@ const mobileMenu = {
   ],
   secondary: [
     ...topics.secondary,
-    { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=wfb_land', label: 'Subscribe', target: '_blank' },
+    subscribe,
   ],
 };
 
@@ -69,7 +71,7 @@ module.exports = {
     items: [
       { href: '/page/about', label: 'About' },
       { href: '/page/contact-us', label: 'Contact Us' },
-      { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=wfb_land', label: 'Subscribe', target: '_blank' },
+      subscribe,
       { href: '/page/privacy-policy', label: 'Privacy Policy' },
       { href: '/site-map', label: 'Site Map' },
     ],
