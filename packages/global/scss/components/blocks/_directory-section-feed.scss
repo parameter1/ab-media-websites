@@ -44,6 +44,9 @@
         @include skin-typography($style: "teaser-text-1", $link-style: "primary", $breakpoint: sm);
         word-break: break-word;
       }
+      &__content-city-state-zip {
+        @include skin-typography($style: "teaser-text-1", $link-style: "primary", $breakpoint: sm);
+      }
       &--contact-info {
         a {
           font-weight: $font-weight-bold;
