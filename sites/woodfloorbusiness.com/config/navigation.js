@@ -8,11 +8,8 @@ const topics = {
     { href: '/finishing', label: 'Finishing' },
     { href: '/business', label: 'Business' },
   ],
-  expanded: [
-  ],
-  secondary: [
-    // { href: '/path', label: 'Path' },
-  ],
+  expanded: [],
+  secondary: [],
 };
 
 const utilities = [
@@ -78,7 +75,6 @@ module.exports = {
     topics: topics.primary,
     more: [
       ...utilities,
-      // { href: '/path', label: 'Path' },
     ],
   },
 };
