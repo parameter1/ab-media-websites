@@ -161,8 +161,8 @@ $theme-site-header-breakpoints: map-merge(
 $skin-desktop-menu-breakpoint: map-get($theme-site-header-breakpoints, hide-secondary);
 $theme-site-navbar-brand-margin-x: 36px !default;
 
-$theme-site-navbar-logo-height: 68px;
-$theme-site-navbar-logo-height-sm: 45px;
+$theme-site-navbar-logo-height: 70px !default;
+$theme-site-navbar-logo-height-sm: 45px !default;
 
 $theme-site-navbar-primary-height-sm: 0;
 

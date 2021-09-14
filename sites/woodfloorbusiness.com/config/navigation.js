@@ -1,3 +1,5 @@
+const subscribe = require('./subscribe');
+
 const topics = {
   primary: [
     { href: '/wood-flooring', label: 'Wood Flooring' },
@@ -6,17 +8,14 @@ const topics = {
     { href: '/finishing', label: 'Finishing' },
     { href: '/business', label: 'Business' },
   ],
-  expanded: [
-  ],
-  secondary: [
-    // { href: '/path', label: 'Path' },
-  ],
+  expanded: [],
+  secondary: [],
 };
 
 const utilities = [
   { href: 'https://info.woodfloorbusiness.com', label: 'Advertise', target: '_blank' },
   { href: '/page/contact-us', label: 'Contact Us' },
-  { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=wfb_land', label: 'Subscribe', target: '_blank' },
+  subscribe,
 ];
 
 const mobileMenu = {
@@ -26,7 +25,7 @@ const mobileMenu = {
   ],
   secondary: [
     ...topics.secondary,
-    { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=wfb_land', label: 'Subscribe', target: '_blank' },
+    subscribe,
   ],
 };
 
@@ -41,6 +40,19 @@ const desktopMenu = {
 
 module.exports = {
   type: 'navbar2',
+  promos: [
+    {
+      title: 'AB Magazine',
+      callToAction: 'Subscribe',
+      image: {
+        src: 'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb/wfb-08-2021.png?auto=format%2Ccompress&fit=crop&h=78&q=70&w=85&crop=top',
+        srcset: [
+          'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb/wfb-08-2021.png?auto=format%2Ccompress&fit=crop&h=78&q=70&dpr=2&w=85&crop=top',
+        ],
+      },
+      link: subscribe.href,
+    },
+  ],
   desktopMenu,
   mobileMenu,
   primary: {
@@ -56,14 +68,13 @@ module.exports = {
     items: [
       { href: '/page/about', label: 'About' },
       { href: '/page/contact-us', label: 'Contact Us' },
-      { href: 'https://athleticbusiness.dragonforms.com/loading.do?omedasite=wfb_land', label: 'Subscribe', target: '_blank' },
+      subscribe,
       { href: '/page/privacy-policy', label: 'Privacy Policy' },
       { href: '/site-map', label: 'Site Map' },
     ],
     topics: topics.primary,
     more: [
       ...utilities,
-      // { href: '/path', label: 'Path' },
     ],
   },
 };
