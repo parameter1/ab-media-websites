@@ -19,7 +19,11 @@ config
   ]);
 
 const aliases = [
-  // channel Aliases
+  'retail',
+  'service',
+  'builder',
+  'products',
+  'homeowners-diy',
 ];
 
 aliases.forEach(alias => config.setAliasAdUnits(alias, [
