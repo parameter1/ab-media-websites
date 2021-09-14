@@ -19,7 +19,9 @@ config
   ]);
 
 const aliases = [
-  // channel Aliases
+  'facilities',
+  'leadership',
+  'operations',
 ];
 
 aliases.forEach(alias => config.setAliasAdUnits(alias, [
