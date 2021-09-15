@@ -16,7 +16,7 @@ _staging-job: &staging-job
   script: scripts/deploy.js SERVICE_NAME
   install: skip
   env:
-    - "ENVIRONMENT=staging RANCHER_CLUSTERID=c-njflm"
+    - "ENVIRONMENT=staging RANCHER_CLUSTERID=c-njflm FORCE_DEPLOYMENT=1"
 
 stages:
   - name: test
