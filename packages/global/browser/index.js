@@ -6,6 +6,7 @@ import IdentityX from '@parameter1/base-cms-marko-web-identity-x/browser';
 import NativeX from '@parameter1/base-cms-marko-web-native-x/browser';
 import OmedaRapidIdentityX from '@parameter1/base-cms-marko-web-omeda-identity-x/browser/rapid-identify.vue';
 
+const AutoScroll = () => import(/* webpackChunkName: "global-auto-scroll" */ './auto-scroll.vue');
 const BlockLoader = () => import(/* webpackChunkName: "global-block-loader" */ './block-loader.vue');
 const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
 const MenuToggleButton = () => import(/* webpackChunkName: "global-menu-toggle-button" */ './menu-toggle-button.vue');
@@ -49,6 +50,7 @@ export default (Browser) => {
     CustomCommentStreamComponent: IdentityXCommentStream,
   });
 
+  Browser.register('GlobalAutoScroll', AutoScroll);
   Browser.register('GlobalBlockLoader', BlockLoader);
 
   Browser.register('GlobalSiteNewsletterMenu', SiteNewsletterMenu, {

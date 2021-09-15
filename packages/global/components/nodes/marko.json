@@ -39,6 +39,9 @@
   "<global-product-feed-content-node>": {
     "template": "./product-feed-content.marko"
   },
+  "<global-directory-section-feed-content-node>": {
+    "template": "./directory-section-feed-content.marko"
+  },
   "<global-section-feed-content-node>": {
     "template": "./section-feed-content.marko"
   }

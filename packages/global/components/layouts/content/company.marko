@@ -37,7 +37,7 @@ $ const sections = getAsArray(input, "sections");
               $ const src = buildImgixUrl(primaryImage.src, {
                 w: imgWidth,
                 h: imgHeight,
-                fit: "crop"
+                fit: "fill"
               });
               $ const srcset = [`${buildImgixUrl(src, { dpr: 2 })} 2x`];
               <marko-web-img
