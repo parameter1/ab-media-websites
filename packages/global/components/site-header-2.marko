@@ -28,7 +28,7 @@ $ const headerColClass = promo ? "col-lg-4" : "col-lg-6";
         $ const promoSrc = get(promo, "image.src");
         $ const promoSrcSet = getAsArray(promo, "image.srcset");
         <marko-web-block class="subscribe-box">
-          <if(promoSrc)>
+          <!-- <if(promoSrc)>
             <a href=promo.link title=`${promo.callToAction} - ${promo.title}` class="subscribe-box--cover-image">
               <marko-web-img
                 alt=promo.title
@@ -38,7 +38,7 @@ $ const headerColClass = promo ? "col-lg-4" : "col-lg-6";
                 class="magazine-cover"
               />
             </a>
-          </if>
+          </if> -->
           <if(promo.callToAction)>
             <marko-web-block class="subscribe-box--call-to-action">
               <a href=promo.link title=`${promo.callToAction} - ${promo.title}` class="btn btn-primary">
