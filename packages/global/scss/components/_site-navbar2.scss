@@ -1,4 +1,5 @@
 @if $navbarStyle == "navbar2" {
+  $navbar-button-color: $primary !default;
   .site-navbar {
     $self: &;
     &__container {
@@ -21,7 +22,7 @@
       background-color: $white;
       #{ $self } {
         &__container {
-          height: $theme-site-navbar-logo-height + 30px;
+          height: $theme-site-navbar-logo-height + 20px;
           @media (max-width: map-get($theme-site-header-breakpoints, small-logo)) {
             height: $theme-site-navbar-logo-height-sm + 20px;
           }
@@ -73,6 +74,16 @@
             margin-left: 16px;
             font-size: 12px;
             text-transform: initial;
+            background-color: $navbar-button-color;
+          }
+        }
+        &--call-to-action:only-child {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: $theme-site-navbar-logo-height + 20px;
+          .btn-primary {
+            margin-left: 0;
           }
         }
       }
