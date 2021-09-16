@@ -12,7 +12,7 @@ $ const sections = getAsArray(input, "sections");
   head=input.head
 >
 
-  <@section modifiers=["break-container"]>
+  <@section|{ aliases }| modifiers=["break-container"]>
     $ const premiumPartners = site.getAsArray("premiumPartners");
     <if(premiumPartners.length)>
       <global-static-premium-partners-block />
