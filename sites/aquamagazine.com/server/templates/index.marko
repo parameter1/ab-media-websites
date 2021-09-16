@@ -10,8 +10,14 @@ $ const { id, alias, name, pageNode } = input;
     <meta name="google-site-verification" content="NOT_SET" />
   </@head> -->
 
-  <@section modifiers=["break-container"]>
-    <global-opinion-block alias="news" />
+  <@section|{ aliases }| modifiers=["break-container"]>
+    <!-- <global-opinion-block alias="news" /> -->
+    <global-gam-define-display-ad
+      name="leaderboard"
+      position="home_page"
+      aliases=aliases
+      modifiers=["max-width-970", "center", "margin-auto-x", "inline"]
+    />
   </@section>
 
   <@section>
