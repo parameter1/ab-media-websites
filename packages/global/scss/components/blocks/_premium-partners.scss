@@ -1,0 +1,30 @@
+.ad-container {
+  &--with-label-partner {
+    > *:first-child {
+      &::before {
+        font-weight: $font-weight-bold;
+        content: "Premium Partners";
+      }
+    }
+  }
+}
+.partners {
+  width: 100%;
+  // background-color: $white;
+  .col-6:nth-of-type(n + 5) {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+  .col-6:nth-of-type(n + 3) {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    // padding-top: 20px;
+    // padding-bottom: 20px;
+    background-color: $gray-100;
+  }
+}
