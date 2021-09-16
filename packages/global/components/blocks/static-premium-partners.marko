@@ -24,17 +24,15 @@ $ const logoOptions = {
       <div class="row">
         <for|partner| of=shuffledPartners>
           <div class="col-6 col-md-3 col-lg-2">
-            <marko-web-link href=partner.href >
-              $ const imageSrc = partner.imagePath ? buildImgixUrl(`https://${config.website("imageHost")}/${partner.imagePath}`, logoOptions) : null;
-              $ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
-              <marko-web-img
-                class=`${blockName}__logo`
-                link={ href: partner.href, target: "_blank" }
-                src=imageSrc
-                srcset=imageSrcset
-                alt=partner.name
-              />
-            </marko-web-link>
+            $ const imageSrc = partner.imagePath ? buildImgixUrl(partner.imagePath, logoOptions) : null;
+            $ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
+            <marko-web-img
+              class=`${blockName}__logo`
+              link={ href: partner.href, target: "_blank" }
+              src=imageSrc
+              srcset=imageSrcset
+              alt=partner.name
+            />
           </div>
         </for>
       </div>
