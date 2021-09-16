@@ -1,0 +1,23 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import shuffle from "../../utils/shuffle-array";
+
+$ const { site } = out.global;
+$ const premiumPartners = site.getAsArray("premiumPartners");
+$ console.log(site, premiumPartners);
+<if(premiumPartners.length)>
+  $ const displayLimit = defaultValue(input.displayLimit, 6);
+  $ const shuffledPartners = shuffle(premiumPartners).slice(0, displayLimit);
+  <div class="ad-container--with-label ad-container--with-label-partners">
+    <marko-web-block name="partners">
+      <div class="row">
+        <for|partner| of=shuffledPartners>
+          <div class="col-6 col-md-3 col-lg-2">
+            <marko-web-link href="#" >
+              <img src=partner.img alt=partner.name style="max-width:80%; margin: 10px auto" />
+            </marko-web-link>
+          </div>
+        </for>
+      </div>
+    </marko-web-block>
+  </div>
+</if>
