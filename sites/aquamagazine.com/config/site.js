@@ -5,9 +5,12 @@ const identityX = require('./identity-x');
 const newsletter = require('./newsletter');
 const search = require('./search');
 const subscribe = require('./subscribe');
+const premiumPartners = require('./premium-partners');
+
 
 module.exports = {
   navigation,
+  premiumPartners,
   gam,
   nativeX,
   identityX,
@@ -22,9 +25,9 @@ module.exports = {
   },
   logos: {
     navbar: {
-      src: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=70&auto=format,compress&q=70',
+      src: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=45&auto=format,compress&q=70',
       srcset: [
-        'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=140&auto=format,compress&q=70 2x',
+        'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=90&auto=format,compress&q=70 2x',
       ],
     },
     footer: {
@@ -47,4 +50,5 @@ module.exports = {
   wufoo: {
     userName: 'NOT_SET',
   },
+  layout: 'combined',
 };

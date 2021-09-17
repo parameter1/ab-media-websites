@@ -39,7 +39,6 @@ const desktopMenu = {
 };
 
 module.exports = {
-  type: 'navbar2',
   promos: [
     {
       title: 'AB Magazine',
@@ -56,10 +55,10 @@ module.exports = {
   desktopMenu,
   mobileMenu,
   primary: {
-    items: topics.primary,
+    items: [],
   },
   secondary: {
-    items: [],
+    items: topics.primary,
   },
   tertiary: {
     items: [],

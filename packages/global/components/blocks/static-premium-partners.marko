@@ -1,0 +1,43 @@
+import { get } from "@parameter1/base-cms-object-path";
+import { buildImgixUrl } from "@parameter1/base-cms-image";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import shuffle from "../../utils/shuffle-array";
+
+$ const blockName = 'premium-partners';
+
+$ const { config, site, req } = out.global;
+$ const layout = get(req, "query.layout") || site.get("layout") || "default";
+$ const premiumPartners = site.getAsArray("premiumPartners");
+$ const logoOptions = {
+  w: 120,
+  h: 40,
+  fit: "clamp",
+  fill: "solid",
+  bg: "fff",
+  pad: 5,
+  auto: "format,compress&q=70"
+};
+
+<if(premiumPartners.length)>
+  $ const displayLimit = defaultValue(input.displayLimit, 6);
+  $ const shuffledPartners = shuffle(premiumPartners).slice(0, displayLimit);
+  <div class=`ad-container--with-label ad-container--with-label-partners ad-container--${layout}`>
+    <marko-web-block name="partners">
+      <div class="card-deck-flow">
+        <for|partner| of=shuffledPartners>
+          <div class="card-deck-flow__node">
+            $ const imageSrc = partner.imagePath ? buildImgixUrl(partner.imagePath, logoOptions) : null;
+            $ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
+            <marko-web-img
+              class=`${blockName}__logo`
+              link={ href: partner.href, target: "_blank" }
+              src=imageSrc
+              srcset=[imageSrcset]
+              alt=partner.name
+            />
+          </div>
+        </for>
+      </div>
+    </marko-web-block>
+  </div>
+</if>
