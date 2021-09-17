@@ -4,7 +4,7 @@ $ const { id, alias, name, pageNode } = input;
 $ const { site, req } = out.global;
 $ const sections = getAsArray(input, "sections");
 $ const premiumPartners = site.getAsArray("premiumPartners");
-$ const layout = get(req, "query.layout") || "default";
+$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 
 <global-website-section-default-layout
   id=id
@@ -14,11 +14,11 @@ $ const layout = get(req, "query.layout") || "default";
   head=input.head
 >
 
-  <@section|{ aliases }| modifiers=["break-container"]>
+  <@section|{ aliases }| modifiers=["break-container", "first"]>
     <if(premiumPartners.length)>
-      <global-static-premium-partners-block />
+      <global-static-premium-partners-block layout=layout />
     </if>
-    <if(layout === "combined")>
+    <if(layout === "combined" || !premiumPartners.length)>
       <global-gam-define-display-ad
         name="leaderboard"
         position="home_page"

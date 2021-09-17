@@ -2,8 +2,8 @@ import { get } from "@parameter1/base-cms-object-path";
 
 $ const { id, alias, name, pageNode } = input;
 
-$ const { req } = out.global;
-$ const layout = get(req, "query.layout") || "default";
+$ const { site, req } = out.global;
+$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 
 <global-website-section-home-layout
   id=id
