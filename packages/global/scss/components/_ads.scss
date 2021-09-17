@@ -185,4 +185,12 @@
       }
     }
   }
+
+  &--combined-leaderboard {
+    .ad-container {
+      &__wrapper {
+        padding-top: 0;
+      }
+    }
+  }
 }
