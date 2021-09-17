@@ -40,7 +40,6 @@ const desktopMenu = {
 };
 
 module.exports = {
-  type: 'navbar2',
   promos: [
     {
       title: 'AB Magazine',

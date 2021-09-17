@@ -77,12 +77,7 @@ $ const {
       on="newsletter-form-subscription"
       clear-data=true
     />
-    <if("navbar2" === site.get("navigation.type"))>
-      <global-site-header-2 has-user=false reg-enabled=false />
-    </if>
-    <else>
-      <global-site-header has-user=false reg-enabled=false />
-    </else>
+    <global-site-header has-user=false reg-enabled=false />
     <global-site-menu has-user=false reg-enabled=false />
     <!-- <global-site-newsletter-menu /> -->
     <${input.aboveContainer} />

@@ -1,5 +1,5 @@
 $theme-site-header-breakpoints: (
-  hide-primary: 1200px, // effectively always hide the primary nav
+  hide-primary: 100000px, // effectively always hide the primary nav
   hide-secondary: 780px,
   small-logo: 980px,
   small-text-primary: 0,
@@ -8,9 +8,5 @@ $theme-site-header-breakpoints: (
 
 // Colors
 $primary: #103a57;
-
-$navbarStyle: "navbar2";
-$navbar-button-color: #c4272a;
-$theme-site-navbar-primary-type: light;
 
 @import "../../node_modules/@ab-media/package-global/scss/core";
