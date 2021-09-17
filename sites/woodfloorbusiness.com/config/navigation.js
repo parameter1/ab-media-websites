@@ -55,10 +55,10 @@ module.exports = {
   desktopMenu,
   mobileMenu,
   primary: {
-    items: topics.primary,
+    items: [],
   },
   secondary: {
-    items: [],
+    items: topics.primary,
   },
   tertiary: {
     items: [],

@@ -59,13 +59,13 @@ module.exports = {
   desktopMenu,
   mobileMenu,
   primary: {
+    items: [],
+  },
+  secondary: {
     items: [
       ...topics.primary,
       { href: 'https://www.abshow.com', label: 'AB Show', target: '_blank' },
     ],
-  },
-  secondary: {
-    items: [],
   },
   tertiary: {
     items: [],
