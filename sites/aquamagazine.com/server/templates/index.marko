@@ -1,4 +1,9 @@
+import { get } from "@parameter1/base-cms-object-path";
+
 $ const { id, alias, name, pageNode } = input;
+
+$ const { req } = out.global;
+$ const layout = get(req, "query.layout") || "default";
 
 <global-website-section-home-layout
   id=id
@@ -11,13 +16,17 @@ $ const { id, alias, name, pageNode } = input;
   </@head> -->
 
   <@section|{ aliases }| modifiers=["break-container"]>
-    <!-- <global-opinion-block alias="news" /> -->
-    <global-gam-define-display-ad
-      name="leaderboard"
-      position="home_page"
-      aliases=aliases
-      modifiers=["max-width-970", "center", "margin-auto-x", "inline"]
-    />
+    <if(layout === "combined")>
+      <global-opinion-block alias="news" />
+    </if>
+    <else>
+      <global-gam-define-display-ad
+        name="leaderboard"
+        position="home_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </else>
   </@section>
 
   <@section>
