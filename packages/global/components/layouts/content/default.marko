@@ -87,9 +87,14 @@ $ const layout = get(req, "query.layout") || "default";
 
         <if(shouldInjectAds)>
 
-          $ const desktopCounts = [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500];
-          $ const mobileCounts = [350, 1650, 2950, 4250, 5550, 6850, 8150, 9450, 10750, 12050, 13350, 14650, 15950, 17250];
+          $ const desktopCounts =
+
           <global-gam-inject-ads selector=`#${bodyId}` detect-embeds=true>
+            $ const desktopCountOptions = {
+              "combined": [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500],
+              "default": [500, 2250, 4000, 5750, 7500, 9250, 11000, 12750, 14500, 16250, 18000],
+            };
+            $ const desktopCounts = desktopCountOptions[layout] || desktopCountOptions["default"];
             <for|char| of=desktopCounts>
               <!-- desktop/tablet only -->
               <@inject
@@ -100,6 +105,7 @@ $ const layout = get(req, "query.layout") || "default";
               />
             </for>
 
+            $ const mobileCounts = [350, 1650, 2950, 4250, 5550, 6850, 8150, 9450, 10750, 12050, 13350, 14650, 15950, 17250];
             <for|char| of=mobileCounts>
               <!-- mobile only -->
               <@inject
