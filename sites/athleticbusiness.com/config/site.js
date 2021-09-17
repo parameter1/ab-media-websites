@@ -22,15 +22,15 @@ module.exports = {
   },
   logos: {
     navbar: {
-      src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab-site-logo.png?h=70&auto=format,compress&q=70',
+      src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=45&auto=format,compress&q=70',
       srcset: [
-        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab-site-logo.png?h=140&auto=format,compress&q=70 2x',
+        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=90&auto=format,compress&q=70 2x',
       ],
     },
     footer: {
-      src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab-site-logo.png?h=60&auto=format,compress&q=70',
+      src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70',
       srcset: [
-        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab-site-logo.png?h=120&auto=format,compress&q=70 2x',
+        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=120&auto=format,compress&q=70 2x',
       ],
     },
   },
