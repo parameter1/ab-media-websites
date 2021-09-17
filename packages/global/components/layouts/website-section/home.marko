@@ -1,8 +1,10 @@
-import { getAsArray } from "@parameter1/base-cms-object-path";
+import { get, getAsArray } from "@parameter1/base-cms-object-path";
 
 $ const { id, alias, name, pageNode } = input;
-$ const { site } = out.global;
+$ const { site, req } = out.global;
 $ const sections = getAsArray(input, "sections");
+$ const premiumPartners = site.getAsArray("premiumPartners");
+$ const layout = get(req, "query.layout") || "default";
 
 <global-website-section-default-layout
   id=id
@@ -13,19 +15,17 @@ $ const sections = getAsArray(input, "sections");
 >
 
   <@section|{ aliases }| modifiers=["break-container"]>
-    $ const premiumPartners = site.getAsArray("premiumPartners");
     <if(premiumPartners.length)>
       <global-static-premium-partners-block />
-      <!-- <global-premium-partners-block /> -->
     </if>
-    <else>
+    <if(layout === "combined")>
       <global-gam-define-display-ad
         name="leaderboard"
         position="home_page"
         aliases=aliases
-        modifiers=["max-width-970", "center", "margin-auto-x", "inline"]
+        modifiers=["inter-block"]
       />
-    </else>
+    </if>
   </@section>
 
   <@section|{ aliases }|>
