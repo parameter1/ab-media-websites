@@ -14,11 +14,11 @@ $ const layout = get(req, "query.layout") || site.get("layout") || "default";
   head=input.head
 >
 
-  <@section|{ aliases }| modifiers=["break-container"]>
+  <@section|{ aliases }| modifiers=["break-container", "first"]>
     <if(premiumPartners.length)>
-      <global-static-premium-partners-block />
+      <global-static-premium-partners-block layout=layout />
     </if>
-    <if(layout === "combined")>
+    <if(layout === "combined" || !premiumPartners.length)>
       <global-gam-define-display-ad
         name="leaderboard"
         position="home_page"

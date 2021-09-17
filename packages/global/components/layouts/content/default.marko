@@ -27,11 +27,11 @@ $ const layout = get(req, "query.layout") || site.get("layout") || "default";
   page-node=pageNode
   ...rest
 >
-  <@section|{ aliases }| modifiers=["break-container"]>
+  <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
     <if(premiumPartners.length)>
-      <global-static-premium-partners-block />
+      <global-static-premium-partners-block layout=layout />
     </if>
-    <if(layout === "combined")>
+    <if(layout === "combined" || !premiumPartners.length)>
       <global-gam-define-display-ad
         name="leaderboard"
         position="content_page"
@@ -92,7 +92,7 @@ $ const layout = get(req, "query.layout") || site.get("layout") || "default";
           <global-gam-inject-ads selector=`#${bodyId}` detect-embeds=true>
             $ const desktopCountOptions = {
               "combined": [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500],
-              "default": [500, 2250, 4000, 5750, 7500, 9250, 11000, 12750, 14500, 16250, 18000],
+              "default": [400, 2250, 4000, 5750, 7500, 9250, 11000, 12750, 14500, 16250, 18000],
             };
             $ const desktopCounts = desktopCountOptions[layout] || desktopCountOptions["default"];
             <for|char| of=desktopCounts>
