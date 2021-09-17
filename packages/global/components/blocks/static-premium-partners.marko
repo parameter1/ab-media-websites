@@ -1,8 +1,21 @@
+import { buildImgixUrl } from "@parameter1/base-cms-image";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import shuffle from "../../utils/shuffle-array";
 
-$ const { site } = out.global;
+$ const blockName = 'premium-partners';
+
+$ const { config, site } = out.global;
 $ const premiumPartners = site.getAsArray("premiumPartners");
+$ const logoOptions = {
+  w: 120,
+  fit: "fill",
+  fill: "solid",
+  bg: "fff",
+  pad: 5,
+  ar: "3:2",
+  auto: "format,compress&q=70"
+};
+
 <if(premiumPartners.length)>
   $ const displayLimit = defaultValue(input.displayLimit, 6);
   $ const shuffledPartners = shuffle(premiumPartners).slice(0, displayLimit);
@@ -11,9 +24,15 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
       <div class="row">
         <for|partner| of=shuffledPartners>
           <div class="col-6 col-md-3 col-lg-2">
-            <marko-web-link href="#" >
-              <img src=partner.img alt=partner.name style="max-width:80%; margin: 10px auto" />
-            </marko-web-link>
+            $ const imageSrc = partner.imagePath ? buildImgixUrl(partner.imagePath, logoOptions) : null;
+            $ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
+            <marko-web-img
+              class=`${blockName}__logo`
+              link={ href: partner.href, target: "_blank" }
+              src=imageSrc
+              srcset=imageSrcset
+              alt=partner.name
+            />
           </div>
         </for>
       </div>
