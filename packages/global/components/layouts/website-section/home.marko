@@ -4,7 +4,7 @@ $ const { id, alias, name, pageNode } = input;
 $ const { site, req } = out.global;
 $ const sections = getAsArray(input, "sections");
 $ const premiumPartners = site.getAsArray("premiumPartners");
-$ const layout = get(req, "query.layout") || "default";
+$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 
 <global-website-section-default-layout
   id=id

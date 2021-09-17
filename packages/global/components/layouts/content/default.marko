@@ -19,7 +19,7 @@ $ const displayComments = false;
 $ const displayNewsletterSignup = false;
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
 $ const premiumPartners = site.getAsArray("premiumPartners");
-$ const layout = get(req, "query.layout") || "default";
+$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 
 <global-content-wrapper-layout
   id=id

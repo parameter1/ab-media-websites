@@ -4,7 +4,8 @@ import shuffle from "../../utils/shuffle-array";
 
 $ const blockName = 'premium-partners';
 
-$ const { config, site } = out.global;
+$ const { config, site, req } = out.global;
+$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 $ const premiumPartners = site.getAsArray("premiumPartners");
 $ const logoOptions = {
   w: 120,

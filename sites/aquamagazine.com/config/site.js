@@ -50,4 +50,5 @@ module.exports = {
   wufoo: {
     userName: 'NOT_SET',
   },
+  layout: 'combined',
 };

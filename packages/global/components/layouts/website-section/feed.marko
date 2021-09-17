@@ -9,7 +9,7 @@ $ const { pagination: p } = out.global;
 $ const perPage = 18;
 
 $ const premiumPartners = site.getAsArray("premiumPartners");
-$ const layout = get(req, "query.layout") || "default";
+$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 
 <global-website-section-default-layout
   id=id
