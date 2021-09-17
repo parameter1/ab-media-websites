@@ -11,13 +11,18 @@
 .partners {
   width: 100%;
   padding-bottom: 15px;
+  .item {
+    @include make-col-ready();
+    @include make-col(2);
+    max-width: 100%;
+  }
   // background-color: $white;
-  .col-6:nth-of-type(n + 5) {
+  .item:nth-of-type(n + 5) {
     @include media-breakpoint-down(md) {
       display: none;
     }
   }
-  .col-6:nth-of-type(n + 3) {
+  .item:nth-of-type(n + 3) {
     @include media-breakpoint-down(sm) {
       display: none;
     }
