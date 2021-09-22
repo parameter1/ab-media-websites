@@ -46,3 +46,43 @@
     background-color: $gray-100;
   }
 }
+
+.page-wrapper {
+  &__section {
+    &--premium-partners {
+      margin-bottom: 0;
+      .ad-container {
+        &--with-label-partners {
+          padding-bottom: 0;
+          > *:first-child {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            &::before {
+              display: none;
+            }
+          }
+          .partners {
+            background-color: #fff;
+          }
+        }
+      }
+      .card-deck-flow {
+        &::before {
+          padding-top: .5rem;
+          font-size: 14px;
+          font-weight: $font-weight-bold;
+          color: $gray-800;
+          text-transform: none;
+          content: "Premium Partners";
+        }
+        &__node {
+          padding-right: 4px;
+          padding-left: 4px;
+        }
+      }
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+}
