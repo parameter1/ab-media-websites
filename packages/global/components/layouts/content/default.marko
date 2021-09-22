@@ -27,11 +27,17 @@ $ const layout = get(req, "query.layout") || site.get("layout") || "default";
   page-node=pageNode
   ...rest
 >
-  <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
-    <if(premiumPartners.length)>
+  <@section|{ aliases }| modifiers=["premium-partners"]>
+    <if(layout === "a" && premiumPartners.length)>
       <global-static-premium-partners-block layout=layout />
     </if>
-    <if(layout === "combined" || !premiumPartners.length)>
+  </@section>
+
+  <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
+    <if(layout !== "a" && premiumPartners.length)>
+      <global-static-premium-partners-block layout=layout />
+    </if>
+    <if(layout !== "default" || !premiumPartners.length)>
       <global-gam-define-display-ad
         name="leaderboard"
         position="content_page"
