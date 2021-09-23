@@ -5,8 +5,7 @@ import shuffle from "../../utils/shuffle-array";
 
 $ const blockName = 'premium-partners';
 
-$ const { config, site, req } = out.global;
-$ const layout = get(req, "query.layout") || site.get("layout") || "default";
+$ const { config, site } = out.global;
 $ const premiumPartners = site.getAsArray("premiumPartners");
 $ const logoOptions = {
   w: 120,
@@ -21,7 +20,7 @@ $ const logoOptions = {
 <if(premiumPartners.length)>
   $ const displayLimit = defaultValue(input.displayLimit, 5);
   $ const shuffledPartners = shuffle(premiumPartners).slice(0, displayLimit);
-  <div class=`ad-container--with-label ad-container--with-label-partners ad-container--${layout}`>
+  <div class=`ad-container--with-label ad-container--with-label-partners`>
     <marko-web-block name="partners">
       <div class="card-deck-flow">
         <for|partner| of=shuffledPartners>

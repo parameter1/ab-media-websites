@@ -2,7 +2,7 @@ import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import DefineDisplayAd from "../../gam/define-display-ad";
 
-$ const { site, req } = out.global;
+$ const { site } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
 
@@ -19,7 +19,6 @@ $ const displayComments = false;
 $ const displayNewsletterSignup = false;
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
 $ const premiumPartners = site.getAsArray("premiumPartners");
-$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 
 <global-content-wrapper-layout
   id=id
@@ -28,23 +27,16 @@ $ const layout = get(req, "query.layout") || site.get("layout") || "default";
   ...rest
 >
   <@section|{ aliases }| modifiers=["premium-partners"]>
-    <if(layout === "a" && premiumPartners.length)>
-      <global-static-premium-partners-block layout=layout />
-    </if>
+    <global-static-premium-partners-block />
   </@section>
 
   <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
-    <if(layout !== "a" && premiumPartners.length)>
-      <global-static-premium-partners-block layout=layout />
-    </if>
-    <if(layout !== "default" || !premiumPartners.length)>
-      <global-gam-define-display-ad
-        name="leaderboard"
-        position="content_page"
-        aliases=aliases
-        modifiers=["inter-block", "combined-leaderboard"]
-      />
-    </if>
+    <global-gam-define-display-ad
+      name="leaderboard"
+      position="content_page"
+      aliases=aliases
+      modifiers=["inter-block", "combined-leaderboard"]
+    />
   </@section>
 
   <@section|{ blockName, content, aliases, authors }| modifiers=["content-header"]>

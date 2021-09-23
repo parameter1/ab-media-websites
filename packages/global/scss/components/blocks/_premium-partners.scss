@@ -1,22 +1,3 @@
-.ad-container {
-  &--with-label-partners {
-    > *:first-child {
-      &::before {
-        padding-bottom: 1rem;
-        font-size: 14px;
-        font-weight: $font-weight-bold;
-        color: $gray-800;
-        text-transform: none;
-        content: "Premium Partners";
-      }
-    }
-    padding-bottom: 12px;
-  }
-
-  &--combined {
-    padding-bottom: 0;
-  }
-}
 .partners {
   width: 100%;
   padding-bottom: 15px;
@@ -27,7 +8,6 @@
       max-width: 100%;
       margin-bottom: 0;
     }
-    // background-color: $white;
     &__node:nth-of-type(n + 5) {
       @include media-breakpoint-down(md) {
         display: none;
@@ -41,8 +21,6 @@
   }
 
   @include media-breakpoint-up(md) {
-    // padding-top: 20px;
-    // padding-bottom: 20px;
     background-color: $gray-100;
   }
 }
@@ -62,7 +40,12 @@
             }
           }
           .partners {
+            flex-direction: row;
             background-color: #fff;
+            @media (max-width: $marko-web-document-container-max-width) {
+              padding-right: 16px;
+              padding-left: 16px;
+            }
           }
         }
       }

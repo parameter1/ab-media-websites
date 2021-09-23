@@ -1,6 +1,6 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 
-$ const { site, req } = out.global;
+$ const { site } = out.global;
 
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
@@ -9,7 +9,6 @@ $ const { pagination: p } = out.global;
 $ const perPage = 18;
 
 $ const premiumPartners = site.getAsArray("premiumPartners");
-$ const layout = get(req, "query.layout") || site.get("layout") || "default";
 
 <global-website-section-default-layout
   id=id
@@ -29,23 +28,16 @@ $ const layout = get(req, "query.layout") || site.get("layout") || "default";
   </@head>
 
   <@section|{ aliases }| modifiers=["premium-partners"]>
-    <if(layout === "a" && premiumPartners.length)>
-      <global-static-premium-partners-block layout=layout />
-    </if>
+    <global-static-premium-partners-block />
   </@section>
 
   <@section|{ aliases }| modifiers=["break-container", "first"]>
-    <if(layout !== "a" && premiumPartners.length)>
-      <global-static-premium-partners-block layout=layout />
-    </if>
-    <if(layout !== "default" || !premiumPartners.length)>
-      <global-gam-define-display-ad
-        name="leaderboard"
-        position="home_page"
-        aliases=aliases
-        modifiers=["inter-block", "combined-leaderboard"]
-      />
-    </if>
+    <global-gam-define-display-ad
+      name="leaderboard"
+      position="home_page"
+      aliases=aliases
+      modifiers=["inter-block", "combined-leaderboard"]
+    />
   </@section>
 
   <@section|{ blockName, section, aliases }|>
