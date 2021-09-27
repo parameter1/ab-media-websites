@@ -84,4 +84,9 @@ module.exports = [
     imagePath: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/premium-partners/Fluidra_280x100.jpeg',
     name: 'zodiac',
   },
+  {
+    href: 'https://www.frogproducts.com/',
+    imagePath: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua/premium-partners/FROG_Spot.png',
+    name: 'Frog Products',
+  },
 ];
