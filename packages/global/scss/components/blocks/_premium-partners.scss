@@ -4,7 +4,7 @@
   .card-deck-flow {
     &__node {
       @include make-col-ready();
-      @include make-col(2);
+      @include make-col(1);
       max-width: 100%;
       margin-bottom: 0;
     }
@@ -51,11 +51,13 @@
       }
       .card-deck-flow {
         &::before {
-          padding-top: .5rem;
+          width: 80px;
+          // padding-top: .5rem;
           font-size: 14px;
           font-weight: $font-weight-bold;
           color: $gray-800;
           text-transform: none;
+          white-space: pre-wrap;
           content: "Premium Partners";
         }
         &__node {
