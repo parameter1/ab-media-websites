@@ -27,13 +27,13 @@ module.exports = {
     navbar: {
       src: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=45&auto=format,compress&q=70',
       srcset: [
-        'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=90&auto=format,compress&q=70 2x',
+        'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=45&auto=format,compress&q=70&dpr=2',
       ],
     },
     footer: {
       src: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=60&auto=format,compress&q=70',
       srcset: [
-        'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=120&auto=format,compress&q=70 2x',
+        'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=60&auto=format,compress&q=70&dpr=2',
       ],
     },
   },
