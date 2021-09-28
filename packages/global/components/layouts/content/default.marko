@@ -85,14 +85,8 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
 
         <if(shouldInjectAds)>
 
-          $ const desktopCounts =
-
           <global-gam-inject-ads selector=`#${bodyId}` detect-embeds=true>
-            $ const desktopCountOptions = {
-              "combined": [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500],
-              "default": [400, 2250, 4000, 5750, 7500, 9250, 11000, 12750, 14500, 16250, 18000],
-            };
-            $ const desktopCounts = desktopCountOptions[layout] || desktopCountOptions["default"];
+            $ const desktopCounts = [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500];
             <for|char| of=desktopCounts>
               <!-- desktop/tablet only -->
               <@inject
