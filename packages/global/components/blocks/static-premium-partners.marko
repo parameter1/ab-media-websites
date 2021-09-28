@@ -18,7 +18,7 @@ $ const logoOptions = {
 };
 
 <if(premiumPartners.length)>
-  $ const displayLimit = defaultValue(input.displayLimit, 5);
+  $ const displayLimit = defaultValue(input.displayLimit, 7);
   $ const shuffledPartners = shuffle(premiumPartners).slice(0, displayLimit);
   <div class=`ad-container--with-label ad-container--with-label-partners`>
     <marko-web-block name="partners">
