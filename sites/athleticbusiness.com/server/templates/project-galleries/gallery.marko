@@ -1,0 +1,39 @@
+$ const { req } = out.global;
+$ const { gallery } = input;
+
+$ const type = "project-galleries";
+
+<marko-web-default-page-layout type=type title=gallery.name description=gallery.description>
+  <@head>
+    <marko-web-gtm-default-context|{ context }| type=type>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-default-context>
+  </@head>
+  <@page>
+    <marko-web-page-wrapper>
+      <@section modifiers=["premium-partners"]>
+        <global-static-premium-partners-block />
+      </@section>
+
+      <@section modifiers=["break-container", "first"]>
+        <global-gam-define-display-ad
+          name="leaderboard"
+          position="static_page"
+          modifiers=["inter-block", "combined-leaderboard"]
+        />
+      </@section>
+
+      <@section|{ blockName }|>
+        <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery/>
+      </@section>
+
+      <@section>
+        <global-gam-define-display-ad
+          name="rotation"
+          position="static_page"
+          modifiers=["inter-block"]
+        />
+      </@section>
+    </marko-web-page-wrapper>
+  </@page>
+</marko-web-default-page-layout>
