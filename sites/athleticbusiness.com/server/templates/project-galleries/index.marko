@@ -1,16 +1,10 @@
 $ const { req } = out.global;
 $ const { galleries } = input;
 
-$ const type = "project-galleries";
 $ const title = "Project Galleries";
 $ const description = "Browse architectural and aquatic project galleries and portfolios.";
 
-<marko-web-default-page-layout type=type title=title description=description>
-  <@head>
-    <marko-web-gtm-default-context|{ context }| type=type>
-      <marko-web-gtm-push data=context />
-    </marko-web-gtm-default-context>
-  </@head>
+<site-project-gallery-page-layout metadata={ title, description }>
   <@page>
     <marko-web-page-wrapper>
       <@section modifiers=["premium-partners"]>
@@ -51,4 +45,4 @@ $ const description = "Browse architectural and aquatic project galleries and po
       </@section>
     </marko-web-page-wrapper>
   </@page>
-</marko-web-default-page-layout>
+</site-project-gallery-page-layout>

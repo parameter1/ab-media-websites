@@ -1,4 +1,7 @@
 {
+  "<site-project-gallery-page-layout>": {
+    "template": "./page-layout.marko"
+  },
   "<site-project-gallery-query>": {
     "template": "./query.marko"
   }

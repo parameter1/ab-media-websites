@@ -1,0 +1,23 @@
+$ const type = input.type || "project-galleries";
+$ const { metadata } = input;
+$ const { document } = out.global;
+
+<${document}
+  above-container=input.aboveContainer
+  below-container=input.belowContainer
+  foot=input.foot
+>
+  <@head>
+    <marko-web-default-page-metadata ...metadata />
+    <marko-web-gtm-default-context|{ context }| type=type>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-default-context>
+    <${input.head} />
+  </@head>
+  <!-- Note: camelcased vars due to nest input of dynamic document. perhaps a marko bug -->
+  <@container abovePage=input.abovePage belowPage=input.belowPage>
+    <@page for=type attrs=input.attrs>
+      <${input.page} />
+    </@page>
+  </@container>
+</>

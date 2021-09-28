@@ -1,8 +1,7 @@
 import { getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
 import slothLovesChunkArray from "@ab-media/package-global/utils/chunk-array";
 
-$ const { req } = out.global;
-$ const { gallery, entries } = input;
+$ const { gallery, entries, rootPath } = input;
 
 $ const chunkedNodes = slothLovesChunkArray({
   array: getAsArray(entries, "edges"),
@@ -10,14 +9,7 @@ $ const chunkedNodes = slothLovesChunkArray({
   mapper: (edge) => edge.node,
 });
 
-$ const type = "project-galleries";
-
-<marko-web-default-page-layout type=type title=gallery.name description=gallery.description>
-  <@head>
-    <marko-web-gtm-default-context|{ context }| type=type>
-      <marko-web-gtm-push data=context />
-    </marko-web-gtm-default-context>
-  </@head>
+<site-project-gallery-page-layout metadata={ title: gallery.name, description: gallery.description }>
   <@page>
     <marko-web-page-wrapper>
       <@section modifiers=["premium-partners"]>
@@ -40,10 +32,15 @@ $ const type = "project-galleries";
         $ const isLastChunk = index + 1 === chunkedNodes.length;
         <@section>
           <for|node| of=nodes>
-            $ const aor = getAsObject(node, "organizationsConnection.edges.0.node");
+            $ const architects = [
+              ...getAsArray(node, "architectsOfRecord.edges").map(edge => edge.node),
+              ...getAsArray(node, "associateArchitects.edges").map(edge => edge.node),
+            ];
             <p>
-              ${node.title}
-              <if(aor.name)>(${aor.name})</if>
+              <marko-web-link href=`${rootPath}/${node.shortId}/${node.slug}`>
+                ${node.title}
+              </marko-web-link>
+              <if(architects.length)> (${architects.map((node) => node.name).join(", ")})</if>
             </p>
           </for>
         </@section>
@@ -67,4 +64,4 @@ $ const type = "project-galleries";
       </@section>
     </marko-web-page-wrapper>
   </@page>
-</marko-web-default-page-layout>
+</site-project-gallery-page-layout>

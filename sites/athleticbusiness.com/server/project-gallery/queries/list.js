@@ -25,7 +25,21 @@ module.exports = gql`
               alt
             }
           }
-          organizationsConnection(input: { role: { slugs: "architect-of-record" } }) {
+          architectsOfRecord: organizationsConnection(input: {
+            sort: { field: NODE_NAME }
+            role: { slugs: "architect-of-record" }
+          }) {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+          associateArchitects: organizationsConnection(input: {
+            sort: { field: NODE_NAME }
+            role: { slugs: "associate-architect" }
+          }) {
             edges {
               node {
                 id
