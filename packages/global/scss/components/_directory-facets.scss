@@ -72,11 +72,8 @@
     position: relative;
     display: block;
     padding: ($marko-web-node-list-padding / 2);
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.25;
-    &:nth-child(2n+1) {
-      background-color: $gray-100;
-    }
     &--open {
       > #{ $self } {
         &__list {
@@ -103,5 +100,13 @@
 .directory-country-facets {
   &__list {
     max-height: 200px;
+  }
+}
+
+.breadcrumbs {
+  &--directory {
+    .breadcrumb {
+      padding-bottom: 16px;
+    }
   }
 }
