@@ -1,0 +1,71 @@
+import { getAsObject, getAsArray, get } from "@parameter1/base-cms-object-path";
+import { buildImgixUrl } from "@parameter1/base-cms-image";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
+
+$ const { node, rootPath } = input;
+
+$ const architects = [
+  ...getAsArray(node, "architectsOfRecord.edges").map(edge => edge.node),
+  ...getAsArray(node, "associateArchitects.edges").map(edge => edge.node),
+];
+
+$ const primaryImage = getAsObject(node, "primaryImageEdge.node");
+$ const path = `${rootPath}/${node.shortId}/${node.slug}`;
+
+$ const containerAttrs = getAsObject(input, "containerAttrs");
+$ const linkAttrs = getAsObject(input, "linkAttrs");
+
+$ const imageOptions = {
+  w: 250,
+  h: 167,
+  fit: "crop",
+  auto: "format,compress",
+  q: 70,
+};
+
+$ const blockName = "section-feed-content-node";
+
+<marko-web-block name=blockName modifiers=input.modifiers attrs=containerAttrs>
+  <marko-web-element block-name=blockName name="contents">
+    <marko-web-element block-name=blockName name="body">
+      <if(node.city && node.region)>
+        <marko-web-website-section-name block-name=blockName obj={ name: `${node.city}, ${node.region}` } link=false />
+      </if>
+      <marko-web-content-short-name
+        tag="h5"
+        block-name=blockName
+        obj={ shortName: node.title, siteContext: { path } }
+        link={ attrs: linkAttrs }
+      />
+
+      <if(architects.length)>
+        <div class="mb-2">
+          <for|architect| of=architects>
+            <div><em>${architect.name}</em></div>
+          </for>
+        </div>
+      </if>
+      <if(node.cost)>
+        <div><strong>Cost:</strong> ${node.cost}</div>
+      </if>
+      <if(node.year)>
+        <div><strong>Year in Showcase:</strong> ${node.year}</div>
+      </if>
+    </marko-web-element>
+  </marko-web-element>
+  <marko-web-element block-name=blockName name="image-wrapper">
+    <if(primaryImage.src)>
+      $ const src = buildImgixUrl(primaryImage.src, imageOptions);
+      $ const srcset = [`${buildImgixUrl(src, { dpr: 2 })} 2x`];
+      <marko-web-link href=path attrs=linkAttrs>
+        <marko-web-img
+          src=src
+          srcset=srcset
+          alt=primaryImage.alt
+          class=[`${blockName}__image`]
+        />
+      </marko-web-link>
+    </if>
+  </marko-web-element>
+</marko-web-block>

@@ -31,18 +31,18 @@ $ const chunkedNodes = slothLovesChunkArray({
       <for|nodes, index| of=chunkedNodes>
         $ const isLastChunk = index + 1 === chunkedNodes.length;
         <@section>
-          <for|node| of=nodes>
-            $ const architects = [
-              ...getAsArray(node, "architectsOfRecord.edges").map(edge => edge.node),
-              ...getAsArray(node, "associateArchitects.edges").map(edge => edge.node),
-            ];
-            <p>
-              <marko-web-link href=`${rootPath}/${node.shortId}/${node.slug}`>
-                ${node.title}
-              </marko-web-link>
-              <if(architects.length)> (${architects.map((node) => node.name).join(", ")})</if>
-            </p>
-          </for>
+          <marko-web-node-list
+            inner-justified=true
+            flush-x=true
+            flush-y=false
+            modifiers=["section-feed"]
+          >
+            <@nodes nodes=nodes>
+              <@slot|{ node }|>
+                <site-project-gallery-feed-node node=node root-path=rootPath />
+              </@slot>
+            </@nodes>
+          </marko-web-node-list>
         </@section>
         <if(!isLastChunk)>
           <@section|{ aliases }|>

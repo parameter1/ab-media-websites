@@ -1,4 +1,7 @@
 {
+  "<site-project-gallery-feed-node>": {
+    "template": "./feed-node.marko"
+  },
   "<site-project-gallery-page-layout>": {
     "template": "./page-layout.marko"
   },
