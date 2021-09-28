@@ -16,6 +16,9 @@ module.exports = {
   newsletter,
   search,
   company: 'AB Media, Inc.',
+  publicationIds: [
+    '60f981d5d28860bc33766203',
+  ],
   subscribe,
   p1events: {
     tenant: 'abmedia',
