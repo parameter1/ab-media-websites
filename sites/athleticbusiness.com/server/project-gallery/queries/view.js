@@ -17,6 +17,7 @@ module.exports = gql`
       year
       city
       region
+      judgesComments
       area
       cost
       occupancy

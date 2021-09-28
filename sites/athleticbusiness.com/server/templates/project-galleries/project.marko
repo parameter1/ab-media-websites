@@ -59,6 +59,9 @@ $ const { gallery, entry, canonicalPath } = input;
               </if>
             </div>
             <marko-web-content-body block-name=blockName obj={ body: entry.body } attrs={ id: bodyId } />
+            <if(entry.judgesComments)>
+              <marko-web-content-body block-name=blockName obj={ body: `<h4>Judge's Comments</h4>${entry.judgesComments}` } />
+            </if>
           </default-theme-page-contents>
         </div>
       </@section>
