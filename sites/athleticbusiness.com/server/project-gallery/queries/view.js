@@ -12,7 +12,16 @@ module.exports = gql`
       slug
       title
       teaser
+      body
       publishedAt
+      primaryImageEdge {
+        node {
+          id
+          src
+          alt
+          caption
+        }
+      }
     }
   }
 `;
