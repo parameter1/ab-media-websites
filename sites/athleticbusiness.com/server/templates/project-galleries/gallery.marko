@@ -1,5 +1,14 @@
+import { getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
+import slothLovesChunkArray from "@ab-media/package-global/utils/chunk-array";
+
 $ const { req } = out.global;
-$ const { gallery } = input;
+$ const { gallery, entries } = input;
+
+$ const chunkedNodes = slothLovesChunkArray({
+  array: getAsArray(entries, "edges"),
+  size: 10,
+  mapper: (edge) => edge.node,
+});
 
 $ const type = "project-galleries";
 
@@ -26,6 +35,28 @@ $ const type = "project-galleries";
       <@section|{ blockName }|>
         <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery/>
       </@section>
+
+      <for|nodes, index| of=chunkedNodes>
+        $ const isLastChunk = index + 1 === chunkedNodes.length;
+        <@section>
+          <for|node| of=nodes>
+            $ const aor = getAsObject(node, "organizationsConnection.edges.0.node");
+            <p>
+              ${node.title}
+              <if(aor.name)>(${aor.name})</if>
+            </p>
+          </for>
+        </@section>
+        <if(!isLastChunk)>
+          <@section|{ aliases }|>
+            <global-gam-define-display-ad
+              name="rotation"
+              position="static_page"
+              modifiers=["inter-block"]
+            />
+          </@section>
+        </if>
+      </for>
 
       <@section>
         <global-gam-define-display-ad

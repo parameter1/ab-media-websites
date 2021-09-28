@@ -1,0 +1,5 @@
+{
+  "<site-project-gallery-query>": {
+    "template": "./query.marko"
+  }
+}
