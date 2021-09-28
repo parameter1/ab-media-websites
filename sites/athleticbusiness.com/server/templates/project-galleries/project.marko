@@ -31,17 +31,33 @@ $ const { gallery, entry, canonicalPath } = input;
           };
           <global-content-page-breadcrumbs section=primarySection />
           <marko-web-content-name tag="h1" block-name=blockName obj={ name: entry.title } />
+          <if(entry.city && entry.region)>
+            <global-author-published-node
+              author={ name: `${entry.city}, ${entry.region}` }
+              content={ published: entry.publishedAt }
+              format="YYYY"
+              published-prefix="Year in Showcase:"
+            />
+          </if>
         </div>
       </@section>
 
       <@section>
         <div class="content-page-body">
           <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": entry.id }>
-
-            <global-primary-image-block
-              obj=get(entry, "primaryImageEdge.node")
-            />
+            <global-primary-image-block obj=get(entry, "primaryImageEdge.node") />
             $ const bodyId = `content-body-${entry.id}`;
+            <div class="mb-block">
+              <if(entry.cost)>
+                <div><strong>Construction Cost:</strong> ${entry.cost}</div>
+              </if>
+              <if(entry.area)>
+                <div><strong>Area / Square Feet:</strong> ${entry.area}</div>
+              </if>
+              <if(entry.occupancy)>
+                <div><strong>Occupancy Date:</strong> ${entry.occupancy}</div>
+              </if>
+            </div>
             <marko-web-content-body block-name=blockName obj={ body: entry.body } attrs={ id: bodyId } />
           </default-theme-page-contents>
         </div>

@@ -14,12 +14,19 @@ module.exports = gql`
       teaser
       body
       publishedAt
+      year
+      city
+      region
+      area
+      cost
+      occupancy
       primaryImageEdge {
         node {
           id
           src
           alt
           caption
+          credit
         }
       }
     }
