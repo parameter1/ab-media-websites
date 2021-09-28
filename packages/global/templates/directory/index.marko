@@ -25,12 +25,7 @@ $ const currentPage = search.getCurrentPage();
     />
   </@section>
   <@section|{ blockName, section }|>
-    <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=section>
-      <if(currentPage > 1)>${value}: Page ${currentPage}</if>
-      <else>${value}</else>
-    </marko-web-website-section-name>
-    <marko-web-website-section-description block-name=blockName obj=section />
-    <default-theme-breadcrumbs modifiers=["directory"]>
+    <default-theme-breadcrumbs modifiers=["directory", "content-page"]>
       $ const children = getAsArray(section, "hierarchy");
       <for|child| of=children>
         <if(child.alias !== section.alias)>
@@ -41,6 +36,11 @@ $ const currentPage = search.getCurrentPage();
         </if>
       </for>
     </default-theme-breadcrumbs>
+    <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=section>
+      <if(currentPage > 1)>${value}: Page ${currentPage}</if>
+      <else>${value}</else>
+    </marko-web-website-section-name>
+    <marko-web-website-section-description block-name=blockName obj=section />
   </@section>
 
   <@section|{ blockName, section }|>
