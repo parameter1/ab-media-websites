@@ -12,12 +12,20 @@ const { LIST_QUERY, VIEW_QUERY } = require('../project-gallery/queries');
 
 const { env } = process;
 
+const rootSection = {
+  name: 'Project Galleries',
+  alias: 'project-galleries',
+  description: 'Browse architectural and aquatic project galleries and portfolios.',
+  hierarchy: [
+    { name: 'Project Galleries', alias: 'project-galleries' },
+  ],
+};
+
 const galleries = [
   {
     name: 'Architectural Showcase',
     alias: 'architectural-showcase',
     slug: 'architectural-showcase',
-    type: 'ARCHITECTURAL_SHOWCASE',
     teaser: 'The best of recently constructed and renovated facilities.',
     description: 'The best of recently constructed and renovated facilities.',
   },
@@ -25,7 +33,6 @@ const galleries = [
     name: 'Facilities of Merit',
     alias: 'facilities-of-merit',
     slug: 'architectural-showcase',
-    type: 'ARCHITECTURAL_SHOWCASE',
     teaser: 'Award-winning facilities from the Showcase.',
     description: 'Award-winning facilities from the Showcase.',
   },
@@ -33,11 +40,22 @@ const galleries = [
     name: 'Aquatic Design Portfolio',
     alias: 'aquatic-design-portfolio',
     slug: 'aquatic-design-portfolio',
-    type: 'AQUATIC_DESIGN_PORTFOLIO',
     teaser: '',
     description: '',
   },
-];
+].map(gallery => ({
+  ...gallery,
+  type: gallery.slug.replace(/-/g, '_').toUpperCase(),
+  primarySection: {
+    name: gallery.name,
+    description: gallery.description,
+    alias: `${rootSection.alias}/${gallery.alias}`,
+    hierarchy: [
+      ...rootSection.hierarchy,
+      { name: gallery.name, alias: `${rootSection.alias}/${gallery.alias}` },
+    ],
+  },
+}));
 
 const galleryAliases = galleries.map(({ alias }) => alias);
 
@@ -46,7 +64,7 @@ module.exports = (app) => {
   router.use(projectsGraphQLClient({ uri: env.AB_PROJECTS_GRAPHQL_URL }));
 
   router.get('/', (_, res) => {
-    res.marko(indexTemplate, { galleries });
+    res.marko(indexTemplate, { galleries, primarySection: rootSection });
   });
 
   router.get(`/:alias(${galleryAliases.join('|')})`, asyncRoute(async (req, res) => {
@@ -70,7 +88,6 @@ module.exports = (app) => {
       galleries,
       gallery,
       entries: data.entries,
-      rootPath: `${req.baseUrl}/${alias}`,
     });
   }));
 
@@ -93,5 +110,5 @@ module.exports = (app) => {
     });
   }));
 
-  app.use('/project-galleries', router);
+  app.use(`/${rootSection.alias}`, router);
 };

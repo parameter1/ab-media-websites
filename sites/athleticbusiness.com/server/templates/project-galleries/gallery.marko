@@ -1,7 +1,7 @@
 import { getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
 import slothLovesChunkArray from "@ab-media/package-global/utils/chunk-array";
 
-$ const { gallery, entries, rootPath } = input;
+$ const { gallery, entries } = input;
 
 $ const chunkedNodes = slothLovesChunkArray({
   array: getAsArray(entries, "edges"),
@@ -19,7 +19,7 @@ $ const { totalCount, pageInfo } = entries;
       has-previous-page=pageInfo.hasPreviousPage
       start-cursor=pageInfo.startCursor
       end-cursor=pageInfo.endCursor
-      path=rootPath
+      path=gallery.primarySection.alias
       as-rels=true
     />
   </@head>
@@ -42,7 +42,8 @@ $ const { totalCount, pageInfo } = entries;
         $ const isLastChunk = index + 1 === chunkedNodes.length;
         <@section|{ blockName }|>
           <if(isFirstChunk)>
-            <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery/>
+            <global-content-page-breadcrumbs section=gallery.primarySection display-self=false />
+            <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery />
           </if>
           <marko-web-node-list
             inner-justified=true
@@ -52,7 +53,7 @@ $ const { totalCount, pageInfo } = entries;
           >
             <@nodes nodes=nodes>
               <@slot|{ node }|>
-                <site-project-gallery-feed-node node=node root-path=rootPath />
+                <site-project-gallery-feed-node node=node root-path=gallery.primarySection.alias />
               </@slot>
             </@nodes>
           </marko-web-node-list>
@@ -63,7 +64,7 @@ $ const { totalCount, pageInfo } = entries;
               has-previous-page=pageInfo.hasPreviousPage
               start-cursor=pageInfo.startCursor
               end-cursor=pageInfo.endCursor
-              path=rootPath
+              path=gallery.primarySection.alias
             />
           </if>
         </@section>

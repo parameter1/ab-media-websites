@@ -1,5 +1,6 @@
 import { getAsObject, getAsArray, get } from "@parameter1/base-cms-object-path";
 import { buildImgixUrl } from "@parameter1/base-cms-image";
+import { cleanPath } from "@parameter1/base-cms-utils";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
 
@@ -11,7 +12,7 @@ $ const architects = [
 ];
 
 $ const primaryImage = getAsObject(node, "primaryImageEdge.node");
-$ const path = `${rootPath}/${node.shortId}/${node.slug}`;
+$ const path = `/${cleanPath(`${rootPath}/${node.shortId}/${node.slug}`)}`;
 
 $ const containerAttrs = getAsObject(input, "containerAttrs");
 $ const linkAttrs = getAsObject(input, "linkAttrs");

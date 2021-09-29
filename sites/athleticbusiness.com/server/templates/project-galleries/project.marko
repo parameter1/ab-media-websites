@@ -21,15 +21,7 @@ $ const { gallery, entry, canonicalPath } = input;
 
       <@section|{ blockName }| modifiers=["content-header"]>
         <div class="content-page-header">
-          $ const primarySection = {
-            name: "Project Galleries",
-            alias: "project-galleries",
-            hierarchy: [
-              { name: "Project Galleries", alias: "project-galleries" },
-              { name: gallery.name, alias: `project-galleries/${gallery.alias}` },
-            ],
-          };
-          <global-content-page-breadcrumbs section=primarySection />
+          <global-content-page-breadcrumbs section=gallery.primarySection />
           <marko-web-content-name tag="h1" block-name=blockName obj={ name: entry.title } />
           <if(entry.city && entry.region)>
             <global-author-published-node

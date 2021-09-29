@@ -1,10 +1,7 @@
 $ const { req } = out.global;
-$ const { galleries } = input;
+$ const { galleries, primarySection } = input;
 
-$ const title = "Project Galleries";
-$ const description = "Browse architectural and aquatic project galleries and portfolios.";
-
-<site-project-gallery-page-layout metadata={ title, description }>
+<site-project-gallery-page-layout metadata={ title: primarySection.name, description: primarySection.description }>
   <@page>
     <marko-web-page-wrapper>
       <@section modifiers=["premium-partners"]>
@@ -20,12 +17,12 @@ $ const description = "Browse architectural and aquatic project galleries and po
       </@section>
 
       <@section|{ blockName }|>
-        <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj={ name: title } />
+        <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=primarySection />
 
         <for|gallery| of=galleries>
           <div>
             <h3>
-              <marko-web-link href=`${req.baseUrl}/${gallery.alias}`>
+              <marko-web-link href=`/${gallery.primarySection.alias}`>
                 ${gallery.name}
               </marko-web-link>
             </h3>
