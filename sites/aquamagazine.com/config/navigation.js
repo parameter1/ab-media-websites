@@ -10,7 +10,9 @@ const topics = {
     { href: '/homeowners-diy', label: 'Homeowners/DIY' },
   ],
   expanded: [],
-  secondary: [],
+  secondary: [
+    { href: '/directory', label: 'Buyers Guide' },
+  ],
 };
 
 const utilities = [
