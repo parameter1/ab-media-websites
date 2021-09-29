@@ -42,6 +42,10 @@ $primary: #103a57;
 
   &__item {
     @include skin-typography($style: "small-body-text", $link-style: "with-hover-color");
+
+    a {
+      display: inline;
+    }
   }
 }
 
