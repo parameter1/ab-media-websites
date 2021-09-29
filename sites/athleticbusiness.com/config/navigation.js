@@ -16,6 +16,11 @@ const topics = {
   ],
 };
 
+const resources = [
+  { href: '/directory', label: 'Buyers Guide' },
+  { href: '/magazine', label: 'Magazine' },
+];
+
 const utilities = [
   { href: 'https://www.athleticbusiness.info', label: 'Advertise', target: '_blank' },
   { href: '/page/contact-us', label: 'Contact Us' },
@@ -30,6 +35,7 @@ const mobileMenu = {
   secondary: [
     ...topics.secondary,
     subscribe,
+    resources,
   ],
 };
 
@@ -40,7 +46,7 @@ const desktopMenu = {
     ...topics.expanded,
     ...topics.secondary,
   ],
-  resources: [],
+  resources: [...resources],
 };
 
 module.exports = {
