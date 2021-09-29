@@ -15,7 +15,7 @@ module.exports = {
   identityX,
   newsletter,
   search,
-  company: 'AB Media, Inc.',
+  company: 'AB Media Inc',
   publicationIds: [
     '60f981d5d28860bc33766203',
   ],
