@@ -1,0 +1,23 @@
+{
+  "<site-project-gallery-architects-block>": {
+    "template": "./architects-block.marko"
+  },
+  "<site-project-gallery-feed-node>": {
+    "template": "./feed-node.marko"
+  },
+  "<site-project-gallery-page-layout>": {
+    "template": "./page-layout.marko"
+  },
+  "<site-project-gallery-pagination-controls>": {
+    "template": "./pagination-controls.marko"
+  },
+  "<site-project-gallery-query>": {
+    "template": "./query.marko"
+  },
+  "<site-project-gallery-read-next-block>": {
+    "template": "./read-next-block.marko"
+  },
+  "<site-project-gallery-vendors-block>": {
+    "template": "./vendors-block.marko"
+  }
+}

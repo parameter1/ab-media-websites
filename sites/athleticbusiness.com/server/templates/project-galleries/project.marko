@@ -1,0 +1,97 @@
+import { get, getAsArray } from "@parameter1/base-cms-object-path";
+
+$ const { req } = out.global;
+
+$ const {
+  gallery,
+  entry,
+  canonicalPath,
+  nextProject,
+  prevProject,
+} = input;
+
+<site-project-gallery-page-layout metadata={ title: entry.title, description: entry.teaser, canonicalPath }>
+  <@head>
+    <site-project-gallery-read-next-block
+      next-project=nextProject
+      prev-project=prevProject
+      alias=gallery.primarySection.alias
+      as-rels=true
+    />
+  </@head>
+  <@page>
+    <marko-web-page-wrapper>
+      <@section modifiers=["premium-partners"]>
+        <global-static-premium-partners-block />
+      </@section>
+
+      <@section modifiers=["break-container", "first"]>
+        <global-gam-define-display-ad
+          name="leaderboard"
+          position="static_page"
+          modifiers=["inter-block", "combined-leaderboard"]
+        />
+      </@section>
+
+      <@section|{ blockName }| modifiers=["content-header"]>
+        <div class="content-page-header">
+          <global-content-page-breadcrumbs section=gallery.primarySection />
+          <marko-web-content-name tag="h1" block-name=blockName obj={ name: entry.title } />
+          <if(entry.city && entry.region)>
+            <global-author-published-node
+              author={ name: `${entry.city}, ${entry.region}` }
+              content={ published: `${entry.year}-06-01` }
+              format="YYYY"
+              published-prefix="Year in Showcase:"
+            />
+          </if>
+        </div>
+      </@section>
+
+      <@section>
+        <div class="content-page-body">
+          <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": entry.id }>
+            <global-image-slider
+              modifiers=["project-gallery"]
+              images=getAsArray(entry, "imagesConnection.edges").map(edge => edge.node)
+              image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress", q: 70 }
+            />
+
+            $ const bodyId = `content-body-${entry.id}`;
+            <div class="mb-block">
+              <if(entry.cost)>
+                <div><strong>Construction Cost:</strong> ${entry.cost}</div>
+              </if>
+              <if(entry.area)>
+                <div><strong>Area / Square Feet:</strong> ${entry.area}</div>
+              </if>
+              <if(entry.occupancy)>
+                <div><strong>Occupancy Date:</strong> ${entry.occupancy}</div>
+              </if>
+            </div>
+            <marko-web-content-body block-name=blockName obj={ body: entry.body } attrs={ id: bodyId } />
+            <if(entry.judgesComments)>
+              <marko-web-content-body block-name=blockName obj={ body: `<h4>Judge's Comments</h4>${entry.judgesComments}` } />
+            </if>
+
+            <site-project-gallery-architects-block short-id=entry.shortId />
+            <site-project-gallery-vendors-block short-id=entry.shortId />
+            <site-project-gallery-read-next-block
+              next-project=nextProject
+              prev-project=prevProject
+              alias=gallery.primarySection.alias
+            />
+          </default-theme-page-contents>
+        </div>
+      </@section>
+
+      <@section>
+        <global-gam-define-display-ad
+          name="rotation"
+          position="static_page"
+          modifiers=["inter-block"]
+        />
+      </@section>
+    </marko-web-page-wrapper>
+  </@page>
+</site-project-gallery-page-layout>

@@ -10,3 +10,82 @@ $theme-site-header-breakpoints: (
 $primary: #103a57;
 
 @import "../../node_modules/@ab-media/package-global/scss/core";
+
+.project-gallery-architects,
+.project-gallery-vendors {
+  padding-bottom: map-get($spacers, block);
+
+  &__header {
+    @include theme-apply-fonts(
+      $font-family: $theme-content-heading-h4-font-family,
+      $font-size-sm: $theme-content-heading-h4-font-size-sm,
+      $font-size: $theme-content-heading-h4-font-size,
+      $font-weight: $theme-content-heading-h4-font-weight,
+      $line-height-sm: $theme-content-heading-h4-line-height-sm,
+      $line-height: $theme-content-heading-h4-line-height
+    );
+    @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+      margin-bottom: $theme-content-heading-h4-margin-bottom-sm;
+    }
+    margin-bottom: $theme-content-heading-h4-margin-bottom;
+  }
+}
+
+.project-gallery-architects {
+  &__container {
+    margin-bottom: map-get($spacers, block);
+  }
+
+  &__role {
+    @include skin-typography($style: "header-3");
+  }
+
+  &__item {
+    @include skin-typography($style: "small-body-text", $link-style: "with-hover-color");
+
+    a {
+      display: inline;
+    }
+  }
+}
+
+.project-gallery-vendors {
+  &__item {
+    @include skin-typography($style: "small-body-text", $link-style: "with-hover-color");
+    margin-bottom: map-get($spacers, block-sm);
+
+    a {
+      display: inline;
+    }
+  }
+
+  &__category-name {
+    margin-right: map-get($spacers, block-xs);
+    font-weight: $font-weight-bold;
+  }
+}
+
+.carousel {
+  &--project-gallery {
+    margin-bottom: 1.5rem;
+    @media (min-width: 900px) {
+      $margin: ($skin-content-primary-image-max-width - $skin-content-body-max-width) / 2 * -1;
+      position: relative;
+      width: $skin-content-primary-image-max-width;
+      margin-left: $margin;
+    }
+
+    .carousel-caption {
+      &--credit {
+        font-size: 14px;
+      }
+      p {
+        display: block;
+        margin-bottom: 0;
+        &:last-child {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

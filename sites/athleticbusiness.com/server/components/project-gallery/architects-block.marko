@@ -1,0 +1,41 @@
+import { getAsArray } from "@parameter1/base-cms-object-path";
+import { ARCHITECTS_BLOCK_QUERY } from '../../project-gallery/queries';
+
+$ const { shortId } = input;
+$ const blockName = "project-gallery-architects";
+
+<site-project-gallery-query|{ data }|
+  operation=ARCHITECTS_BLOCK_QUERY
+  variables={ shortId }
+>
+  $ const edges = getAsArray(data, "entryByShortId.organizationsConnection.edges");
+  <if(edges.length)>
+    <marko-web-block name=blockName>
+      <marko-web-element block-name=blockName name="header">
+        Project Architects
+      </marko-web-element>
+
+      <for|edge| of=edges>
+        <marko-web-element block-name=blockName name="container">
+          <marko-web-element block-name=blockName name="role">
+            ${edge.roleEdge.node.name}
+          </marko-web-element>
+          <marko-web-element block-name=blockName name="item">
+            $ const { node } = edge;
+            <div>${node.name}</div>
+            <if(node.city && node.region)>
+              <div>${node.city}, ${node.region}</div>
+            </if>
+            <if(node.website)>
+              <div>
+                <marko-web-link href=node.website target="_blank">
+                  ${node.website.replace(/^http[s]?:\/\//i, "").replace(/\/$/, "")}
+                </marko-web-link>
+              </div>
+            </if>
+          </marko-web-element>
+        </marko-web-element>
+      </for>
+    </marko-web-block>
+  </if>
+</site-project-gallery-query>

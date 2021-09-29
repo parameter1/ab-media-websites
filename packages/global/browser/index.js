@@ -8,6 +8,7 @@ import OmedaRapidIdentityX from '@parameter1/base-cms-marko-web-omeda-identity-x
 
 const AutoScroll = () => import(/* webpackChunkName: "global-auto-scroll" */ './auto-scroll.vue');
 const BlockLoader = () => import(/* webpackChunkName: "global-block-loader" */ './block-loader.vue');
+const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
 const MenuToggleButton = () => import(/* webpackChunkName: "global-menu-toggle-button" */ './menu-toggle-button.vue');
 const NewsletterCloseButton = () => import(/* webpackChunkName: "global-newsletter-close-button" */ './newsletter-close-button.vue');
@@ -49,6 +50,8 @@ export default (Browser) => {
     CustomAuthenticateComponent: IdentityXAuthenticate,
     CustomCommentStreamComponent: IdentityXCommentStream,
   });
+
+  Browser.register('GlobalImageSlider', ImageSlider);
 
   Browser.register('GlobalAutoScroll', AutoScroll);
   Browser.register('GlobalBlockLoader', BlockLoader);

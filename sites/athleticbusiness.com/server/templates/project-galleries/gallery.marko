@@ -1,0 +1,91 @@
+import { getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
+import slothLovesChunkArray from "@ab-media/package-global/utils/chunk-array";
+
+$ const { gallery, entries } = input;
+
+$ const chunkedNodes = slothLovesChunkArray({
+  array: getAsArray(entries, "edges"),
+  size: 10,
+  mapper: (edge) => edge.node,
+});
+
+$ const { totalCount, pageInfo } = entries;
+
+<site-project-gallery-page-layout metadata={ title: gallery.name, description: gallery.description }>
+  <@head>
+    <site-project-gallery-pagination-controls
+      total-count=totalCount
+      has-next-page=pageInfo.hasNextPage
+      has-previous-page=pageInfo.hasPreviousPage
+      start-cursor=pageInfo.startCursor
+      end-cursor=pageInfo.endCursor
+      path=gallery.primarySection.alias
+      as-rels=true
+    />
+  </@head>
+  <@page>
+    <marko-web-page-wrapper>
+      <@section modifiers=["premium-partners"]>
+        <global-static-premium-partners-block />
+      </@section>
+
+      <@section modifiers=["break-container", "first"]>
+        <global-gam-define-display-ad
+          name="leaderboard"
+          position="static_page"
+          modifiers=["inter-block", "combined-leaderboard"]
+        />
+      </@section>
+
+      <for|nodes, index| of=chunkedNodes>
+        $ const isFirstChunk = index === 0;
+        $ const isLastChunk = index + 1 === chunkedNodes.length;
+        <@section|{ blockName }|>
+          <if(isFirstChunk)>
+            <global-content-page-breadcrumbs section=gallery.primarySection display-self=false />
+            <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery />
+          </if>
+          <marko-web-node-list
+            inner-justified=true
+            flush-x=true
+            flush-y=false
+            modifiers=["section-feed"]
+          >
+            <@nodes nodes=nodes>
+              <@slot|{ node }|>
+                <site-project-gallery-feed-node node=node root-path=gallery.primarySection.alias />
+              </@slot>
+            </@nodes>
+          </marko-web-node-list>
+          <if(isLastChunk)>
+            <site-project-gallery-pagination-controls
+              total-count=totalCount
+              has-next-page=pageInfo.hasNextPage
+              has-previous-page=pageInfo.hasPreviousPage
+              start-cursor=pageInfo.startCursor
+              end-cursor=pageInfo.endCursor
+              path=gallery.primarySection.alias
+            />
+          </if>
+        </@section>
+        <if(!isLastChunk)>
+          <@section|{ aliases }|>
+            <global-gam-define-display-ad
+              name="rotation"
+              position="static_page"
+              modifiers=["inter-block"]
+            />
+          </@section>
+        </if>
+      </for>
+
+      <@section>
+        <global-gam-define-display-ad
+          name="rotation"
+          position="static_page"
+          modifiers=["inter-block"]
+        />
+      </@section>
+    </marko-web-page-wrapper>
+  </@page>
+</site-project-gallery-page-layout>

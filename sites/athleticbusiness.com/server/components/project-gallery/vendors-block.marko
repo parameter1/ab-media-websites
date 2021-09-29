@@ -1,0 +1,33 @@
+import { getAsArray } from "@parameter1/base-cms-object-path";
+import { VENDORS_BLOCK_QUERY } from '../../project-gallery/queries';
+
+$ const { shortId } = input;
+$ const blockName = "project-gallery-vendors";
+
+<site-project-gallery-query|{ data }|
+  operation=VENDORS_BLOCK_QUERY
+  variables={ shortId }
+>
+  $ const edges = getAsArray(data, "entryByShortId.vendorsConnection.edges");
+  <if(edges.length)>
+    <marko-web-block name=blockName>
+      <marko-web-element block-name=blockName name="header">
+        Project Vendors
+      </marko-web-element>
+
+      <for|edge| of=edges>
+        $ const { node, categoryEdge } = edge;
+        <marko-web-element block-name=blockName name="item">
+          <marko-web-element tag="span" block-name=blockName name="category-name">
+            $ const { fullName } = categoryEdge.node;
+            $ const categoryName = categoryEdge.writeInValue ? `${fullName} > ${categoryEdge.writeInValue}` : fullName;
+            ${categoryName}:
+          </marko-web-element>
+          <marko-web-link href=node.website target="_blank">
+            ${node.name}
+          </marko-web-link>
+        </marko-web-element>
+      </for>
+    </marko-web-block>
+  </if>
+</site-project-gallery-query>
