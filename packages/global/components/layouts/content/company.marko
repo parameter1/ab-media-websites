@@ -1,6 +1,7 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
 import { buildImgixUrl } from "@parameter1/base-cms-image";
 import imageHeight from "@parameter1/base-cms-marko-web/components/node/utils/image-height";
+import queryFragment from "@ab-media/package-global/graphql/fragments/section-feed-block";
 
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
@@ -56,6 +57,59 @@ $ const sections = getAsArray(input, "sections");
             <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
           </default-theme-page-contents>
         </div>
+
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            includeContentTypes: ['Product', "PressRelease"],
+            limit: 3,
+            queryFragment,
+          }
+        >
+          <marko-web-node-list
+            inner-justified=true
+            flush-x=true
+            flush-y=false
+            modifiers=["section-feed"]
+          >
+            <@header>
+              Products & Press Releases from ${content.name}
+            </@header>
+            <@nodes nodes=nodes>
+              <@slot|{ node }|>
+                <global-section-feed-content-node node=node />
+              </@slot>
+            </@nodes>
+          </marko-web-node-list>
+        </marko-web-query>
+
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            excludeContentTypes: ['Product', "PressRelease"],
+            limit: 3,
+            queryFragment,
+          }
+        >
+          <marko-web-node-list
+            inner-justified=true
+            flush-x=true
+            flush-y=false
+            modifiers=["section-feed"]
+          >
+            <@header>
+              Latest from ${content.name}
+            </@header>
+            <@nodes nodes=nodes>
+              <@slot|{ node }|>
+                <global-section-feed-content-node node=node />
+              </@slot>
+            </@nodes>
+          </marko-web-node-list>
+        </marko-web-query>
+
         <${input.afterBody}
           aliases=aliases
           block-name=blockName
@@ -72,13 +126,13 @@ $ const sections = getAsArray(input, "sections");
           />
         </if>
         <else>
-          <global-gam-define-display-ad
+          <!-- <global-gam-define-display-ad
             name="rotation-1"
             position="content_page"
             aliases=aliases
             modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
             class="mb-block"
-          />
+          /> -->
         </else>
       </div>
     </div>
@@ -91,10 +145,6 @@ $ const sections = getAsArray(input, "sections");
       aliases=aliases
       modifiers=["inter-block"]
     />
-  </@section>
-
-  <@section>
-    <global-top-stories-block />
   </@section>
 
   <for|s| of=sections>
