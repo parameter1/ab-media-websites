@@ -10,7 +10,9 @@ const topics = {
     { href: '/homeowners-diy', label: 'Homeowners/DIY' },
   ],
   expanded: [],
-  secondary: [],
+  secondary: [
+    { href: '/news/pool-hot-tub-alliance-news', label: 'PHTA News' },
+  ],
 };
 
 const utilities = [
