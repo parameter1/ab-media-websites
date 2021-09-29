@@ -52,11 +52,11 @@
       .card-deck-flow {
         &::before {
           padding-top: .5rem;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: $font-weight-bold;
           color: $gray-800;
           text-transform: none;
-          content: "Premium Partners";
+          content: "Premium Partners:";
         }
         &__node {
           padding-right: 4px;
