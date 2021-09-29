@@ -17,7 +17,7 @@ module.exports = {
   newsletter,
   search,
   subscribe,
-  company: 'AB Media, Inc.',
+  company: 'AB Media Inc',
   publicationIds: [
     '60f9819fd28860bc33754896',
   ],
