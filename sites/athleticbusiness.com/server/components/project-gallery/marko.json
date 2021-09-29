@@ -1,4 +1,7 @@
 {
+  "<site-project-gallery-architects-block>": {
+    "template": "./architects-block.marko"
+  },
   "<site-project-gallery-feed-node>": {
     "template": "./feed-node.marko"
   },
@@ -10,5 +13,8 @@
   },
   "<site-project-gallery-query>": {
     "template": "./query.marko"
+  },
+  "<site-project-gallery-vendors-block>": {
+    "template": "./vendors-block.marko"
   }
 }
