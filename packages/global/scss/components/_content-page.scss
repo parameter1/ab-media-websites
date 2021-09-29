@@ -1,6 +1,7 @@
 .page-wrapper {
   &__content-name {
     @include skin-typography($style: "header-1");
+    margin-bottom: 1rem;
   }
 
   &__section {
@@ -48,7 +49,7 @@
   &--content-page {
     @include skin-typography($style: "slug-medium", $link-style: "primary");
     .breadcrumb {
-      padding-bottom: 8px;
+      padding-bottom: 1rem;
     }
   }
 }
