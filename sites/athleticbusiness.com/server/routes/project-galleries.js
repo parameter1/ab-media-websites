@@ -61,7 +61,7 @@ module.exports = (app) => {
       pagination: {
         limit: 30,
         using: 'CURSOR',
-        cursor: { direction: direction || 'AFTER', cursor },
+        cursor: { direction: direction || 'AFTER', value: cursor },
       },
     };
     const variables = { input };

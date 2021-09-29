@@ -9,7 +9,20 @@ $ const chunkedNodes = slothLovesChunkArray({
   mapper: (edge) => edge.node,
 });
 
+$ const { totalCount, pageInfo } = entries;
+
 <site-project-gallery-page-layout metadata={ title: gallery.name, description: gallery.description }>
+  <@head>
+    <site-project-gallery-pagination-controls
+      total-count=totalCount
+      has-next-page=pageInfo.hasNextPage
+      has-previous-page=pageInfo.hasPreviousPage
+      start-cursor=pageInfo.startCursor
+      end-cursor=pageInfo.endCursor
+      path=rootPath
+      as-rels=true
+    />
+  </@head>
   <@page>
     <marko-web-page-wrapper>
       <@section modifiers=["premium-partners"]>
@@ -43,6 +56,16 @@ $ const chunkedNodes = slothLovesChunkArray({
               </@slot>
             </@nodes>
           </marko-web-node-list>
+          <if(isLastChunk)>
+            <site-project-gallery-pagination-controls
+              total-count=totalCount
+              has-next-page=pageInfo.hasNextPage
+              has-previous-page=pageInfo.hasPreviousPage
+              start-cursor=pageInfo.startCursor
+              end-cursor=pageInfo.endCursor
+              path=rootPath
+            />
+          </if>
         </@section>
         <if(!isLastChunk)>
           <@section|{ aliases }|>

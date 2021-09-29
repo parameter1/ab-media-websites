@@ -49,6 +49,7 @@ module.exports = gql`
           }
         }
       }
+      totalCount
       pageInfo {
         hasNextPage
         hasPreviousPage
