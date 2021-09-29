@@ -19,7 +19,9 @@ $ const blockName = "project-gallery-vendors";
         $ const { node, categoryEdge } = edge;
         <marko-web-element block-name=blockName name="item">
           <marko-web-element tag="span" block-name=blockName name="category-name">
-            ${categoryEdge.node.fullName}:
+            $ const { fullName } = categoryEdge.node;
+            $ const categoryName = categoryEdge.writeInValue ? `${fullName} > ${categoryEdge.writeInValue}` : fullName;
+            ${categoryName}:
           </marko-web-element>
           <marko-web-link href=node.website target="_blank">
             ${node.name}
