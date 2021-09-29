@@ -1,13 +1,15 @@
 const { Router } = require('express');
 const createError = require('http-errors');
 const { asyncRoute } = require('@parameter1/base-cms-utils');
+const { get } = require('@parameter1/base-cms-object-path');
 const projectsGraphQLClient = require('../middleware/projects-graphql-client');
+const createInput = require('../project-gallery/create-input');
 
 const indexTemplate = require('../templates/project-galleries/index');
 const galleryTemplate = require('../templates/project-galleries/gallery');
 const projectTemplate = require('../templates/project-galleries/project');
 
-const { LIST_QUERY, VIEW_QUERY } = require('../project-gallery/queries');
+const { LIST_QUERY, VIEW_NEXT_BLOCK_QUERY, VIEW_QUERY } = require('../project-gallery/queries');
 
 
 const { env } = process;
@@ -72,16 +74,13 @@ module.exports = (app) => {
     const { direction, cursor } = req.query;
     const gallery = galleries.find(g => g.alias === alias);
 
-    const input = {
-      types: [gallery.type],
-      ...(alias === 'facilities-of-merit' && { winner: true }),
-      sort: { field: 'PUBLISHED_AT', order: 'DESC' },
-      pagination: {
-        limit: 30,
-        using: 'CURSOR',
-        cursor: { direction: direction || 'AFTER', value: cursor },
-      },
-    };
+    const input = createInput({
+      limit: 30,
+      gallery,
+      direction,
+      cursor,
+    });
+
     const variables = { input };
     const { data } = await req.$projectsGraphQL.query({ query: LIST_QUERY, variables });
     res.marko(galleryTemplate, {
@@ -95,18 +94,38 @@ module.exports = (app) => {
     const { alias, shortId, slug } = req.params;
     const gallery = galleries.find(g => g.alias === alias);
     const input = { shortId };
-    const variables = { input };
 
-    const { data } = await req.$projectsGraphQL.query({ query: VIEW_QUERY, variables });
+    const { data } = await req.$projectsGraphQL.query({ query: VIEW_QUERY, variables: { input } });
     const { entryByShortId: entry } = data;
-    if (!entry) throw createError(404, `No ${gallery.name} found for ID ${shortId}`);
+    if (!entry) throw createError(404, `No project gallery found for ID ${shortId}`);
     const path = `${entry.shortId}/${entry.slug}`;
     if (path !== `${shortId}/${slug}`) return res.redirect(301, `${req.baseUrl}/${alias}/${path}`);
+
+    const readNext = await req.$projectsGraphQL.query({
+      query: VIEW_NEXT_BLOCK_QUERY,
+      variables: {
+        next: {
+          ...createInput({ limit: 1, gallery }),
+          excludeIdentifiers: { shortIds: [shortId] },
+          publishedAt: { is: 'ON_OR_BEFORE', date: entry.publishedAt },
+        },
+        previous: {
+          ...createInput({ limit: 1, gallery, sortField: 'ASC' }),
+          excludeIdentifiers: { shortIds: [shortId] },
+          publishedAt: { is: 'ON_OR_AFTER', date: entry.publishedAt },
+        },
+      },
+    });
+    const prevProject = get(readNext, 'data.previous.edges.0.node');
+    const nextProject = get(readNext, 'data.next.edges.0.node');
+
     return res.marko(projectTemplate, {
       galleries,
       gallery,
       entry,
       canonicalPath: `${req.baseUrl}/${entry.type.slug}/${path}`,
+      prevProject,
+      nextProject,
     });
   }));
 

@@ -1,0 +1,88 @@
+import { get } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import moment from "moment";
+
+$ const { nextProject, prevProject, alias } = input;
+$ const asRels = defaultValue(input.asRels, false);
+
+$ const nextHref = nextProject ? `/${alias}/${nextProject.shortId}/${nextProject.slug}` : null;
+$ const prevHref = prevProject ? `/${alias}/${prevProject.shortId}/${prevProject.slug}` : null;
+
+$ const blockName = "read-next";
+
+$ const convertEntry = (entry, path) => {
+  const primaryImage = get(entry, "primaryImageEdge.node");
+  return {
+    type: "project-gallery",
+    shortName: entry.title,
+    published: new Date(entry.publishedAt),
+    siteContext: { path },
+    primarySection: { name: `${entry.city}, ${entry.region}` },
+    primaryImage,
+  };
+};
+
+<if(asRels)>
+  <if(prevHref)>
+    <link rel="prev" href=prevHref />
+  </if>
+  <if(nextHref)>
+    <link rel="next" href=nextHref />
+  </if>
+</if>
+<else>
+  <if(nextHref)>
+    <marko-web-block name=blockName>
+      <marko-web-element block-name=blockName name="header">
+        View Next Project
+      </marko-web-element>
+
+      <marko-web-node-list
+        inner-justified=false
+        flush-x=true
+        flush-y=true
+        modifiers=[blockName]
+      >
+        <@nodes nodes=[nextProject]>
+          <@slot|{ node }|>
+            <global-content-node
+              image-position="left"
+              flush=true
+              node=convertEntry(node, nextHref)
+              modifiers=[blockName]
+            >
+              <@image width=160 ar="3:2" />
+            </global-content-node>
+          </@slot>
+        </@nodes>
+      </marko-web-node-list>
+    </marko-web-block>
+  </if>
+  <if(prevHref)>
+    <marko-web-block name=blockName>
+      <marko-web-element block-name=blockName name="header">
+        View Previous Project
+      </marko-web-element>
+
+      <marko-web-node-list
+        inner-justified=false
+        flush-x=true
+        flush-y=true
+        modifiers=[blockName]
+      >
+        <@nodes nodes=[prevProject]>
+          <@slot|{ node }|>
+            <global-content-node
+              image-position="left"
+              flush=true
+              node=node=convertEntry(node, prevHref)
+              modifiers=[blockName]
+            >
+              <@image width=160 ar="3:2" />
+            </global-content-node>
+          </@slot>
+        </@nodes>
+      </marko-web-node-list>
+    </marko-web-block>
+  </if>
+</else>

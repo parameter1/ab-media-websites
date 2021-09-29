@@ -2,9 +2,23 @@ import { get } from "@parameter1/base-cms-object-path";
 
 $ const { req } = out.global;
 
-$ const { gallery, entry, canonicalPath } = input;
+$ const {
+  gallery,
+  entry,
+  canonicalPath,
+  nextProject,
+  prevProject,
+} = input;
 
 <site-project-gallery-page-layout metadata={ title: entry.title, description: entry.teaser, canonicalPath }>
+  <@head>
+    <site-project-gallery-read-next-block
+      next-project=nextProject
+      prev-project=prevProject
+      alias=gallery.primarySection.alias
+      as-rels=true
+    />
+  </@head>
   <@page>
     <marko-web-page-wrapper>
       <@section modifiers=["premium-partners"]>
@@ -57,6 +71,11 @@ $ const { gallery, entry, canonicalPath } = input;
 
             <site-project-gallery-architects-block short-id=entry.shortId />
             <site-project-gallery-vendors-block short-id=entry.shortId />
+            <site-project-gallery-read-next-block
+              next-project=nextProject
+              prev-project=prevProject
+              alias=gallery.primarySection.alias
+            />
           </default-theme-page-contents>
         </div>
       </@section>
