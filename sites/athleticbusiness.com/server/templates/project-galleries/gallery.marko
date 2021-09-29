@@ -24,13 +24,13 @@ $ const chunkedNodes = slothLovesChunkArray({
         />
       </@section>
 
-      <@section|{ blockName }|>
-        <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery/>
-      </@section>
-
       <for|nodes, index| of=chunkedNodes>
+        $ const isFirstChunk = index === 0;
         $ const isLastChunk = index + 1 === chunkedNodes.length;
-        <@section>
+        <@section|{ blockName }|>
+          <if(isFirstChunk)>
+            <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery/>
+          </if>
           <marko-web-node-list
             inner-justified=true
             flush-x=true
