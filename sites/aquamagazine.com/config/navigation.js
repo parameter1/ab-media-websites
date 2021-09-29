@@ -10,8 +10,15 @@ const topics = {
     { href: '/homeowners-diy', label: 'Homeowners/DIY' },
   ],
   expanded: [],
-  secondary: [],
+  secondary: [
+    { href: '/news/pool-hot-tub-alliance-news', label: 'PHTA News' },
+  ],
 };
+
+const resources = [
+  { href: '/directory', label: 'Buyers Guide' },
+  { href: '/magazine', label: 'Magazine' },
+];
 
 const utilities = [
   { href: 'https://info.aquamagazine.com', label: 'Advertise', target: '_blank' },
@@ -27,6 +34,7 @@ const mobileMenu = {
   secondary: [
     ...topics.secondary,
     subscribe,
+    ...resources,
   ],
 };
 
@@ -37,6 +45,7 @@ const desktopMenu = {
     ...topics.expanded,
     ...topics.secondary,
   ],
+  resources: [...resources],
 };
 
 module.exports = {

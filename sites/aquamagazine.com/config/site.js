@@ -17,7 +17,7 @@ module.exports = {
   newsletter,
   search,
   subscribe,
-  company: 'AB Media, Inc.',
+  company: 'AB Media Inc',
   publicationIds: [
     '60f9819fd28860bc33754896',
   ],
@@ -42,9 +42,9 @@ module.exports = {
   },
   socialMediaLinks: [
     { provider: 'facebook', href: 'https://www.facebook.com/AQUAMagazine', target: '_blank' },
-    { provider: 'twitter', href: 'https://twitter.com/aquamagazine', target: '_blank' },
     { provider: 'instagram', href: 'https://www.instagram.com/aqua_magazine/', target: '_blank' },
     { provider: 'pinterest', href: 'https://www.pinterest.com/aquamagazine/_created/', target: '_blank' },
+    { provider: 'twitter', href: 'https://twitter.com/aquamagazine', target: '_blank' },
   ],
   podcastLinks: [],
   gtm: {

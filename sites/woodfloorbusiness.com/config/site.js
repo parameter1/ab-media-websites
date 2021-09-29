@@ -16,7 +16,7 @@ module.exports = {
   newsletter,
   search,
   subscribe,
-  company: 'AB Media, Inc.',
+  company: 'AB Media Inc',
   publicationIds: [
     '60f981b6d28860bc3375bcf7',
   ],
@@ -41,10 +41,10 @@ module.exports = {
   },
   socialMediaLinks: [
     { provider: 'facebook', href: 'https://www.facebook.com/WoodFloorBusiness', target: '_blank' },
-    { provider: 'twitter', href: 'https://twitter.com/WFBusinessMag', target: '_blank' },
+    { provider: 'instagram', href: 'https://www.instagram.com/woodfloorbusiness/', target: '_blank' },
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/wood-floor-business/', target: '_blank' },
     { provider: 'youtube', href: 'https://www.youtube.com/c/WoodFloorBusiness', target: '_blank' },
-    { provider: 'instagram', href: 'https://www.instagram.com/woodfloorbusiness/', target: '_blank' },
+    { provider: 'twitter', href: 'https://twitter.com/WFBusinessMag', target: '_blank' },
   ],
   podcastLinks: [],
   gtm: {
