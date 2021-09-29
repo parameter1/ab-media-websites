@@ -26,7 +26,7 @@ $ const { gallery, entry, canonicalPath } = input;
           <if(entry.city && entry.region)>
             <global-author-published-node
               author={ name: `${entry.city}, ${entry.region}` }
-              content={ published: entry.publishedAt }
+              content={ published: `${entry.year}-06-01` }
               format="YYYY"
               published-prefix="Year in Showcase:"
             />
