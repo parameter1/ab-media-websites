@@ -40,6 +40,7 @@ const desktopMenu = {
     ...topics.expanded,
     ...topics.secondary,
   ],
+  resources: [],
 };
 
 module.exports = {
