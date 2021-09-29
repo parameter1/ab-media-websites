@@ -10,14 +10,13 @@ const topics = {
     { href: '/homeowners-diy', label: 'Homeowners/DIY' },
   ],
   expanded: [],
-  secondary: [
-    { href: '/news/pool-hot-tub-alliance-news', label: 'PHTA News' },
-  ],
+  secondary: [],
 };
 
 const resources = [
   { href: '/directory', label: 'Buyers Guide' },
   { href: '/magazine', label: 'Magazine' },
+  { href: '/news/pool-hot-tub-alliance-news', label: 'PHTA News' },
 ];
 
 const utilities = [
