@@ -4,5 +4,8 @@
   },
   "<site-buyers-guide-promo-block>": {
     "template": "./buyers-guide.marko"
+  },
+  "<site-aqua-live-promo-block>": {
+    "template": "./aqua-live.marko"
   }
 }
