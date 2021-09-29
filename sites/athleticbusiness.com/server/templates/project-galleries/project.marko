@@ -1,4 +1,4 @@
-import { get } from "@parameter1/base-cms-object-path";
+import { get, getAsArray } from "@parameter1/base-cms-object-path";
 
 $ const { req } = out.global;
 
@@ -51,7 +51,12 @@ $ const {
       <@section>
         <div class="content-page-body">
           <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": entry.id }>
-            <global-primary-image-block obj=get(entry, "primaryImageEdge.node") />
+            <global-image-slider
+              modifiers=["project-gallery"]
+              images=getAsArray(entry, "imagesConnection.edges").map(edge => edge.node)
+              image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress", q: 70 }
+            />
+
             $ const bodyId = `content-body-${entry.id}`;
             <div class="mb-block">
               <if(entry.cost)>

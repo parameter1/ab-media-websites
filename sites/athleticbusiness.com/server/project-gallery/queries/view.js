@@ -30,6 +30,20 @@ module.exports = gql`
           credit
         }
       }
+      imagesConnection(input: {
+        pagination: { limit: 50 }
+        sort: { field: SEQUENCE, order: ASC }
+      }) {
+        edges {
+          node {
+            id
+            src
+            alt
+            caption
+            credit
+          }
+        }
+      }
     }
   }
 `;
