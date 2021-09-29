@@ -29,7 +29,7 @@ $ const blockName = "project-gallery-architects";
             <if(node.website)>
               <div>
                 <marko-web-link href=node.website target="_blank">
-                  ${node.website.replace(/^http[s]?:\/\//i, "")}
+                  ${node.website.replace(/^http[s]?:\/\//i, "").replace(/\/$/, "")}
                 </marko-web-link>
               </div>
             </if>
