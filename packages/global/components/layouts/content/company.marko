@@ -32,7 +32,7 @@ $ const sections = getAsArray(input, "sections");
           $ const detailsBlock = "details";
           <marko-web-block name=detailsBlock>
             <if(primaryImage && primaryImage.src)>
-              $ const imgWidth = 320;
+              $ const imgWidth = 200;
               $ const imgHeight = imageHeight(imgWidth, "16:9");
               $ const src = buildImgixUrl(primaryImage.src, {
                 w: imgWidth,
