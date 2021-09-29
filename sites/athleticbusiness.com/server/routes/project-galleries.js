@@ -9,8 +9,12 @@ const indexTemplate = require('../templates/project-galleries/index');
 const galleryTemplate = require('../templates/project-galleries/gallery');
 const projectTemplate = require('../templates/project-galleries/project');
 
-const { LIST_QUERY, VIEW_NEXT_BLOCK_QUERY, VIEW_QUERY } = require('../project-gallery/queries');
-
+const {
+  LIST_QUERY,
+  REDIRECT_LOOKUP,
+  VIEW_NEXT_BLOCK_QUERY,
+  VIEW_QUERY,
+} = require('../project-gallery/queries');
 
 const { env } = process;
 
@@ -21,6 +25,14 @@ const rootSection = {
   hierarchy: [
     { name: 'Project Galleries', alias: 'project-galleries' },
   ],
+};
+
+const findRedirectFor = async (client, { type, id }) => {
+  const entity = `joomla.athleticbusiness.${type}*${id}`;
+  const { data } = await client.query({ query: REDIRECT_LOOKUP, variables: { entity } });
+  const { entry } = data;
+  if (!entry) throw createError(404, `No project gallery found for legacy ID ${id}`);
+  return `/${rootSection.alias}/${entry.type.slug}/${entry.shortId}/${entry.slug}`;
 };
 
 const galleries = [
@@ -63,7 +75,9 @@ const galleryAliases = galleries.map(({ alias }) => alias);
 
 module.exports = (app) => {
   const router = Router();
+  const redirects = Router();
   router.use(projectsGraphQLClient({ uri: env.AB_PROJECTS_GRAPHQL_URL }));
+  redirects.use(projectsGraphQLClient({ uri: env.AB_PROJECTS_GRAPHQL_URL }));
 
   router.get('/', (_, res) => {
     res.marko(indexTemplate, { galleries, primarySection: rootSection });
@@ -129,5 +143,33 @@ module.exports = (app) => {
     });
   }));
 
+  redirects.get('/project-:id(\\d+).html', asyncRoute(async (req, res) => {
+    const { id } = req.params;
+    const to = await findRedirectFor(req.$projectsGraphQL, { id, type: 'abprojects' });
+    res.redirect(301, to);
+  }));
+
+  redirects.get('/architectural-showcase.html', (_, res) => {
+    res.redirect(301, `/${rootSection.alias}`);
+  });
+
+
+  redirects.get('/showcase.html', (_, res) => {
+    const gallery = galleries.find(g => g.alias === 'architectural-showcase');
+    res.redirect(301, `/${gallery.primarySection.alias}`);
+  });
+
+  redirects.get('/adp/project-:id(\\d+).html', asyncRoute(async (req, res) => {
+    const { id } = req.params;
+    const to = await findRedirectFor(req.$projectsGraphQL, { id, type: 'aquagals' });
+    res.redirect(301, to);
+  }));
+
+  redirects.get('/adp/showcase.html', (_, res) => {
+    const gallery = galleries.find(g => g.alias === 'aquatic-design-portfolio');
+    res.redirect(301, `/${gallery.primarySection.alias}`);
+  });
+
   app.use(`/${rootSection.alias}`, router);
+  app.use('/', redirects);
 };
