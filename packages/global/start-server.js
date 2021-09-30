@@ -12,6 +12,7 @@ const paginated = require('./middleware/paginated');
 const newsletterState = require('./middleware/newsletter-state');
 const oembedHandler = require('./oembed-handler');
 const omedaConfig = require('./config/omeda');
+const redirectHandler = require('./redirect-handler');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
   // Shared/global routes (all sites)
@@ -71,6 +72,8 @@ module.exports = (options = {}) => {
       set(app.locals, 'identityX', identityXConfig);
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
+
+    redirectHandler,
 
     embeddedMediaHandlers: {
       oembed: oembedHandler,
