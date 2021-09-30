@@ -100,3 +100,123 @@ $primary: #103a57;
     }
   }
 }
+
+.architectural-showcase-featured {
+  &__header {
+    text-align: center;
+  }
+
+  &__description {
+    margin-top: 6px;
+    text-align: center;
+    @include skin-typography($style: "article-text");
+  }
+
+  &__row {
+    @include make-row();
+    margin-top: 24px;
+    @include media-breakpoint-up(lg) {
+      margin-top: 30px;
+    }
+  }
+
+  &__col-left {
+    @include make-col-ready();
+    @include media-breakpoint-up(md) {
+      @include make-col(6);
+    }
+    @include media-breakpoint-up(lg) {
+      @include make-col(7);
+    }
+  }
+
+  &__col-right {
+    margin-top: 30px;
+    @include make-col-ready();
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+      @include make-col(6);
+    }
+    @include media-breakpoint-up(lg) {
+      @include make-col(5);
+    }
+  }
+}
+
+.featured-fow-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  background-color: $gray-100;
+  border-radius: 4px;
+
+  &__image-container {
+    display: flex;
+    margin-bottom: 11px;
+  }
+
+  &__image-wrapper {
+    @include marko-web-node-fluid-image(1, 1);
+  }
+
+  &__image {
+    @include marko-web-node-fluid-image-item();
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__header {
+    margin-bottom: 8px;
+    @include skin-typography($style: "header-2");
+  }
+
+  &__title {
+    @include skin-typography($style: "header-3", $link-style: "primary");
+  }
+
+  &__view-all-link {
+    padding-top: 16px;
+    margin-top: auto;
+    @include skin-typography($style: "view-more", $link-style: "primary");
+  }
+}
+
+.featured-fom-card {
+  height: 100%;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    @include marko-web-node-list-border($property: border-bottom);
+  }
+
+  &__image-container {
+    display: flex;
+    margin-bottom: 11px;
+  }
+
+  &__image-wrapper {
+    @include marko-web-node-fluid-image(1, 1);
+  }
+
+  &__image {
+    @include marko-web-node-fluid-image-item();
+  }
+
+  &__header {
+    margin-bottom: 4px;
+    @include skin-typography($style: "header-2");
+  }
+
+  &__view-all-link {
+    margin-top: 12px;
+    @include skin-typography($style: "view-more", $link-style: "primary");
+  }
+}
