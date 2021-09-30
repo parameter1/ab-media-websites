@@ -62,7 +62,7 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
       />
     </if>
 
-    <global-section-feed-block alias=alias>
+    <global-section-feed-block alias=alias lazyload=false>
       <@query-params limit=3 skip=p.skip({ perPage }) />
     </global-section-feed-block>
   </@section>
