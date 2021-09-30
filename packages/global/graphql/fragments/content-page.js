@@ -99,6 +99,14 @@ fragment ContentPageFragment on Content {
   }
   ... on ContentCompany {
     email
+    websiteSchedules {
+      section {
+        id
+        alias
+        name
+        fullName
+      }
+    }
   }
   ... on SocialLinkable {
     socialLinks {
