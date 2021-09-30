@@ -58,11 +58,13 @@ $ const sections = getAsArray(input, "sections");
           </default-theme-page-contents>
         </div>
 
+        <global-directory-sections-block schedules=content.websiteSchedules />
+
         <marko-web-query|{ nodes }|
           name="all-company-content"
           params={
             companyId: content.id,
-            includeContentTypes: ['Product', "PressRelease"],
+            includeContentTypes: ["Product", "PressRelease"],
             limit: 3,
             queryFragment,
           }
@@ -73,7 +75,7 @@ $ const sections = getAsArray(input, "sections");
             modifiers=["section-feed", "company-related-feed"]
           >
             <@header>
-              Products & Press Releases from ${content.name}
+              Products & Press Releases
             </@header>
             <@nodes nodes=nodes>
               <@slot|{ node }|>
@@ -87,7 +89,58 @@ $ const sections = getAsArray(input, "sections");
           name="all-company-content"
           params={
             companyId: content.id,
-            excludeContentTypes: ['Product', "PressRelease"],
+            includeContentTypes: ["Video"],
+            limit: 3,
+            queryFragment,
+          }
+        >
+          <marko-web-node-list
+            flush-x=true
+            flush-y=false
+            modifiers=["section-feed", "company-related-feed"]
+          >
+            <@header>
+              Videos
+            </@header>
+            <@nodes nodes=nodes>
+              <@slot|{ node }|>
+                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
+              </@slot>
+            </@nodes>
+          </marko-web-node-list>
+        </marko-web-query>
+
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            includeContentTypes: ["Document", "Promotion"],
+            limit: 3,
+            includeLabels: "Buyers Guide Catalog",
+            queryFragment,
+          }
+        >
+          <marko-web-node-list
+            flush-x=true
+            flush-y=false
+            modifiers=["section-feed", "company-related-feed"]
+          >
+            <@header>
+            Catalogs
+            </@header>
+            <@nodes nodes=nodes>
+              <@slot|{ node }|>
+                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
+              </@slot>
+            </@nodes>
+          </marko-web-node-list>
+        </marko-web-query>
+
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            excludeContentTypes: ["Product", "PressRelease", "Video", "Document", "Promotion"],
             limit: 10,
             queryFragment,
           }
@@ -98,7 +151,7 @@ $ const sections = getAsArray(input, "sections");
             modifiers=["section-feed", "company-related-feed"]
           >
             <@header>
-              Latest from ${content.name}
+              More from ${content.name}
             </@header>
             <@nodes nodes=nodes>
               <@slot|{ node }|>
