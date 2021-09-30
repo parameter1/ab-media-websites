@@ -89,3 +89,14 @@ $primary: #103a57;
     }
   }
 }
+
+
+.partners {
+  .card-deck-flow {
+    &__node {
+      width: auto;
+      padding-right: 9px;
+      padding-left: 8px;
+    }
+  }
+}
