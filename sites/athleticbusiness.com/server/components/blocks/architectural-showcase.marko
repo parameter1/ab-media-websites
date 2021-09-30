@@ -1,12 +1,20 @@
+import { buildImgixUrl } from "@parameter1/base-cms-image";
 import createClient from "../../project-gallery/create-graphql-client";
 
+$ const { config } = out.global
 $ const graphql = createClient();
 $ const blockName = "architectural-showcase-featured";
 
+$ const src = buildImgixUrl(`https://${config.website('imageHost')}/files/base/abmedia/all/image/static/ab/ArchNEW.jpeg`, { w: 210, auto: "format,compress", q: 70 });
+$ const srcset = [`${buildImgixUrl(src, { dpr: 2 })} 2x`];
 
 <marko-web-block name=blockName>
   <marko-web-element block-name=blockName name="header">
-    Image here
+    <marko-web-img
+      src=src
+      srcset=srcset
+      alt="Architectural Showcase Logo"
+    />
   </marko-web-element>
   <marko-web-element block-name=blockName name="description">
     Featuring the newest and most innovative athletic, recreation and fitness facilities from around the world
@@ -14,18 +22,13 @@ $ const blockName = "architectural-showcase-featured";
 
   <marko-web-element block-name=blockName name="row">
     <marko-web-element block-name=blockName name="col-left">
-
+      <!-- facility of the week -->
+      <featured-fow-card client=graphql />
     </marko-web-element>
 
     <marko-web-element block-name=blockName name="col-right">
-
+      <!-- facilities of merit -->
       <featured-fom-card client=graphql />
-
-      <marko-web-element block-name=blockName name="btn-wrapper">
-        <marko-web-link href="/project-galleries/architectural-showcase" class="btn btn-secondary">
-          View all Showcase Projects
-        </marko-web-link>
-      </marko-web-element>
     </marko-web-element>
   </marko-web-element>
 </marko-web-block>
