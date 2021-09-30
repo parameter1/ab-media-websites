@@ -46,7 +46,7 @@ module.exports = {
   signupBannerLarge: {
     ...baseConfig,
     name: 'Newsletter for Athletic Professionals',
-    description: 'Large description',
+    description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
   signupFooter: {
     ...baseConfig,
