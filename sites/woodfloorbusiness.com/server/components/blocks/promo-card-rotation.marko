@@ -3,7 +3,8 @@ import shuffle from "@ab-media/package-global/utils/shuffle-array";
 import ContentToolbox from "./promos/content-toolbox";
 import ResourceBook from "./promos/resource-book";
 
-$ const Promos = shuffle([ContentToolbox, ResourceBook]);
+<!-- $ const Promos = shuffle([ContentToolbox, ResourceBook]); -->
+$ const Promos = [ResourceBook];
 $ const blockName = "callout-cards";
 
 <marko-web-block name=blockName>
@@ -11,8 +12,8 @@ $ const blockName = "callout-cards";
     <marko-web-element block-name=blockName name="col">
       <${Promos[0]} />
     </marko-web-element>
-    <marko-web-element block-name=blockName name="col" modifiers=["last"]>
+    <!-- <marko-web-element block-name=blockName name="col" modifiers=["last"]>
       <${Promos[1]} />
-    </marko-web-element>
+    </marko-web-element> -->
   </marko-web-element>
 </marko-web-block>
