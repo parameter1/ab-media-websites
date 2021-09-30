@@ -4,7 +4,7 @@ module.exports = (app, siteConfig) => {
   app.get('/:alias(contact-us|contact-us.html)', (req, res) => {
     res.redirect(301, '/page/contact-us');
   });
-  app.get('/:alias(about-us|about-us.html)', (req, res) => {
+  app.get('/:alias(about|about.html)', (req, res) => {
     res.redirect(301, '/page/about-us');
   });
   app.get('/:alias(feed)', (req, res) => {
