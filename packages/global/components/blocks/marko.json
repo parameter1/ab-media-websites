@@ -18,6 +18,10 @@
     "@description": "string",
     "@query-params": "object"
   },
+  "<global-directory-sections-block>": {
+    "template": "./directory-sections.marko",
+    "@schedules": "array"
+  },
   "<global-latest-podcast-block>": {
     "template": "./latest-podcast.marko"
   },
