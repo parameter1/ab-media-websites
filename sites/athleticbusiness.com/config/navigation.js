@@ -16,7 +16,14 @@ const topics = {
   ],
 };
 
+const projectGalleries = [
+  { href: '/project-galleries/architectural-showcase', label: 'Architectural Showcase' },
+  { href: '/project-galleries/facilities-of-merit', label: 'Facilities of Merit' },
+  { href: '/project-galleries/aquatic-design-portfolio', label: 'Aquatic Design Portfolio' },
+];
+
 const resources = [
+  ...projectGalleries,
   { href: '/directory', label: 'Buyers Guide' },
   { href: '/magazine', label: 'Magazine' },
 ];
