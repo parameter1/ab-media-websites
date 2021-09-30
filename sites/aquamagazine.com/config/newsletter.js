@@ -45,12 +45,12 @@ module.exports = {
   // links off to seperate omeda dragonform
   signupBannerLarge: {
     ...baseConfig,
-    name: 'Newsletter for Aquatic Professionals',
+    name: 'Newsletter for Pool and Spa Professionals',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
   signupFooter: {
     ...baseConfig,
-    name: 'Newsletter for Aquatic Professionals',
+    name: 'Newsletter for Pool and Spa Professionals',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
 };
