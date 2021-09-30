@@ -70,14 +70,14 @@ $ const sections = getAsArray(input, "sections");
           <marko-web-node-list
             flush-x=true
             flush-y=false
-            modifiers=["section-feed"]
+            modifiers=["section-feed", "company-related-feed"]
           >
             <@header>
               Products & Press Releases from ${content.name}
             </@header>
             <@nodes nodes=nodes>
               <@slot|{ node }|>
-                <global-section-feed-content-node node=node />
+                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
               </@slot>
             </@nodes>
           </marko-web-node-list>
@@ -95,14 +95,14 @@ $ const sections = getAsArray(input, "sections");
           <marko-web-node-list
             flush-x=true
             flush-y=false
-            modifiers=["section-feed"]
+            modifiers=["section-feed", "company-related-feed"]
           >
             <@header>
               Latest from ${content.name}
             </@header>
             <@nodes nodes=nodes>
               <@slot|{ node }|>
-                <global-section-feed-content-node node=node />
+                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
               </@slot>
             </@nodes>
           </marko-web-node-list>

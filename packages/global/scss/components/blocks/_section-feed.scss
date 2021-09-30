@@ -117,4 +117,13 @@
       }
     }
   }
+  &--company-related-feed {
+    .section-feed-content-node {
+      @include media-breakpoint-up(md) {
+        flex-direction: row;
+      }
+    }
+    @include media-breakpoint-up(md) {
+    }
+  }
 }
