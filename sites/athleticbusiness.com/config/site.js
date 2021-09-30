@@ -29,13 +29,13 @@ module.exports = {
     navbar: {
       src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=45&auto=format,compress&q=70',
       srcset: [
-        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=45&auto=format,compress&q=70&dpr=2',
+        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=45&auto=format,compress&q=70&dpr=2 2x',
       ],
     },
     footer: {
       src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70',
       srcset: [
-        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70&dpr=2',
+        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70&dpr=2 2x',
       ],
     },
   },

@@ -29,13 +29,13 @@ module.exports = {
     navbar: {
       src: 'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=45&auto=format,compress&q=70',
       srcset: [
-        'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=45&auto=format,compress&q=70&dpr=2',
+        'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=45&auto=format,compress&q=70&dpr=2 2x',
       ],
     },
     footer: {
       src: 'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=60&auto=format,compress&q=70',
       srcset: [
-        'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=60&auto=format,compress&q=70&dpr=2',
+        'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=60&auto=format,compress&q=70&dpr=2 2x',
       ],
     },
   },
