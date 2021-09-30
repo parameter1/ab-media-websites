@@ -16,6 +16,7 @@ const topics = {
 const resources = [
   { href: '/directory', label: 'Buyers Guide' },
   { href: '/magazine', label: 'Magazine' },
+  { href: 'http://www.aquamag.live', label: 'AQUA Live', target: '_blank' },
   { href: '/news/pool-hot-tub-alliance-news', label: 'PHTA News' },
 ];
 
@@ -61,7 +62,7 @@ module.exports = {
   mobileMenu,
   footer: {
     items: [
-      { href: '/page/about', label: 'About' },
+      { href: '/page/about-us', label: 'About Us' },
       { href: '/page/contact-us', label: 'Contact Us' },
       subscribe,
       { href: '/page/privacy-policy', label: 'Privacy Policy' },
