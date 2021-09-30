@@ -8,20 +8,19 @@ $ const blockName = 'premium-partners';
 $ const { config, site } = out.global;
 $ const premiumPartners = site.getAsArray("premiumPartners");
 $ const logoOptions = {
-  w: 120,
-  h: 40,
+  h: 30,
   fit: "fillmax",
   fill: "solid",
   bg: "fff",
-  pad: 5,
   auto: "format,compress&q=70"
 };
 $ const lazyload = defaultValue(input.lazyload, false);
 
 <if(premiumPartners.length)>
-  $ const displayLimit = defaultValue(input.displayLimit, 7);
+  $ const displayLimit = defaultValue(input.displayLimit, 10);
   $ const shuffledPartners = shuffle(premiumPartners).slice(0, displayLimit);
   <div class=`ad-container--with-label ad-container--with-label-partners`>
+    <div class="partners-label">Premium Partners</div>
     <marko-web-block name="partners">
       <div class="card-deck-flow">
         <for|partner| of=shuffledPartners>
