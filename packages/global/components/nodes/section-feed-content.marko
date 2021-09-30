@@ -63,21 +63,19 @@ $ const blockName = "section-feed-content-node";
     </marko-web-element>
   </marko-web-element>
   <if(displayImage)>
-    <if(!primaryImage.src && !hideEmptyImageWrapper)>
-      <marko-web-element block-name=blockName name="image-wrapper">
-        <if(primaryImage.src)>
-          $ const src = buildImgixUrl(primaryImage.src, imageOptions);
-          $ const srcset = [`${buildImgixUrl(src, { dpr: 2 })} 2x`];
-          <marko-web-link href=get(content, "siteContext.path") attrs=linkAttrs>
-            <marko-web-img
-              src=src
-              srcset=srcset
-              alt=primaryImage.alt
-              class=[`${blockName}__image`]
-            />
-          </marko-web-link>
-        </if>
-      </marko-web-element>
-    </if>
+    <marko-web-element block-name=blockName name="image-wrapper">
+      <if(primaryImage.src)>
+        $ const src = buildImgixUrl(primaryImage.src, imageOptions);
+        $ const srcset = [`${buildImgixUrl(src, { dpr: 2 })} 2x`];
+        <marko-web-link href=get(content, "siteContext.path") attrs=linkAttrs>
+          <marko-web-img
+            src=src
+            srcset=srcset
+            alt=primaryImage.alt
+            class=[`${blockName}__image`]
+          />
+        </marko-web-link>
+      </if>
+    </marko-web-element>
   </if>
 </marko-web-block>
