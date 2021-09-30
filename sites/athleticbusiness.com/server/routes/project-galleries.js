@@ -16,8 +16,6 @@ const {
   VIEW_QUERY,
 } = require('../project-gallery/queries');
 
-const { env } = process;
-
 const rootSection = {
   name: 'Project Galleries',
   alias: 'project-galleries',
@@ -76,8 +74,8 @@ const galleryAliases = galleries.map(({ alias }) => alias);
 module.exports = (app) => {
   const router = Router();
   const redirects = Router();
-  router.use(projectsGraphQLClient({ uri: env.AB_PROJECTS_GRAPHQL_URL }));
-  redirects.use(projectsGraphQLClient({ uri: env.AB_PROJECTS_GRAPHQL_URL }));
+  router.use(projectsGraphQLClient());
+  redirects.use(projectsGraphQLClient());
 
   router.get('/', (_, res) => {
     res.marko(indexTemplate, { galleries, primarySection: rootSection });
