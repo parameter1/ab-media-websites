@@ -14,7 +14,7 @@ $ const schedules = defaultValue(input.schedules, []);
       <@nodes nodes=sections>
         <@slot|{ node }|>
           $ const name = node.fullName.replace("Directory > ", "");
-          <marko-web-link href=node.alias title=name >
+          <marko-web-link href=`/${node.alias}` title=name >
             ${name}
           </marko-web-link>
         </@slot>
