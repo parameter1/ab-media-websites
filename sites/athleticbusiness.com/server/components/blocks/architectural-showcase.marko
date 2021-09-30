@@ -1,0 +1,31 @@
+import createClient from "../../project-gallery/create-graphql-client";
+
+$ const graphql = createClient();
+$ const blockName = "architectural-showcase-featured";
+
+
+<marko-web-block name=blockName>
+  <marko-web-element block-name=blockName name="header">
+    Image here
+  </marko-web-element>
+  <marko-web-element block-name=blockName name="description">
+    Featuring the newest and most innovative athletic, recreation and fitness facilities from around the world
+  </marko-web-element>
+
+  <marko-web-element block-name=blockName name="row">
+    <marko-web-element block-name=blockName name="col-left">
+
+    </marko-web-element>
+
+    <marko-web-element block-name=blockName name="col-right">
+
+      <featured-fom-card client=graphql />
+
+      <marko-web-element block-name=blockName name="btn-wrapper">
+        <marko-web-link href="/project-galleries/architectural-showcase" class="btn btn-secondary">
+          View all Showcase Projects
+        </marko-web-link>
+      </marko-web-element>
+    </marko-web-element>
+  </marko-web-element>
+</marko-web-block>

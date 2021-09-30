@@ -2,6 +2,9 @@
   "taglib-imports": [
     "./promos/marko.json"
   ],
+  "<site-architectural-showcase-block>": {
+    "template": "./architectural-showcase.marko"
+  },
   "<site-promo-card-rotation-block>": {
     "template": "./promo-card-rotation.marko"
   }
