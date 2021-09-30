@@ -99,7 +99,8 @@
     "<query-params>": {},
     "<node>": {},
     "@alias": "string",
-    "@count-only": "boolean"
+    "@count-only": "boolean",
+    "@lazyload": "boolean"
   },
   "<global-section-title-feed-block>": {
     "template": "./section-title-feed.marko",

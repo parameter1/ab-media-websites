@@ -9,6 +9,7 @@ $ const queryParams = {
 
 $ const blockName = "section-feed";
 $ const countOnly = defaultValue(input.countOnly, false);
+$ const lazyload = defaultValue(input.lazyload, true);
 
 <if(countOnly)>
   <global-query-total-count|data| name="website-scheduled-content" params=queryParams>
@@ -25,7 +26,7 @@ $ const countOnly = defaultValue(input.countOnly, false);
     >
       <@nodes nodes=nodes>
         <@slot|{ node }|>
-          <global-section-feed-content-node node=node />
+          <global-section-feed-content-node node=node lazyload=lazyload />
         </@slot>
       </@nodes>
     </marko-web-node-list>

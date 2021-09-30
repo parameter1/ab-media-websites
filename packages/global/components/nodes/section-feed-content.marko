@@ -14,6 +14,7 @@ $ const withSection = defaultValue(input.withSection, true);
 $ const withTeaser = defaultValue(input.withTeaser, true);
 $ const displayImage = defaultValue(input.displayImage, true);
 $ const hideEmptyImageWrapper = defaultValue(input.hideEmptyImageWrapper, false);
+$ const lazyload = defaultValue(input.lazyload, true);
 
 $ const imageOptions = {
   w: 250,
@@ -63,21 +64,20 @@ $ const blockName = "section-feed-content-node";
     </marko-web-element>
   </marko-web-element>
   <if(displayImage)>
-    <if(!primaryImage.src && !hideEmptyImageWrapper)>
-      <marko-web-element block-name=blockName name="image-wrapper">
-        <if(primaryImage.src)>
-          $ const src = buildImgixUrl(primaryImage.src, imageOptions);
-          $ const srcset = [`${buildImgixUrl(src, { dpr: 2 })} 2x`];
-          <marko-web-link href=get(content, "siteContext.path") attrs=linkAttrs>
-            <marko-web-img
-              src=src
-              srcset=srcset
-              alt=primaryImage.alt
-              class=[`${blockName}__image`]
-            />
-          </marko-web-link>
-        </if>
-      </marko-web-element>
-    </if>
+    <marko-web-element block-name=blockName name="image-wrapper">
+      <if(primaryImage.src)>
+        $ const src = buildImgixUrl(primaryImage.src, imageOptions);
+        $ const srcset = [`${buildImgixUrl(src, { dpr: 2 })} 2x`];
+        <marko-web-link href=get(content, "siteContext.path") attrs=linkAttrs>
+          <marko-web-img
+            src=src
+            srcset=srcset
+            alt=primaryImage.alt
+            class=[`${blockName}__image`]
+            lazyload=lazyload
+          />
+        </marko-web-link>
+      </if>
+    </marko-web-element>
   </if>
 </marko-web-block>

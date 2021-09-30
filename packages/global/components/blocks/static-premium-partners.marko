@@ -16,6 +16,7 @@ $ const logoOptions = {
   pad: 5,
   auto: "format,compress&q=70"
 };
+$ const lazyload = defaultValue(input.lazyload, false);
 
 <if(premiumPartners.length)>
   $ const displayLimit = defaultValue(input.displayLimit, 7);
@@ -33,6 +34,7 @@ $ const logoOptions = {
               src=imageSrc
               srcset=[imageSrcset]
               alt=partner.name
+              lazyload=lazyload
             />
           </div>
         </for>
