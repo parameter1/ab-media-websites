@@ -151,6 +151,10 @@ module.exports = (app) => {
     res.redirect(301, `/${rootSection.alias}`);
   });
 
+  redirects.get('/facilities-of-merit.html', (_, res) => {
+    const gallery = galleries.find(g => g.alias === 'facilities-of-merit');
+    res.redirect(301, `/${gallery.primarySection.alias}`);
+  });
 
   redirects.get('/showcase.html', (_, res) => {
     const gallery = galleries.find(g => g.alias === 'architectural-showcase');
