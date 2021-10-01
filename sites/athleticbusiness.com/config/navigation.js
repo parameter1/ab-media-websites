@@ -5,7 +5,6 @@ const topics = {
     { href: '/facilities', label: 'Facilities' },
     { href: '/operations', label: 'Operations' },
     { href: '/leadership', label: 'Leadership' },
-    { href: '/multimedia', label: 'Multimedia' },
   ],
   expanded: [
     // { href: 'https://www.abshow.com', label: 'AB Show', target: '_blank' },
@@ -24,7 +23,7 @@ const projectGalleries = [
 
 const resources = [
   ...projectGalleries,
-  { href: '/directory', label: 'Buyers Guide' },
+  { href: '/directory', label: 'Buyer\'s Guide' },
   { href: '/magazine', label: 'Magazine' },
 ];
 
@@ -78,6 +77,7 @@ module.exports = {
   secondary: {
     items: [
       ...topics.primary,
+      { href: '/directory', label: 'Buyer\'s Guide' },
       { href: 'https://www.abshow.com', label: 'AB Show', target: '_blank' },
     ],
   },
