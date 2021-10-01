@@ -4,6 +4,7 @@ const content = require('./content');
 const dynamicPages = require('./dynamic-page');
 const search = require('./search');
 const websiteSections = require('./website-section');
+const forumRedirects = require('./forum-redirects');
 
 module.exports = (app) => {
   // Homepage
@@ -20,6 +21,9 @@ module.exports = (app) => {
 
   // Search
   search(app);
+
+  // Forum redirects
+  forumRedirects(app);
 
   // Website Sections
   websiteSections(app);
