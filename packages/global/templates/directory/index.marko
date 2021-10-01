@@ -86,10 +86,11 @@ $ const currentPage = search.getCurrentPage();
             <if(currentPage === 1 & !search.input.searchQuery)>
               <@section  modifiers=["featured-listings"]>
                 $ const featuredParams = {
-                  limit: 15,
+                  limit: 25,
                   sectionAlias: alias,
                   sectionBubbling: false,
                   optionName: "Pinned",
+                  sort: { field: 'name', order: 'asc'},
                   queryFragment,
                 };
                 <marko-web-query|{ nodes }| name="website-scheduled-content" params=featuredParams>
