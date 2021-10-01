@@ -77,7 +77,7 @@ services:
     environment:
       <<: *env
       <<: *env-virgon
-      AB_PROJECTS_GRAPHQL_URL: ${AB_PROJECTS_GRAPHQL_URL-graphql.ab-projects.parameter1.com}
+      AB_PROJECTS_GRAPHQL_URL: ${AB_PROJECTS_GRAPHQL_URL-https://graphql.ab-projects.parameter1.com}
       PORT: 80
       EXPOSED_PORT: 9801
       LIVERELOAD_PORT: 19801
