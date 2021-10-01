@@ -15,6 +15,7 @@ const topics = {
 const resources = [
   { href: '/directory', label: 'Buyers Guide' },
   { href: '/magazine', label: 'Magazine' },
+  { href: '/page/forum', label: 'Forum' },
 ];
 
 const utilities = [
