@@ -12,7 +12,7 @@ const topics = {
 };
 
 const resources = [
-  { href: '/directory', label: 'Buyer\'s Guide' },
+  { href: '/directory', label: 'Resource Book' },
   { href: '/magazine', label: 'Magazine' },
   { href: '/page/forum', label: 'Forum' },
   { href: '/news', label: 'News' },
@@ -68,7 +68,7 @@ module.exports = {
   secondary: {
     items: [
       ...topics.primary,
-      { href: '/directory', label: 'Buyer\'s Guide' },
+      { href: '/directory', label: 'Resource Book' },
     ],
   },
   tertiary: {
