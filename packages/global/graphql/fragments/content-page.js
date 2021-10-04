@@ -8,7 +8,6 @@ fragment ContentPageFragment on Content {
   labels
   body
   published
-  updated
   siteContext {
     path
     canonicalUrl
