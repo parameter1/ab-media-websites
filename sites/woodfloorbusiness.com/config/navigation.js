@@ -2,7 +2,6 @@ const subscribe = require('./subscribe');
 
 const topics = {
   primary: [
-    { href: '/wood-flooring', label: 'Wood Flooring' },
     { href: '/installation', label: 'Installation' },
     { href: '/sanding', label: 'Sanding' },
     { href: '/finishing', label: 'Finishing' },
