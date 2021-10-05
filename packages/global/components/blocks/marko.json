@@ -18,6 +18,11 @@
     "@description": "string",
     "@query-params": "object"
   },
+  "<global-directory-featured-projects-block>": {
+    "template": "./directory-featured-projects.marko",
+    "@graphql-client": "object",
+    "@short-ids": "string"
+  },
   "<global-directory-sections-block>": {
     "template": "./directory-sections.marko",
     "@schedules": "array"
