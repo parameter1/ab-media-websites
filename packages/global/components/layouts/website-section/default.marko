@@ -3,7 +3,7 @@ import { getAsArray } from "@parameter1/base-cms-object-path";
 
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
-$ const { site, GAM } = out.global;
+$ const { GAM } = out.global;
 
 <global-website-section-page id=id alias=alias name=name>
   <@head>
