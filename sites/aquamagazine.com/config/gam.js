@@ -12,6 +12,7 @@ config.lazyLoad = {
 config
   .setAliasAdUnits('default', [
     { name: 'leaderboard', templateName: 'LEADERBOARD', path: 'leaderboard' },
+    { name: 'billboard', templateName: 'BILLBOARD', path: 'leaderboard' },
     { name: 'rail', templateName: 'RAIL', path: 'rotation' },
     { name: 'rotation', templateName: 'ROTATION', path: 'rotation' },
     { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: 'rotation' },
@@ -28,6 +29,7 @@ const aliases = [
 
 aliases.forEach(alias => config.setAliasAdUnits(alias, [
   { name: 'leaderboard', templateName: 'LEADERBOARD', path: `${alias}-leaderboard` },
+  { name: 'billboard', templateName: 'BILLBOARD', path: `${alias}-leaderboard` },
   { name: 'rail', templateName: 'RAIL', path: `${alias}-rotation` },
   { name: 'rotation', templateName: 'ROTATION', path: `${alias}-rotation` },
   { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: `${alias}-rotation` },
