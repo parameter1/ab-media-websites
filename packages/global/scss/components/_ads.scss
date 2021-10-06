@@ -153,7 +153,7 @@
   }
 
   &--template-billboard {
-    min-height: 149px + $container-height;
+    min-height: 210px + $container-height;
     @media (min-width: 780px) {
       min-height: 596px + $container-height;
     }
