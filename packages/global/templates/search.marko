@@ -1,12 +1,13 @@
 import queryFragment from "../graphql/fragments/section-feed-block";
 
-$ const { config, req, $markoWebSearch: search } = out.global;
+$ const { site, config, req, $markoWebSearch: search } = out.global;
 
 $ const type = "search";
 $ const title = "Search";
 $ const description = `Search ${config.siteName()}`;
 
 $ const currentPage = search.getCurrentPage();
+$ const premiumPartners = site.getAsArray("premiumPartners");
 
 <marko-web-default-page-layout type=type title=title description=description>
   <@head>
@@ -17,6 +18,11 @@ $ const currentPage = search.getCurrentPage();
   </@head>
   <@page>
     <marko-web-page-wrapper>
+      <@section|{ aliases }| modifiers=["premium-partners"]>
+        <if(premiumPartners.length)>
+          <global-static-premium-partners-block />
+        </if>
+      </@section>
       <@section modifiers=["first"]>
         <global-gam-define-display-ad
           name="leaderboard"
