@@ -6,7 +6,7 @@ import cookies from 'js-cookie';
 
 export default {
   props: {
-    path: {
+    adUnitPath: {
       type: String,
       required: true,
     },
@@ -27,7 +27,7 @@ export default {
     const { googletag } = window;
     googletag.cmd.push(() => {
       googletag.pubads().addEventListener('slotOnload', (event) => {
-        if (event.slot.getAdUnitPath() === this.path) {
+        if (event.slot.getAdUnitPath() === this.adUnitPath) {
           cookies.set(this.cookieName, this.cookieValue, { expires: this.expires });
         }
       });
