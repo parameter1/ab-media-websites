@@ -1,0 +1,70 @@
+$ const { config, site } = out.global;
+
+$ const { id } = data;
+
+$ const type = "digital-edition";
+$ const title = "Digital Edition";
+$ const description = "Digital Edition";
+
+<global-default-page type=type title=title description=description>
+  <@head>
+    <marko-web-gtm-default-context|{ context }| type=type>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-default-context>
+  </@head>
+  <@page>
+    <marko-web-page-wrapper>
+      <@section|{ aliases }| modifiers=["premium-partners"]>
+        <global-static-premium-partners-block />
+      </@section>
+      <@section>
+        <div class="zmags">
+          <div id="zmags-content" class="zmags__viewer"></div>
+        </div>
+        <script>
+          (function(d) {
+            function loadScript(src, cb) {
+              var ele = d.body || d.documentElement;
+              var s = d.createElement('script');
+              s.src = src; ele.appendChild(s);
+              s.onload = cb;
+              s.onerror = cb;
+              return s;
+            }
+            loadScript('https://secure.api.viewer.zmags.com/viewer/viewer.js', function() {
+              var viewer = new com.zmags.api.Viewer();
+              viewer.setPublicationID('${id}');
+              viewer.setParentElementID('zmags-content');
+              viewer.setFullscreenMode(com.zmags.api.Viewer.FullscreenMode.API_ONLY);
+              viewer.addEventListener(com.zmags.api.Viewer.TOOLBAR_BUTTON_ACTIVATE, toolbarButtonActivateHandler);
+              viewer.show();
+              viewer.resize();
+
+              function toolbarButtonActivateHandler(event) {
+                // This event handler is fired for all toolbar button events, so make sure we only handle the
+                // fullscreen button here
+                if (event.buttonID === "fullscreen") {
+                  var viewerElement = document.getElementById("zmags-content"),
+                  headerElement = document.getElementById("header"),
+                  footerElement = document.getElementById("footer");
+                  if (viewerElement.className === "fullscreen") {
+                    viewerElement.className = "";
+                    headerElement.style.display = "";
+                    footerElement.style.display = "";
+                  } else {
+                    viewerElement.className = "fullscreen";
+                    headerElement.style.display = "none";
+                    footerElement.style.display = "none";
+                  }
+
+                  // Tell the viewer that the space available to it has changed
+                  viewer.resize();
+                }
+              }
+            });
+          })(document);
+        </script>
+      </@section>
+    </marko-web-page-wrapper>
+  </@page>
+</global-default-page>
