@@ -7,6 +7,6 @@ module.exports = () => (req, res, next) => {
   const hasCookie = Boolean(get(req, `cookies.${cookieName}`));
   const referrer = parseReferrer(req);
 
-  res.locals.billboardState = { hasCookie, referrer };
+  res.locals.billboardState = { hasCookie, referrer, cookieName };
   next();
 };
