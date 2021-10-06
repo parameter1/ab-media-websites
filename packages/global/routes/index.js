@@ -1,4 +1,5 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
+const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
 const identityX = require('./identity-x');
 const magazine = require('../components/magazine/routes');
@@ -11,6 +12,9 @@ const renderBlock = require('./render-block');
 const search = require('./search');
 
 module.exports = (app, siteConfig) => {
+  // Digital Edition
+  digitalEdition(app);
+
   // Feed
   feed(app);
 
