@@ -1,6 +1,5 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
-import getLeaderboardName from "@ab-media/package-global/utils/get-leaderboard-name";
 import DefineDisplayAd from "../../gam/define-display-ad";
 
 $ const { site, req, res } = out.global;
@@ -18,7 +17,6 @@ $ const displayComments = ["contact"].includes(type) ? false : true;
 <!-- $ const displayNewsletterSignup = ["contact"].includes(type) ? false : true; -->
 $ const displayNewsletterSignup = false;
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
-$ const leaderboardName = getLeaderboardName(req, res);
 
 <global-content-wrapper-layout
   id=id
@@ -31,8 +29,7 @@ $ const leaderboardName = getLeaderboardName(req, res);
   </@section>
 
   <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
-    <global-gam-define-display-ad
-      name=leaderboardName
+    <global-leaderboard-ad-block
       position="content_page"
       aliases=aliases
       modifiers=["inter-block", "combined-leaderboard"]

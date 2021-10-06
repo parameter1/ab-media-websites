@@ -1,11 +1,8 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
-import getLeaderboardName from "@ab-media/package-global/utils/get-leaderboard-name";
 
 $ const { id, alias, name, pageNode } = input;
 $ const { site, req, res } = out.global;
 $ const sections = getAsArray(input, "sections");
-
-$ const leaderboardName = getLeaderboardName(req, res);
 
 <global-website-section-default-layout
   id=id
@@ -15,8 +12,7 @@ $ const leaderboardName = getLeaderboardName(req, res);
   head=input.head
 >
   <@section|{ aliases }| modifiers=["break-container", "first"]>
-    <global-gam-define-display-ad
-      name=leaderboardName
+    <global-leaderboard-ad-block
       position="home_page"
       aliases=aliases
       modifiers=["inter-block", "combined-leaderboard"]
