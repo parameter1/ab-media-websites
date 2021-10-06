@@ -1,7 +1,17 @@
 import { get } from "@parameter1/base-cms-object-path";
 
-$ const { hasCookie, referrer } = get(out.global, "billboardState");
+$ const { GAM } = out.global;
+$ const { hasCookie, referrer, cookieName } = get(out.global, "billboardState");
 $ const name = (!hasCookie && referrer === "internal") ? "billboard" : "leaderboard";
+$ const adUnit = GAM.getAdUnit({ name, aliases: input.aliases });
+$ const expires = 1; // Days
+
+<if(name === "billboard")>
+  <marko-web-browser-component
+    name="GlobalBillboardCookie"
+    props={ path: adUnit.path, cookieName, expires }
+  />
+</if>
 
 <global-gam-define-display-ad
   name=name
