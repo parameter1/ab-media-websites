@@ -60,8 +60,8 @@
   "<global-newsletter-signup-banner-large-block>": {
     "template": "./newsletter-signup-banner-large.marko"
   },
-  "<global-static-premium-partners-block>": {
-    "template": "./static-premium-partners.marko"
+  "<global-premium-partners-block>": {
+    "template": "./premium-partners.marko"
   },
   "<global-opinion-block>": {
     "template": "./opinion.marko",
