@@ -5,8 +5,6 @@ $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 $ const { site, GAM } = out.global;
 
-$ const premiumPartners = site.getAsArray("premiumPartners");
-
 <global-website-section-page id=id alias=alias name=name>
   <@head>
     <marko-web-gtm-website-section-context|{ context }| alias=alias>
@@ -22,9 +20,7 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
       $ const aliases = hierarchyAliases(section);
       <marko-web-page-wrapper>
         <@section|{ aliases }| modifiers=["premium-partners"]>
-          <if(premiumPartners.length)>
-            <global-static-premium-partners-block />
-          </if>
+          <global-static-premium-partners-block />
         </@section>
         <for|s| of=sections>
           <@section|{ blockName }| modifiers=s.modifiers>
