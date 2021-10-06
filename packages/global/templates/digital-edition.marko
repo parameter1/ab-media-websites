@@ -39,28 +39,6 @@ $ const description = "Digital Edition";
               viewer.addEventListener(com.zmags.api.Viewer.TOOLBAR_BUTTON_ACTIVATE, toolbarButtonActivateHandler);
               viewer.show();
               viewer.resize();
-
-              function toolbarButtonActivateHandler(event) {
-                // This event handler is fired for all toolbar button events, so make sure we only handle the
-                // fullscreen button here
-                if (event.buttonID === "fullscreen") {
-                  var viewerElement = document.getElementById("zmags-content"),
-                  headerElement = document.getElementById("header"),
-                  footerElement = document.getElementById("footer");
-                  if (viewerElement.className === "fullscreen") {
-                    viewerElement.className = "";
-                    headerElement.style.display = "";
-                    footerElement.style.display = "";
-                  } else {
-                    viewerElement.className = "fullscreen";
-                    headerElement.style.display = "none";
-                    footerElement.style.display = "none";
-                  }
-
-                  // Tell the viewer that the space available to it has changed
-                  viewer.resize();
-                }
-              }
             });
           })(document);
         </script>
