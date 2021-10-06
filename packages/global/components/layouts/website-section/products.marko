@@ -1,10 +1,13 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
+import getLeaderboardName from "@ab-media/package-global/utils/get-leaderboard-name";
 
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 
-$ const { pagination: p } = out.global;
+$ const { pagination: p, req, res } = out.global;
 $ const perPage = 10;
+
+$ const leaderboardName = getLeaderboardName(req, res);
 
 <global-website-section-default-layout
   id=id
@@ -25,7 +28,7 @@ $ const perPage = 10;
 
   <@section|{ aliases }| modifiers=["first"]>
     <global-gam-define-display-ad
-      name="leaderboard"
+      name=leaderboardName
       position="section_page"
       aliases=aliases
       modifiers=["inter-block"]

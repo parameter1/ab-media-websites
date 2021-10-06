@@ -1,8 +1,9 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import getLeaderboardName from "@ab-media/package-global/utils/get-leaderboard-name";
 import DefineDisplayAd from "../../gam/define-display-ad";
 
-$ const { site } = out.global;
+$ const { site, req, res } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
 
@@ -19,6 +20,8 @@ $ const displayNewsletterSignup = false;
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
 $ const premiumPartners = site.getAsArray("premiumPartners");
 
+$ const leaderboardName = getLeaderboardName(req, res);
+
 <global-content-wrapper-layout
   id=id
   type=type
@@ -31,7 +34,7 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
 
   <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
     <global-gam-define-display-ad
-      name="leaderboard"
+      name=leaderboardName
       position="content_page"
       aliases=aliases
       modifiers=["inter-block", "combined-leaderboard"]
