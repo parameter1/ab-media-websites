@@ -6,6 +6,8 @@ import queryFragment from "@ab-media/package-global/graphql/fragments/section-fe
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
 
+$ const { $projectsGraphQL } = out.global;
+
 <global-content-wrapper-layout
   id=id
   type=type
@@ -57,6 +59,11 @@ $ const sections = getAsArray(input, "sections");
             <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
           </default-theme-page-contents>
         </div>
+
+        <global-directory-featured-projects-block
+          graphql-client=$projectsGraphQL
+          short-ids=content.projectShortIds
+        />
 
         <global-directory-sections-block schedules=content.websiteSchedules />
 

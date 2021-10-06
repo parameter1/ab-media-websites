@@ -5,6 +5,7 @@ const company = require('../templates/content/company');
 const product = require('../templates/content/product');
 const whitepaper = require('../templates/content/whitepaper');
 const content = require('../templates/content');
+const projectsGraphQLClient = require('../middleware/projects-graphql-client');
 
 module.exports = (app) => {
   app.get('/*?contact/:id(\\d{8})*', withContent({
@@ -12,7 +13,7 @@ module.exports = (app) => {
     queryFragment,
   }));
 
-  app.get('/*?company/:id(\\d{8})*', withContent({
+  app.get('/*?company/:id(\\d{8})*', projectsGraphQLClient(), withContent({
     template: company,
     queryFragment,
   }));
