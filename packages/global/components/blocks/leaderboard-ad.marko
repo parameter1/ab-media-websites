@@ -1,10 +1,10 @@
 import { get } from "@parameter1/base-cms-object-path";
 
 $ const { hasCookie, referrer } = get(out.global, "billboardState");
-$ const leaderboardName = (!hasCookie && referrer === "internal") ? "billboard" : "leaderboard";
+$ const name = (!hasCookie && referrer === "internal") ? "billboard" : "leaderboard";
 
 <global-gam-define-display-ad
-  name=leaderboardName
+  name=name
   position=input.position
   aliases=input.aliases
   modifiers=input.modifiers
