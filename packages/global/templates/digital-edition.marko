@@ -26,6 +26,7 @@ $ const description = "Digital Edition";
             function loadScript(src, cb) {
               var ele = d.body || d.documentElement;
               var s = d.createElement('script');
+              s.async = 1;
               s.src = src; ele.appendChild(s);
               s.onload = cb;
               s.onerror = cb;
