@@ -8,8 +8,6 @@ $ const sections = getAsArray(input, "sections");
 $ const { pagination: p } = out.global;
 $ const perPage = 18;
 
-$ const premiumPartners = site.getAsArray("premiumPartners");
-
 <global-website-section-default-layout
   id=id
   alias=alias
@@ -27,13 +25,8 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
     </global-section-feed-block>
   </@head>
 
-  <@section|{ aliases }| modifiers=["premium-partners"]>
-    <global-static-premium-partners-block />
-  </@section>
-
   <@section|{ aliases }| modifiers=["break-container", "first"]>
-    <global-gam-define-display-ad
-      name="leaderboard"
+    <global-leaderboard-ad-block
       position="home_page"
       aliases=aliases
       modifiers=["inter-block", "combined-leaderboard"]

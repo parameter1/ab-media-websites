@@ -17,7 +17,6 @@ $ const displayComments = ["contact"].includes(type) ? false : true;
 <!-- $ const displayNewsletterSignup = ["contact"].includes(type) ? false : true; -->
 $ const displayNewsletterSignup = false;
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
-$ const premiumPartners = site.getAsArray("premiumPartners");
 
 <global-content-wrapper-layout
   id=id
@@ -30,8 +29,7 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
   </@section>
 
   <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
-    <global-gam-define-display-ad
-      name="leaderboard"
+    <global-leaderboard-ad-block
       position="content_page"
       aliases=aliases
       modifiers=["inter-block", "combined-leaderboard"]

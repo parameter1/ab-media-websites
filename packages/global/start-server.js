@@ -10,6 +10,7 @@ const fragments = require('./fragments');
 const sharedRoutes = require('./routes');
 const paginated = require('./middleware/paginated');
 const newsletterState = require('./middleware/newsletter-state');
+const billboardState = require('./middleware/billboard-state');
 const oembedHandler = require('./oembed-handler');
 const omedaConfig = require('./config/omeda');
 const redirectHandler = require('./redirect-handler');
@@ -49,6 +50,9 @@ module.exports = (options = {}) => {
 
       // Use newsletterState middleware
       app.use(newsletterState());
+
+      // Use billboardState middleware
+      app.use(billboardState());
 
       // Use Omeda middleware
       app.use(omedaGraphQL({

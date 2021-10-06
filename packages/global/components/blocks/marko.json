@@ -12,6 +12,9 @@
   "<global-gear-block>": {
     "template": "./gear.marko"
   },
+  "<global-leaderboard-ad-block>": {
+    "template": "./leaderboard-ad.marko"
+  },
   "<global-hero-card-block>": {
     "template": "./hero-card.marko",
     "@alias": "string",

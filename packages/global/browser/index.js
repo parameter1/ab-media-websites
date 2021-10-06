@@ -7,6 +7,7 @@ import NativeX from '@parameter1/base-cms-marko-web-native-x/browser';
 import OmedaRapidIdentityX from '@parameter1/base-cms-marko-web-omeda-identity-x/browser/rapid-identify.vue';
 
 const AutoScroll = () => import(/* webpackChunkName: "global-auto-scroll" */ './auto-scroll.vue');
+const BillboardCookie = () => import(/* webpackChunkName: "global-billboard-cookie" */ './billboard-cookie.vue');
 const BlockLoader = () => import(/* webpackChunkName: "global-block-loader" */ './block-loader.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
@@ -50,6 +51,8 @@ export default (Browser) => {
     CustomAuthenticateComponent: IdentityXAuthenticate,
     CustomCommentStreamComponent: IdentityXCommentStream,
   });
+
+  Browser.register('GlobalBillboardCookie', BillboardCookie);
 
   Browser.register('GlobalImageSlider', ImageSlider);
 
