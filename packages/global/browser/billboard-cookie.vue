@@ -25,6 +25,7 @@ export default {
   },
   created() {
     const { googletag } = window;
+    if (!googletag) return;
     googletag.cmd.push(() => {
       googletag.pubads().addEventListener('slotOnload', (event) => {
         if (event.slot.getAdUnitPath() === this.adUnitPath) {
