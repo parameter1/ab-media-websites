@@ -3,7 +3,9 @@ import { getAsArray } from "@parameter1/base-cms-object-path";
 
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
-$ const { GAM } = out.global;
+$ const { site, GAM } = out.global;
+
+$ const premiumPartners = site.getAsArray("premiumPartners");
 
 <global-website-section-page id=id alias=alias name=name>
   <@head>
@@ -19,6 +21,11 @@ $ const { GAM } = out.global;
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-page-wrapper>
+        <@section|{ aliases }| modifiers=["premium-partners"]>
+          <if(premiumPartners.length)>
+            <global-static-premium-partners-block />
+          </if>
+        </@section>
         <for|s| of=sections>
           <@section|{ blockName }| modifiers=s.modifiers>
             <${s.renderBody}

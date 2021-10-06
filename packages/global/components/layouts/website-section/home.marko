@@ -3,7 +3,6 @@ import { get, getAsArray } from "@parameter1/base-cms-object-path";
 $ const { id, alias, name, pageNode } = input;
 $ const { site } = out.global;
 $ const sections = getAsArray(input, "sections");
-$ const premiumPartners = site.getAsArray("premiumPartners");
 
 <global-website-section-default-layout
   id=id
@@ -12,13 +11,6 @@ $ const premiumPartners = site.getAsArray("premiumPartners");
   page-node=pageNode
   head=input.head
 >
-
-  <@section|{ aliases }| modifiers=["premium-partners"]>
-    <if(premiumPartners.length)>
-      <global-static-premium-partners-block />
-    </if>
-  </@section>
-
   <@section|{ aliases }| modifiers=["break-container", "first"]>
     <global-gam-define-display-ad
       name="leaderboard"
