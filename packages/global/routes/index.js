@@ -13,7 +13,7 @@ const search = require('./search');
 
 module.exports = (app, siteConfig) => {
   // Digital Edition
-  digitalEdition(app);
+  digitalEdition(app, siteConfig);
 
   // Feed
   feed(app);
