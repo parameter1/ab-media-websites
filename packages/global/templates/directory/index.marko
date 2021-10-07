@@ -1,5 +1,6 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
 
+import microQueryFragment from "../../graphql/fragments/directory-section-micro-feed-block";
 import queryFragment from "../../graphql/fragments/directory-section-feed-block";
 
 $ const { id, alias, name, pageNode } = input;
@@ -86,28 +87,41 @@ $ const currentPage = search.getCurrentPage();
                   limit: 25,
                   sectionAlias: alias,
                   sectionBubbling: false,
-                  optionName: "Pinned",
                   sort: { field: 'name', order: 'asc'},
                   queryFragment,
+
                 };
-                <marko-web-query|{ nodes }| name="website-scheduled-content" params=featuredParams>
-                  <if(nodes.length)>
-                      <marko-web-node-list
-                        inner-justified=true
-                        flush-x=false
-                        flush-y=false
-                        modifiers=["directory-section-feed", "featured-listings"]
-                      >
-                        <@header>
-                          Featured:
-                        </@header>
-                        <@nodes nodes=nodes>
-                          <@slot|{ node }|>
-                            <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
-                          </@slot>
-                        </@nodes>
-                      </marko-web-node-list>
-                  </if>
+                $ const microParams = {
+                  ...featuredParams,
+                  includeLabels: "Buyers Guide Microsite",
+                  queryFragment: microQueryFragment,
+                };
+                $ const adParams = {
+                  ...featuredParams,
+                  includeLabels: "Buyers Guide Advertiser",
+                  excludeLabels: "Buyers Guide Microsite",
+                };
+                <marko-web-query|{ nodes: microsite }| name="website-scheduled-content" params=microParams>
+                  <marko-web-query|{ nodes: advertiser }| name="website-scheduled-content" params=adParams>
+                  $ console.log( microsite, advertiser)
+                  <if(microsite.lenght || advertiser.length)>
+                        <marko-web-node-list
+                          inner-justified=true
+                          flush-x=false
+                          flush-y=false
+                          modifiers=["directory-section-feed", "featured-listings"]
+                        >
+                          <@header>
+                            Featured:
+                          </@header>
+                          <@nodes nodes=microsite.concat(advertiser)>
+                            <@slot|{ node }|>
+                              <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
+                            </@slot>
+                          </@nodes>
+                        </marko-web-node-list>
+                    </if>
+                  </marko-web-query>
                 </marko-web-query>
               </@section>
             </if>
