@@ -2,7 +2,7 @@ const { getAsObject } = require('@parameter1/base-cms-object-path');
 const digitalEdition = require('../templates/digital-edition');
 
 module.exports = (app, siteConfig) => {
-  app.get('/images/digitalissues/:code([0-9]{4})', (req, res) => {
+  app.get('/images/digitalissues/:code([a-zA-Z0-9]{4})', (req, res) => {
     const { redirects } = getAsObject(siteConfig, 'digitalEdition');
     const zmagId = redirects[req.params.code];
     const to = `/digital-edition/${zmagId}`;
