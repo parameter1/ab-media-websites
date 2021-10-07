@@ -6,12 +6,9 @@ const identityX = require('./identity-x');
 const newsletter = require('./newsletter');
 const search = require('./search');
 const subscribe = require('./subscribe');
-const premiumPartners = require('./premium-partners');
-
 
 module.exports = {
   navigation,
-  premiumPartners,
   gam,
   nativeX,
   identityX,
