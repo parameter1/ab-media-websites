@@ -13,4 +13,7 @@ const getFileRedirect = ({ from, app }) => {
   return { to };
 };
 
-module.exports = ({ from, app }) => getFileRedirect({ from, app });
+module.exports = ({ from, app }) => {
+  if (/^\/images\/digitalissues/.test(from)) return null;
+  return getFileRedirect({ from, app });
+};
