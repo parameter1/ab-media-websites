@@ -19,7 +19,7 @@ module.exports = {
   search,
   company: 'AB Media Inc',
   publicationIds: [
-    '60f981d5d28860bc33766203',
+    '615602b1da01648223320698',
   ],
   subscribe,
   p1events: {

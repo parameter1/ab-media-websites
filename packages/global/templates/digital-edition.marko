@@ -36,10 +36,7 @@ $ const description = "Digital Edition";
               var viewer = new com.zmags.api.Viewer();
               viewer.setPublicationID('${id}');
               viewer.setParentElementID('zmags-content');
-              viewer.setFullscreenMode(com.zmags.api.Viewer.FullscreenMode.API_ONLY);
-              viewer.addEventListener(com.zmags.api.Viewer.TOOLBAR_BUTTON_ACTIVATE, toolbarButtonActivateHandler);
               viewer.show();
-              viewer.resize();
             });
           })(document);
         </script>

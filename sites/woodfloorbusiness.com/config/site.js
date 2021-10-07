@@ -20,7 +20,7 @@ module.exports = {
   subscribe,
   company: 'AB Media Inc',
   publicationIds: [
-    '60f981b6d28860bc3375bcf7',
+    '61560280da016482233042ea',
   ],
   p1events: {
     tenant: 'abmedia',
