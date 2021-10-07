@@ -2,7 +2,7 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
 
-fragment DirectorySectionFeedBlockContentFragment on Content {
+fragment DirectorySectionMicroFeedBlockContentFragment on Content {
   id
   type
   shortName
@@ -16,6 +16,12 @@ fragment DirectorySectionFeedBlockContentFragment on Content {
     name
     fullName
     canonicalPath
+  }
+  primaryImage {
+    id
+    src(input: { options: { auto: "format,compress", q: 70 } })
+    alt
+    isLogo
   }
   ... on Addressable {
     address1
