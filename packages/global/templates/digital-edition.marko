@@ -42,7 +42,6 @@ $ const description = "Digital Edition";
 
               // Display the page specified in the URL
               var pageturn = false; // Do not alter the hash while pages are still turning.
-              console.log(window.location.hash);
               if (window.location.hash != "") {
                 viewer.gotoPage(window.location.hash.replace("#", ""));
               }
