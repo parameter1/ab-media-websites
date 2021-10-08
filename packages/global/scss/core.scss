@@ -62,6 +62,8 @@
 @import "./components/blocks/top-stories";
 @import "./components/blocks/top-stories-menu";
 
+@import "../components/magazine/scss/index";
+
 body {
   -webkit-font-smoothing: antialiased;
   // set a default letter spacing of .25px, since most fonts have some form of spacing
