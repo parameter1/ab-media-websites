@@ -140,9 +140,12 @@
   }
 
   &__content-body p {
+
     [data-embed-type="image"][data-embed-align="right"] {
       margin-bottom: 1rem;
-      text-align: right;
+      @include media-breakpoint-up(md) {
+        text-align: right;
+      }
       img {
         width: auto;
         min-width: auto;
@@ -152,7 +155,9 @@
     }
     [data-embed-type="image"][data-embed-align="left"] {
       margin-bottom: 1rem;
-      text-align: left;
+      @include media-breakpoint-up(md) {
+        text-align: left;
+      }
       img {
         width: auto;
         min-width: auto;
