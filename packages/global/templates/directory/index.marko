@@ -103,7 +103,6 @@ $ const currentPage = search.getCurrentPage();
                 };
                 <marko-web-query|{ nodes: microsite }| name="website-scheduled-content" params=microParams>
                   <marko-web-query|{ nodes: advertiser }| name="website-scheduled-content" params=adParams>
-                  $ console.log( microsite, advertiser)
                   <if(microsite.lenght || advertiser.length)>
                         <marko-web-node-list
                           inner-justified=true
