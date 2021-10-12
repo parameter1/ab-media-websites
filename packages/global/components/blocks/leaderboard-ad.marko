@@ -4,7 +4,7 @@ $ const { GAM } = out.global;
 $ const { hasCookie, referrer, cookieName } = get(out.global, "billboardState");
 $ const name = (!hasCookie && referrer === "internal") ? "billboard" : "leaderboard";
 $ const adUnit = GAM.getAdUnit({ name, aliases: input.aliases });
-$ const expires = 1; // Days
+$ const expires = 1/6; // Days
 
 <if(name === "billboard")>
   <marko-web-browser-component
