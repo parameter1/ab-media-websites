@@ -16,6 +16,7 @@ const NewsletterCloseButton = () => import(/* webpackChunkName: "global-newslett
 const NewsletterToggleButton = () => import(/* webpackChunkName: "global-newsletter-toggle-button" */ './newsletter-toggle-button.vue');
 
 const SiteNewsletterMenu = () => import(/* webpackChunkName: "global-site-newsletter-menu" */ './site-newsletter-menu.vue');
+const PremiumPartners = () => import(/* webpackChunkName: "global-premium-partners" */ './premium-partners.vue');
 const WufooForm = () => import(/* webpackChunkName: "global-wufoo-form" */ './wufoo-form.vue');
 const TopStoriesMenu = () => import(/* webpackChunkName: "global-top-stories-menu" */ './top-stories-menu.vue');
 const CommentToggleButton = () => import(/* webpackChunkName: "global-comment-toggle-button" */ './comment-toggle-button.vue');
@@ -91,6 +92,7 @@ export default (Browser) => {
   });
   Browser.register('GlobalTopStoriesMenu', TopStoriesMenu);
   Browser.register('GlobalCommentToggleButton', CommentToggleButton);
+  Browser.register('GlobalPremiumPartners', PremiumPartners);
   Browser.register('WufooForm', WufooForm);
 
   Browser.register('OmedaRapidIdentityX', OmedaRapidIdentityX, {
