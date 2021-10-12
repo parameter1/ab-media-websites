@@ -1,3 +1,4 @@
+const digitalEdition = require('./digital-edition');
 const navigation = require('./navigation');
 const gam = require('./gam');
 const nativeX = require('./native-x');
@@ -12,11 +13,12 @@ module.exports = {
   nativeX,
   identityX,
   newsletter,
+  digitalEdition,
   search,
   subscribe,
   company: 'AB Media Inc',
   publicationIds: [
-    '60f9819fd28860bc33754896',
+    '6156026eda016482232f7b11',
   ],
   p1events: {
     tenant: 'abmedia',

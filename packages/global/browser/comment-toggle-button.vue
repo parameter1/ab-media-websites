@@ -74,6 +74,7 @@ export default {
       } catch (e) {
         this.error = e;
       } finally {
+        this.toggle();
         this.isLoading = false;
       }
     },
