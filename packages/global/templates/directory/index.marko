@@ -101,26 +101,33 @@ $ const currentPage = search.getCurrentPage();
                   includeLabels: "Buyers Guide Advertiser",
                   excludeLabels: "Buyers Guide Microsite",
                 };
-                <marko-web-query|{ nodes: microsite }| name="website-scheduled-content" params=microParams>
-                  <marko-web-query|{ nodes: advertiser }| name="website-scheduled-content" params=adParams>
-                  <if(microsite.lenght || advertiser.length)>
-                        <marko-web-node-list
-                          inner-justified=true
-                          flush-x=false
-                          flush-y=false
-                          modifiers=["directory-section-feed", "featured-listings"]
-                        >
-                          <@header>
-                            Featured:
-                          </@header>
-                          <@nodes nodes=microsite.concat(advertiser)>
-                            <@slot|{ node }|>
-                              <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
-                            </@slot>
-                          </@nodes>
-                        </marko-web-node-list>
-                    </if>
-                  </marko-web-query>
+                <marko-web-query|{ nodes }| name="website-scheduled-content" params=microParams>
+                  <marko-web-node-list
+                    inner-justified=true
+                    flush-x=false
+                    flush-y=false
+                    modifiers=["directory-section-feed", "featured-listings"]
+                  >
+                    <@nodes nodes=nodes>
+                      <@slot|{ node }|>
+                        <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
+                      </@slot>
+                    </@nodes>
+                  </marko-web-node-list>
+                </marko-web-query>
+                <marko-web-query|{ nodes }| name="website-scheduled-content" params=adParams>
+                  <marko-web-node-list
+                    inner-justified=true
+                    flush-x=false
+                    flush-y=false
+                    modifiers=["directory-section-feed", "featured-listings"]
+                  >
+                    <@nodes nodes=nodes>
+                      <@slot|{ node }|>
+                        <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
+                      </@slot>
+                    </@nodes>
+                  </marko-web-node-list>
                 </marko-web-query>
               </@section>
             </if>
