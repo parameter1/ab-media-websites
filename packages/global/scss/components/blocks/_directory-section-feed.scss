@@ -87,3 +87,10 @@
     }
   }
 }
+.node-list--directory-section-feed + .node-list--directory-section-feed {
+  .node-list {
+    &__nodes{
+      padding-top: 0;
+    }
+  }
+}
