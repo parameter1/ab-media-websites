@@ -1,5 +1,5 @@
 module.exports = {
-  brandKey: 'NOT_SET',
+  brandKey: 'athlcd',
   clientKey: 'NOT_SET',
   appId: process.env.OMEDA_APP_ID,
   inputId: process.env.OMEDA_INPUT_ID,
