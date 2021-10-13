@@ -36,6 +36,10 @@ export default {
       type: Array,
       required: true,
     },
+    shufflePartners: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   data: () => ({
@@ -47,7 +51,8 @@ export default {
       focusOnSelect: false,
       infinite: true,
       variableWidth: true,
-      speed: 5000,
+      autoplaySpeed: 5000,
+      speed: 2500,
       slidesToShow: 10,
       slidesToScroll: 10,
       touchThreshold: 5,
@@ -55,15 +60,15 @@ export default {
     },
   }),
 
-  mounted() {
-    const { partners } = this;
+  created() {
+    const { partners, shufflePartners } = this;
     if (partners.length < 10) {
       this.SlickCarouselSettings.slidesToShow = partners.length;
       this.SlickCarouselSettings.slidesToScroll = partners.length;
       this.SlickCarouselSettings.autoplay = false;
-      this.partnersToDisplay = partners;
+      this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
     } else {
-      this.partnersToDisplay = this.shuffleArray(partners);
+      this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
     }
   },
 
