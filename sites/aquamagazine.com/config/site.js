@@ -39,6 +39,9 @@ module.exports = {
       ],
     },
   },
+  premiumPartners: {
+    shuffle: true,
+  },
   socialMediaLinks: [
     { provider: 'facebook', href: 'https://www.facebook.com/AQUAMagazine', target: '_blank' },
     { provider: 'instagram', href: 'https://www.instagram.com/aqua_magazine/', target: '_blank' },
