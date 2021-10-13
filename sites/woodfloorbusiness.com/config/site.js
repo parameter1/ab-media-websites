@@ -39,6 +39,9 @@ module.exports = {
       ],
     },
   },
+  premiumPartners: {
+    shuffle: false,
+  },
   socialMediaLinks: [
     { provider: 'facebook', href: 'https://www.facebook.com/WoodFloorBusiness', target: '_blank' },
     { provider: 'instagram', href: 'https://www.instagram.com/woodfloorbusiness/', target: '_blank' },

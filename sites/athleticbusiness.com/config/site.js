@@ -39,6 +39,9 @@ module.exports = {
       ],
     },
   },
+  premiumPartners: {
+    shuffle: true,
+  },
   socialMediaLinks: [
     { provider: 'facebook', href: 'https://www.facebook.com/athleticbusiness', target: '_blank' },
     { provider: 'instagram', href: 'https://www.instagram.com/athleticbiz/', target: '_blank' },

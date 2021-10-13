@@ -7,6 +7,9 @@ import shuffle from "../../utils/shuffle-array";
 $ const blockName = 'premium-partners';
 
 $ const { config, site } = out.global;
+
+$ const shufflePartners = site.get('premiumPartners.shuffle');
+
 $ const logoOptions = {
   h: 30,
   fit: "fillmax",
@@ -25,7 +28,7 @@ $ const queryParams = {
 <marko-web-query|{ nodes: premiumPartners }| name="website-scheduled-content" params=queryParams>
   <if(premiumPartners.length)>
     $ const displayLimit = defaultValue(input.displayLimit, 10);
-    $ const shuffledPartners = shuffle(premiumPartners).slice(0, displayLimit);
+    $ const shuffledPartners = (shufflePartners) ? shuffle(premiumPartners).slice(0, displayLimit) : premiumPartners.slice(0, displayLimit);
     <div class=`ad-container--with-label ad-container--with-label-partners`>
       <div class="partners-label">Premium Partners</div>
       <marko-web-block name="partners">
