@@ -51,7 +51,7 @@ export default {
       focusOnSelect: false,
       infinite: true,
       variableWidth: true,
-      autoplaySpeed: 10000,
+      autoplaySpeed: 6000,
       speed: 2500,
       slidesToShow: 10,
       slidesToScroll: 10,
