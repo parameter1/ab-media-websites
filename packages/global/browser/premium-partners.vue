@@ -57,6 +57,7 @@ export default {
       slidesToScroll: 9,
       touchThreshold: 5,
       cssEase: 'ease',
+      useTransform: false,
     },
   }),
 
