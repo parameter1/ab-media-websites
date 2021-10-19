@@ -78,9 +78,10 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
           />
         </else-if>
 
+        $ const isSponsored = getAsArray(content, "labels").includes("Sponsored");
         $ const bodyId = `content-body-${content.id}`;
 
-        <if(shouldInjectAds)>
+        <if(shouldInjectAds && !isSponsored)>
 
           <global-gam-inject-ads selector=`#${bodyId}` detect-embeds=true>
             $ const desktopCounts = [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500];
