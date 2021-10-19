@@ -60,7 +60,7 @@ module.exports = {
   layout: 'default',
   inquiry: {
     enabled: true,
-    directSend: true,
+    directSend: false,
     sendTo: 'sales@woodfloorbusiness.com',
     sendFrom: 'WoodFloorBusiness.com <noreply@parameter1.com>',
     logo: 'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',

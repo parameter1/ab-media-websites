@@ -58,7 +58,7 @@ module.exports = {
   layout: 'combined',
   inquiry: {
     enabled: true,
-    directSend: true,
+    directSend: false,
     sendTo: 'sales@aquamagazine.com',
     sendFrom: 'AquaMagazine.com <noreply@parameter1.com>',
     logo: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',

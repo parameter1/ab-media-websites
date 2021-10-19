@@ -59,7 +59,7 @@ module.exports = {
   layout: 'default',
   inquiry: {
     enabled: true,
-    directSend: true,
+    directSend: false,
     sendTo: 'sales@athleticbusiness.com',
     sendFrom: 'AthleticBusiness.com <noreply@parameter1.com>',
     logo: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
