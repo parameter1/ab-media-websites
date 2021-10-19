@@ -57,4 +57,12 @@ module.exports = {
     userName: 'NOT_SET',
   },
   layout: 'default',
+  inquiry: {
+    enabled: true,
+    directSend: true,
+    sendTo: 'sales@athleticbusiness.com',
+    sendFrom: 'AthleticBusiness.com <noreply@parameter1.com>',
+    logo: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
+    bgColor: '#FFFFFF',
+  },
 };

@@ -58,4 +58,12 @@ module.exports = {
     userName: 'NOT_SET',
   },
   layout: 'default',
+  inquiry: {
+    enabled: true,
+    directSend: true,
+    sendTo: 'sales@woodfloorbusiness.com',
+    sendFrom: 'WoodFloorBusiness.com <noreply@parameter1.com>',
+    logo: 'https://img.woodfloorbusiness.com/files/base/abmedia/all/image/static/wfb-site-logo.png?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
+    bgColor: '#FFFFFF',
+  },
 };

@@ -56,4 +56,12 @@ module.exports = {
     userName: 'NOT_SET',
   },
   layout: 'combined',
+  inquiry: {
+    enabled: true,
+    directSend: true,
+    sendTo: 'sales@aquamagazine.com',
+    sendFrom: 'AquaMagazine.com <noreply@parameter1.com>',
+    logo: 'https://img.aquamagazine.com/files/base/abmedia/all/image/static/aqua-site-logo.png?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
+    bgColor: '#FFFFFF',
+  },
 };
