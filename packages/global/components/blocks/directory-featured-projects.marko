@@ -53,32 +53,9 @@ $ const convertEntry = (entry) => {
   $ const variables = { shortIds };
 
   <marko-web-resolve|{ resolved }| promise=graphqlClient.query({ query, variables })>
-    $ const nodes = getAsArray(resolved, "data.entries.edges").map(edge => edge.node);
-    <if(nodes.length)>
-      <marko-web-block name=blockName>
-        <marko-web-element block-name=blockName name="header">
-          Projects Featured in the Architectural Showcase
-        </marko-web-element>
-        <marko-web-node-list
-          inner-justified=false
-          flush-x=true
-          flush-y=true
-          modifiers=[blockName]
-        >
-          <@nodes nodes=nodes>
-            <@slot|{ node }|>
-              <global-content-node
-                image-position="left"
-                flush=true
-                node=convertEntry(node)
-                modifiers=[blockName]
-              >
-                <@image width=160 ar="3:2" />
-              </global-content-node>
-            </@slot>
-          </@nodes>
-        </marko-web-node-list>
-      </marko-web-block>
-    </if>
+    $ const nodes = getAsArray(resolved, "data.entries.edges").map(edge => convertEntry(edge.node));
+    <global-content-directory-section-flow nodes=nodes>
+      <@header>Projects Featured in the Architectural Showcase</@header>
+    </global-content-directory-section-flow>
   </marko-web-resolve>
 </if>

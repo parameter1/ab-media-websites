@@ -13,17 +13,4 @@ $ const { id, type, pageNode, ...rest } = input;
   <@section>
     <global-client-side-most-popular-block />
   </@section>
-
-  <@right-rail|{content}|>
-    $ const { site } = out.global;
-    $ const inquiry = site.getAsObject('inquiry');
-    <if(inquiry.enabled && content.enableRmi)>
-      <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
-        <@header>Request More Information</@header>
-        <@body>
-          <marko-web-inquiry-form content=content with-header=false modifiers=["node-list"] />
-        </@body>
-      </marko-web-node-list>
-    </if>
-  </@right-rail>
 </global-content-company-layout>
