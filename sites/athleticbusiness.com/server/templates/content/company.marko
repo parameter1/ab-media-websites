@@ -17,7 +17,7 @@ $ const { id, type, pageNode, ...rest } = input;
   <@right-rail|{content}|>
     $ const { site } = out.global;
     $ const inquiry = site.getAsObject('inquiry');
-    <if(inquiry.enabled)>
+    <if(inquiry.enabled && content.enableRmi)>
       <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
         <@header>Request More Information</@header>
         <@body>
