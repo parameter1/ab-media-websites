@@ -45,7 +45,9 @@ $ const buildContentQuery = () => {
 };
 
 <marko-web-resolve|{ resolved }| promise=getMostPopular()>
-  $ const ids = resolved.map(({ id }) => id);
+  <!-- Map and filter out excluded ids from site config -->
+  $ const excludeIds = site.getAsArray('mostPopularExludeIds');
+  $ const ids = resolved.map(({ id }) => id).filter((id) => !excludeIds.includes(id));
   <if(ids.length)>
     $ const query = buildContentQuery();
     $ const variables = { ids, limit: 6 };
