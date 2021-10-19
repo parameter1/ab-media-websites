@@ -1,6 +1,7 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@parameter1/base-cms-marko-web');
 const { set, get } = require('@parameter1/base-cms-object-path');
+const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
 const omedaGraphQL = require('@parameter1/omeda-graphql-client-express');
 const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
 
@@ -16,6 +17,8 @@ const omedaConfig = require('./config/omeda');
 const redirectHandler = require('./redirect-handler');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
+  // Handle submissions on /__inquiry
+  loadInquiry(app);
   // Shared/global routes (all sites)
   sharedRoutes(app, siteConfig);
   // Load site routes
