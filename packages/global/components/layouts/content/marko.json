@@ -43,6 +43,14 @@
     "@modifiers": "array",
     "@attrs": "object"
   },
+  "<global-content-media-gallery-layout>": {
+    "template": "./media-gallery.marko",
+    "<after-body>": {},
+    "@sections <section>[]": {},
+    "@id": "number",
+    "@type": "string",
+    "@page-node": "object"
+  },
   "<global-content-product-layout>": {
     "template": "./product.marko",
     "<after-body>": {},
