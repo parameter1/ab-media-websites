@@ -65,31 +65,18 @@ $ const { $projectsGraphQL } = out.global;
           short-ids=content.projectShortIds
         />
 
-        <global-directory-sections-block schedules=content.websiteSchedules />
-
         <marko-web-query|{ nodes }|
           name="all-company-content"
           params={
             companyId: content.id,
             includeContentTypes: ["Product", "PressRelease"],
-            limit: 3,
+            limit: 10,
             queryFragment,
           }
         >
-          <marko-web-node-list
-            flush-x=true
-            flush-y=false
-            modifiers=["section-feed", "company-related-feed"]
-          >
-            <@header>
-              Products & Press Releases
-            </@header>
-            <@nodes nodes=nodes>
-              <@slot|{ node }|>
-                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
-              </@slot>
-            </@nodes>
-          </marko-web-node-list>
+          <global-content-directory-section-flow nodes=nodes>
+            <@header>Products & Press Releases</@header>
+          </global-content-directory-section-flow>
         </marko-web-query>
 
         <marko-web-query|{ nodes }|
@@ -97,76 +84,30 @@ $ const { $projectsGraphQL } = out.global;
           params={
             companyId: content.id,
             includeContentTypes: ["Video"],
-            limit: 3,
-            queryFragment,
-          }
-        >
-          <marko-web-node-list
-            flush-x=true
-            flush-y=false
-            modifiers=["section-feed", "company-related-feed"]
-          >
-            <@header>
-              Videos
-            </@header>
-            <@nodes nodes=nodes>
-              <@slot|{ node }|>
-                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
-              </@slot>
-            </@nodes>
-          </marko-web-node-list>
-        </marko-web-query>
-
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
-            includeContentTypes: ["Document", "Promotion"],
-            limit: 3,
-            includeLabels: "Buyers Guide Catalog",
-            queryFragment,
-          }
-        >
-          <marko-web-node-list
-            flush-x=true
-            flush-y=false
-            modifiers=["section-feed", "company-related-feed"]
-          >
-            <@header>
-            Catalogs
-            </@header>
-            <@nodes nodes=nodes>
-              <@slot|{ node }|>
-                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
-              </@slot>
-            </@nodes>
-          </marko-web-node-list>
-        </marko-web-query>
-
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
-            excludeContentTypes: ["Product", "PressRelease", "Video", "Document", "Promotion"],
             limit: 10,
             queryFragment,
           }
         >
-          <marko-web-node-list
-            flush-x=true
-            flush-y=false
-            modifiers=["section-feed", "company-related-feed"]
-          >
-            <@header>
-              More from ${content.name}
-            </@header>
-            <@nodes nodes=nodes>
-              <@slot|{ node }|>
-                <global-section-feed-content-node node=node hide-empty-image-wrapper=true />
-              </@slot>
-            </@nodes>
-          </marko-web-node-list>
+          <global-content-directory-section-flow nodes=nodes>
+            <@header>Videos</@header>
+          </global-content-directory-section-flow>
         </marko-web-query>
+
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            excludeContentTypes: ["Product", "PressRelease", "Video", "Document", "Promotion", "MediaGallery"],
+            limit: 10,
+            queryFragment,
+          }
+        >
+          <global-content-directory-section-flow nodes=nodes>
+            <@header>More from ${content.name}</@header>
+          </global-content-directory-section-flow>
+        </marko-web-query>
+
+        <global-directory-sections-block schedules=content.websiteSchedules />
 
         <${input.afterBody}
           aliases=aliases
@@ -176,6 +117,42 @@ $ const { $projectsGraphQL } = out.global;
       </div>
 
       <div class="col-lg-4 pt-block">
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            includeContentTypes: ["MediaGallery"],
+            includeLabels: "Buyers Guide Project Gallery",
+            limit: 10,
+            queryFragment,
+          }
+        >
+          <global-content-directory-section-flow nodes=nodes>
+            <@header>Project Galleries</@header>
+            <@node with-section=false with-dates=false>
+              <@image width=100 ar="1:1" />
+            </@node>
+          </global-content-directory-section-flow>
+        </marko-web-query>
+
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            includeContentTypes: ["Document", "Promotion"],
+            limit: 10,
+            includeLabels: "Buyers Guide Catalog",
+            queryFragment,
+          }
+        >
+          <global-content-directory-section-flow nodes=nodes>
+            <@header>Catalogs</@header>
+            <@node with-section=false with-dates=false>
+              <@image width=100 ar="3:4" />
+            </@node>
+          </global-content-directory-section-flow>
+        </marko-web-query>
+
         <if(input.rightRail)>
           <${input.rightRail}
             aliases=aliases
