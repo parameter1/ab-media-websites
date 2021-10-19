@@ -45,12 +45,12 @@ module.exports = {
   // links off to seperate omeda dragonform
   signupBannerLarge: {
     ...baseConfig,
-    name: 'Newsletter for Athletic Professionals',
+    name: 'Sign Up for AB Today!',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
   signupFooter: {
     ...baseConfig,
-    name: 'Newsletter for Athletic Professionals',
+    name: 'Sign Up for AB Today!',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
 };
