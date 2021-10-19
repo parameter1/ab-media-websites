@@ -6,7 +6,6 @@ x-node-defaults: &node
   image: node:10.24
   entrypoint: ["node"]
   working_dir: /root
-  restart: always
   volumes:
     - ./:/root:cached
     - ./node_modules:/root/node_modules:delegated
