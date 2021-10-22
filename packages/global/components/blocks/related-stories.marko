@@ -1,6 +1,6 @@
 import queryFragment from "../../graphql/fragments/related-stories-block";
 
-$ const { contentId, sectionId } = input;
+$ const { contentId, sectionId, taxonomyIds } = input;
 $ const limit = 4;
 $ const queryParams = {
   contentId,
@@ -19,9 +19,29 @@ $ const blockName = "related-stories";
     <marko-web-query|{ nodes: related }|
       name="website-scheduled-content"
       params={ sectionId, limit: limit - nodes.length, excludeContentIds, requiresImage: true, queryFragment }
+      collapsible=false
     >
-      $ nodes.push(...related);
-      <if(nodes.length)>
+        $ nodes.push(...related);
+        $ excludeContentIds.push(...related.map(node => node.id));
+        <if(nodes.length < limit && taxonomyIds.length)>
+          <!-- query for more content -->
+          <marko-web-query|{ nodes: taxonomyItems }|
+            name="all-published-content"
+            params={
+                excludeContentIds,
+                includeTaxonomyIds: taxonomyIds,
+                limit: limit - nodes.length,
+                requiresImage: true,
+                queryFragment,
+              }
+            >
+            $ nodes.push(...taxonomyItems);
+            <global-content-card-deck-4-col-flow nodes=nodes modifiers=[blockName]>
+              <@node modifiers=[blockName] />
+            </global-content-card-deck-4-col-flow>
+          </marko-web-query>
+      </if>
+      <else>
         <marko-web-block name=blockName>
           <marko-web-element block-name=blockName name="header">
             ${title}
@@ -30,7 +50,7 @@ $ const blockName = "related-stories";
             <@node modifiers=[blockName] />
           </global-content-card-deck-4-col-flow>
         </marko-web-block>
-      </if>
+      </else>
     </marko-web-query>
   </if>
   <else>
