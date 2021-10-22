@@ -1,4 +1,4 @@
-$ const { id, type, pageNode, ...rest } = input;
+$ const { id, type, pageNode, primarySection, ...rest } = input;
 
 <global-content-default-layout
   id=id
@@ -6,6 +6,11 @@ $ const { id, type, pageNode, ...rest } = input;
   page-node=pageNode
   ...rest
 >
+  <@after-body>
+  <if([76809, 76810].includes(primarySection.id))>
+    <global-pinterest-block primary-section-id = primarySection.id/>
+  </if>
+  </@after-body>
   <@section>
     <site-promo-card-rotation-block />
   </@section>
