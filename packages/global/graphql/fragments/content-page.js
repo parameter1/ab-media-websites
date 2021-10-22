@@ -8,6 +8,7 @@ fragment ContentPageFragment on Content {
   labels
   body
   published
+  taxonomyIds
   siteContext {
     path
     canonicalUrl
