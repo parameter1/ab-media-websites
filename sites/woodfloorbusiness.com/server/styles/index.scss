@@ -10,12 +10,3 @@ $theme-site-header-breakpoints: (
 $primary: #103a57;
 
 @import "../../node_modules/@ab-media/package-global/scss/core";
-
-.page-contents {
-  &__content-body {
-    em > [data-embed-type="image"][data-embed-align="left"] {
-      width: calc(125px - .75rem);
-      margin: 0;
-    }
-  }
-}
