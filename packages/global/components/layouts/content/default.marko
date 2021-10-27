@@ -135,6 +135,11 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
             </if>
           </for>
         </if>
+
+        <if(displayComments)>
+          <global-identity-x-comment-stream content=content />
+        </if>
+
         <!-- remove this when reworking newsletter signup -->
         <global-newsletter-signup-banner-static-block />
         <if(displayNewsletterSignup)>
@@ -147,10 +152,6 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
             providers=["print", "facebook", "linkedin", "twitter", "pinterest"]
             print-path=`/print/content/${content.id}`
           />
-        </if>
-
-        <if(displayComments)>
-          <global-identity-x-comment-stream content=content />
         </if>
 
         <if(displayReadNext)>
