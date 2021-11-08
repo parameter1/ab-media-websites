@@ -56,6 +56,9 @@ module.exports = {
   wufoo: {
     userName: 'NOT_SET',
   },
+  gcse: {
+    id: '29e97f02d3b680a4b',
+  },
   layout: 'default',
   inquiry: {
     enabled: true,
