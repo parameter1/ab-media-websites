@@ -19,6 +19,14 @@ $ const apiKey = site.get("gcse.id");
       <@section|{ aliases }| modifiers=["premium-partners"]>
         <global-premium-partners-block />
       </@section>
+      <@section|{ aliases }| modifiers=["first"]>
+        <global-gam-define-display-ad
+          name="rotation"
+          position="section_page"
+          aliases=aliases
+          modifiers=["inter-block"]
+        />
+      </@section>
       <@section>
         <div class="row">
           <div class="col">
