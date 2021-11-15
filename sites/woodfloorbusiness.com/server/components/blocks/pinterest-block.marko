@@ -1,9 +1,6 @@
-$ const { config } = out.global;
-$ const { websiteContext } = config;
 $ const { primarySectionId } = input;
 
 $ const elementPopulation = {
-  'www.woodfloorbusiness.com': {
     76809: {
       opening: "See a collection of previous job-site tips on our Pinterest",
       firstLinkText: "Trick of the Trade board",
@@ -22,12 +19,11 @@ $ const elementPopulation = {
       secondLinkValue: "mailto:editors@woodfloorbusiness.com",
       closing: "If we use it, we'll send you a WFB T-shirt."
     }
-  }
 }
 
-$ const imgSource = `https://${websiteContext.imageHost}/files/base/abmedia/all/image/2021/05/wfb.pinterest_100x100.png?auto=format&amp;fit=max&amp;w=100`;
+$ const imgSource = `https://img.woodfloorbusiness.com/files/base/abmedia/all/image/2021/05/wfb.pinterest_100x100.png?auto=format&amp;fit=max&amp;w=100`;
 
-<if(elementPopulation[websiteContext.host][primarySectionId])>
+<if(elementPopulation[primarySectionId])>
 $ const {
   opening,
   firstLinkText,
@@ -36,7 +32,7 @@ $ const {
   secondLinkText,
   secondLinkValue,
   closing
-} = elementPopulation[websiteContext.host][primarySectionId];
+} = elementPopulation[primarySectionId];
   <p class="pinterest-block">
     <em class="pinterest-block__text">
       <span data-embed-type="image" data-embed-align="left">

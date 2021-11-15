@@ -10,3 +10,31 @@ $theme-site-header-breakpoints: (
 $primary: #103a57;
 
 @import "../../node_modules/@ab-media/package-global/scss/core";
+
+.pinterest-block {
+  margin-bottom: 29px;
+  em > [data-embed-type="image"][data-embed-align="left"] {
+    width: calc(125px - .75rem);
+    margin: 0;
+    img {
+      width: auto;
+      min-width: auto;
+      max-width: 100%;
+      max-height: 300px;
+    }
+  }
+  &__text {
+    padding-bottom: 24px;
+    font-family: solitaire-mvb-pro, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #3f4043;
+    text-transform: none;
+    letter-spacing: .25px;
+    a {
+      color: #103a57;
+      text-decoration: underline;
+    }
+  }
+}
