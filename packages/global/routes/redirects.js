@@ -1,6 +1,16 @@
 const { get } = require('@parameter1/base-cms-object-path');
 
 module.exports = (app, siteConfig) => {
+  const homeRedirects = [
+    'articles/article.aspx',
+    'articles.html',
+    'headlines.html',
+    'features.html',
+    '/apsp-news/list.html',
+  ];
+  app.get(`/:alias(${homeRedirects.join('|')})`, (req, res) => {
+    res.redirect(301, '/');
+  });
   app.get('/:alias(privacy-policy.html)', (req, res) => {
     res.redirect(301, '/page/privacy-policy');
   });
