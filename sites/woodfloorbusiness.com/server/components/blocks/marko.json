@@ -4,5 +4,9 @@
   ],
   "<site-promo-card-rotation-block>": {
     "template": "./promo-card-rotation.marko"
+  },
+  "<site-pinterest-block>": {
+    "template": "./pinterest-block.marko",
+    "@primary-section-id": "number"
   }
 }
