@@ -22,7 +22,7 @@ $ const convertEntry = (entry) => {
     query DirectoryFeaturedProjectsBlock($shortIds: [String!]!) {
       entries(input: {
         includeIdentifiers: { shortIds: $shortIds }
-        pagination: { limit: 70 }
+        pagination: { limit: 100 }
         sort: { field: PUBLISHED_AT, order: DESC }
       }) {
         edges {
