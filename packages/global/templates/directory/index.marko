@@ -26,12 +26,10 @@ $ const currentPage = search.getCurrentPage();
     <default-theme-breadcrumbs modifiers=["directory", "content-page"]>
       $ const children = getAsArray(section, "hierarchy");
       <for|child| of=children>
-        <if(child.alias !== section.alias)>
           <@item>
             $ const link = search.input.searchQuery ? `/${child.alias}?searchQuery=${search.input.searchQuery}` : `/${child.alias}`;
             <marko-web-link title=child.name href=link>${child.name}</marko-web-link>
           </@item>
-        </if>
       </for>
     </default-theme-breadcrumbs>
     <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=section>
@@ -40,67 +38,43 @@ $ const currentPage = search.getCurrentPage();
     </marko-web-website-section-name>
     <marko-web-website-section-description block-name=blockName obj=section />
   </@section>
-
   <@section|{ blockName, section }|>
     <div class="row">
       <div class="col-lg-3">
-        <marko-web-search-filter-container modifiers=["sticky"] title="Category Fileters">
-          <@title value="Category Filters" />
+        <marko-web-search-filter-container title="Subcategories">
+          <@title value="Subcategories" />
           $ const facetAlias = section.children.edges.length ? alias : section.parent.alias;
           <global-directory-facet-block primary-alias=facetAlias search-query=search.input.searchQuery active-id=id />
         </marko-web-search-filter-container>
+        <div class="mt-block">
+          <div class="company-search__title"> Company Search:</div>
+          <global-company-search-block />
+        </div>
       </div>
 
       <div class="col-lg-9">
-        <marko-web-search-form>
-          <@block class="search-form" />
-          <div class="form-group search-form__group">
-            <label for="search-phrase" class="sr-only">Enter search phrase</label>
-            <marko-web-search-input
-              id="search-phrase"
-              class="form-control"
-              placeholder="Enter search phrase..."
-            />
-          </div>
-          <button type="submit" class="btn btn-primary search-form__btn">
-            Search
-          </button>
-        </marko-web-search-form>
-        <marko-web-search-query|{ nodes, totalCount }|
-          limit=search.getLimit()
-          skip=search.getSkip()
-          sortField=sortField
-          sortOrder=sortOrder
-          content-types=search.input.contentTypes
-          search-query=search.input.searchQuery
-          assigned-to-website-section-ids=[section.id]
-          query-fragment=queryFragment
-        >
+        <if(currentPage === 1 & !search.input.searchQuery)>
           <marko-web-page-wrapper modifiers=["no-padding-x"]>
-            <@section modifiers=["search-results"]>
-              <div>${new Intl.NumberFormat().format(totalCount)} Results</div>
-              <marko-web-search-selected-filters />
-            </@section>
-            <if(currentPage === 1 & !search.input.searchQuery)>
-              <@section  modifiers=["featured-listings"]>
-                $ const featuredParams = {
-                  limit: 250,
-                  sectionAlias: alias,
-                  optionName: ["Pinned", "Standard"],
-                  sort: { field: 'name', order: 'asc'},
-                  queryFragment,
+            <@section  modifiers=["featured-listings"]>
+              $ const featuredParams = {
+                limit: 250,
+                sectionAlias: alias,
+                optionName: ["Pinned", "Standard"],
+                sort: { field: 'name', order: 'asc'},
+                queryFragment,
 
-                };
-                $ const microParams = {
-                  ...featuredParams,
-                  includeLabels: "Buyers Guide Microsite",
-                  queryFragment: microQueryFragment,
-                };
-                $ const adParams = {
-                  ...featuredParams,
-                  includeLabels: "Buyers Guide Advertiser",
-                  excludeLabels: "Buyers Guide Microsite",
-                };
+              };
+              $ const microParams = {
+                ...featuredParams,
+                includeLabels: "Buyers Guide Microsite",
+                queryFragment: microQueryFragment,
+              };
+              $ const adParams = {
+                ...featuredParams,
+                includeLabels: "Buyers Guide Advertiser",
+                excludeLabels: "Buyers Guide Microsite",
+              };
+              <div class="directory-featured-listing__item--wrapper directory-featured-listing__item--open">
                 <marko-web-query|{ nodes }| name="website-scheduled-content" params=microParams>
                   <marko-web-node-list
                     inner-justified=true
@@ -108,6 +82,18 @@ $ const currentPage = search.getCurrentPage();
                     flush-y=false
                     modifiers=["directory-section-feed", "featured-listings"]
                   >
+                    <@header>
+                      Featured
+                      <global-menu-toggle-button
+                        class='directory-featured-listing__toggle'
+                        targets=['.directory-featured-listing__item--wrapper']
+                        toggle-class='directory-featured-listing__item--open'
+                        initially-expanded=true
+                        icon-modifiers=["sm"]
+                        icon-name="chevron-up"
+                        expanded-icon-name="chevron-down"
+                      />
+                    </@header>
                     <@nodes nodes=nodes>
                       <@slot|{ node }|>
                         <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
@@ -129,8 +115,21 @@ $ const currentPage = search.getCurrentPage();
                     </@nodes>
                   </marko-web-node-list>
                 </marko-web-query>
-              </@section>
-            </if>
+              </div>
+            </@section>
+          </marko-web-page-wrapper>
+        </if>
+        <marko-web-search-query|{ nodes, totalCount }|
+          limit=search.getLimit()
+          skip=search.getSkip()
+          sortField=sortField
+          sortOrder=sortOrder
+          content-types=search.input.contentTypes
+          search-query=search.input.searchQuery
+          assigned-to-website-section-ids=[section.id]
+          query-fragment=queryFragment
+        >
+          <marko-web-page-wrapper modifiers=["no-padding-x"]>
             <if(nodes.length)>
               <@section>
                 <marko-web-node-list
