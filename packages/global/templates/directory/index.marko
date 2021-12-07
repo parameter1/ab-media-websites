@@ -84,10 +84,9 @@ $ const currentPage = search.getCurrentPage();
             <if(currentPage === 1 & !search.input.searchQuery)>
               <@section  modifiers=["featured-listings"]>
                 $ const featuredParams = {
-                  limit: 25,
+                  limit: 250,
                   sectionAlias: alias,
                   optionName: ["Pinned", "Standard"],
-                  sectionBubbling: false,
                   sort: { field: 'name', order: 'asc'},
                   queryFragment,
 
