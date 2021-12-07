@@ -16,6 +16,8 @@
   $rotation-min-height-mobile: 50px !default;
   $rotation-min-height-desktop: 90px !default;
 
+  $rail-ad-bg-color: $skin-ad-bg-color !default;
+
   &--inter-block {
     margin-right: -#{$marko-web-page-wrapper-padding};
     margin-bottom: 0;
@@ -93,7 +95,7 @@
   }
 
   &--rail {
-    background-color: $skin-ad-bg-color;
+    background-color: $rail-ad-bg-color;
     > *:first-child {
       padding-bottom: $container-bottom-padding;
     }
@@ -103,7 +105,7 @@
   }
 
   &--rail-mobile {
-    background-color: $skin-ad-bg-color;
+    background-color: $rail-ad-bg-color;
     > *:first-child {
       padding-bottom: $container-bottom-padding;
     }
