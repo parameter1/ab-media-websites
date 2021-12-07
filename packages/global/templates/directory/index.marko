@@ -81,13 +81,13 @@ $ const currentPage = search.getCurrentPage();
               <div>${new Intl.NumberFormat().format(totalCount)} Results</div>
               <marko-web-search-selected-filters />
             </@section>
-            <if(currentPage === 1 & !search.input.searchQuery)>
+            <if(currentPage === 1 && !search.input.searchQuery)>
               <@section  modifiers=["featured-listings"]>
                 $ const featuredParams = {
                   limit: 25,
                   sectionAlias: alias,
                   optionName: ["Pinned", "Standard"],
-                  sectionBubbling: false,
+                  sectionBubbling: true,
                   sort: { field: 'name', order: 'asc'},
                   queryFragment,
 
@@ -132,7 +132,7 @@ $ const currentPage = search.getCurrentPage();
                 </marko-web-query>
               </@section>
             </if>
-            <if(nodes.length)>
+            <if(nodes.length && search.input.searchQuery)>
               <@section>
                 <marko-web-node-list
                   inner-justified=true
