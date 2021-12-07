@@ -34,7 +34,7 @@ $ const {
 
       <@section|{ blockName }| modifiers=["content-header"]>
         <div class="content-page-header">
-          <global-content-page-breadcrumbs section=gallery.primarySection />
+          <theme-content-page-breadcrumbs section=gallery.primarySection />
           <marko-web-content-name tag="h1" block-name=blockName obj={ name: entry.title } />
           <if(entry.city && entry.region)>
             <global-author-published-node
