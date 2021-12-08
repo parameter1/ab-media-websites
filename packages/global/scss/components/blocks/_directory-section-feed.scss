@@ -78,8 +78,7 @@
 }
 .page-wrapper {
   &__section {
-    &--featured-listings {
-      margin-bottom: 15px;
+    .node-list--featured-listings {
       background-color: $gray-100;
       &:empty {
         display: none;
@@ -91,6 +90,32 @@
   .node-list {
     &__nodes{
       padding-top: 0;
+    }
+  }
+}
+.directory-featured-listing {
+  &__toggle {
+    @include theme-toggle-button();
+    position: absolute;
+    top: .5rem;
+    right: .75rem;
+    padding: 0;
+    margin-left: auto;
+    .marko-web-icon svg {
+      fill: $white;
+    }
+    & > .icon {
+      @include theme-navbar-link-color(( active: $white, hover: $white, default: $white ));
+    }
+  }
+}
+.directory-featured-listing__item--wrapper {
+  .node-list__nodes {
+    display: none;
+  }
+  &.directory-featured-listing__item--open {
+    .node-list__nodes {
+      display: initial;
     }
   }
 }
