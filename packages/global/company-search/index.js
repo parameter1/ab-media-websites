@@ -17,6 +17,7 @@ module.exports = (app) => {
       {
         status: 1,
         contentTypes: ['COMPANY'],
+        assignedToWebsiteSiteIds: [req.app.locals.config.websiteContext.id],
         searchQuery,
         queryFragment,
       },
