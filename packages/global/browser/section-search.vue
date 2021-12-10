@@ -38,7 +38,6 @@ export default {
     matches() {
       return this.sections.filter((section) => {
         const match = section.name.toLowerCase().indexOf(this.selection.toLowerCase()) >= 0;
-        console.log(match, section);
         return match;
       });
       // return this.sectionNames.filter((str) => {

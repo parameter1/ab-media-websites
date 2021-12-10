@@ -22,7 +22,7 @@ $ const currentPage = search.getCurrentPage();
     />
   </@section>
   <@section|{ blockName, section }|>
-    <default-theme-breadcrumbs modifiers=["directory", "content-page"]>
+    <theme-breadcrumbs modifiers=["directory", "content-page"]>
       $ const children = getAsArray(section, "hierarchy");
       <for|child| of=children>
           <@item>
@@ -30,7 +30,7 @@ $ const currentPage = search.getCurrentPage();
             <marko-web-link title=child.name href=link>${child.name}</marko-web-link>
           </@item>
       </for>
-    </default-theme-breadcrumbs>
+    </theme-breadcrumbs>
     <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=section>
       <if(currentPage > 1)>${value}: Page ${currentPage}</if>
       <else>${value}</else>

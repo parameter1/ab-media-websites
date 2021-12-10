@@ -41,7 +41,7 @@ $ const { totalCount, pageInfo } = entries;
         $ const isLastChunk = index + 1 === chunkedNodes.length;
         <@section|{ blockName }|>
           <if(isFirstChunk)>
-            <global-content-page-breadcrumbs section=gallery.primarySection display-self=false />
+            <theme-content-page-breadcrumbs section=gallery.primarySection display-self=false />
             <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery />
           </if>
           <marko-web-node-list
