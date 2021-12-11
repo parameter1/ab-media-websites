@@ -6,6 +6,7 @@ const omedaGraphQL = require('@parameter1/omeda-graphql-client-express');
 const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
 const stripOlyticsParam = require('@parameter1/base-cms-marko-web-omeda-identity-x/middleware/strip-olytics-param');
 
+const companySearchHandler = require('./company-search');
 const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
@@ -22,6 +23,8 @@ const routes = (siteRoutes, siteConfig) => (app) => {
   loadInquiry(app);
   // Shared/global routes (all sites)
   sharedRoutes(app, siteConfig);
+  // Handle request on /__company-search?searchQuery=CompanyName
+  companySearchHandler(app);
   // Load site routes
   siteRoutes(app);
 };

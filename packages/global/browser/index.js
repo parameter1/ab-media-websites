@@ -11,6 +11,8 @@ import OmedaIdentityX from '@parameter1/base-cms-marko-web-omeda-identity-x/brow
 const AutoScroll = () => import(/* webpackChunkName: "global-auto-scroll" */ './auto-scroll.vue');
 const BillboardCookie = () => import(/* webpackChunkName: "global-billboard-cookie" */ './billboard-cookie.vue');
 const BlockLoader = () => import(/* webpackChunkName: "global-block-loader" */ './block-loader.vue');
+const CompanySearch = () => import(/* webpackChunkName: "global-company-search" */ './company-search.vue');
+const SectionSearch = () => import(/* webpackChunkName: "global-section-search" */ './section-search.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
 const MenuToggleButton = () => import(/* webpackChunkName: "global-menu-toggle-button" */ './menu-toggle-button.vue');
@@ -106,6 +108,12 @@ export default (Browser) => {
   Browser.register('GlobalNewsletterCloseButton', NewsletterCloseButton);
 
   Browser.register('GlobalNewsletterToggleButton', NewsletterToggleButton, {
+    provide: { EventBus },
+  });
+  Browser.register('GlobalCompanySearch', CompanySearch, {
+    provide: { EventBus },
+  });
+  Browser.register('GlobalSectionSearch', SectionSearch, {
     provide: { EventBus },
   });
   Browser.register('GlobalTopStoriesMenu', TopStoriesMenu);
