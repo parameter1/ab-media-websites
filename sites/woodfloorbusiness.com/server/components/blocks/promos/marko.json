@@ -4,5 +4,8 @@
   },
   "<site-resource-book-promo-block>": {
     "template": "./resource-book.marko"
+  },
+  "<site-podcasts-promo-block>": {
+    "template": "./podcasts.marko"
   }
 }
