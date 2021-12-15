@@ -70,7 +70,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
         </else-if>
         <else-if(displayPrimaryImage)>
           $ let forceDisplay;
-          $ if (type === "contact") forceDisplay = "left";
+          $ if (["contact", "whitepaper", "document"].includes(type)) forceDisplay = "left";
           $ if (type === "video") forceDisplay = "none";
           <global-primary-image-block
             obj=content.primaryImage
