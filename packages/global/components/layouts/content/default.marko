@@ -70,11 +70,16 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
         </else-if>
         <else-if(displayPrimaryImage)>
           $ let forceDisplay;
-          $ if (type === "contact") forceDisplay = "left";
+          $ const modifiers = [];
+          $ if (["contact", "whitepaper", "document"].includes(type)) {
+            forceDisplay = "left";
+            modifiers.push('forced-left');
+          }
           $ if (type === "video") forceDisplay = "none";
           <global-primary-image-block
             obj=content.primaryImage
-            force-display=forceDisplay;
+            force-display=forceDisplay
+            modifiers=modifiers
           />
         </else-if>
 
