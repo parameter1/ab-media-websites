@@ -32,5 +32,8 @@
     "@attrs": "object",
     "@link-attrs": "object"
   },
+  "<theme-product-feed-content-node>": {
+    "template": "./product-feed-content.marko"
+  },
   }
 }
