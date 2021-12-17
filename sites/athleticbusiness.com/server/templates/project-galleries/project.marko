@@ -37,7 +37,7 @@ $ const {
           <theme-content-page-breadcrumbs section=gallery.primarySection />
           <marko-web-content-name tag="h1" block-name=blockName obj={ name: entry.title } />
           <if(entry.city && entry.region)>
-            <global-author-published-node
+            <theme-author-published-node
               author={ name: `${entry.city}, ${entry.region}` }
               content={ published: `${entry.year}-06-01` }
               format="YYYY"

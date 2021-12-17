@@ -12,7 +12,7 @@ $ const nativeX = getAsObject(input, "nativeX");
         node=node
         config=nxConfig
       >
-        <global-content-node
+        <theme-content-node
           image-position="top"
           card=true
           flush=true
@@ -25,11 +25,11 @@ $ const nativeX = getAsObject(input, "nativeX");
           attrs=containerAttrs
         >
           <@image ar="3:2" fluid=true />
-        </global-content-node>
+        </theme-content-node>
       </marko-web-native-x-render>
     </if>
     <else>
-      <global-content-node
+      <theme-content-node
         image-position="top"
         card=true
         flush=true
@@ -40,7 +40,7 @@ $ const nativeX = getAsObject(input, "nativeX");
         node=node
       >
         <@image ar="3:2" fluid=true />
-      </global-content-node>
+      </theme-content-node>
     </else>
   </@slot>
 </default-theme-card-deck-flow>
