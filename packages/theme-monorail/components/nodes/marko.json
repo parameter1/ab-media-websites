@@ -4,6 +4,7 @@
   },
   "<theme-author-published-node>": {
     "template": "./author-published.marko"
+  },
   "<theme-content-node>": {
     "template": "./content.marko",
     "<image>": {},
@@ -32,6 +33,8 @@
     "@attrs": "object",
     "@link-attrs": "object"
   },
+  "<theme-content-published-node>": {
+    "template": "./content-published.marko"
   },
   "<theme-directory-section-feed-content-node>": {
     "template": "./directory-section-feed-content.marko"
