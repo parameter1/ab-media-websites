@@ -33,6 +33,9 @@
     "@link-attrs": "object"
   },
   },
+  "<theme-directory-section-feed-content-node>": {
+    "template": "./directory-section-feed-content.marko"
+  },
   "<theme-product-feed-content-node>": {
     "template": "./product-feed-content.marko"
   },
