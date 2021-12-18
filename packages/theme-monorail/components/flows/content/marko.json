@@ -1,5 +1,5 @@
 {
-  "<global-content-list-flow>": {
+  "<theme-content-list-flow>": {
     "template": "./list.marko",
     "<header>": {},
     "<body>": {},
@@ -19,7 +19,7 @@
     "@class": "string",
     "@modifiers": "array"
   },
-  "<global-content-directory-section-flow>": {
+  "<theme-content-directory-section-flow>": {
     "template": "./directory-section.marko",
     "<header>": {},
     "<node>": {
@@ -27,7 +27,7 @@
     },
     "@nodes": "array"
   },
-  "<global-content-card-deck-4-col-flow>": {
+  "<theme-content-card-deck-4-col-flow>": {
     "template": "./card-deck-4-col.marko"
   }
 }
