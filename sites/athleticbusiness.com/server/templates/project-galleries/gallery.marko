@@ -69,7 +69,7 @@ $ const { totalCount, pageInfo } = entries;
         </@section>
         <if(!isLastChunk)>
           <@section|{ aliases }|>
-            <global-gam-define-display-ad
+            <theme-gam-define-display-ad
               name="rotation"
               position="static_page"
               modifiers=["inter-block"]
@@ -79,7 +79,7 @@ $ const { totalCount, pageInfo } = entries;
       </for>
 
       <@section>
-        <global-gam-define-display-ad
+        <theme-gam-define-display-ad
           name="rotation"
           position="static_page"
           modifiers=["inter-block"]
