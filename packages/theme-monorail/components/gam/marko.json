@@ -1,4 +1,9 @@
 {
+  "<theme-gam-wallpaper-ad>": {
+    "template": "./wallpaper-ad.marko",
+    "@aliases": "array",
+    "@position": "string"
+  },
   "<theme-gam-prestitial>": {
     "template": "./prestitial.marko",
     "@name": {
