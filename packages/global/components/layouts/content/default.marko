@@ -1,6 +1,5 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
-import DefineDisplayAd from "../../gam/define-display-ad";
 
 $ const { site } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
@@ -155,7 +154,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
         </if>
 
         <if(displayComments)>
-          <global-identity-x-comment-stream content=content />
+          <theme-identity-x-comment-stream content=content />
         </if>
 
         <if(displayReadNext)>
