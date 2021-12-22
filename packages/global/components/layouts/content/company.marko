@@ -86,7 +86,7 @@ $ const { $projectsGraphQL } = out.global;
             queryFragment,
           }
         >
-          <global-content-directory-section-flow nodes=nodes>
+          <global-content-directory-section-flow nodes=nodes with-section=false>
             <@header>Videos</@header>
           </global-content-directory-section-flow>
         </marko-web-query>
@@ -100,7 +100,7 @@ $ const { $projectsGraphQL } = out.global;
             queryFragment,
           }
         >
-          <global-content-directory-section-flow nodes=nodes>
+          <global-content-directory-section-flow nodes=nodes with-section=false>
             <@header>More from ${content.name}</@header>
           </global-content-directory-section-flow>
         </marko-web-query>
