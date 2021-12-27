@@ -21,9 +21,10 @@
       </div>
       <div v-else :class="element('login-form-wrapper')">
         <p :class="element('login-message')">
+          <span :class="element(`login-message--cta`)">
+            Post a Comment
+          </span>
           You must be signed in to leave a comment.
-        </p>
-        <p :class="element('login-message')">
           To sign in or create an account,
           enter your email address and we'll send you a one-click sign-in link.
         </p>
@@ -38,7 +39,7 @@
       </div>
 
       <h5 v-if="latestCommentsHeader && comments.length" :class="element('latest-comments')">
-        {{ latestCommentsHeader }}
+        {{ latestCommentsHeader }} ({{ totalCount }})
       </h5>
     </div>
     <div v-if="isLoading" :class="element('loading')">
@@ -75,12 +76,13 @@
         </button>
       </div>
     </div>
+    <div :class="element('bottom')" />
   </div>
 </template>
 
 <script>
 import get from '@parameter1/base-cms-marko-web-identity-x/browser/utils/get';
-import Post from '@parameter1/base-cms-marko-web-identity-x/browser/comments/post.vue';
+import Post from './post.vue';
 import Login from './login.vue';
 import Create from './create.vue';
 
@@ -120,15 +122,15 @@ export default {
     },
     headerText: {
       type: String,
-      default: 'Leave a Comment',
+      default: 'Comments',
     },
     latestCommentsHeader: {
       type: String,
-      default: 'Comments',
+      default: 'All Comments',
     },
     noCommentsMessage: {
       type: String,
-      default: 'No comments have been added yet. Want to start the conversation?',
+      default: 'This article hasn’t received any comments yet. Want to start the conversation?',
     },
     modifiers: {
       type: Array,
@@ -169,6 +171,7 @@ export default {
       const { blockName } = this;
       const classNames = [blockName];
       this.modifiers.map(mod => classNames.push(`${blockName}--${mod}`));
+      classNames.push(`${blockName}__counter--${this.comments.length}`);
       return classNames;
     },
 

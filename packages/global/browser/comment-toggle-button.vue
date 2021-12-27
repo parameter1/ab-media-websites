@@ -4,7 +4,7 @@
     type="button"
     @click="toggle"
   >
-    <span>{{ label }} Comments ({{ totalCount }})</span>
+    <span>{{ label }} Comments</span>
     <component :is="arrow" class="comment-toggle-arrow" />
   </button>
 </template>
@@ -26,6 +26,10 @@ export default {
     classes: {
       type: String,
       default: null,
+    },
+    isExpanded: {
+      type: Boolean,
+      default: false,
     },
     targets: {
       type: Array,
@@ -56,6 +60,7 @@ export default {
   },
 
   created() {
+    this.expanded = this.isExpanded;
     this.loadCount();
   },
 
