@@ -4,7 +4,6 @@ import GAM from '@parameter1/base-cms-marko-web-gam/browser';
 import Search from '@parameter1/base-cms-marko-web-search/browser';
 import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
 import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
-import IdentityX from '@parameter1/base-cms-marko-web-identity-x/browser';
 import NativeX from '@parameter1/base-cms-marko-web-native-x/browser';
 import OmedaIdentityX from '@parameter1/base-cms-marko-web-omeda-identity-x/browser';
 
@@ -24,6 +23,7 @@ const PremiumPartners = () => import(/* webpackChunkName: "global-premium-partne
 const WufooForm = () => import(/* webpackChunkName: "global-wufoo-form" */ './wufoo-form.vue');
 const TopStoriesMenu = () => import(/* webpackChunkName: "global-top-stories-menu" */ './top-stories-menu.vue');
 const CommentToggleButton = () => import(/* webpackChunkName: "global-comment-toggle-button" */ './comment-toggle-button.vue');
+const IdentityXLogin = () => import(/* webpackChunkName: "theme-identity-x-login" */ './identity-x/comments/login.vue');
 const IdentityXCommentStream = () => import(/* webpackChunkName: "theme-identity-x-comment-stream" */ './identity-x/comments/stream.vue');
 
 const setP1EventsIdentity = ({ p1events, brandKey, encryptedId }) => {
@@ -68,10 +68,10 @@ export default (Browser) => {
   SocialSharing(Browser);
   NativeX(Browser);
   Inquiry(Browser);
-  IdentityX(Browser, {
+  OmedaIdentityX(Browser, {
+    LoginComponent: IdentityXLogin,
     CustomCommentStreamComponent: IdentityXCommentStream,
   });
-  OmedaIdentityX(Browser);
 
   Browser.register('GlobalBillboardCookie', BillboardCookie);
 
