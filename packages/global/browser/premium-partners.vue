@@ -9,7 +9,7 @@
           <a
             v-for="(partner) in partnersToDisplay"
             :key="partner.name"
-            :href="partner.href"
+            :href="partner.linkUrl"
             :title="partner.shorName"
           >
             <img
