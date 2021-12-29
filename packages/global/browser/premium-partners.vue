@@ -67,7 +67,6 @@ export default {
       this.SlickCarouselSettings.slidesToShow = partners.length;
       this.SlickCarouselSettings.slidesToScroll = partners.length;
       this.SlickCarouselSettings.autoplay = false;
-      console.warn(this.partnersToDisplay);
       this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
     } else {
       this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
