@@ -11,6 +11,7 @@
             :key="partner.name"
             :href="partner.linkUrl"
             :title="partner.shorName"
+            target="_blank"
           >
             <img
               class="premium-partners__logo"
@@ -36,10 +37,6 @@ export default {
       type: Array,
       required: true,
     },
-    shufflePartners: {
-      type: Boolean,
-      default: true,
-    },
   },
 
   data: () => ({
@@ -62,14 +59,14 @@ export default {
   }),
 
   created() {
-    const { partners, shufflePartners } = this;
+    const { partners } = this;
     if (partners.length < 10) {
       this.SlickCarouselSettings.slidesToShow = partners.length;
       this.SlickCarouselSettings.slidesToScroll = partners.length;
       this.SlickCarouselSettings.autoplay = false;
-      this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
+      this.partnersToDisplay = partners;
     } else {
-      this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
+      this.partnersToDisplay = partners;
     }
   },
 
