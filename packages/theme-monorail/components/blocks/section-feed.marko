@@ -9,6 +9,7 @@ $ const queryParams = {
 
 $ const blockName = "section-feed";
 $ const countOnly = defaultValue(input.countOnly, false);
+$ const modifiers = defaultValue(input.modifiers, []);
 $ const lazyload = defaultValue(input.lazyload, true);
 
 <if(countOnly)>
@@ -22,7 +23,7 @@ $ const lazyload = defaultValue(input.lazyload, true);
       inner-justified=true
       flush-x=true
       flush-y=false
-      modifiers=[blockName]
+      modifiers=[blockName, ...modifiers]
     >
       <@nodes nodes=nodes>
         <@slot|{ node }|>
