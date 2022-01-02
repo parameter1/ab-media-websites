@@ -2,12 +2,13 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
 
-fragment SectionFeedBlockContentFragment on Content {
+fragment SectionBodyFeedBlockContentFragment on Content {
   id
   type
   shortName
   labels
   teaser(input: { useFallback: false, maxLength: null })
+  body
   siteContext {
     path
   }
@@ -20,7 +21,7 @@ fragment SectionFeedBlockContentFragment on Content {
   }
   primaryImage {
     id
-    src(input: { options: { auto: "format,compress", q: 70 } })
+    src(input: { options: { auto: "format,compress" } })
     alt
     isLogo
   }

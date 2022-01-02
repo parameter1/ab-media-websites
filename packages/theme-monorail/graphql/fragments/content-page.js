@@ -8,6 +8,7 @@ fragment ContentPageFragment on Content {
   labels
   body
   published
+  updated
   siteContext {
     path
     canonicalUrl
@@ -32,7 +33,7 @@ fragment ContentPageFragment on Content {
   }
   primaryImage {
     id
-    src(input: { useCropRectangle: true, options: { auto: "format,compress", q: 70 } })
+    src(input: { useCropRectangle: true, options: { auto: "format,compress" } })
     alt
     caption
     credit
@@ -98,14 +99,6 @@ fragment ContentPageFragment on Content {
   }
   ... on ContentCompany {
     email
-    websiteSchedules {
-      section {
-        id
-        alias
-        name
-        fullName
-      }
-    }
   }
   ... on SocialLinkable {
     socialLinks {
@@ -134,7 +127,7 @@ fragment ContentPageFragment on Content {
           }
           primaryImage {
             id
-            src(input: { options: { auto: "format,compress", q: 70 } })
+            src(input: { options: { auto: "format,compress" } })
             alt
           }
         }
@@ -145,7 +138,7 @@ fragment ContentPageFragment on Content {
     edges {
       node {
         id
-        src(input: { options: { auto: "format,compress", q: 70 } })
+        src(input: { options: { auto: "format,compress" } })
         alt
         displayName
         caption
@@ -157,9 +150,5 @@ fragment ContentPageFragment on Content {
       }
     }
   }
-  # finds linked projects (architectural showcase, etc) of this content item
-  projectShortIds: customAttribute(input: {
-    path: "projectShortIds"
-  })
 }
 `;
