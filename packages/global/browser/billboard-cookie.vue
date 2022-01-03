@@ -27,10 +27,8 @@ export default {
     const { googletag } = window;
     if (!googletag) return;
     googletag.cmd.push(() => {
-      googletag.pubads().addEventListener('slotOnload', (event) => {
-        if (event.slot.getAdUnitPath() === this.adUnitPath) {
-          cookies.set(this.cookieName, this.cookieValue, { expires: this.expires });
-        }
+      googletag.pubads().addEventListener('slotOnload', () => {
+        cookies.set(this.cookieName, this.cookieValue, { expires: this.expires });
       });
     });
   },
