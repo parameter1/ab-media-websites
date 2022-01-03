@@ -68,4 +68,5 @@ module.exports = {
     logo: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
     bgColor: '#FFFFFF',
   },
+  allowBillboard: false,
 };
