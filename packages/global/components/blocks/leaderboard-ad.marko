@@ -8,8 +8,6 @@ $ const adUnit = GAM.getAdUnit({ name, aliases: input.aliases });
 $ const expires = 1/24; // Days
 $ const allowBillboard = defaultValue(site.get("allowBillboard"), true)
 
-$ console.log(allowBillboard)
-
 <if(name === "billboard" && allowBillboard)>
   <marko-web-browser-component
     name="GlobalBillboardCookie"
