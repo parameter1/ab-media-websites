@@ -1,4 +1,7 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
+const renderBlock = require('@ab-media/package-theme-monorail/routes/render-block');
+const search = require('@ab-media/package-theme-monorail/routes/search');
+const taxonomy = require('@ab-media/package-theme-monorail/routes/taxonomy');
 const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
 const identityX = require('./identity-x');
@@ -8,8 +11,6 @@ const omedaNewsletters = require('./omeda-newsletters');
 const printContent = require('./print-content');
 const publicFiles = require('./public-files');
 const redirects = require('./redirects');
-const renderBlock = require('./render-block');
-const search = require('./search');
 
 module.exports = (app, siteConfig) => {
   // Digital Edition
@@ -38,6 +39,9 @@ module.exports = (app, siteConfig) => {
 
   // Redirects
   redirects(app, siteConfig);
+
+  // Taxonomy pages
+  taxonomy(app);
 
   // Remote component/block loader
   renderBlock(app);
