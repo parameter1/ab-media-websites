@@ -1,7 +1,6 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
 const renderBlock = require('@ab-media/package-theme-monorail/routes/render-block');
 const search = require('@ab-media/package-theme-monorail/routes/search');
-const taxonomy = require('@ab-media/package-theme-monorail/routes/taxonomy');
 const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
 const identityX = require('./identity-x');
@@ -39,9 +38,6 @@ module.exports = (app, siteConfig) => {
 
   // Redirects
   redirects(app, siteConfig);
-
-  // Taxonomy pages
-  taxonomy(app);
 
   // Remote component/block loader
   renderBlock(app);
