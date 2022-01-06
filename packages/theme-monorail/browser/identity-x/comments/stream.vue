@@ -9,6 +9,11 @@
         v-if="hasActiveUser"
         :class="element('create-post')"
       >
+        <p :class="element('login-message')">
+          <span :class="element(`login-message--cta`)">
+            Post a Comment
+          </span>
+        </p>
         <div v-if="archived" :class="element('archived')">
           This thread is archived and is no longer accepting comments.
         </div>
@@ -20,7 +25,7 @@
         />
       </div>
       <div v-else :class="element('login-form-wrapper')">
-        <p :class="element('login-message')">
+        <p v-if="showLoginMessage" :class="element('login-message')">
           <span :class="element(`login-message--cta`)">
             Post a Comment
           </span>
@@ -35,6 +40,7 @@
           :consent-policy="consentPolicy"
           :app-context-id="appContextId"
           :button-labels="{ submit: 'Continue', logout: 'Logout' }"
+          @submit="handleLoginSubmit"
         />
       </div>
 
@@ -155,6 +161,7 @@ export default {
     isLoading: false,
     isLoadingMore: false,
     isLoginFormDisplayed: false,
+    showLoginMessage: true,
     error: null,
     comments: [],
     archived: false,
@@ -194,6 +201,9 @@ export default {
    *
    */
   methods: {
+    handleLoginSubmit() {
+      this.showLoginMessage = false;
+    },
     /**
      *
      */
