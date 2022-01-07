@@ -1,7 +1,7 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
 import { buildImgixUrl } from "@parameter1/base-cms-image";
 import imageHeight from "@parameter1/base-cms-marko-web/components/node/utils/image-height";
-import queryFragment from "@ab-media/package-global/graphql/fragments/section-feed-block";
+import queryFragment from "@ab-media/package-theme-monorail/graphql/fragments/section-feed-block";
 
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
@@ -72,9 +72,9 @@ $ const { $projectsGraphQL } = out.global;
             queryFragment,
           }
         >
-          <global-content-directory-section-flow nodes=nodes>
+          <theme-content-directory-section-flow nodes=nodes>
             <@header>Products & Press Releases</@header>
-          </global-content-directory-section-flow>
+          </theme-content-directory-section-flow>
         </marko-web-query>
 
         <marko-web-query|{ nodes }|
@@ -86,9 +86,9 @@ $ const { $projectsGraphQL } = out.global;
             queryFragment,
           }
         >
-          <global-content-directory-section-flow nodes=nodes>
+          <theme-content-directory-section-flow nodes=nodes>
             <@header>Videos</@header>
-          </global-content-directory-section-flow>
+          </theme-content-directory-section-flow>
         </marko-web-query>
 
         <marko-web-query|{ nodes }|
@@ -100,9 +100,9 @@ $ const { $projectsGraphQL } = out.global;
             queryFragment,
           }
         >
-          <global-content-directory-section-flow nodes=nodes>
+          <theme-content-directory-section-flow nodes=nodes>
             <@header>More from ${content.name}</@header>
-          </global-content-directory-section-flow>
+          </theme-content-directory-section-flow>
         </marko-web-query>
 
         <global-directory-sections-block schedules=content.websiteSchedules />
@@ -136,12 +136,12 @@ $ const { $projectsGraphQL } = out.global;
             queryFragment,
           }
         >
-          <global-content-directory-section-flow nodes=nodes>
+          <theme-content-directory-section-flow nodes=nodes>
             <@header>Project Galleries</@header>
             <@node with-dates=false>
               <@image width=100 ar="1:1" />
             </@node>
-          </global-content-directory-section-flow>
+          </theme-content-directory-section-flow>
         </marko-web-query>
 
         <marko-web-query|{ nodes }|
@@ -154,12 +154,12 @@ $ const { $projectsGraphQL } = out.global;
             queryFragment,
           }
         >
-          <global-content-directory-section-flow nodes=nodes>
+          <theme-content-directory-section-flow nodes=nodes>
             <@header>Catalogs</@header>
             <@node with-dates=false>
               <@image width=100 ar="3:4" />
             </@node>
-          </global-content-directory-section-flow>
+          </theme-content-directory-section-flow>
         </marko-web-query>
 
         <if(input.rightRail)>
