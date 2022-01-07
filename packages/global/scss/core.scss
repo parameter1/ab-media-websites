@@ -34,33 +34,12 @@
 @import "./components/carousel";
 @import "./components/digital-edition";
 @import "./components/directory-facets";
-
-@import "./components/blocks/callout-cards";
 @import "./components/blocks/company-search";
 @import "./components/blocks/directory-section-feed";
-@import "./components/blocks/hero-card";
-@import "./components/blocks/latest-podcast";
-@import "./components/blocks/latest-products-feed";
 @import "./components/blocks/magazine-issues";
-@import "./components/blocks/most-popular";
-@import "./components/blocks/newsletter-signup-banner";
-@import "./components/blocks/newsletter-signup-banner-large";
 @import "./components/blocks/newsletter-signup-banner-static";
-@import "./components/blocks/node-author";
-@import "./components/blocks/opinion";
 @import "./components/blocks/premium-partners";
-@import "./components/blocks/primary-image";
-@import "./components/blocks/promo-card";
-@import "./components/blocks/read-next";
-@import "./components/blocks/related-stories";
-@import "./components/blocks/resource-library";
-@import "./components/blocks/section-feed";
-@import "./components/blocks/section-list";
 @import "./components/blocks/section-search";
-@import "./components/blocks/social-follow";
-@import "./components/blocks/top-stories";
-@import "./components/blocks/top-stories-menu";
-@import "./components/blocks/white-papers";
 
 @import "../components/magazine/scss/index";
 
@@ -250,4 +229,10 @@ label {
 
 [data-embed-type][data-embed-align="right"] {
   clear: right;
+}
+
+.pib-page-card {
+  &__issue-cover {
+    height: auto;
+  }
 }
