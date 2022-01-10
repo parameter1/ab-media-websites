@@ -15,8 +15,6 @@ const CompanySearch = () => import(/* webpackChunkName: "global-company-search" 
 const SectionSearch = () => import(/* webpackChunkName: "global-section-search" */ './section-search.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
-const IdentityXLogin = () => import(/* webpackChunkName: "theme-identity-x-login" */ '@ab-media/package-theme-monorail/browser/identity-x/comments/login.vue');
-const IdentityXCommentStream = () => import(/* webpackChunkName: "theme-identity-x-comment-stream" */ '@ab-media/package-theme-monorail/browser/identity-x/comments/stream.vue');
 const MenuToggleButton = () => import(/* webpackChunkName: "global-menu-toggle-button" */ './menu-toggle-button.vue');
 const NewsletterCloseButton = () => import(/* webpackChunkName: "global-newsletter-close-button" */ './newsletter-close-button.vue');
 const NewsletterToggleButton = () => import(/* webpackChunkName: "global-newsletter-toggle-button" */ './newsletter-toggle-button.vue');
@@ -44,10 +42,7 @@ export default (Browser) => {
     setP1EventsIdentity({ p1events: window.p1events, brandKey, encryptedId });
   });
 
-  OmedaIdentityX(Browser, {
-    LoginComponent: IdentityXLogin,
-    CustomCommentStreamComponent: IdentityXCommentStream,
-  });
+  OmedaIdentityX(Browser);
 
   const emitNewsletterEvent = ({ type, action, data }) => {
     let label = `Step ${data.step}`;

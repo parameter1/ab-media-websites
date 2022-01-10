@@ -10,6 +10,7 @@ $ const content = getAsObject(input, "content");
     description=content.teaser
     url=content.siteContext.canonicalUrl
     load-more-button-class="btn"
+    login-button-labels={ continue: "Continue", logout: "Logout"}
   />
   <marko-web-browser-component
     name="ThemeCommentToggleButton"
@@ -19,6 +20,7 @@ $ const content = getAsObject(input, "content");
       classes: "btn btn-secondary comment-stream__toggle-btn",
       targets: [".idx-comment-stream"],
       toggleClass: "idx-comment-stream--open",
+      latestCommentsHeader: "All Comments",
     }
   />
 </div>
