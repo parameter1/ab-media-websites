@@ -4,6 +4,7 @@ import GAM from '@parameter1/base-cms-marko-web-gam/browser';
 import Search from '@parameter1/base-cms-marko-web-search/browser';
 import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
 import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
+import OmedaIdentityX from '@parameter1/base-cms-marko-web-omeda-identity-x/browser';
 import NativeX from '@parameter1/base-cms-marko-web-native-x/browser';
 import MonoRail from '@ab-media/package-theme-monorail/browser';
 
@@ -14,6 +15,8 @@ const CompanySearch = () => import(/* webpackChunkName: "global-company-search" 
 const SectionSearch = () => import(/* webpackChunkName: "global-section-search" */ './section-search.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
+const IdentityXLogin = () => import(/* webpackChunkName: "theme-identity-x-login" */ '@ab-media/package-theme-monorail/browser/identity-x/comments/login.vue');
+const IdentityXCommentStream = () => import(/* webpackChunkName: "theme-identity-x-comment-stream" */ '@ab-media/package-theme-monorail/browser/identity-x/comments/stream.vue');
 const MenuToggleButton = () => import(/* webpackChunkName: "global-menu-toggle-button" */ './menu-toggle-button.vue');
 const NewsletterCloseButton = () => import(/* webpackChunkName: "global-newsletter-close-button" */ './newsletter-close-button.vue');
 const NewsletterToggleButton = () => import(/* webpackChunkName: "global-newsletter-toggle-button" */ './newsletter-toggle-button.vue');
@@ -39,6 +42,11 @@ export default (Browser) => {
   });
   EventBus.$on('omeda-identity-x-rapid-identify-response', ({ brandKey, encryptedId }) => {
     setP1EventsIdentity({ p1events: window.p1events, brandKey, encryptedId });
+  });
+
+  OmedaIdentityX(Browser, {
+    LoginComponent: IdentityXLogin,
+    CustomCommentStreamComponent: IdentityXCommentStream,
   });
 
   const emitNewsletterEvent = ({ type, action, data }) => {
