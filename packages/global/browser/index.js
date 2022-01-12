@@ -4,9 +4,9 @@ import GAM from '@parameter1/base-cms-marko-web-gam/browser';
 import Search from '@parameter1/base-cms-marko-web-search/browser';
 import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
 import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
-import IdentityX from '@parameter1/base-cms-marko-web-identity-x/browser';
-import NativeX from '@parameter1/base-cms-marko-web-native-x/browser';
 import OmedaIdentityX from '@parameter1/base-cms-marko-web-omeda-identity-x/browser';
+import NativeX from '@parameter1/base-cms-marko-web-native-x/browser';
+import MonoRail from '@ab-media/package-theme-monorail/browser';
 
 const AutoScroll = () => import(/* webpackChunkName: "global-auto-scroll" */ './auto-scroll.vue');
 const BillboardCookie = () => import(/* webpackChunkName: "global-billboard-cookie" */ './billboard-cookie.vue');
@@ -23,8 +23,6 @@ const SiteNewsletterMenu = () => import(/* webpackChunkName: "global-site-newsle
 const PremiumPartners = () => import(/* webpackChunkName: "global-premium-partners" */ './premium-partners.vue');
 const WufooForm = () => import(/* webpackChunkName: "global-wufoo-form" */ './wufoo-form.vue');
 const TopStoriesMenu = () => import(/* webpackChunkName: "global-top-stories-menu" */ './top-stories-menu.vue');
-const CommentToggleButton = () => import(/* webpackChunkName: "global-comment-toggle-button" */ './comment-toggle-button.vue');
-const IdentityXCommentStream = () => import(/* webpackChunkName: "theme-identity-x-comment-stream" */ './identity-x/comments/stream.vue');
 
 const setP1EventsIdentity = ({ p1events, brandKey, encryptedId }) => {
   if (!p1events || !brandKey || !encryptedId) return;
@@ -43,6 +41,8 @@ export default (Browser) => {
   EventBus.$on('omeda-identity-x-rapid-identify-response', ({ brandKey, encryptedId }) => {
     setP1EventsIdentity({ p1events: window.p1events, brandKey, encryptedId });
   });
+
+  OmedaIdentityX(Browser);
 
   const emitNewsletterEvent = ({ type, action, data }) => {
     let label = `Step ${data.step}`;
@@ -68,10 +68,7 @@ export default (Browser) => {
   SocialSharing(Browser);
   NativeX(Browser);
   Inquiry(Browser);
-  IdentityX(Browser, {
-    CustomCommentStreamComponent: IdentityXCommentStream,
-  });
-  OmedaIdentityX(Browser);
+  MonoRail(Browser);
 
   Browser.register('GlobalBillboardCookie', BillboardCookie);
 
@@ -117,7 +114,6 @@ export default (Browser) => {
     provide: { EventBus },
   });
   Browser.register('GlobalTopStoriesMenu', TopStoriesMenu);
-  Browser.register('GlobalCommentToggleButton', CommentToggleButton);
   Browser.register('GlobalPremiumPartners', PremiumPartners);
   Browser.register('WufooForm', WufooForm);
 };
