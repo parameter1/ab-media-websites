@@ -30,17 +30,20 @@ $bottom-gradient-height: 180px !default;
     fill: $primary;
   }
 }
-
 .idx-comment-stream-wrapper {
   max-height: $comment-start-height;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  border: 1px solid $gray-200;
   &--open {
     height: initial;
     max-height: initial;
-    ~ .comment-stream__toggle-btn {
+    .idx-comment-stream ~ .comment-stream__toggle-btn {
       display: none;
     }
-    .idx-comment-stream__bottom {
+    .idx-comment-stream .idx-comment-stream__bottom {
       display: none;
     }
   }
@@ -48,22 +51,31 @@ $bottom-gradient-height: 180px !default;
 
 .idx-comment-stream {
   $self: &;
+  max-height: 100%;
+  overflow: hidden;
   position: relative;
   display: block;
   margin-top: 24px;
-  border: 1px solid $gray-200;
-  border-radius: 4px;
   padding-top: map-get($spacers, block);
   padding-right: map-get($spacers, 3);
   padding-bottom: map-get($spacers, block);
   padding-left: map-get($spacers, 3);
+  ~ .comment-stream__toggle-btn {
+    margin-bottom: map-get($spacers, 3);
+  }
   &__counter {
-   &--0,
-   &--1 {
-     ~ .comment-stream__toggle-btn {
-       display: none;
-     }
-   }
+    &--0,
+    &--1 {
+      height: initial;
+      max-height: initial;
+      .idx-comment-stream__bottom {
+        display: none;
+      }
+      ~ .comment-stream__toggle-btn,
+      ~ .comment-stream__toggle-btn.btn-secondary {
+        display: none;
+      }
+    }
   }
 
 
@@ -167,12 +179,7 @@ $bottom-gradient-height: 180px !default;
   }
   &__bottom {
     height: $bottom-gradient-height;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+99&0+3,1+100 */
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.6+0,1+100 */
-    background: -moz-linear-gradient(top,  rgba(255,255,255,0.6) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  rgba(255,255,255,0.6) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  rgba(255,255,255,0.6) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
 
     position: absolute;
     top: $comment-start-height - $bottom-gradient-height;
