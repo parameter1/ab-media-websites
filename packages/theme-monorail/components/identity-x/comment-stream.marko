@@ -13,15 +13,15 @@ $ const content = getAsObject(input, "content");
       load-more-button-class="btn btn-secondary"
       login-button-labels={ continue: "Continue", logout: "Logout"}
     />
+    <marko-web-browser-component
+      name="ThemeCommentToggleButton"
+      props={
+        identifier: `${content.id}`,
+        isExpanded: false,
+        classes: "btn btn-secondary comment-stream__toggle-btn",
+        targets: [".idx-comment-stream-wrapper"],
+        toggleClass: "idx-comment-stream-wrapper--open"
+      }
+    />
   </div>
-  <marko-web-browser-component
-    name="ThemeCommentToggleButton"
-    props={
-      identifier: `${content.id}`,
-      isExpanded: false,
-      classes: "btn btn-secondary comment-stream__toggle-btn",
-      targets: [".idx-comment-stream-wrapper"],
-      toggleClass: "idx-comment-stream-wrapper--open"
-    }
-  />
 </div>
