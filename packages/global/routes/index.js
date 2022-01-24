@@ -1,6 +1,6 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
 const renderBlock = require('@ab-media/package-theme-monorail/routes/render-block');
-const search = require('@ab-media/package-theme-monorail/routes/search');
+const searchTemplate = require('../templates/search');
 const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
 const identityX = require('./identity-x');
@@ -43,7 +43,8 @@ module.exports = (app, siteConfig) => {
   renderBlock(app);
 
   // Search routes
-  search(app, siteConfig);
+  // search(app, siteConfig);
+  app.get('/search', (_, res) => { res.marko(searchTemplate); });
 
   // HTML Sitemap
   htmlSitemap(app);
