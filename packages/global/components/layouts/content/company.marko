@@ -67,6 +67,22 @@ $ const { $projectsGraphQL } = out.global;
           name="all-company-content"
           params={
             companyId: content.id,
+            includeContentTypes: ["MediaGallery"],
+            includeLabels: "Buyers Guide Project Gallery",
+            limit: 10,
+            queryFragment,
+          }
+        >
+          <theme-content-directory-section-flow nodes=nodes>
+            <@header>Project Galleries</@header>
+            <@node with-dates=false />
+          </theme-content-directory-section-flow>
+        </marko-web-query>
+
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
             includeContentTypes: ["Product", "PressRelease"],
             limit: 10,
             queryFragment,
@@ -125,24 +141,6 @@ $ const { $projectsGraphQL } = out.global;
             </@body>
           </marko-web-node-list>
         </if>
-
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
-            includeContentTypes: ["MediaGallery"],
-            includeLabels: "Buyers Guide Project Gallery",
-            limit: 10,
-            queryFragment,
-          }
-        >
-          <theme-content-directory-section-flow nodes=nodes>
-            <@header>Project Galleries</@header>
-            <@node with-dates=false>
-              <@image width=100 ar="1:1" />
-            </@node>
-          </theme-content-directory-section-flow>
-        </marko-web-query>
 
         <marko-web-query|{ nodes }|
           name="all-company-content"
