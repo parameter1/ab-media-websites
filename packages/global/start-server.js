@@ -5,6 +5,7 @@ const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
 const omedaGraphQL = require('@parameter1/omeda-graphql-client-express');
 const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
 const stripOlyticsParam = require('@parameter1/base-cms-marko-web-omeda-identity-x/middleware/strip-olytics-param');
+const odentityCustomerUpsert = require('@parameter1/base-cms-marko-web-omeda/odentity/upsert-customer');
 
 const companySearchHandler = require('./company-search');
 const document = require('./components/document');
@@ -86,6 +87,12 @@ module.exports = (options = {}) => {
 
       // Recaptcha
       set(app.locals, 'recaptcha', recaptcha);
+
+      // Omeda customer upsert
+      app.use(odentityCustomerUpsert({
+        brandKey: omedaConfig.brandKey,
+        onError: newrelic.noticeError.bind(newrelic),
+      }));
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
 
