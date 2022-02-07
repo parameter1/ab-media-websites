@@ -16,7 +16,7 @@ export default {
     },
     cookieValue: {
       type: String,
-      default: 'true',
+      default: '0',
     },
     expires: {
       type: Number,
