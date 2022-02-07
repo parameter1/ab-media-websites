@@ -9,7 +9,7 @@ $ const expires = 1/24; // Days
 <if(!hasCookie)>
   <marko-web-browser-component
     name="GlobalBillboardCookie"
-    props={ adUnitPath: adUnit.path, cookieName, cookieValue: "0", expires }
+    props={ adUnitPath: adUnit.path, cookieName, cookieValue: "0", 1 }
   />
 </if>
 <else-if(hasCookie && cookieValue === "0")>
