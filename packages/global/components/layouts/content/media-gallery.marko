@@ -37,9 +37,13 @@ $ const sections = getAsArray(input, "sections");
     $ const { primarySection } = content;
     <div class="content-page-body">
       <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": id }>
+        $ const allImages = getAsArray(content, "images.edges").map(edge => edge.node);
+        $ const inCarouselImages = getAsArray(content, "images.edges").map(edge => edge.node).filter(node => node.inCarousel);
+        $ const images = inCarouselImages.length ? inCarouselImages : allImages;
+
         <global-image-slider
           modifiers=["project-gallery"]
-          images=getAsArray(content, "images.edges").map(edge => edge.node)
+          images=images
           image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress", q: 70 }
         />
 
