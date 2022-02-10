@@ -60,13 +60,18 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
 
   <@section|{ aliases, content, authors }|>
     $ const { primarySection } = content;
+    $ const inCarouselImages = getAsArray(content, "images.edges").map(edge => edge.node).filter(node => node.inCarousel);
     <div class="content-page-body">
       <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": id }>
         <if(content.embedCode)>
           <marko-web-content-embed-code block-name=blockName obj=content />
         </if>
-        <else-if(type === "media-gallery")>
-          <!-- <marko-web-image-slider images=images /> -->
+        <else-if(inCarouselImages.length)>
+          <global-image-slider
+            modifiers=["project-gallery"]
+            images=inCarouselImages
+            image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress" }
+          />
         </else-if>
         <else-if(displayPrimaryImage)>
           $ let forceDisplay;
