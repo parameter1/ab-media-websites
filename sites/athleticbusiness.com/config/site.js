@@ -38,6 +38,14 @@ module.exports = {
         'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/ab/ab-logo.png?h=60&auto=format,compress&q=70&dpr=2 2x',
       ],
     },
+    corporate: {
+      alt: 'AB Media Logo',
+      href: 'https://www.abmedia.biz',
+      src: 'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/abmedia-red-white.png?h=40&auto=format,compress',
+      srcset: [
+        'https://img.athleticbusiness.com/files/base/abmedia/all/image/static/abmedia-red-white.png?h=40&auto=format,compress&dpr=2 2x',
+      ],
+    },
   },
   premiumPartners: {
     shuffle: true,
