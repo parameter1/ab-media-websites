@@ -58,11 +58,6 @@ $ const { $projectsGraphQL } = out.global;
           </default-theme-page-contents>
         </div>
 
-        <global-directory-featured-projects-block
-          graphql-client=$projectsGraphQL
-          short-ids=content.projectShortIds
-        />
-
         <marko-web-query|{ nodes }|
           name="all-company-content"
           params={
@@ -78,6 +73,11 @@ $ const { $projectsGraphQL } = out.global;
             <@node with-dates=false />
           </theme-content-directory-section-flow>
         </marko-web-query>
+
+        <global-directory-featured-projects-block
+          graphql-client=$projectsGraphQL
+          short-ids=content.projectShortIds
+        />
 
         <marko-web-query|{ nodes }|
           name="all-company-content"
