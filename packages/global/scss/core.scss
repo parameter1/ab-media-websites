@@ -30,6 +30,17 @@
   }
 }
 
+// sponsored native-x story
+#native-x-story-body {
+  .page-contents {
+    &__content-body {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
 // skin components
 @import "./components/carousel";
 @import "./components/digital-edition";
