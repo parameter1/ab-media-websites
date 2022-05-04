@@ -8,17 +8,17 @@ $ const targetBlankLink = {
 };
 
 $ const issue = getAsObject(input, "issue");
-$ const buttons = defaultValue(input.buttons, ["subscribe", "digital-edition", "pdf", "archives", "renewal", "reprints", "e-inquiry"]);
+$ const buttons = defaultValue(input.buttons, ["digital-edition", "subscribe", "pdf", "archives", "renewal", "reprints", "e-inquiry"]);
 
-<if(buttons.includes("subscribe"))>
-  <marko-web-magazine-publication-subscribe-url tag=null obj=issue.publication link=targetBlankLink>
-    Subscribe
-  </marko-web-magazine-publication-subscribe-url>
-</if>
 <if(buttons.includes("digital-edition"))>
   <marko-web-magazine-issue-digital-edition-url tag=null obj=issue link=targetBlankLink>
     Digital Edition
   </marko-web-magazine-issue-digital-edition-url>
+</if>
+<if(buttons.includes("subscribe"))>
+  <marko-web-magazine-publication-subscribe-url tag=null obj=issue.publication link=targetBlankLink>
+    Subscribe
+  </marko-web-magazine-publication-subscribe-url>
 </if>
 <if(buttons.includes("pdf"))>
   <marko-web-magazine-issue-pdf-url tag=null obj=issue link=targetBlankLink>

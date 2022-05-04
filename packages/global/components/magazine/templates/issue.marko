@@ -44,15 +44,12 @@ $ const { id, pageNode } = data;
                           fluid=false
                           ar="3:4"
                           width=300
-                          link={ href: issue.canonicalPath, title: issue.name }
+                          link={ href: issue.digitalEditionUrl, title: issue.name }
                         />
                         <@body>
                           <@title tag="h1">
                             <marko-web-magazine-issue-name tag=null obj=issue />
                           </@title>
-                          <@text modifiers=["teaser"]>
-                            <marko-web-magazine-issue-description tag=null obj=issue />
-                          </@text>
                           <@footer>
                             <@left>
                               <global-magazine-publication-buttons issue=issue />
