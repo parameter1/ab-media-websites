@@ -1,4 +1,4 @@
-import ThemeComponents from '@ab-media/package-theme-monorail/browser/ssr';
+import ThemeComponents from '@parameter1/base-cms-marko-web-theme-monorail/browser/ssr';
 import GlobalPremiumPartners from './premium-partners.vue';
 
 export default {

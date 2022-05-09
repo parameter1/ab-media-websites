@@ -1,5 +1,5 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
-const renderBlock = require('@ab-media/package-theme-monorail/routes/render-block');
+const renderBlock = require('@parameter1/base-cms-marko-web-theme-monorail/routes/render-block');
 const searchTemplate = require('../templates/search');
 const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
