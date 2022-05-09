@@ -1,5 +1,5 @@
 import GCSE from '@parameter1/base-cms-marko-web-gcse/browser';
-import MonoRail from '@ab-media/package-theme-monorail/browser';
+import MonoRail from '@parameter1/base-cms-marko-web-theme-monorail/browser';
 
 const AutoScroll = () => import(/* webpackChunkName: "global-auto-scroll" */ './auto-scroll.vue');
 const BillboardCookie = () => import(/* webpackChunkName: "global-billboard-cookie" */ './billboard-cookie.vue');
