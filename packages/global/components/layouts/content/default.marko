@@ -127,7 +127,14 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
                   />
                 </for>
 
-                $ const mobileCounts = [350, 1650, 2950, 4250, 5550, 6850, 8150, 9450, 10750, 12050, 13350, 14650, 15950, 17250];
+                <!-- mobile leaderboard only -->
+                <@inject
+                  at=250
+                  name="inline-leaderboard-mobile"
+                  aliases=aliases
+                  modifiers=["max-width-970", "margin-auto-x", "inline-content"]
+                />
+                $ const mobileCounts = [900, 1650, 2950, 4250, 5550, 6850, 8150, 9450, 10750, 12050, 13350, 14650, 15950, 17250];
                 <for|char| of=mobileCounts>
                   <!-- mobile only -->
                   <@inject
