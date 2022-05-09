@@ -14,6 +14,15 @@ $ const { site } = out.global;
     <meta name="google-site-verification" content="NOT_SET" />
   </@head> -->
 
+  <@section|{ aliases }|>
+    <theme-gam-define-display-ad
+      name="inline-leaderboard-mobile"
+      position="home_page"
+      aliases=aliases
+      modifiers=["inter-block"]
+    />
+  </@section>
+
   <@section|{ aliases }| modifiers=["break-container"]>
     <theme-opinion-block alias="blogs" />
   </@section>
