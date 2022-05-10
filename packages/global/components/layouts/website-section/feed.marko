@@ -6,7 +6,7 @@ $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 
 $ const { pagination: p } = out.global;
-$ const perPage = 18;
+$ const perPage = 12;
 
 <global-website-section-default-layout
   id=id
@@ -62,7 +62,13 @@ $ const perPage = 18;
 
   <@section|{ aliases }|>
     <theme-gam-define-display-ad
-      name="rotation"
+      name="inline-leaderboard-mobile"
+      position="section_page"
+      aliases=aliases
+      modifiers=["inter-block"]
+    />
+    <theme-gam-define-display-ad
+      name="rotation-desktop"
       position="section_page"
       aliases=aliases
       modifiers=["inter-block"]
@@ -71,7 +77,7 @@ $ const perPage = 18;
 
   <@section>
     <theme-section-feed-block alias=alias>
-      <@query-params limit=2 skip=p.skip({ perPage, skip: 3 }) />
+      <@query-params limit=3 skip=p.skip({ perPage, skip: 3 }) />
     </theme-section-feed-block>
   </@section>
 
@@ -81,7 +87,7 @@ $ const perPage = 18;
 
   <@section>
     <theme-section-feed-block alias=alias>
-      <@query-params limit=3 skip=p.skip({ perPage, skip: 5 }) />
+      <@query-params limit=3 skip=p.skip({ perPage, skip: 6 }) />
     </theme-section-feed-block>
   </@section>
 
@@ -96,22 +102,7 @@ $ const perPage = 18;
 
   <@section>
     <theme-section-feed-block alias=alias>
-      <@query-params limit=5 skip=p.skip({ perPage, skip: 8 }) />
-    </theme-section-feed-block>
-  </@section>
-
-  <@section|{ aliases }|>
-    <theme-gam-define-display-ad
-      name="rotation"
-      position="section_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
-  </@section>
-
-  <@section>
-    <theme-section-feed-block alias=alias>
-      <@query-params limit=5 skip=p.skip({ perPage, skip: 13 }) />
+      <@query-params limit=3 skip=p.skip({ perPage, skip: 9 }) />
     </theme-section-feed-block>
     <theme-section-feed-block|{ totalCount }| alias=alias count-only=true>
       <theme-pagination-controls
