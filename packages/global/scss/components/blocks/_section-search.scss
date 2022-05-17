@@ -7,20 +7,20 @@
     text-transform: uppercase;
   }
   .form-control {
-    outline: none;
-    background-clip: padding-box;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 0;
-    color: #495057;
     display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
-    height: calc(1.5em + .75rem + 2px);
     line-height: 1.5;
-    padding: .375rem .75rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    width: 100%;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0;
+    outline: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     &:focus {
       border-color: #ebebeb;
       box-shadow: none;
