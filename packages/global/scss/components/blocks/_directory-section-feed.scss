@@ -108,14 +108,20 @@
       @include theme-navbar-link-color(( active: $white, hover: $white, default: $white ));
     }
   }
-}
-.directory-featured-listing__item--wrapper {
-  .node-list__nodes {
-    display: none;
-  }
-  &.directory-featured-listing__item--open {
-    .node-list__nodes {
-      display: initial;
+  &__item--wrapper {
+    .node-list {
+      &__nodes {
+        display: none;
+      }
+    }
+    &.directory-featured-listing {
+      &__item--open {
+        .node-list {
+          &__nodes {
+            display: initial;
+          }
+        }
+      }
     }
   }
 }
