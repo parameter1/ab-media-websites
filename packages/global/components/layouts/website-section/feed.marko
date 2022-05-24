@@ -1,6 +1,4 @@
-import { get, getAsArray } from "@parameter1/base-cms-object-path";
-
-$ const { site } = out.global;
+import { getAsArray } from "@parameter1/base-cms-object-path";
 
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
@@ -27,7 +25,7 @@ $ const perPage = 12;
 
   <@section|{ aliases }| modifiers=["break-container", "first"]>
     <global-leaderboard-ad-block
-      position="home_page"
+      position="section_page"
       aliases=aliases
       modifiers=["inter-block", "combined-leaderboard"]
     />
