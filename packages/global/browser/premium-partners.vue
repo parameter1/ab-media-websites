@@ -12,11 +12,14 @@
             :href="partner.linkUrl"
             :title="partner.shorName"
             target="_blank"
+            rel="nofollow sponsored"
           >
             <img
-              class="premium-partners__logo"
-              :src="getImgSrc(partner.primaryImage.src)"
-              :srcset="[getImgSrcSet(partner.primaryImage.src)]"
+              class="premium-partners__logo lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              srcset=""
+              :data-src="getImgSrc(partner.primaryImage.src)"
+              :data-srcset="[getImgSrcSet(partner.primaryImage.src)]"
               :alt="partner.shorName"
             >
           </a>
