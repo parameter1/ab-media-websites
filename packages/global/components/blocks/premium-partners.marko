@@ -16,7 +16,7 @@ $ const logoOptions = {
   bg: "fff",
   auto: "format,compress&q=70"
 };
-$ const lazyload = defaultValue(input.lazyload, false);
+$ const lazyload = defaultValue(input.lazyload, true);
 $ const queryParams = {
   limit: 50,
   queryFragment,
@@ -48,7 +48,7 @@ $ const queryParams = {
               $ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
               <marko-web-img
                 class=`${blockName}__logo`
-                link={ href: partner.linkUrl, target: "_blank" }
+                link={ href: partner.linkUrl, target: "_blank", rel: "nofollow sponsored" }
                 src=imageSrc
                 srcset=[imageSrcset]
                 alt=partner.shortName

@@ -2,13 +2,14 @@ import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import getContentPreview from "@parameter1/base-cms-marko-web-theme-monorail/utils/get-content-preview";
 
-$ const { site } = out.global;
+$ const { site, pagination: p } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
 
 $ const showReadNextBlock = defaultValue(input.showReadNextBlock, true);
 $ const showBottomAdBlock = defaultValue(input.showBottomAdBlock, true);
 $ const showTopStoryBlock = defaultValue(input.showTopStoryBlock, false);
+$ const showMoreSection = defaultValue(input.showMoreSection, true);
 $ const displayPrimaryImage = ["media-gallery"].includes(type) ? false : true;
 $ const displayPublishedDate = ["company", "contact", "whitepaper"].includes(type) ? false : true;
 $ const displayReadNext = showReadNextBlock && ["article"].includes(type);
@@ -223,6 +224,46 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
       with-native-x=true
     />
   </@section>
+
+  <if(showMoreSection)>
+    $ const perPage = 12;
+    $ const moreSectionLimit = 3;
+    $ const moreSectionCount = perPage / moreSectionLimit;
+    <for|i| from=1 to=moreSectionCount>
+
+      <@section|{ content, aliases, blockName }|>
+        <if(i === 1)>
+          <marko-web-website-section-name|{ value }| tag="h2" block-name=blockName obj=content.primarySection>
+            More in ${value}
+          </marko-web-website-section-name>
+        </if>
+
+        $ let skip = (i * moreSectionLimit) - moreSectionLimit;
+        <theme-section-feed-block alias=content.primarySection.alias>
+          <@query-params limit=moreSectionLimit skip=p.skip({ perPage, skip }) />
+        </theme-section-feed-block>
+
+        <if(i === moreSectionCount)>
+          <theme-section-feed-block|{ totalCount }| alias=content.primarySection.alias count-only=true>
+            <theme-pagination-controls
+              per-page=perPage
+              total-count=totalCount
+              path=content.primarySection.alias
+            />
+          </theme-section-feed-block>
+        </if>
+      </@section>
+
+      <@section|{ content, aliases, blockName }|>
+        <theme-gam-define-display-ad
+          name="rotation"
+          position="content_page"
+          aliases=aliases
+          modifiers=["inter-block"]
+        />
+      </@section>
+    </for>
+  </if>
 
   <for|s| of=sections>
     <@section|{ blockName, content, aliases }| modifiers=s.modifiers>
