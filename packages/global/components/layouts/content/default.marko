@@ -239,7 +239,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
         </if>
 
         $ let skip = (i * moreSectionLimit) - moreSectionLimit;
-        <theme-section-feed-block alias=content.primarySection.alias lazyload=false>
+        <theme-section-feed-block alias=content.primarySection.alias>
           <@query-params limit=moreSectionLimit skip=p.skip({ perPage, skip }) />
         </theme-section-feed-block>
 
