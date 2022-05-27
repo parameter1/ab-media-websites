@@ -18,7 +18,6 @@ const billboardState = require('./middleware/billboard-state');
 const oembedHandler = require('./oembed-handler');
 const omedaConfig = require('./config/omeda');
 const redirectHandler = require('./redirect-handler');
-const recaptcha = require('./config/recaptcha');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
   // Handle submissions on /__inquiry
@@ -88,9 +87,6 @@ module.exports = (options = {}) => {
       const identityXConfig = get(options, 'siteConfig.identityX');
       set(app.locals, 'identityX', identityXConfig);
       app.use(stripOlyticsParam());
-
-      // Recaptcha
-      set(app.locals, 'recaptcha', recaptcha);
 
       // Omeda customer upsert
       app.use(odentityCustomerUpsert({
