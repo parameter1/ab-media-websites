@@ -10,6 +10,7 @@ $ const chunkedNodes = slothLovesChunkArray({
 });
 
 $ const { totalCount, pageInfo } = entries;
+$ const aliases = [gallery.primarySection.alias, gallery.primarySection.alias.split('/')[0]];
 
 <site-project-gallery-page-layout metadata={ title: gallery.name, description: gallery.description }>
   <@head>
@@ -33,6 +34,7 @@ $ const { totalCount, pageInfo } = entries;
         <global-leaderboard-ad-block
           position="static_page"
           modifiers=["inter-block", "combined-leaderboard"]
+          aliases=aliases
         />
       </@section>
 
@@ -83,6 +85,7 @@ $ const { totalCount, pageInfo } = entries;
           name="rotation"
           position="static_page"
           modifiers=["inter-block"]
+          aliases=aliases
         />
       </@section>
     </marko-web-page-wrapper>

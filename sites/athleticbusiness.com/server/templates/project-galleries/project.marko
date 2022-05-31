@@ -10,6 +10,8 @@ $ const {
   prevProject,
 } = input;
 
+$ const aliases = [gallery.primarySection.alias, gallery.primarySection.alias.split('/')[0]];
+
 <site-project-gallery-page-layout metadata={ title: entry.title, description: entry.teaser, canonicalPath }>
   <@head>
     <site-project-gallery-read-next-block
@@ -29,6 +31,7 @@ $ const {
         <global-leaderboard-ad-block
           position="static_page"
           modifiers=["inter-block", "combined-leaderboard"]
+          aliases=aliases
         />
       </@section>
 
@@ -89,6 +92,7 @@ $ const {
           name="rotation"
           position="static_page"
           modifiers=["inter-block"]
+          aliases=aliases
         />
       </@section>
     </marko-web-page-wrapper>
