@@ -9,9 +9,11 @@ $ const { galleries, primarySection } = input;
       </@section>
 
       <@section modifiers=["break-container", "first"]>
+        $ const aliases = [primarySection.alias, primarySection.alias.split('/')[0]];
         <global-leaderboard-ad-block
           position="static_page"
           modifiers=["inter-block", "combined-leaderboard"]
+          aliases=aliases
         />
       </@section>
 

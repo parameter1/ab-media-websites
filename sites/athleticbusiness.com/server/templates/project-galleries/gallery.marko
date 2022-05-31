@@ -30,9 +30,11 @@ $ const { totalCount, pageInfo } = entries;
       </@section>
 
       <@section modifiers=["break-container", "first"]>
+        $ const aliases = [gallery.primarySection.alias, gallery.primarySection.alias.split('/')[0]];
         <global-leaderboard-ad-block
           position="static_page"
           modifiers=["inter-block", "combined-leaderboard"]
+          aliases=aliases
         />
       </@section>
 

@@ -19,6 +19,10 @@ config
     { name: 'inline-leaderboard-mobile', templateName: 'INLINE-LEADERBOARD-MOBILE', path: 'leaderboard' },
     { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: 'rotation' },
     { name: 'inline-content-desktop', templateName: 'INLINE-CONTENT-DESKTOP', path: 'rotation' },
+  ])
+  .setAliasAdUnits('project-galleries/architectural-showcase', [
+    { name: 'leaderboard', templateName: 'LEADERBOARD', path: 'architectural-showcase-leaderboard' },
+    { name: 'rotation', templateName: 'ROTATION', path: 'architectural-showcase-rotation' },
   ]);
 
 const aliases = [
