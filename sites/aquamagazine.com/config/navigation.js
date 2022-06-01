@@ -53,7 +53,10 @@ module.exports = {
     items: [],
   },
   secondary: {
-    items: topics.primary,
+    items: [
+      ...topics.primary,
+      { href: 'http://www.aquamag.live', label: 'AQUA Live', target: '_blank' },
+    ],
   },
   tertiary: {
     items: [],
