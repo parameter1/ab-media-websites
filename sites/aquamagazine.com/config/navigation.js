@@ -16,7 +16,7 @@ const topics = {
 const resources = [
   { href: '/directory', label: 'Buyer\'s Guide' },
   { href: '/magazine', label: 'Magazine' },
-  { href: 'http://www.aquamag.live', label: 'AQUA Live', target: '_blank' },
+  { href: 'https://www.aquamag.live', label: 'AQUA Live', target: '_blank' },
   { href: '/news/pool-hot-tub-alliance-news', label: 'PHTA News' },
 ];
 
@@ -53,7 +53,10 @@ module.exports = {
     items: [],
   },
   secondary: {
-    items: topics.primary,
+    items: [
+      ...topics.primary,
+      { href: 'https://www.aquamag.live', label: 'AQUA Live', target: '_blank' },
+    ],
   },
   tertiary: {
     items: [],
