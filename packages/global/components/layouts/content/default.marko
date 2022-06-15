@@ -232,7 +232,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
     <for|i| from=1 to=moreSectionCount>
 
       <@section|{ content, aliases, blockName }|>
-        <aside aria-label=`More Content In ${get(content, 'primarySection.name')} List ${i}`>
+        <aside aria-label=`More In ${get(content, 'primarySection.name')} List ${i}`>
         <if(i === 1)>
           <marko-web-website-section-name|{ value }| tag="h2" block-name=blockName obj=content.primarySection>
             More in ${value}
