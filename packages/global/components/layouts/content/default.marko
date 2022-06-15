@@ -226,43 +226,42 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
   </@section>
 
   <if(showMoreSection)>
-    $ const perPage = 12;
-    $ const moreSectionLimit = 3;
-    $ const moreSectionCount = perPage / moreSectionLimit;
-    <for|i| from=1 to=moreSectionCount>
+    <@section|{ content, aliases, blockName }|>
+        $ const perPage = 12;
+        $ const moreSectionLimit = 3;
+        $ const moreSectionCount = perPage / moreSectionLimit;
+        <aside aria-label=`More Content In ${get(content, 'primarySection.name')}`>
+          <for|i| from=1 to=moreSectionCount>
+            <if(i === 1)>
+              <marko-web-website-section-name|{ value }| tag="h2" block-name=blockName obj=content.primarySection>
+                More in ${value}
+              </marko-web-website-section-name>
+            </if>
 
-      <@section|{ content, aliases, blockName }|>
-        <if(i === 1)>
-          <marko-web-website-section-name|{ value }| tag="h2" block-name=blockName obj=content.primarySection>
-            More in ${value}
-          </marko-web-website-section-name>
-        </if>
+            $ let skip = (i * moreSectionLimit) - moreSectionLimit;
+            <theme-section-feed-block alias=content.primarySection.alias>
+              <@query-params limit=moreSectionLimit skip=p.skip({ perPage, skip }) />
+            </theme-section-feed-block>
 
-        $ let skip = (i * moreSectionLimit) - moreSectionLimit;
-        <theme-section-feed-block alias=content.primarySection.alias>
-          <@query-params limit=moreSectionLimit skip=p.skip({ perPage, skip }) />
-        </theme-section-feed-block>
+            <if(i === moreSectionCount)>
+              <theme-section-feed-block|{ totalCount }| alias=content.primarySection.alias count-only=true>
+                <theme-pagination-controls
+                  per-page=perPage
+                  total-count=totalCount
+                  path=content.primarySection.alias
+                />
+              </theme-section-feed-block>
+            </if>
 
-        <if(i === moreSectionCount)>
-          <theme-section-feed-block|{ totalCount }| alias=content.primarySection.alias count-only=true>
-            <theme-pagination-controls
-              per-page=perPage
-              total-count=totalCount
-              path=content.primarySection.alias
+            <theme-gam-define-display-ad
+              name="rotation"
+              position="content_page"
+              aliases=aliases
+              modifiers=["inter-block"]
             />
-          </theme-section-feed-block>
-        </if>
-      </@section>
-
-      <@section|{ content, aliases, blockName }|>
-        <theme-gam-define-display-ad
-          name="rotation"
-          position="content_page"
-          aliases=aliases
-          modifiers=["inter-block"]
-        />
-      </@section>
-    </for>
+          </for>
+        </aside>
+    </@section>
   </if>
 
   <for|s| of=sections>
