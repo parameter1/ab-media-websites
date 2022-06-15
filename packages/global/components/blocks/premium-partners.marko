@@ -38,7 +38,11 @@ $ const queryParams = {
   <else if(nodes.length)>
     $ const displayLimit = defaultValue(input.displayLimit, 10);
     $ const shuffledPartners = (shufflePartners) ? shuffle(nodes).slice(0, displayLimit) : nodes.slice(0, displayLimit);
-    <div class=`ad-container--with-label ad-container--with-label-partners`>
+    <div
+      class="ad-container--with-label ad-container--with-label-partners"
+      role="region"
+      aria-label="Premium Partners"
+    >
       <div class="partners-label">Premium Partners</div>
       <marko-web-block name="partners">
         <div class="card-deck-flow">
