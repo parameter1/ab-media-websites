@@ -15,6 +15,7 @@ module.exports = {
   identityX,
   magazine,
   newsletter,
+  enableNewsletterSignup: process.env.ENABLE_NEWSLETTER_SIGNUP,
   digitalEdition,
   search,
   company: 'AB Media Inc',
