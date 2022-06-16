@@ -135,7 +135,7 @@ fragment ContentPageFragment on Content {
           primaryImage {
             id
             src(input: { options: { auto: "format,compress" } })
-            alt
+            alt(input: { append: "Headshot" })
           }
         }
       }

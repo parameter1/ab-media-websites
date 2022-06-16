@@ -6,7 +6,7 @@ $ const { node } = input;
 $ const linkText = get(node, "linkText") || "Read More";
 $ const blockName = defaultValue(input.blockName, "pib-page-card");
 
-<marko-web-block name=blockName>
+<marko-web-block name=blockName attrs={ role: "region", "aria-label": `${node.shortName} Promo Card`}>
   <marko-web-element block-name=blockName name="inner-wrapper">
     <div>
       <marko-web-element block-name=blockName name="title">
