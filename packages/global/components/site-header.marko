@@ -39,8 +39,9 @@ $ const navigation = {
       reg-enabled=input.regEnabled
       has-user=input.hasUser
     />
-
-    <!-- <marko-web-browser-component name="ThemeNewsletterToggleButton" ssr=true /> -->
+    <if(site.get("enableNewsletterSignup"))>
+      <marko-web-browser-component name="ThemeNewsletterToggleButton" ssr=true />
+    </if>
   </default-theme-site-navbar>
 
   <default-theme-site-navbar modifiers=["primary"] attrs={ "aria-label": "Primary Navigation" }>
