@@ -18,6 +18,7 @@ const billboardState = require('./middleware/billboard-state');
 const oembedHandler = require('./oembed-handler');
 const omedaConfig = require('./config/omeda');
 const redirectHandler = require('./redirect-handler');
+const recaptcha = require('./config/recaptcha');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
   // Handle submissions on /__inquiry
@@ -52,6 +53,9 @@ module.exports = (options = {}) => {
 
       // Use paginated middleware
       app.use(paginated());
+
+      // Recaptcha
+      set(app.locals, 'recaptcha', recaptcha);
 
       // i18n
       const i18n = v => v;
