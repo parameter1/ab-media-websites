@@ -76,7 +76,7 @@ module.exports = {
   },
   pushdown: {
     ...defaults,
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-half.png',
     description: 'Join other industry pros who get pertinent, fast-reading nationwide stories delivered twice a week to their inbox with AQUA Today.',
   },
 
