@@ -63,7 +63,7 @@ const defaults = {
       { id: 10, label: 'Casual Furniture/Patio Dealer' },
       { id: 11, label: 'Landscape Architect/Designer' },
       { id: 12, label: 'Solar/Sauna Dealer' },
-      { id: 13, label: 'Other (Please Specify)' },
+      { id: 13, label: 'Other)' },
     ],
   },
 };

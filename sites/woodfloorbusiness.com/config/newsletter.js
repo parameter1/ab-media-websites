@@ -61,7 +61,7 @@ const defaults = {
       { id: 123, label: 'Interior Designer' },
       { id: 124, label: 'Builder' },
       { id: 125, label: 'Inspector' },
-      { id: 126, label: 'Other (Please Specify)' },
+      { id: 126, label: 'Other' },
     ],
   },
 };
