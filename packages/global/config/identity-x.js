@@ -10,8 +10,24 @@ const { log } = console;
 module.exports = ({
   appId,
   apiToken = process.env.IDENTITYX_API_TOKEN,
-  requiredServerFields,
-  requiredClientFields,
+  requiredServerFields = [
+    'organization',
+    'countryCode',
+    'postalCode',
+    'street',
+    'city',
+    'regionCode',
+  ],
+  requiredClientFields = [
+    [
+      'organization',
+      'countryCode',
+      'postalCode',
+      'street',
+      'city',
+      'regionCode',
+    ],
+  ],
   omedaGraphQLProp = '$omeda',
 } = {}) => {
   const config = new IdentityXConfiguration({
