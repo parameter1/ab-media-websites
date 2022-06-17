@@ -14,11 +14,15 @@ $ const apiKey = site.get("gcse.id");
     </marko-web-gtm-default-context>
     <meta name="robots" content="noindex">
   </@head>
-  <@page>
-    <marko-web-page-wrapper>
+  <@above-container>
+    <marko-web-page-wrapper modifiers=["premium-partners"]>
       <@section|{ aliases }| modifiers=["premium-partners"]>
         <global-premium-partners-block />
       </@section>
+    </marko-web-page-wrapper>
+  </@above-container>
+  <@page>
+    <marko-web-page-wrapper>
       <@section|{ aliases }| modifiers=["first"]>
         <theme-gam-define-display-ad
           name="rotation"

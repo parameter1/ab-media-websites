@@ -42,6 +42,12 @@
 }
 
 .page-wrapper {
+  &--premium-partners {
+    max-width: 1080px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
   &__section {
     &--premium-partners {
       margin-bottom: 0;

@@ -12,11 +12,15 @@ $ const description = "Digital Edition";
       <marko-web-gtm-push data=context />
     </marko-web-gtm-default-context>
   </@head>
-  <@page>
-    <marko-web-page-wrapper>
+  <@above-container>
+    <marko-web-page-wrapper modifiers=["premium-partners"]>
       <@section|{ aliases }| modifiers=["premium-partners"]>
         <global-premium-partners-block />
       </@section>
+    </marko-web-page-wrapper>
+  </@above-container>
+  <@page>
+    <marko-web-page-wrapper>
       <@section>
         <div class="zmags">
           <div id="zmags-content" class="zmags__viewer"></div>
