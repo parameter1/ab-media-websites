@@ -5,7 +5,6 @@ const renderBlock = require('@parameter1/base-cms-marko-web-theme-monorail/route
 const searchTemplate = require('../templates/search');
 const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
-const identityX = require('./identity-x');
 const nativeX = require('./native-x');
 const printContent = require('./print-content');
 const publicFiles = require('./public-files');
@@ -17,9 +16,6 @@ module.exports = (app, siteConfig) => {
 
   // Feed
   feed(app);
-
-  // IdentityX (user routing and app context)
-  identityX(app);
 
   // Magazine Routes
   magazine(app);

@@ -7,6 +7,7 @@ const magazine = require('./magazine');
 const newsletter = require('./newsletter');
 const search = require('./search');
 const subscribe = require('./subscribe');
+const omeda = require('./omeda');
 
 module.exports = {
   navigation,
@@ -15,6 +16,7 @@ module.exports = {
   identityX,
   magazine,
   newsletter,
+  omeda,
   enableNewsletterSignup: process.env.ENABLE_NEWSLETTER_SIGNUP,
   digitalEdition,
   search,

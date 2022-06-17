@@ -1,10 +1,10 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@parameter1/base-cms-marko-web');
-const { set, get } = require('@parameter1/base-cms-object-path');
+const { set, get, getAsObject } = require('@parameter1/base-cms-object-path');
 const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
-const omedaGraphQL = require('@parameter1/omeda-graphql-client-express');
 const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
 const stripOlyticsParam = require('@parameter1/base-cms-marko-web-omeda-identity-x/middleware/strip-olytics-param');
+const omedaIdentityX = require('@parameter1/base-cms-marko-web-omeda-identity-x');
 const odentityCustomerUpsert = require('@parameter1/base-cms-marko-web-omeda/odentity/upsert-customer');
 
 const companySearchHandler = require('./company-search');
@@ -16,7 +16,7 @@ const paginated = require('./middleware/paginated');
 const newsletterState = require('./middleware/newsletter-state');
 const billboardState = require('./middleware/billboard-state');
 const oembedHandler = require('./oembed-handler');
-const omedaConfig = require('./config/omeda');
+const idxRouteTemplates = require('./templates/user');
 const redirectHandler = require('./redirect-handler');
 const recaptcha = require('./config/recaptcha');
 
@@ -70,15 +70,22 @@ module.exports = (options = {}) => {
       // Use billboardState middleware
       app.use(billboardState());
 
-      // Use Omeda middleware
-      app.use(omedaGraphQL({
-        uri: 'https://graphql.omeda.parameter1.com/',
+
+      // Setup IdentityX + Omeda
+      const idxConfig = getAsObject(options, 'siteConfig.identityX');
+      const omedaConfig = getAsObject(options, 'siteConfig.omeda');
+      console.log('omeda config: ', omedaConfig);
+      omedaIdentityX(app, {
         brandKey: omedaConfig.brandKey,
         clientKey: omedaConfig.clientKey,
         appId: omedaConfig.appId,
         inputId: omedaConfig.inputId,
-      }));
-
+        rapidIdentProductId: get(omedaConfig, 'rapidIdentification.productId'),
+        omedaPromoCodeDefault: omedaConfig.promoCodeDefault,
+        omedaPromoCodeCookieName: omedaConfig.promoCodeCookieName,
+        idxConfig,
+        idxRouteTemplates,
+      });
       // Setup GAM.
       const gamConfig = get(options, 'siteConfig.gam');
       set(app.locals, 'GAM', gamConfig);
