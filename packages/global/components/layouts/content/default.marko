@@ -16,7 +16,7 @@ $ const displayReadNext = showReadNextBlock && ["article"].includes(type);
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
 $ const displayComments = ["contact"].includes(type) ? false : true;
 <!-- $ const displayNewsletterSignup = ["contact"].includes(type) ? false : true; -->
-$ const displayNewsletterSignup = false;
+$ const displayNewsletterSignup = defaultValue(site.get("enableNewsletterSignup"), false);
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
 
 <global-content-wrapper-layout
@@ -174,10 +174,12 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
           </for>
         </if>
         <!-- remove this when reworking newsletter signup -->
-        <global-newsletter-signup-banner-static-block />
         <if(displayNewsletterSignup)>
           <theme-newsletter-signup-banner-block />
         </if>
+        <else>
+          <global-newsletter-signup-banner-static-block />
+        </else>
 
         <if(displaySocialShare)>
           <marko-web-social-sharing
