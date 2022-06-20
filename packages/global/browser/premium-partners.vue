@@ -1,5 +1,9 @@
 <template>
-  <div class="ad-container--with-label ad-container--with-label-partners">
+  <div
+    class="ad-container--with-label ad-container--with-label-partners"
+    role="region"
+    aria-label="Premium Partners"
+  >
     <div class="partners-label">
       Premium Partners
     </div>
@@ -10,7 +14,7 @@
             v-for="(partner) in partnersToDisplay"
             :key="partner.name"
             :href="partner.linkUrl"
-            :title="partner.shorName"
+            :title="partner.shortName"
             target="_blank"
             rel="nofollow sponsored"
           >
@@ -20,7 +24,7 @@
               srcset=""
               :data-src="getImgSrc(partner.primaryImage.src)"
               :data-srcset="[getImgSrcSet(partner.primaryImage.src)]"
-              :alt="partner.shorName"
+              :alt="partner.shortName"
             >
           </a>
         </vue-slick-carousel>
