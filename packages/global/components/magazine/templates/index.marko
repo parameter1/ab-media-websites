@@ -16,12 +16,10 @@ $ const description = site.get("magazines.description");
         <global-premium-partners-block />
       </@section>
 
-      <@section|{ aliases }|>
-        <global-gam-define-display-ad
-          name="rotation"
-          position="magazine_page"
-          aliases=aliases
-          modifiers=["inter-block"]
+      <@section modifiers=["break-container", "first"]>
+        <global-leaderboard-ad-block
+          position="static_page"
+          modifiers=["inter-block", "combined-leaderboard"]
         />
       </@section>
 

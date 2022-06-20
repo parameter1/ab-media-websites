@@ -10,6 +10,8 @@ $ const {
   prevProject,
 } = input;
 
+$ const aliases = [gallery.primarySection.alias, gallery.primarySection.alias.split('/')[0]];
+
 <site-project-gallery-page-layout metadata={ title: entry.title, description: entry.teaser, canonicalPath }>
   <@head>
     <site-project-gallery-read-next-block
@@ -29,15 +31,16 @@ $ const {
         <global-leaderboard-ad-block
           position="static_page"
           modifiers=["inter-block", "combined-leaderboard"]
+          aliases=aliases
         />
       </@section>
 
       <@section|{ blockName }| modifiers=["content-header"]>
         <div class="content-page-header">
-          <global-content-page-breadcrumbs section=gallery.primarySection />
+          <theme-content-page-breadcrumbs section=gallery.primarySection />
           <marko-web-content-name tag="h1" block-name=blockName obj={ name: entry.title } />
           <if(entry.city && entry.region)>
-            <global-author-published-node
+            <theme-author-published-node
               author={ name: `${entry.city}, ${entry.region}` }
               content={ published: `${entry.year}-06-01` }
               format="YYYY"
@@ -85,10 +88,11 @@ $ const {
       </@section>
 
       <@section>
-        <global-gam-define-display-ad
+        <theme-gam-define-display-ad
           name="rotation"
           position="static_page"
           modifiers=["inter-block"]
+          aliases=aliases
         />
       </@section>
     </marko-web-page-wrapper>

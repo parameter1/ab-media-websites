@@ -7,21 +7,21 @@ $ const { id, type, pageNode, ...rest } = input;
   ...rest
 >
   <!-- <@after-body|{ content }|>
-    <global-more-gear-block alias="products" params={ excludeContentIds: [content.id] } />
+    <theme-more-products-block alias="products" params={ excludeContentIds: [content.id] } />
   </@after-body> -->
 
   <!-- <@section>
-    <global-callout-cards-block>
+    <theme-callout-cards-block>
       <@slot>
         <global-ccj-top-250-block />
       </@slot>
       <@slot>
-        <global-white-papers-block />
+        <theme-white-papers-block />
       </@slot>
-    </global-callout-cards-block>
+    </theme-callout-cards-block>
   </@section> -->
 
   <@section>
-    <global-client-side-most-popular-block />
+    <theme-client-side-most-popular-block />
   </@section>
 </global-content-product-layout>

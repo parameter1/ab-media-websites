@@ -17,9 +17,9 @@ module.exports = ({
       sizeMapping: [
         { viewport: [1070, 0], size: [970, 250] },
         { viewport: [980, 0], size: [970, 250] },
-        { viewport: [750, 0], size: [300, 100] },
-        { viewport: [430, 0], size: [300, 100] },
-        { viewport: [300, 0], size: [300, 100] },
+        { viewport: [750, 0], size: [] },
+        { viewport: [430, 0], size: [] },
+        { viewport: [300, 0], size: [] },
       ],
     })
     .setTemplate('BILLBOARD', {
@@ -48,8 +48,22 @@ module.exports = ({
         { viewport: [300, 0], size: [[300, 50], [300, 100], [300, 250]] },
       ],
     })
-    .setTemplate('INLINE-CONTENT-MOBILE', {
+    .setTemplate('ROTATION-DESKTOP', {
       size: [[970, 250], [970, 90], [728, 90]],
+      sizeMapping: [
+        { viewport: [980, 0], size: [[970, 250], [970, 90], [728, 90]] },
+        { viewport: [300, 0], size: [] },
+      ],
+    })
+    .setTemplate('INLINE-LEADERBOARD-MOBILE', {
+      size: [300, 250],
+      sizeMapping: [
+        { viewport: [980, 0], size: [] },
+        { viewport: [300, 0], size: [300, 250] },
+      ],
+    })
+    .setTemplate('INLINE-CONTENT-MOBILE', {
+      size: [300, 250],
       sizeMapping: [
         { viewport: [980, 0], size: [] },
         { viewport: [300, 0], size: [[300, 50], [300, 100], [300, 250]] },

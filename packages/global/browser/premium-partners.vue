@@ -1,5 +1,9 @@
 <template>
-  <div class="ad-container--with-label ad-container--with-label-partners">
+  <div
+    class="ad-container--with-label ad-container--with-label-partners"
+    role="region"
+    aria-label="Premium Partners"
+  >
     <div class="partners-label">
       Premium Partners
     </div>
@@ -9,14 +13,18 @@
           <a
             v-for="(partner) in partnersToDisplay"
             :key="partner.name"
-            :href="partner.href"
-            :title="partner.shorName"
+            :href="partner.linkUrl"
+            :title="partner.shortName"
+            target="_blank"
+            rel="nofollow sponsored"
           >
             <img
-              class="premium-partners__logo"
-              :src="getImgSrc(partner.primaryImage.src)"
-              :srcset="[getImgSrcSet(partner.primaryImage.src)]"
-              :alt="partner.shorName"
+              class="premium-partners__logo lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              srcset=""
+              :data-src="getImgSrc(partner.primaryImage.src)"
+              :data-srcset="[getImgSrcSet(partner.primaryImage.src)]"
+              :alt="partner.shortName"
             >
           </a>
         </vue-slick-carousel>
@@ -35,10 +43,6 @@ export default {
     partners: {
       type: Array,
       required: true,
-    },
-    shufflePartners: {
-      type: Boolean,
-      default: true,
     },
   },
 
@@ -62,14 +66,14 @@ export default {
   }),
 
   created() {
-    const { partners, shufflePartners } = this;
+    const { partners } = this;
     if (partners.length < 10) {
       this.SlickCarouselSettings.slidesToShow = partners.length;
       this.SlickCarouselSettings.slidesToScroll = partners.length;
       this.SlickCarouselSettings.autoplay = false;
-      this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
+      this.partnersToDisplay = partners;
     } else {
-      this.partnersToDisplay = shufflePartners ? this.shuffleArray(partners) : partners;
+      this.partnersToDisplay = partners;
     }
   },
 

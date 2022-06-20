@@ -4,7 +4,10 @@ const { set, get } = require('@parameter1/base-cms-object-path');
 const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
 const omedaGraphQL = require('@parameter1/omeda-graphql-client-express');
 const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
+const stripOlyticsParam = require('@parameter1/base-cms-marko-web-omeda-identity-x/middleware/strip-olytics-param');
+const odentityCustomerUpsert = require('@parameter1/base-cms-marko-web-omeda/odentity/upsert-customer');
 
+const companySearchHandler = require('./company-search');
 const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
@@ -21,6 +24,8 @@ const routes = (siteRoutes, siteConfig) => (app) => {
   loadInquiry(app);
   // Shared/global routes (all sites)
   sharedRoutes(app, siteConfig);
+  // Handle request on /__company-search?searchQuery=CompanyName
+  companySearchHandler(app);
   // Load site routes
   siteRoutes(app);
 };
@@ -47,6 +52,10 @@ module.exports = (options = {}) => {
 
       // Use paginated middleware
       app.use(paginated());
+
+      // i18n
+      const i18n = v => v;
+      set(app.locals, 'i18n', options.i18n || i18n);
 
       // Use paginated middleware
       app.use(htmlSitemapPagination());
@@ -77,6 +86,13 @@ module.exports = (options = {}) => {
       // Setup IdentityX.
       const identityXConfig = get(options, 'siteConfig.identityX');
       set(app.locals, 'identityX', identityXConfig);
+      app.use(stripOlyticsParam());
+
+      // Omeda customer upsert
+      app.use(odentityCustomerUpsert({
+        brandKey: omedaConfig.brandKey,
+        onError: newrelic.noticeError.bind(newrelic),
+      }));
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
 

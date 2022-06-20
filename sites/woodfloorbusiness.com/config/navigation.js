@@ -32,7 +32,7 @@ const mobileMenu = {
   secondary: [
     ...topics.secondary,
     subscribe,
-    resources,
+    ...resources,
   ],
 };
 

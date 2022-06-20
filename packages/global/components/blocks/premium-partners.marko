@@ -16,7 +16,7 @@ $ const logoOptions = {
   bg: "fff",
   auto: "format,compress&q=70"
 };
-$ const lazyload = defaultValue(input.lazyload, false);
+$ const lazyload = defaultValue(input.lazyload, true);
 $ const queryParams = {
   limit: 50,
   queryFragment,
@@ -24,21 +24,25 @@ $ const queryParams = {
   includeContentTypes: ["Promotion"],
   sectionAlias: 'premium-partners',
 };
-<marko-web-query|{ nodes: premiumPartners }| name="website-scheduled-content" params=queryParams>
-  <if(premiumPartners.length > 10)>
+<marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
+  <if(nodes.length > 10)>
+    $ const partners = shuffle(nodes);
     <marko-web-browser-component
       name="GlobalPremiumPartners"
       props={
-        partners: premiumPartners,
-        shufflePartners: shufflePartners
+        partners,
       }
       ssr=true
     />
   </if>
-  <else if(premiumPartners.length)>
+  <else if(nodes.length)>
     $ const displayLimit = defaultValue(input.displayLimit, 10);
-    $ const shuffledPartners = (shufflePartners) ? shuffle(premiumPartners).slice(0, displayLimit) : premiumPartners.slice(0, displayLimit);
-    <div class=`ad-container--with-label ad-container--with-label-partners`>
+    $ const shuffledPartners = (shufflePartners) ? shuffle(nodes).slice(0, displayLimit) : nodes.slice(0, displayLimit);
+    <div
+      class="ad-container--with-label ad-container--with-label-partners"
+      role="region"
+      aria-label="Premium Partners"
+    >
       <div class="partners-label">Premium Partners</div>
       <marko-web-block name="partners">
         <div class="card-deck-flow">
@@ -48,7 +52,7 @@ $ const queryParams = {
               $ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
               <marko-web-img
                 class=`${blockName}__logo`
-                link={ href: partner.linkUrl, target: "_blank" }
+                link={ href: partner.linkUrl, target: "_blank", rel: "nofollow sponsored" }
                 src=imageSrc
                 srcset=[imageSrcset]
                 alt=partner.shortName

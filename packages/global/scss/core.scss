@@ -1,66 +1,64 @@
-// skin functions and vars (funcs must be first).
-@import "./functions";
-@import "./variables";
+// import local variables
+@import "variables";
 
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/scss/theme";
-@import "../../node_modules/bootstrap/scss/spinners";
+// import theme css
+@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/core";
 
-@import "../../node_modules/@parameter1/base-cms-marko-web-social-sharing/scss/buttons";
-@import "../../node_modules/bootstrap/scss/input-group";
-@import "../../node_modules/@parameter1/base-cms-marko-web-html-sitemap/scss/index";
+// page wrapper
+.page-wrapper {
+  &__content-name {
+    margin-bottom: 1rem;
+  }
 
-// skin mixins
-@import "./mixins";
+  .details {
+    &__image {
+      float: right;
+      clear: both;
+    }
+  }
+  @media (max-width: 980px) {
+    &__section {
+      &--first-sm {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// content page
+.page-contents {
+  $self: &;
+  &__content-body,
+  &__content-profile,
+  &__content-sidebar {
+    .clear {
+      display: none;
+    }
+  }
+}
+
+// sponsored native-x story
+// stylelint-disable selector-max-id
+#native-x-story-body {
+  .page-contents {
+    &__content-body {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
 
 // skin components
-@import "./components/ads";
-@import "./components/author-node";
-@import "./components/author-published-node";
 @import "./components/carousel";
-@import "./components/comments";
-@import "./components/content-page";
 @import "./components/digital-edition";
 @import "./components/directory-facets";
-@import "./components/page-wrapper";
-@import "./components/pagination-controls";
-@import "./components/site-footer";
-@import "./components/site-menu";
-@import "./components/site-navbar";
-@import "./components/site-navbar2";
-@import "./components/site-newsletter-menu";
-@import "./components/search-page";
-@import "./components/spec-guide";
-@import "./components/sponsor-logo";
-
-@import "./components/blocks/callout-cards";
+@import "./components/blocks/company-search";
 @import "./components/blocks/directory-section-feed";
-@import "./components/blocks/gear";
-@import "./components/blocks/hero-card";
-@import "./components/blocks/latest-podcast";
-@import "./components/blocks/latest-products-feed";
 @import "./components/blocks/magazine-issues";
-@import "./components/blocks/more-gear";
-@import "./components/blocks/most-popular";
-@import "./components/blocks/newsletter-signup-banner";
-@import "./components/blocks/newsletter-signup-banner-large";
 @import "./components/blocks/newsletter-signup-banner-static";
-@import "./components/blocks/node-author";
-@import "./components/blocks/opinion";
-@import "./components/blocks/partners-in-business";
-@import "./components/blocks/pib-featured";
 @import "./components/blocks/premium-partners";
-@import "./components/blocks/primary-image";
-@import "./components/blocks/promo-card";
-@import "./components/blocks/read-next";
-@import "./components/blocks/reader-rigs";
-@import "./components/blocks/related-stories";
-@import "./components/blocks/resource-library";
-@import "./components/blocks/white-papers";
-@import "./components/blocks/section-feed";
-@import "./components/blocks/section-list";
-@import "./components/blocks/social-follow";
-@import "./components/blocks/top-stories";
-@import "./components/blocks/top-stories-menu";
+@import "./components/blocks/section-search";
 
 @import "../components/magazine/scss/index";
 
@@ -250,4 +248,35 @@ label {
 
 [data-embed-type][data-embed-align="right"] {
   clear: right;
+}
+
+.ad-container {
+  $self: &;
+
+  $container-bottom-padding: 30px;
+  $wrapper-first-child-padding: 16px;
+  $label-bottom-padding: 4px;
+  $label-font-size: 10px;
+  $label-line-height: 1;
+  $container-height: $container-bottom-padding + $wrapper-first-child-padding + ($label-font-size * $label-line-height) + $label-bottom-padding;
+
+  &--template-leaderboard {
+    @media (max-width: 980px) {
+      display: none;
+    }
+  }
+  &--template-inline-leaderboard-mobile {
+    display: none;
+    @media (max-width: 980px) {
+      display: block;
+      min-height: 250px + $container-height;
+    }
+  }
+  &--template-rotation-desktop {
+    display: none;
+    @media (min-width: 980px) {
+      display: block;
+      min-height: 90px + $container-height;
+    }
+  }
 }

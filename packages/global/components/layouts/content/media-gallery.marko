@@ -1,6 +1,5 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
-import DefineDisplayAd from "../../gam/define-display-ad";
 
 $ const { site } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
@@ -27,7 +26,7 @@ $ const sections = getAsArray(input, "sections");
   <@section|{ blockName, content, aliases, authors }| modifiers=["content-header"]>
     $ const { primarySection } = content;
     <div class="content-page-header">
-      <global-content-page-breadcrumbs section=primarySection />
+      <theme-content-page-breadcrumbs section=primarySection />
       <marko-web-content-name tag="h1" block-name=blockName obj=content />
 
       <default-theme-content-attribution obj=content elements=["company"] />
@@ -38,10 +37,14 @@ $ const sections = getAsArray(input, "sections");
     $ const { primarySection } = content;
     <div class="content-page-body">
       <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": id }>
+        $ const allImages = getAsArray(content, "images.edges").map(edge => edge.node);
+        $ const inCarouselImages = getAsArray(content, "images.edges").map(edge => edge.node).filter(node => node.inCarousel);
+        $ const images = inCarouselImages.length ? inCarouselImages : allImages;
+
         <global-image-slider
           modifiers=["project-gallery"]
-          images=getAsArray(content, "images.edges").map(edge => edge.node)
-          image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress", q: 70 }
+          images=images
+          image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress" }
         />
 
         $ const bodyId = `content-body-${content.id}`;
@@ -65,7 +68,7 @@ $ const sections = getAsArray(input, "sections");
   </@section>
 
   <@section|{ aliases }|>
-    <global-gam-define-display-ad
+    <theme-gam-define-display-ad
       name="rotation"
       position="content_page"
       aliases=aliases

@@ -7,12 +7,12 @@ $ const { id, type, pageNode, ...rest } = input;
   ...rest
 >
   <@section>
-     <global-top-stories-block />
+     <theme-top-stories-block query-params={ optionName: "Pinned" } />
   </@section>
   <@section>
     <site-promo-card-rotation-block />
   </@section>
   <@section>
-    <global-client-side-most-popular-block />
+    <theme-client-side-most-popular-block />
   </@section>
 </global-content-media-gallery-layout>

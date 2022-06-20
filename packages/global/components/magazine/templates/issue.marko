@@ -17,7 +17,7 @@ $ const { id, pageNode } = data;
       </@section>
 
       <@section|{ aliases }|>
-        <global-gam-define-display-ad
+        <theme-gam-define-display-ad
           name="rotation"
           position="magazine_page"
           aliases=aliases
@@ -29,10 +29,10 @@ $ const { id, pageNode } = data;
         <div class="row">
           <div class="col">
             <marko-web-resolve-page|{ data: issue }| node=pageNode>
-              <default-theme-breadcrumbs modifiers=["website-section"]>
+              <theme-breadcrumbs modifiers=["website-section"]>
                 <@item><marko-web-link href="/magazine">Magazine</marko-web-link></@item>
                 <@item><marko-web-magazine-publication-name tag=null obj=issue.publication link=true /></@item>
-              </default-theme-breadcrumbs>
+              </theme-breadcrumbs>
               <div class="magazine-publication-card-block">
                 <div class="magazine-publication-card-block__body">
                   <div class="row">
@@ -44,15 +44,12 @@ $ const { id, pageNode } = data;
                           fluid=false
                           ar="3:4"
                           width=300
-                          link={ href: issue.canonicalPath, title: issue.name }
+                          link={ href: issue.digitalEditionUrl, title: issue.name }
                         />
                         <@body>
                           <@title tag="h1">
                             <marko-web-magazine-issue-name tag=null obj=issue />
                           </@title>
-                          <@text modifiers=["teaser"]>
-                            <marko-web-magazine-issue-description tag=null obj=issue />
-                          </@text>
                           <@footer>
                             <@left>
                               <global-magazine-publication-buttons issue=issue />

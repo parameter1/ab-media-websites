@@ -17,17 +17,14 @@ x-env-defaults: &env
   NODE_ENV: development
   OMEDA_APP_ID: ${OMEDA_APP_ID-(unset)}
   OMEDA_INPUT_ID: ${OMEDA_INPUT_ID-(unset)}
-  RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY-(unset)}
-  RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY-(unset)}
   SENDGRID_API_KEY: ${SENDGRID_API_KEY-(unset)}
   SENDGRID_DEV_TO: ${SENDGRID_DEV_TO-support@parameter1.com}
   YARN_CACHE_FOLDER: /.yarn-cache
   IDENTITYX_API_TOKEN: ${IDENTITYX_API_TOKEN-(unset)}
   IDENTITYX_GRAPHQL_URI: ${IDENTITYX_GRAPHQL_URI-https://identity-x.parameter1.com/graphql}
   BASE_BROWSE_GRAPHQL_URI: ${BASE_BROWSE_GRAPHQL_URI-https://base-browse.virgon.base.parameter1.com/graphql}
-
-  RECAPTCHA_V3_SITE_KEY: ${RECAPTCHA_V3_SITE_KEY-(unset)}
-  RECAPTCHA_V3_SECRET_KEY: ${RECAPTCHA_V3_SECRET_KEY-(unset)}
+  RECAPTCHA_V3_SITE_KEY: ${RECAPTCHA_V3_SITE_KEY-}
+  RECAPTCHA_V3_SECRET_KEY: ${RECAPTCHA_V3_SECRET_KEY-}
 
 x-env-virgon-dev: &env-virgon-dev
   GRAPHQL_URI: ${GRAPHQL_URI-http://host.docker.internal:10103}
@@ -48,6 +45,7 @@ x-env-virgon: &env-virgon
   SITEMAPS_URI: ${SITEMAPS_URI-https://sitemaps.virgon.base.parameter1.com}
 
 x-site-command: &site-cmd
+  <<: *node
   entrypoint: ["node_modules/.bin/basecms-website"]
   command: ["dev", "index.js"]
 
@@ -77,11 +75,13 @@ services:
       <<: *env
       <<: *env-virgon
       AB_PROJECTS_GRAPHQL_URL: ${AB_PROJECTS_GRAPHQL_URL-https://graphql.ab-projects.parameter1.com}
+      HOST: www-abmedia-ab.dev.parameter1.com
       PORT: 80
       EXPOSED_PORT: 9801
       LIVERELOAD_PORT: 19801
       TENANT_KEY: abmedia_all
       SITE_ID: 60f6ec0bd28860bc3384daa1
+    hostname: www-abmedia-ab.dev.parameter1.com
     ports:
       - "9801:80"
       - "19801:19801"
@@ -93,11 +93,13 @@ services:
     environment:
       <<: *env
       <<: *env-virgon
+      HOST: www-abmedia-wfb.dev.parameter1.com
       PORT: 80
       EXPOSED_PORT: 9802
       LIVERELOAD_PORT: 19802
       TENANT_KEY: abmedia_all
       SITE_ID: 60f6ec3bd28860bc3384e784
+    hostname: www-abmedia-wfb.dev.parameter1.com
     ports:
       - "9802:80"
       - "19802:19802"
@@ -109,11 +111,13 @@ services:
     environment:
       <<: *env
       <<: *env-virgon
+      HOST: www-abmedia-aqua.dev.parameter1.com
       PORT: 80
       EXPOSED_PORT: 9803
       LIVERELOAD_PORT: 19803
       TENANT_KEY: abmedia_all
       SITE_ID: 60f6ec34d28860bc3384e447
+    hostname: www-abmedia-aqua.dev.parameter1.com
     ports:
       - "9803:80"
       - "19803:19803"

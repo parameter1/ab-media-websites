@@ -1,6 +1,8 @@
 $ const { req } = out.global;
 $ const { galleries, primarySection } = input;
 
+$ const aliases = [primarySection.alias, primarySection.alias.split('/')[0]];
+
 <site-project-gallery-page-layout metadata={ title: primarySection.name, description: primarySection.description }>
   <@page>
     <marko-web-page-wrapper>
@@ -12,6 +14,7 @@ $ const { galleries, primarySection } = input;
         <global-leaderboard-ad-block
           position="static_page"
           modifiers=["inter-block", "combined-leaderboard"]
+          aliases=aliases
         />
       </@section>
 
@@ -33,10 +36,11 @@ $ const { galleries, primarySection } = input;
       </@section>
 
       <@section>
-        <global-gam-define-display-ad
+        <theme-gam-define-display-ad
           name="rotation"
           position="static_page"
           modifiers=["inter-block"]
+          aliases=aliases
         />
       </@section>
     </marko-web-page-wrapper>

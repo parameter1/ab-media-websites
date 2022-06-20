@@ -1,15 +1,15 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
+const renderBlock = require('@parameter1/base-cms-marko-web-theme-monorail/routes/render-block');
+const omedaNewsletters = require('@parameter1/base-cms-marko-web-omeda/routes/omeda-newsletters');
+const searchTemplate = require('../templates/search');
 const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
 const identityX = require('./identity-x');
 const magazine = require('../components/magazine/routes');
 const nativeX = require('./native-x');
-const omedaNewsletters = require('./omeda-newsletters');
 const printContent = require('./print-content');
 const publicFiles = require('./public-files');
 const redirects = require('./redirects');
-const renderBlock = require('./render-block');
-const search = require('./search');
 
 module.exports = (app, siteConfig) => {
   // Digital Edition
@@ -43,7 +43,8 @@ module.exports = (app, siteConfig) => {
   renderBlock(app);
 
   // Search routes
-  search(app, siteConfig);
+  // search(app, siteConfig);
+  app.get('/search', (_, res) => { res.marko(searchTemplate); });
 
   // HTML Sitemap
   htmlSitemap(app);

@@ -1,5 +1,5 @@
 import { buildImgixUrl } from "@parameter1/base-cms-image";
-import queryFragment from "../../graphql/fragments/section-feed-block";
+import queryFragment from "@parameter1/base-cms-marko-web-theme-monorail/graphql/fragments/section-feed-block";
 
 $ const { id, type, pageNode } = data;
 
@@ -12,7 +12,7 @@ $ const perPage = 10;
   page-node=pageNode
 >
   <@section|{ aliases }| modifiers=["first-sm"]>
-    <global-gam-define-display-ad
+    <theme-gam-define-display-ad
       name="leaderboard"
       position="content_page"
       aliases=aliases
@@ -66,22 +66,22 @@ $ const perPage = 10;
       >
         <@nodes nodes=nodes>
           <@slot|{ node }|>
-            <global-section-feed-content-node node=node />
+            <theme-section-feed-content-node node=node />
           </@slot>
         </@nodes>
       </marko-web-node-list>
     </marko-web-query>
-    <global-query-total-count|{ totalCount }| name="all-author-content" params={ contactId: id }>
-      <global-pagination-controls
+    <theme-query-total-count|{ totalCount }| name="all-author-content" params={ contactId: id }>
+      <theme-pagination-controls
         per-page=perPage
         total-count=totalCount
         path=req.path
       />
-    </global-query-total-count>
+    </theme-query-total-count>
   </@section>
 
   <@section|{ aliases }|>
-    <global-gam-define-display-ad
+    <theme-gam-define-display-ad
       name="rotation"
       position="content_page"
       aliases=aliases
@@ -90,11 +90,11 @@ $ const perPage = 10;
   </@section>
 
   <@section>
-    <global-top-stories-block />
+    <theme-top-stories-block query-params={ optionName: "Pinned" } />
   </@section>
 
   <@section|{ aliases }|>
-    <global-gam-define-display-ad
+    <theme-gam-define-display-ad
       name="rotation"
       position="content_page"
       aliases=aliases
@@ -103,6 +103,6 @@ $ const perPage = 10;
   </@section>
 
   <@section>
-    <global-client-side-most-popular-block />
+    <theme-client-side-most-popular-block />
   </@section>
 </global-content-wrapper-layout>

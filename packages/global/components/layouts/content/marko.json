@@ -6,6 +6,10 @@
     "@id": "number",
     "@type": "string",
     "@page-node": "object",
+    "@show-more-section": {
+      "type": "boolean",
+      "default-value": true
+    },
     "@show-read-next-block": {
       "type": "boolean",
       "default-value": true

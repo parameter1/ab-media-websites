@@ -1,0 +1,47 @@
+$ const { primarySectionId } = input;
+
+$ const elementPopulation = {
+    76809: {
+      opening: "See a collection of previous job-site tips on our Pinterest",
+      firstLinkText: "Trick of the Trade board",
+      firstLinkValue: "https://www.pinterest.com/hfmag/wood-floor-tricks-of-the-trade/",
+      middle: "Do you have a Trick of the Trade to share?",
+      secondLinkText: "Email it to WFB",
+      secondLinkValue: "mailto:editors@woodfloorbusiness.com",
+      closing: "If we use it, we'll send you a WFB T-shirt."
+    },
+    76810: {
+      opening: "See a collection of wood flooring job-site stories on the WFB Pinterest",
+      firstLinkText: "Tales From the Front board",
+      firstLinkValue: "https://www.pinterest.com/hfmag/tales-from-the-front/",
+      middle: "Do you have a funny or bizarre job-site story?",
+      secondLinkText: "Email it to WFB",
+      secondLinkValue: "mailto:editors@woodfloorbusiness.com",
+      closing: "If we use it, we'll send you a WFB T-shirt."
+    }
+}
+
+$ const imgSource = `https://img.woodfloorbusiness.com/files/base/abmedia/all/image/2021/05/wfb.pinterest_100x100.png?auto=format&amp;fit=max&amp;w=100`;
+
+<if(elementPopulation[primarySectionId])>
+$ const {
+  opening,
+  firstLinkText,
+  firstLinkValue,
+  middle,
+  secondLinkText,
+  secondLinkValue,
+  closing
+} = elementPopulation[primarySectionId];
+  <p class="pinterest-block">
+    <em class="pinterest-block__text">
+      <span data-embed-type="image" data-embed-align="left">
+        <img src=`${imgSource}` data-src=`${imgSource}` alt="Pinterest 100x100">
+      </span>
+      ${opening} <a href=firstLinkValue target="_blank">${firstLinkText}</a>.
+      ${middle} <a href=secondLinkValue target="_blank">${secondLinkText}</a>.
+      ${closing}
+      <br>
+    </em>
+    </p>
+</if>

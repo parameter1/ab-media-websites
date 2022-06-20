@@ -45,14 +45,14 @@ $ const convertEntry = (entry, path) => {
       >
         <@nodes nodes=[nextProject]>
           <@slot|{ node }|>
-            <global-content-node
+            <theme-content-node
               image-position="left"
               flush=true
               node=convertEntry(node, nextHref)
               modifiers=[blockName]
             >
               <@image width=160 ar="3:2" />
-            </global-content-node>
+            </theme-content-node>
           </@slot>
         </@nodes>
       </marko-web-node-list>
@@ -72,14 +72,14 @@ $ const convertEntry = (entry, path) => {
       >
         <@nodes nodes=[prevProject]>
           <@slot|{ node }|>
-            <global-content-node
+            <theme-content-node
               image-position="left"
               flush=true
               node=node=convertEntry(node, prevHref)
               modifiers=[blockName]
             >
               <@image width=160 ar="3:2" />
-            </global-content-node>
+            </theme-content-node>
           </@slot>
         </@nodes>
       </marko-web-node-list>

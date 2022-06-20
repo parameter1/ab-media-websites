@@ -15,6 +15,8 @@ config
     { name: 'billboard', templateName: 'BILLBOARD', path: 'leaderboard' },
     { name: 'rail', templateName: 'RAIL', path: 'rotation' },
     { name: 'rotation', templateName: 'ROTATION', path: 'rotation' },
+    { name: 'rotation-desktop', templateName: 'ROTATION-DESKTOP', path: 'rotation' },
+    { name: 'inline-leaderboard-mobile', templateName: 'INLINE-LEADERBOARD-MOBILE', path: 'leaderboard' },
     { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: 'rotation' },
     { name: 'inline-content-desktop', templateName: 'INLINE-CONTENT-DESKTOP', path: 'rotation' },
   ]);

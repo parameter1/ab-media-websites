@@ -10,6 +10,7 @@ $ const chunkedNodes = slothLovesChunkArray({
 });
 
 $ const { totalCount, pageInfo } = entries;
+$ const aliases = [gallery.primarySection.alias, gallery.primarySection.alias.split('/')[0]];
 
 <site-project-gallery-page-layout metadata={ title: gallery.name, description: gallery.description }>
   <@head>
@@ -33,6 +34,7 @@ $ const { totalCount, pageInfo } = entries;
         <global-leaderboard-ad-block
           position="static_page"
           modifiers=["inter-block", "combined-leaderboard"]
+          aliases=aliases
         />
       </@section>
 
@@ -41,7 +43,7 @@ $ const { totalCount, pageInfo } = entries;
         $ const isLastChunk = index + 1 === chunkedNodes.length;
         <@section|{ blockName }|>
           <if(isFirstChunk)>
-            <global-content-page-breadcrumbs section=gallery.primarySection display-self=false />
+            <theme-content-page-breadcrumbs section=gallery.primarySection display-self=false />
             <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=gallery />
           </if>
           <marko-web-node-list
@@ -69,7 +71,7 @@ $ const { totalCount, pageInfo } = entries;
         </@section>
         <if(!isLastChunk)>
           <@section|{ aliases }|>
-            <global-gam-define-display-ad
+            <theme-gam-define-display-ad
               name="rotation"
               position="static_page"
               modifiers=["inter-block"]
@@ -79,10 +81,11 @@ $ const { totalCount, pageInfo } = entries;
       </for>
 
       <@section>
-        <global-gam-define-display-ad
+        <theme-gam-define-display-ad
           name="rotation"
           position="static_page"
           modifiers=["inter-block"]
+          aliases=aliases
         />
       </@section>
     </marko-web-page-wrapper>

@@ -1,16 +1,24 @@
-$ const { id, type, pageNode, ...rest } = input;
+$ const { id, type, pageNode, primarySection, ...rest } = input;
 
 <global-content-default-layout
   id=id
   type=type
   page-node=pageNode
+  show-more-section=false
   ...rest
 >
+  <@after-body>
+  <if([76809, 76810].includes(primarySection.id))>
+    <site-pinterest-block primary-section-id=primarySection.id />
+  </if>
+  </@after-body>
   <@section>
     <site-promo-card-rotation-block />
   </@section>
 
   <@section>
-    <global-client-side-most-popular-block />
+    <div role="region" aria-label="Most Popular Stories">
+      <theme-client-side-most-popular-block />
+    </div>
   </@section>
 </global-content-default-layout>
