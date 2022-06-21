@@ -154,7 +154,7 @@ export default {
     loginAdditionalEventData() {
       return {
         ...this.additionalEventData,
-        forceRevalidate: true,
+        forceProfileReVerification: true,
       };
     },
     currentlyExpanded() {
