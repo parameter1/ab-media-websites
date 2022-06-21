@@ -7,16 +7,17 @@ $ const blockName = "newsletter-signup-banner";
 $ const { config, site, req } = out.global;
 $ const { identityX } = req;
 $ const additionalEventData = defaultValue(input.additionalEventData, {});
+$ const buttonLabels = defaultValue(input.buttonLabels, { continue: 'Sign Up' })
+$ const loginEmailPlaceholder = defaultValue(input.loginEmailPlaceholder, 'example@gmail.com');
+
 $ const {
   name,
   description,
   imagePath,
   disabled,
-} = site.getAsObject("newsletter.signupBanner");
+} = site.getAsObject("newsletter.signupBannerLarge");
 
 $ const lang = site.config.lang || "en";
-$ const imageSrc = imagePath ? buildImgixUrl(`https://${config.website("imageHost")}/${imagePath}`, { w: 120, auto: "format,compress" }) : null;
-$ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
 
 <if(Boolean(identityX))>
   <marko-web-identity-x-context|{ user, isEnabled, application }|>
@@ -28,16 +29,14 @@ $ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
           name,
           description,
           disabled,
-          imageSrc,
-          imageSrcset,
           lang,
           additionalEventData: additionalEventData,
           source: input.source,
           activeUser: user,
           endpoints: identityX.config.getEndpoints(),
-          buttonLabels: input.buttonLabels,
+          buttonLabels,
           redirect: input.redirect,
-          loginEmailPlaceholder: input.loginEmailPlaceholder,
+          loginEmailPlaceholder,
           consentPolicy: get(application, "organization.consentPolicy"),
           regionalConsentPolicies: get(application, "organization.regionalConsentPolicies"),
           appContextId: identityX.config.get("appContextId"),
