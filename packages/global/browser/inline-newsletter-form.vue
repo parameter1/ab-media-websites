@@ -6,7 +6,7 @@
         {{ name }}
       </div>
       <div v-if="!submitted" :class="`${blockName}__description`" v-html="description" />
-      <div :class="`${blockName}__form`">
+      <div :class="`${blockName}__form-wrapper`">
         <login-form
           :additional-event-data="{ forceProfileReVerification: true }"
           :source="source"

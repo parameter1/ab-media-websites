@@ -1,4 +1,5 @@
-.site-newsletter-menu {
+.site-newsletter-menu,
+.newsletter-signup-banner-large {
   &__form-wrapper {
     h4 {
       @include skin-typography($style: "section-header");
@@ -14,11 +15,14 @@
 }
 
 .newsletter-signup-banner-large {
-  &__form {
+  &__form-wrapper {
+    max-width: 520px;
+    margin: auto;
     form {
       @include media-breakpoint-up(sm) {
         display: flex;
         flex-direction: row;
+        justify-content: center;
       }
     }
     .form-group {
@@ -29,7 +33,7 @@
       }
       @include media-breakpoint-up(sm) {
         margin-bottom: 0;
-        margin-right: map-get($spacers, block);
+        margin-right: map-get($spacers, 3);
       }
     }
   }
