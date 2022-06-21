@@ -14,6 +14,9 @@
     "template": "./directory-sections.marko",
     "@schedules": "array"
   },
+  "<global-newsletter-signup-banner-block>": {
+    "template": "./newsletter-signup-banner.marko"
+  },
   "<global-newsletter-signup-banner-static-block>": {
     "template": "./newsletter-signup-banner-static.marko"
   },

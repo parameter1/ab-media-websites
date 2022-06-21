@@ -3,7 +3,7 @@ import { getAsArray } from "@parameter1/base-cms-object-path";
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 
-$ const { pagination: p } = out.global;
+$ const { pagination: p, site } = out.global;
 $ const perPage = 12;
 
 <global-website-section-default-layout
@@ -80,7 +80,12 @@ $ const perPage = 12;
   </@section>
 
   <@section>
-    <theme-newsletter-signup-banner-large-block />
+    <if(site.get("enableNewsletterSignup"))>
+      <global-newsletter-signup-banner-block />
+    </if>
+    <else>
+      <theme-newsletter-signup-banner-large-block />
+    </else>
   </@section>
 
   <@section>
