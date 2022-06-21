@@ -1,0 +1,14 @@
+.site-newsletter-menu {
+  &__form-wrapper {
+    h4 {
+      @include skin-typography($style: "section-header");
+      margin-bottom: 6px;
+      line-height: 1.25;
+      text-transform: none;
+    }
+    p {
+      @include skin-typography($style: "teaser-text-1");
+      margin-bottom: 16px;
+    }
+  }
+}
