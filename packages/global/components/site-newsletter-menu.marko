@@ -5,7 +5,6 @@ import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 $ const {
   site,
   config,
-  recaptcha,
   req,
 } = out.global;
 $ const { identityX } = req;
@@ -14,11 +13,7 @@ $ const {
   name,
   description,
   imagePath,
-  defaultNewsletter,
-  newsletters,
-  demographic,
   disabled,
-  privacyPolicy,
 } = site.getAsObject("newsletter.pushdown");
 
 $ const lang = site.config.lang || "en";
