@@ -2,17 +2,11 @@
   <div class="inline-newsletter-form">
     <div ref="lazyload" class="lazyload" />
     <div :class="blockName">
-      <div
-        v-if="imageSrc"
-        :class="`${blockName}__left-col`"
-      >
-        <img :src="imageSrc" :srcset="imageSrcset" :alt="name">
+      <div v-if="!submitted" :class="`${blockName}__name`">
+        {{ name }}
       </div>
-      <div :class="`${blockName}__right-col`">
-        <div v-if="!submitted" :class="`${blockName}__title`">
-          {{ name }}
-        </div>
-        <div v-if="!submitted" :class="`${blockName}__description`" v-html="description" />
+      <div v-if="!submitted" :class="`${blockName}__description`" v-html="description" />
+      <div :class="`${blockName}__form`">
         <login-form
           :additional-event-data="{ forceProfileReVerification: true }"
           :source="source"
@@ -132,7 +126,7 @@ export default {
   },
 
   data: () => ({
-    blockName: 'inline-newsletter-form',
+    blockName: 'newsletter-signup-banner-large',
     didView: false,
     email: null,
     step: 1,
