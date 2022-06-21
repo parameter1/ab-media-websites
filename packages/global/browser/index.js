@@ -7,6 +7,7 @@ const CompanySearch = () => import(/* webpackChunkName: "global-company-search" 
 const SectionSearch = () => import(/* webpackChunkName: "global-section-search" */ './section-search.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const PremiumPartners = () => import(/* webpackChunkName: "global-premium-partners" */ './premium-partners.vue');
+const SiteNewsletterMenu = () => import(/* webpackChunkName: "global-site-newsletter-menu" */ './site-newsletter-menu.vue');
 
 export default (Browser) => {
   const { EventBus } = Browser;
@@ -27,4 +28,7 @@ export default (Browser) => {
     provide: { EventBus },
   });
   Browser.register('GlobalPremiumPartners', PremiumPartners);
+  Browser.register('GlobalSiteNewsletterMenu', SiteNewsletterMenu, {
+    provide: { EventBus },
+  });
 };
