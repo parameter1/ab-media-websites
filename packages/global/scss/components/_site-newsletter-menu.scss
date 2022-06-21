@@ -12,3 +12,25 @@
     }
   }
 }
+
+.newsletter-signup-banner-large {
+  &__form {
+    form {
+      @include media-breakpoint-up(sm) {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+    .form-group {
+      width: 312px;
+      max-width: 100%;
+      label {
+        display: none;
+      }
+      @include media-breakpoint-up(sm) {
+        margin-bottom: 0;
+        margin-right: map-get($spacers, block);
+      }
+    }
+  }
+}
