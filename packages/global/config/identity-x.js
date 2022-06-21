@@ -10,18 +10,24 @@ const { log } = console;
 module.exports = ({
   appId,
   apiToken = process.env.IDENTITYX_API_TOKEN,
-  hiddenFields = [],
+  hiddenFields = [
+    'organizationTitle',
+    'phoneNumber',
+    'street',
+    'addressExtra',
+    'city',
+    'regionCode',
+  ],
+  defaultCountryCode = 'US',
   requiredServerFields = [
     'organization',
     'countryCode',
+    'postalCode',
   ],
   requiredClientFields = [
     'organization',
     'countryCode',
     'postalCode',
-    'street',
-    'city',
-    'regionCode',
   ],
   omedaGraphQLProp = '$omeda',
 } = {}) => {
@@ -29,6 +35,7 @@ module.exports = ({
     appId,
     apiToken,
     hiddenFields,
+    defaultCountryCode,
     requiredServerFields,
     requiredClientFields,
     onHookError: (e) => {
@@ -39,8 +46,6 @@ module.exports = ({
       newrelic.noticeError(e);
     },
   });
-
-  console.log('idxConfig: ', config);
 
   addOmedaIntegrationHooks({
     idxConfig: config,
