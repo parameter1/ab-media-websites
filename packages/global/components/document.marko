@@ -79,8 +79,10 @@ $ const {
       on="newsletter-form-subscription"
       clear-data=true
     />
-    <global-site-header has-user=false reg-enabled=false />
-    <global-site-menu has-user=false reg-enabled=false />
+    <marko-web-identity-x-context|{ hasUser, isEnabled }|>
+      <global-site-header has-user=hasUser reg-enabled=isEnabled />
+      <global-site-menu has-user=hasUser reg-enabled=isEnabled />
+    </marko-web-identity-x-context>
     <${input.aboveContainer} />
     <if(site.get("enableNewsletterSignup"))>
       <global-site-newsletter-menu />
@@ -88,7 +90,7 @@ $ const {
   </@above-container>
   <@below-container>
     <${input.belowContainer} />
-    <theme-site-footer />
+    <global-site-footer />
   </@below-container>
   <@below-wrapper>
     <marko-web-deferred-script-loader-load />
