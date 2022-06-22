@@ -80,12 +80,14 @@ $ const perPage = 12;
   </@section>
 
   <@section>
-    <if(site.get("enableNewsletterSignup"))>
-      <global-newsletter-signup-banner-block />
-    </if>
-    <else>
-      <theme-newsletter-signup-banner-large-block />
-    </else>
+    <marko-web-identity-x-context|{ hasUser, isEnabled }|>
+      <if(site.get("enableNewsletterSignup") && !hasUser)>
+        <global-newsletter-signup-banner-block />
+      </if>
+      <else-if(!site.get("enableNewsletterSignup"))>
+        <theme-newsletter-signup-banner-large-block />
+      </else-if>
+    </marko-web-identity-x-context>
   </@section>
 
   <@section>
