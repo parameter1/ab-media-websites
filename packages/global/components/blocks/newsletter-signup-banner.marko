@@ -9,6 +9,7 @@ $ const { identityX } = req;
 $ const additionalEventData = defaultValue(input.additionalEventData, {});
 $ const buttonLabels = defaultValue(input.buttonLabels, { continue: 'Sign Up' })
 $ const loginEmailPlaceholder = defaultValue(input.loginEmailPlaceholder, 'example@gmail.com');
+$ const source = defaultValue(input.source, 'inline-newsletter-login');
 
 $ const {
   name,
@@ -31,7 +32,7 @@ $ const lang = site.config.lang || "en";
           disabled,
           lang,
           additionalEventData: additionalEventData,
-          source: input.source,
+          source,
           activeUser: user,
           endpoints: identityX.config.getEndpoints(),
           buttonLabels,
