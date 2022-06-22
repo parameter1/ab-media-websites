@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-newsletter-form">
+  <div class="newsletter-form">
     <div ref="lazyload" class="lazyload" />
     <div :class="blockName">
       <div v-if="!submitted" :class="`${blockName}__name`">
