@@ -293,3 +293,8 @@ label {
     fill: $gray-800;
   }
 }
+
+
+.page .page-wrapper:last-of-type {
+  margin-bottom: 30px;
+}
