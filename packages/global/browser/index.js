@@ -9,6 +9,7 @@ const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ '
 const PremiumPartners = () => import(/* webpackChunkName: "global-premium-partners" */ './premium-partners.vue');
 const SiteNewsletterMenu = () => import(/* webpackChunkName: "global-site-newsletter-menu" */ './site-newsletter-menu.vue');
 const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
+const FooterNewsletterForm = () => import(/* webpackChunkName: "global-footer-newsletter-form" */ './footer-newsletter-form.vue');
 
 
 export default (Browser) => {
@@ -34,6 +35,9 @@ export default (Browser) => {
     provide: { EventBus },
   });
   Browser.register('GlobalInlineNewsletterForm', InlineNewsletterForm, {
+    provide: { EventBus },
+  });
+  Browser.register('GlobalFooterNewsletterForm', FooterNewsletterForm, {
     provide: { EventBus },
   });
 };
