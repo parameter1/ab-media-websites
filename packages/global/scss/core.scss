@@ -295,6 +295,18 @@ label {
 }
 
 
-.page .page-wrapper:last-of-type {
-  margin-bottom: 30px;
+.page {
+  .page-wrapper:last-of-type {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  &--authenticate,
+  &--profile {
+    .page-wrapper__title {
+      @include skin-typography($style: "section-header");
+      margin-bottom: 6px;
+      line-height: 1.25;
+      text-transform: none;
+    }
+  }
 }

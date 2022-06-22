@@ -2,14 +2,15 @@ $ const { config } = out.global;
 
 $ const type = "authenticate";
 $ const title = "Authenticate";
-$ const description = `Complete your ${config.siteName()} user profile`;
+$ const description = `${config.siteName()} User Profile`;
+$ const callToAction = 'To complete your profile, please fill out the required fields & select your email subscriptions.'
 
 <marko-web-default-page-layout type=type title=title description=title>
   <@page>
     <marko-web-page-wrapper>
       <@section>
         <h1 class="page-wrapper__title">${description}</h1>
-        <marko-web-identity-x-form-authenticate />
+        <marko-web-identity-x-form-authenticate call-to-action=callToAction />
       </@section>
     </marko-web-page-wrapper>
   </@page>
