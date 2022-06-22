@@ -14,6 +14,19 @@
   }
 }
 
+.newsletter-signup-footer {
+  &__name {
+    @include skin-typography($style: "footer-header-1");
+  }
+  &__description {
+    @include skin-typography($style: "footer-text");
+    margin-bottom: map-get($spacers, block);
+  }
+  label {
+    display: none;
+  }
+}
+
 .newsletter-signup-banner-large {
   &__form-wrapper {
     max-width: 520px;

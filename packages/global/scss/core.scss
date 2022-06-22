@@ -282,19 +282,6 @@ label {
   }
 }
 
-// Remove when deps are upgraded with::after
-// https://github.com/parameter1/base-cms/pull/344
-.complete-newsletter-signup {
-  $self: &;
-  &__card-header {
-    color: $gray-800;
-  }
-  svg {
-    fill: $gray-800;
-  }
-}
-
-
 .page {
   .page-wrapper:last-of-type {
     margin-top: 60px;
@@ -309,4 +296,25 @@ label {
       text-transform: none;
     }
   }
+}
+
+.site-navbar__container {
+  .user-tools {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    &__link {
+      text-decoration: none;
+    }
+    &__link + .user-tools__link  {
+      :before {
+        content: " | ";
+        color: #3f4043;
+      }
+    }
+    svg {
+      fill: #3f4043;
+    }
+  }
+
 }

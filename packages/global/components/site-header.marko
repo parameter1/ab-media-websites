@@ -40,7 +40,19 @@ $ const navigation = {
       has-user=input.hasUser
     />
     <if(site.get("enableNewsletterSignup"))>
-      <marko-web-browser-component name="ThemeNewsletterToggleButton" ssr=true />
+      <if(!input.hasUser)>
+        <marko-web-browser-component name="ThemeNewsletterToggleButton" ssr=true />
+      </if>
+      <else>
+        <marko-web-block name="user-tools user-tools--icons">
+          <marko-web-link class="user-tools__link user-tools__link--profile" href="/user/profile" title="Manage Your Profile">
+            <marko-web-icon name="person" modifiers=["lg"] />
+          </marko-web-link>
+          <marko-web-link class="user-tools__link user-tools__link--logout" href="/user/logout" title="Logout">
+            <marko-web-icon name="sign-out" modifiers=["lg"] />
+          </marko-web-link>
+        </marko-web-block>
+      </else>
     </if>
   </default-theme-site-navbar>
 
