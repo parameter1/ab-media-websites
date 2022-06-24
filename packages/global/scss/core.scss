@@ -4,6 +4,9 @@
 // import theme css
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/core";
 
+// import theme magazine css
+@import "../../node_modules/@parameter1/package-theme-monorail-magazine/scss/index";
+
 // page wrapper
 .page-wrapper {
   &__content-name {
@@ -55,12 +58,9 @@
 @import "./components/directory-facets";
 @import "./components/blocks/company-search";
 @import "./components/blocks/directory-section-feed";
-@import "./components/blocks/magazine-issues";
 @import "./components/blocks/newsletter-signup-banner-static";
 @import "./components/blocks/premium-partners";
 @import "./components/blocks/section-search";
-
-@import "../components/magazine/scss/index";
 
 body {
   -webkit-font-smoothing: antialiased;
