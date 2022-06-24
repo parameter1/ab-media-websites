@@ -3,6 +3,7 @@ const navigation = require('./navigation');
 const gam = require('./gam');
 const nativeX = require('./native-x');
 const identityX = require('./identity-x');
+const magazine = require('./magazine');
 const newsletter = require('./newsletter');
 const search = require('./search');
 const subscribe = require('./subscribe');
@@ -12,13 +13,11 @@ module.exports = {
   gam,
   nativeX,
   identityX,
+  magazine,
   newsletter,
   digitalEdition,
   search,
   company: 'AB Media Inc',
-  publicationIds: [
-    '615602b1da01648223320698',
-  ],
   subscribe,
   p1events: {
     tenant: 'abmedia',
