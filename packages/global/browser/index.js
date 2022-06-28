@@ -7,9 +7,6 @@ const CompanySearch = () => import(/* webpackChunkName: "global-company-search" 
 const SectionSearch = () => import(/* webpackChunkName: "global-section-search" */ './section-search.vue');
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const PremiumPartners = () => import(/* webpackChunkName: "global-premium-partners" */ './premium-partners.vue');
-const SiteNewsletterMenu = () => import(/* webpackChunkName: "global-site-newsletter-menu" */ './site-newsletter-menu.vue');
-const InlineNewsletterForm = () => import(/* webpackChunkName: "global-inline-newsletter-form" */ './inline-newsletter-form.vue');
-const FooterNewsletterForm = () => import(/* webpackChunkName: "global-footer-newsletter-form" */ './footer-newsletter-form.vue');
 
 
 export default (Browser) => {
@@ -31,13 +28,4 @@ export default (Browser) => {
     provide: { EventBus },
   });
   Browser.register('GlobalPremiumPartners', PremiumPartners);
-  Browser.register('GlobalSiteNewsletterMenu', SiteNewsletterMenu, {
-    provide: { EventBus },
-  });
-  Browser.register('GlobalInlineNewsletterForm', InlineNewsletterForm, {
-    provide: { EventBus },
-  });
-  Browser.register('GlobalFooterNewsletterForm', FooterNewsletterForm, {
-    provide: { EventBus },
-  });
 };
