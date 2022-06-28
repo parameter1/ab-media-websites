@@ -1,36 +1,34 @@
 const baseConfig = {
-  action: 'https://athleticbusiness.dragonforms.com/loading.do',
   hiddenInputs: [
     { name: 'omedasite', value: 'ab_pref' },
   ],
 };
 
 const defaults = {
+  disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
   name: 'Your Industry Connection',
   description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
 };
 
 module.exports = {
-  // uses inline omeda form
+  pushdown: {
+    ...defaults,
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-half.png',
+  },
   signupBanner: {
     ...defaults,
     imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
   },
-  pushdown: {
-    ...defaults,
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-half.png',
-    description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
-  },
-
-  // links off to seperate omeda dragonform
   signupBannerLarge: {
-    ...baseConfig,
-    name: 'Sign Up for AB Today!',
-    description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
+    ...defaults,
   },
   signupFooter: {
+    ...defaults,
+  },
+  signupBannerStatic: {
     ...baseConfig,
     name: 'Sign Up for AB Today!',
+    action: 'https://athleticbusiness.dragonforms.com/loading.do',
     description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
   },
 };

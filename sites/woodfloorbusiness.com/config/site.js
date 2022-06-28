@@ -17,7 +17,6 @@ module.exports = {
   magazine,
   newsletter,
   omeda,
-  enableNewsletterSignup: process.env.ENABLE_NEWSLETTER_SIGNUP,
   digitalEdition,
   search,
   subscribe,
