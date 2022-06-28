@@ -1,11 +1,13 @@
 import getNavItems from "@parameter1/base-cms-marko-web-theme-default/components/site-navbar/utils/get-nav-items";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import { asObject } from "@parameter1/base-cms-utils";
 
 $ const { config, site, i18n } = out.global;
 
-$ const newsletterConfig = site.getAsObject('newsletter.signupFooter');
+$ const newsletterConfig = site.getAsObject('newsletter.staticNewsletterConfig');
 $ const blockName = input.blockName || "site-footer";
 $ const tagline = site.get("tagline");
+$ const useIdxNewsletterSignup = defaultValue(input.useIdxNewsletterSignup, true);
 
 <marko-web-block
   name=blockName
@@ -34,12 +36,38 @@ $ const tagline = site.get("tagline");
       <div class="row">
         <marko-web-element block-name=blockName name="section" attrs={ "aria-label": "Newsletter Sign-Up Form Footer"}>
           <marko-web-identity-x-context|{ hasUser, isEnabled }|>
-            <if(newsletterConfig && !hasUser)>
-              <global-newsletter-signup-footer-block />
-            </if>
-            <else-if(newsletterConfig)>
-              <global-newsletter-signup-footer-block />
-            </else-if>
+          <if(!newsletterConfig.disabled)>
+            <identity-x-newsletter-form-footer />
+          </if>
+          <else-if(!newsletterConfig.disabled && newsletterConfig.action)>
+            <marko-web-block name=newsletterBlock>
+              <marko-web-element block-name=newsletterBlock name="header">
+                $!{newsletterConfig.name}
+              </marko-web-element>
+              <if(newsletterConfig.description)>
+                <marko-web-element block-name=newsletterBlock name="description">
+                  $!{newsletterConfig.description}
+                </marko-web-element>
+              </if>
+              <form action=newsletterConfig.action method="GET">
+                <div class="form-group">
+                  <label for="footer-newsletter-signup-email">${i18n("Email")}</label>
+                  <input
+                    id="footer-newsletter-signup-email"
+                    class="form-control"
+                    type="email"
+                    placeholder="example@gmail.com"
+                    name="em"
+                    required
+                  />
+                  <for|item| of=newsletterConfig.hiddenInputs>
+                    <input type="hidden" name=item.name value=item.value />
+                  </for>
+                </div>
+                <button class="btn btn-primary" type="submit" disabled=(newsletterConfig.disabled && "disabled")>${i18n("Sign Up")}</button>
+              </form>
+            </marko-web-block>
+          </else-if>
           </marko-web-identity-x-context>
         </marko-web-element>
         <marko-web-element block-name=blockName name="section" attrs={ "aria-label": "Social Media Links" }>
