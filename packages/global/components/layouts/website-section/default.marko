@@ -15,13 +15,6 @@ $ const { GAM } = out.global;
     </marko-web-resolve-page>
     <${input.head} />
   </@head>
-  <@above-container>
-    <marko-web-page-wrapper modifiers=["premium-partners"]>
-      <@section|{ aliases }| modifiers=["premium-partners"]>
-        <global-premium-partners-block />
-      </@section>
-    </marko-web-page-wrapper>
-  </@above-container>
   <@page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);

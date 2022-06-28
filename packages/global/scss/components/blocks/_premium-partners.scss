@@ -105,3 +105,66 @@
     }
   }
 }
+
+.premium-partners {
+  border-top: 1px solid #c4c6cb;
+
+  &__wrapper {
+    .ad-container {
+      max-width: 1080px;
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+
+      &--with-label-partners {
+        // height: 73px;
+        padding-bottom: 0;
+        > *:first-child {
+          padding-top: 4px;
+          padding-bottom: 4px;
+          &::before {
+            display: none;
+          }
+        }
+        .partners {
+          flex-direction: row;
+          background-color: #fff;
+          @media (max-width: $marko-web-document-container-max-width) {
+            padding-right: 16px;
+            padding-left: 16px;
+          }
+        }
+        .partners-label {
+          display: block;
+          margin-left: 4px;
+          font-size: 11px;
+          font-weight: 700;
+          color: #3f4043;
+          text-transform: uppercase;
+        }
+      }
+    }
+    .card-deck-flow {
+      &::before {
+        display: none;
+        height: 40px;
+        padding-top: .5rem;
+        font-size: 13px;
+        font-weight: $font-weight-bold;
+        color: $gray-800;
+        text-transform: none;
+        content: "Premium Partners:";
+      }
+      &__node {
+        width: auto;
+        // height: 40px;
+        padding-right: 8px;
+        padding-left: 8px;
+        text-align: center;
+      }
+    }
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+}

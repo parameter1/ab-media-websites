@@ -283,10 +283,6 @@ label {
 }
 
 .page {
-  .page-wrapper:last-of-type {
-    margin-top: 60px;
-    margin-bottom: 60px;
-  }
   &--authenticate,
   &--profile {
     .page-wrapper__title {
