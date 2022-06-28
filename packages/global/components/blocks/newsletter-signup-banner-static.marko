@@ -1,7 +1,7 @@
 import { asObject } from "@parameter1/base-cms-utils"
 
 $ const { site } = out.global;
-$ const newsletterConfig = site.getAsObject("newsletter.signupFooter");
+$ const newsletterConfig = site.getAsObject("newsletter.signupBannerStatic");
 $ const blockName = input.blockName || "newsletter-signup";
 <marko-web-block name=blockName>
   $ const newsletterBlock = "newsletter-signup-banner-static";
