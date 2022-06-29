@@ -96,7 +96,6 @@ $ const {
     <!-- assume idx is disabled in pushdown is diesabled -->
     $ const { disabled: pushdownDisabled } = site.getAsObject('newsletter.pushdown');
     $ const useIdxNewsletterSignup = true !== pushdownDisabled;
-    $ console.log(pushdownDisabled, useIdxNewsletterSignup);
     <theme-site-footer use-idx-newsletter-signup=useIdxNewsletterSignup />
   </@below-container>
   <@below-wrapper>
