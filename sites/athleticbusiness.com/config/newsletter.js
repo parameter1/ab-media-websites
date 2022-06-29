@@ -21,6 +21,7 @@ module.exports = {
   },
   signupBannerLarge: {
     ...defaults,
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
   },
   signupFooter: {
     ...defaults,

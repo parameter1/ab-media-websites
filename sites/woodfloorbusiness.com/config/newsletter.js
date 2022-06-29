@@ -24,6 +24,7 @@ module.exports = {
     ...defaults,
     name: 'Newsletter for Wood Floor Professionals',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
   },
   signupFooter: {
     ...defaults,
