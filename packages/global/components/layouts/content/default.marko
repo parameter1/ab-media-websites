@@ -176,7 +176,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
           <identity-x-newsletter-form-inline />
         </if>
         <else>
-          <global-newsletter-signup-banner-static-block />
+          <theme-newsletter-signup-banner-external-block config-name="signupBannerStatic" />
         </else>
 
         <if(displaySocialShare)>
