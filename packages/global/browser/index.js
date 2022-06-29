@@ -8,7 +8,6 @@ const SectionSearch = () => import(/* webpackChunkName: "global-section-search" 
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 const PremiumPartners = () => import(/* webpackChunkName: "global-premium-partners" */ './premium-partners.vue');
 
-
 export default (Browser) => {
   const { EventBus } = Browser;
 
