@@ -293,27 +293,6 @@ label {
   }
 }
 
-.site-navbar__container {
-  .user-tools {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    &__link {
-      text-decoration: none;
-    }
-    &__link + .user-tools__link  {
-      :before {
-        content: " | ";
-        color: #3f4043;
-      }
-    }
-    svg {
-      fill: #3f4043;
-    }
-  }
-
-}
-
 .newsletter-signup-banner--footer {
   label {
     color: $gray-400;
