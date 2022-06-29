@@ -27,7 +27,8 @@ module.exports = {
     imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
   },
   signupFooter: {
-    ...defaults,
+    ...baseConfig,
+    action: 'https://athleticbusiness.dragonforms.com/loading.do',
     name: 'Newsletter for Wood Floor Professionals',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },

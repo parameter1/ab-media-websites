@@ -26,8 +26,9 @@ module.exports = {
     imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
   },
   signupFooter: {
-    ...defaults,
-    name: 'Newsletter for Pool/Spa Professionals',
+    ...baseConfig,
+    name: 'Newsletter for Pool and Spa Professionals',
+    action: 'https://athleticbusiness.dragonforms.com/loading.do',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
   signupBannerStatic: {
