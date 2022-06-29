@@ -18,7 +18,6 @@ const billboardState = require('./middleware/billboard-state');
 const oembedHandler = require('./oembed-handler');
 const idxRouteTemplates = require('./templates/user');
 const redirectHandler = require('./redirect-handler');
-const recaptcha = require('./config/recaptcha');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
   // Handle submissions on /__inquiry
@@ -54,9 +53,6 @@ module.exports = (options = {}) => {
       // Use paginated middleware
       app.use(paginated());
 
-      // Recaptcha
-      set(app.locals, 'recaptcha', recaptcha);
-
       // i18n
       const i18n = v => v;
       set(app.locals, 'i18n', options.i18n || i18n);
@@ -69,7 +65,6 @@ module.exports = (options = {}) => {
 
       // Use billboardState middleware
       app.use(billboardState());
-
 
       // Setup IdentityX + Omeda
       const idxConfig = getAsObject(options, 'siteConfig.identityX');
