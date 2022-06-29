@@ -4,6 +4,7 @@ $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 
 $ const { pagination: p, site } = out.global;
+$ const newsletterConfig = site.getAsObject('newsletter.signupBannerLarge');
 $ const perPage = 12;
 
 <global-website-section-default-layout
@@ -80,14 +81,12 @@ $ const perPage = 12;
   </@section>
 
   <@section>
-    <marko-web-identity-x-context|{ hasUser, isEnabled }|>
-      <if(site.get("enableNewsletterSignup") && !hasUser)>
-        <global-newsletter-signup-banner-block />
-      </if>
-      <else-if(!site.get("enableNewsletterSignup"))>
-        <theme-newsletter-signup-banner-large-block />
-      </else-if>
-    </marko-web-identity-x-context>
+    <if(!newsletterConfig.disabled)>
+      <identity-x-newsletter-form-inline config-name="signupBannerLarge" />
+    </if>
+    <else>
+      <global-newsletter-signup-banner-static-block />
+    </else>
   </@section>
 
   <@section>
