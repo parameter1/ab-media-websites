@@ -6,6 +6,8 @@ const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitem
 const stripOlyticsParam = require('@parameter1/base-cms-marko-web-omeda-identity-x/middleware/strip-olytics-param');
 const omedaIdentityX = require('@parameter1/base-cms-marko-web-omeda-identity-x');
 const odentityCustomerUpsert = require('@parameter1/base-cms-marko-web-omeda/odentity/upsert-customer');
+const i18n = require('@parameter1/base-cms-marko-web-theme-monorail/middleware/i18n');
+const newsletterState = require('@parameter1/base-cms-marko-web-theme-monorail/middleware/newsletter-state');
 
 const companySearchHandler = require('./company-search');
 const document = require('./components/document');
@@ -13,7 +15,6 @@ const components = require('./components');
 const fragments = require('./fragments');
 const sharedRoutes = require('./routes');
 const paginated = require('./middleware/paginated');
-const newsletterState = require('./middleware/newsletter-state');
 const billboardState = require('./middleware/billboard-state');
 const oembedHandler = require('./oembed-handler');
 const idxRouteTemplates = require('./templates/user');
@@ -54,8 +55,7 @@ module.exports = (options = {}) => {
       app.use(paginated());
 
       // i18n
-      const i18n = v => v;
-      set(app.locals, 'i18n', options.i18n || i18n);
+      i18n(app);
 
       // Use paginated middleware
       app.use(htmlSitemapPagination());
