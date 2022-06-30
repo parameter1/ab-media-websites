@@ -22,7 +22,6 @@ module.exports = ({
   requiredServerFields = [
     'organization',
     'countryCode',
-    'postalCode',
   ],
   requiredClientFields = [
     'organization',
