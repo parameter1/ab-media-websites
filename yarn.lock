@@ -2308,25 +2308,6 @@
     graphql-tag "^2.12.5"
     node-fetch "^2.6.5"
 
-"@parameter1/base-cms-marko-web-identity-x@^2.97.1":
-  version "2.97.1"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-identity-x/-/base-cms-marko-web-identity-x-2.97.1.tgz#2616d1faba888b111b99c2926b06804df3c8173b"
-  integrity sha512-8mjbZb3g4aoh3NfkT2dmK/DZ7UqIYMGChwqGOd7W/+zdE1DoV/bHlnFUFk78/FO2/4uxviGVw6EvtXiy4EewFA==
-  dependencies:
-    "@parameter1/base-cms-marko-web-gtm" "^2.88.0"
-    "@parameter1/base-cms-object-path" "^2.75.1"
-    "@parameter1/base-cms-utils" "^2.75.1"
-    apollo-cache-inmemory "^1.6.6"
-    apollo-client "^2.6.10"
-    apollo-link-context "^1.0.20"
-    apollo-link-http "^1.5.17"
-    body-parser "^1.19.0"
-    cookie "0.3.1"
-    dayjs "^1.11.2"
-    express "^4.17.1"
-    graphql-tag "^2.12.5"
-    node-fetch "^2.6.5"
-
 "@parameter1/base-cms-marko-web-inquiry@^2.92.0":
   version "2.92.0"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-inquiry/-/base-cms-marko-web-inquiry-2.92.0.tgz#177cb67388864b8cfbf7d1cc639da3110b492bd5"
@@ -2355,37 +2336,12 @@
     graphql-tag "^2.12.5"
     node-fetch "^2.6.5"
 
-"@parameter1/base-cms-marko-web-native-x@^2.99.0":
-  version "2.99.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-native-x/-/base-cms-marko-web-native-x-2.99.0.tgz#1f8a59982faa322b493f795061419140162a1d7a"
-  integrity sha512-aZ9dnnJUDKwaUtdWtKNu9ye/0O6j+RF6Bzr/Oo+XCma1dqzWDlaUlWW3PZgMZf/nydrk+tdyYJfMuPBliSliVg==
-  dependencies:
-    "@parameter1/base-cms-marko-web-deferred-script-loader" "^2.77.0"
-    "@parameter1/base-cms-marko-web-gtm" "^2.88.0"
-    "@parameter1/base-cms-object-path" "^2.75.1"
-    "@parameter1/base-cms-utils" "^2.75.1"
-    "@parameter1/base-cms-web-common" "^2.80.0"
-    graphql-tag "^2.12.5"
-    node-fetch "^2.6.5"
-
 "@parameter1/base-cms-marko-web-omeda-identity-x@^2.100.0":
   version "2.100.0"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-omeda-identity-x/-/base-cms-marko-web-omeda-identity-x-2.100.0.tgz#1ed2c86d79b8cc819232a5949053529c11af6158"
   integrity sha512-vGRqBXdjYDyYqUE1XWwAsHivDXMvWK2s0JM8VOzIohduD+ooqzlwPl1yDVzEJAkmxqu2ZBExzs1JsEej+Oirlg==
   dependencies:
     "@parameter1/base-cms-marko-web-identity-x" "^2.100.0"
-    "@parameter1/base-cms-marko-web-omeda" "^2.92.0"
-    "@parameter1/base-cms-object-path" "^2.75.1"
-    "@parameter1/base-cms-utils" "^2.75.1"
-    graphql "^14.7.0"
-    graphql-tag "^2.12.5"
-
-"@parameter1/base-cms-marko-web-omeda-identity-x@^2.97.1":
-  version "2.97.1"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-omeda-identity-x/-/base-cms-marko-web-omeda-identity-x-2.97.1.tgz#b315efa533d9b6591f3f2242381fd15824abc20d"
-  integrity sha512-vPETJBdYfN+HJf/E1QE20g7wgXsNxFLk7verh+KY8XQ0hJrcWEZY/ZgAZbm9yuk24obfuDVFay4NV01AoKKYnA==
-  dependencies:
-    "@parameter1/base-cms-marko-web-identity-x" "^2.97.1"
     "@parameter1/base-cms-marko-web-omeda" "^2.92.0"
     "@parameter1/base-cms-object-path" "^2.75.1"
     "@parameter1/base-cms-utils" "^2.75.1"
@@ -2460,6 +2416,21 @@
     graphql "^14.7.0"
     graphql-tag "^2.12.5"
 
+"@parameter1/base-cms-marko-web-theme-monorail-magazine@^2.101.4":
+  version "2.101.4"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-monorail-magazine/-/base-cms-marko-web-theme-monorail-magazine-2.101.4.tgz#8eee7d77fa9f1b7672899d089a5aef99cc2d7d40"
+  integrity sha512-7FibGzdqPyVmSzveg2GkCO+G0lqXOSiiG+9P0jz0q4ot9yPnJihMUk1rbIuuIUDMZvvfnz3BLQyfz60WUANNPQ==
+  dependencies:
+    "@parameter1/base-cms-marko-core" "^2.80.0"
+    "@parameter1/base-cms-marko-web" "^2.95.0"
+    "@parameter1/base-cms-marko-web-gtm" "^2.88.0"
+    "@parameter1/base-cms-object-path" "^2.75.1"
+    "@parameter1/base-cms-utils" "^2.75.1"
+    "@parameter1/base-cms-web-common" "^2.80.0"
+    graphql "^14.7.0"
+    graphql-tag "^2.12.5"
+    object-path "^0.11.8"
+
 "@parameter1/base-cms-marko-web-theme-monorail@^2.101.1":
   version "2.101.1"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-monorail/-/base-cms-marko-web-theme-monorail-2.101.1.tgz#526202c9c15a10244f74eb34ac8ee2d41fd2a14a"
@@ -2479,40 +2450,6 @@
     "@parameter1/base-cms-marko-web-native-x" "^2.101.1"
     "@parameter1/base-cms-marko-web-omeda" "^2.92.0"
     "@parameter1/base-cms-marko-web-omeda-identity-x" "^2.100.0"
-    "@parameter1/base-cms-marko-web-p1-events" "^2.77.0"
-    "@parameter1/base-cms-marko-web-recaptcha" "^2.92.0"
-    "@parameter1/base-cms-marko-web-search" "^2.80.0"
-    "@parameter1/base-cms-marko-web-social-sharing" "^2.92.0"
-    "@parameter1/base-cms-marko-web-theme-default" "^2.96.0"
-    "@parameter1/base-cms-object-path" "^2.75.1"
-    "@parameter1/base-cms-utils" "^2.75.1"
-    "@parameter1/base-cms-web-common" "^2.80.0"
-    bootstrap "4.3.1"
-    cheerio "^1.0.0-rc.10"
-    graphql-tag "^2.12.5"
-    http-errors "^1.7.3"
-    moment "^2.29.1"
-    node-fetch "^2.6.1"
-
-"@parameter1/base-cms-marko-web-theme-monorail@^2.99.0":
-  version "2.99.0"
-  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-monorail/-/base-cms-marko-web-theme-monorail-2.99.0.tgz#8450c01351f858a9fe9eaf5823a84a0059dd98a0"
-  integrity sha512-eGDJwUxVVoUF65h9DmDEWmOx6/ZLp3lX68Gn1wlGSopvDz2dQG3MFwpsmr838o3AU2UrK7yS0QkkV8IkhK/83Q==
-  dependencies:
-    "@parameter1/base-cms-image" "^2.98.0"
-    "@parameter1/base-cms-inflector" "^2.0.0"
-    "@parameter1/base-cms-marko-core" "^2.80.0"
-    "@parameter1/base-cms-marko-web" "^2.98.0"
-    "@parameter1/base-cms-marko-web-deferred-script-loader" "^2.77.0"
-    "@parameter1/base-cms-marko-web-gam" "^2.90.4"
-    "@parameter1/base-cms-marko-web-gtm" "^2.88.0"
-    "@parameter1/base-cms-marko-web-html-sitemap" "^2.80.0"
-    "@parameter1/base-cms-marko-web-icons" "^2.46.3"
-    "@parameter1/base-cms-marko-web-identity-x" "^2.97.1"
-    "@parameter1/base-cms-marko-web-inquiry" "^2.92.0"
-    "@parameter1/base-cms-marko-web-native-x" "^2.99.0"
-    "@parameter1/base-cms-marko-web-omeda" "^2.92.0"
-    "@parameter1/base-cms-marko-web-omeda-identity-x" "^2.97.1"
     "@parameter1/base-cms-marko-web-p1-events" "^2.77.0"
     "@parameter1/base-cms-marko-web-recaptcha" "^2.92.0"
     "@parameter1/base-cms-marko-web-search" "^2.80.0"
@@ -2684,22 +2621,6 @@
     apollo-link-http "^1.5.17"
     graphql "^15.7.2"
     node-fetch "^2.6.6"
-
-"@parameter1/package-theme-monorail-magazine@^2.99.1":
-  version "2.99.1"
-  resolved "https://registry.yarnpkg.com/@parameter1/package-theme-monorail-magazine/-/package-theme-monorail-magazine-2.99.1.tgz#607437b4b952c86aed4f53feb0829745af9a5fc3"
-  integrity sha512-haTMSzHh78bMOxbYBJxyk1N8wln3Wegu7hisji1KLP82dtEmYxLmXZ45EJ53l/8oVmsNL9gc/0XnrtLoOi0hnw==
-  dependencies:
-    "@parameter1/base-cms-marko-core" "^2.80.0"
-    "@parameter1/base-cms-marko-web" "^2.95.0"
-    "@parameter1/base-cms-marko-web-gtm" "^2.88.0"
-    "@parameter1/base-cms-marko-web-theme-monorail" "^2.99.0"
-    "@parameter1/base-cms-object-path" "^2.75.1"
-    "@parameter1/base-cms-utils" "^2.75.1"
-    "@parameter1/base-cms-web-common" "^2.80.0"
-    graphql "^14.7.0"
-    graphql-tag "^2.12.5"
-    object-path "^0.11.8"
 
 "@sendgrid/client@^6.5.5":
   version "6.5.5"
