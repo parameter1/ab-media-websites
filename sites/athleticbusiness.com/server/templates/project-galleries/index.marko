@@ -6,10 +6,6 @@ $ const aliases = [primarySection.alias, primarySection.alias.split('/')[0]];
 <site-project-gallery-page-layout metadata={ title: primarySection.name, description: primarySection.description }>
   <@page>
     <marko-web-page-wrapper>
-      <@section modifiers=["premium-partners"]>
-        <global-premium-partners-block />
-      </@section>
-
       <@section modifiers=["break-container", "first"]>
         <global-leaderboard-ad-block
           position="static_page"
