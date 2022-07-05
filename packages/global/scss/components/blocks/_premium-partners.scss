@@ -108,7 +108,7 @@
 
 .premium-partners {
   border-top: 1px solid #c4c6cb;
-
+  background-color: $white;
   &__wrapper {
     .ad-container {
       max-width: 1080px;
@@ -165,6 +165,13 @@
     }
     @include media-breakpoint-down(md) {
       display: none;
+    }
+  }
+}
+.site-menu {
+  &--open {
+    @media (min-width: 992px) {
+      top: 150px;
     }
   }
 }
