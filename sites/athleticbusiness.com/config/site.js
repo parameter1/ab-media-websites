@@ -15,6 +15,11 @@ module.exports = {
   nativeX,
   identityX,
   magazine,
+  // temp fix till we update base-cms package
+  // Dep Upgrades after https://github.com/parameter1/base-cms/pull/364
+  publicationIds: [
+    '615602b1da01648223320698',
+  ],
   newsletter,
   omeda,
   digitalEdition,
