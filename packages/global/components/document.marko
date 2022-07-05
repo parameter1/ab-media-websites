@@ -79,14 +79,24 @@ $ const {
       on="newsletter-form-subscription"
       clear-data=true
     />
-    <global-site-header has-user=false reg-enabled=false />
-    <global-site-menu has-user=false reg-enabled=false />
-    <!-- <theme-site-newsletter-menu /> -->
+    <marko-web-identity-x-context|{ hasUser, isEnabled }|>
+      <global-site-header has-user=hasUser reg-enabled=isEnabled >
+        <@belowNav>
+          <marko-web-block name="premium-partners" class="premium-partners__wrapper" >
+            <global-premium-partners-block />
+          </marko-web-block>
+        </@belowNav>
+      </global-site-header>
+      <global-site-menu has-user=hasUser reg-enabled=isEnabled />
+    </marko-web-identity-x-context>
     <${input.aboveContainer} />
   </@above-container>
   <@below-container>
     <${input.belowContainer} />
-    <theme-site-footer />
+    <!-- assume idx is disabled in pushdown is diesabled -->
+    $ const { disabled: pushdownDisabled } = site.getAsObject('newsletter.pushdown');
+    $ const useIdxNewsletterSignup = true !== pushdownDisabled;
+    <theme-site-footer use-idx-newsletter-signup=useIdxNewsletterSignup />
   </@below-container>
   <@below-wrapper>
     <marko-web-deferred-script-loader-load />

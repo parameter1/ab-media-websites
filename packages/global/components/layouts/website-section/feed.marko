@@ -3,7 +3,8 @@ import { getAsArray } from "@parameter1/base-cms-object-path";
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 
-$ const { pagination: p } = out.global;
+$ const { pagination: p, site } = out.global;
+$ const newsletterConfig = site.getAsObject('newsletter.signupBannerLarge');
 $ const perPage = 12;
 
 <global-website-section-default-layout
@@ -80,7 +81,12 @@ $ const perPage = 12;
   </@section>
 
   <@section>
-    <theme-newsletter-signup-banner-large-block />
+    <if(!newsletterConfig.disabled)>
+      <identity-x-newsletter-form-inline />
+    </if>
+    <else>
+      <theme-newsletter-signup-banner-external-block config-name="signupBannerStatic" />
+    </else>
   </@section>
 
   <@section>

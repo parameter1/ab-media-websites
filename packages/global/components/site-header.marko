@@ -1,7 +1,7 @@
 $ const { config, site } = out.global;
 
 $ const blockName = input.blockName || "site-header";
-
+$ const newsletterConfig = site.getAsObject('newsletter.pushdown');
 $ const navigation = {
   primary: site.getAsArray("navigation.primary.items"),
   secondary: site.getAsArray("navigation.secondary.items"),
@@ -39,8 +39,9 @@ $ const navigation = {
       reg-enabled=input.regEnabled
       has-user=input.hasUser
     />
-
-    <!-- <marko-web-browser-component name="ThemeNewsletterToggleButton" ssr=true /> -->
+    <if(!newsletterConfig.disabled)>
+      <marko-web-browser-component name="IdentityXNewsletterToggleButton" ssr=true />
+    </if>
   </default-theme-site-navbar>
 
   <default-theme-site-navbar modifiers=["primary"] attrs={ "aria-label": "Primary Navigation" }>
@@ -53,3 +54,4 @@ $ const navigation = {
   </default-theme-site-navbar>
   <${input.belowNav} />
 </marko-web-block>
+<identity-x-newsletter-form-pushdown />

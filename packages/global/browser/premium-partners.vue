@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ad-container--with-label ad-container--with-label-partners"
+    class="ad-container ad-container--with-label ad-container--with-label-partners"
     role="region"
     aria-label="Premium Partners"
   >

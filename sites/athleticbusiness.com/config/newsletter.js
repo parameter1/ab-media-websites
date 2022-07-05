@@ -1,56 +1,38 @@
 const baseConfig = {
-  action: 'https://athleticbusiness.dragonforms.com/loading.do',
   hiddenInputs: [
     { name: 'omedasite', value: 'ab_pref' },
   ],
 };
 
 const defaults = {
-  name: 'NOT_SET',
-  description: 'NOT_SET',
-  defaultNewsletter: {
-    deploymentTypeId: 0,
-    name: 'NOT_SET',
-    eventCategory: 'NOT_SET',
-  },
-  newsletters: [
-    {
-      deploymentTypeId: 0,
-      name: 'NOT_SET',
-      description: 'NOT_SET',
-      eventCategory: 'NOT_SET',
-    },
-  ],
-  demographic: {
-    id: 0,
-    label: 'Your primary role?',
-    values: [
-      { id: 0, label: 'NOT_SET' },
-    ],
-  },
+  disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
+  name: 'Your Industry Connection',
+  description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
 };
 
 module.exports = {
-  // uses inline omeda form
-  signupBanner: {
-    ...defaults,
-    imagePath: 'static/newsletter-pushdown/ab-full.png',
-  },
   pushdown: {
     ...defaults,
-    imagePath: 'static/newsletter-pushdown/ab-half.png',
-    description: 'NOT_SET',
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-half.png',
   },
-
-  // links off to seperate omeda dragonform
+  signupBanner: {
+    ...defaults,
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
+  },
   signupBannerLarge: {
-    ...baseConfig,
-    name: 'Sign Up for AB Today!',
-    description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
+    ...defaults,
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
   },
   signupFooter: {
     ...baseConfig,
     name: 'Sign Up for AB Today!',
-    description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
+    action: 'https://athleticbusiness.dragonforms.com/loading.do',
+    description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
+  },
+  signupBannerStatic: {
+    ...baseConfig,
+    name: 'Sign Up for AB Today!',
+    action: 'https://athleticbusiness.dragonforms.com/loading.do',
+    description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
   },
 };

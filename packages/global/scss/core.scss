@@ -5,7 +5,7 @@
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/core";
 
 // import theme magazine css
-@import "../../node_modules/@parameter1/package-theme-monorail-magazine/scss/index";
+@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail-magazine/scss/index";
 
 // page wrapper
 .page-wrapper {
@@ -278,5 +278,23 @@ label {
       display: block;
       min-height: 90px + $container-height;
     }
+  }
+}
+
+.page {
+  &--authenticate,
+  &--profile {
+    .page-wrapper__title {
+      @include skin-typography($style: "section-header");
+      margin-bottom: 6px;
+      line-height: 1.25;
+      text-transform: none;
+    }
+  }
+}
+
+.newsletter-signup-banner--footer {
+  label {
+    color: $gray-400;
   }
 }

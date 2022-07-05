@@ -1,11 +1,13 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@parameter1/base-cms-marko-web');
-const { set, get } = require('@parameter1/base-cms-object-path');
+const { set, get, getAsObject } = require('@parameter1/base-cms-object-path');
 const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
-const omedaGraphQL = require('@parameter1/omeda-graphql-client-express');
 const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
 const stripOlyticsParam = require('@parameter1/base-cms-marko-web-omeda-identity-x/middleware/strip-olytics-param');
+const omedaIdentityX = require('@parameter1/base-cms-marko-web-omeda-identity-x');
 const odentityCustomerUpsert = require('@parameter1/base-cms-marko-web-omeda/odentity/upsert-customer');
+const i18n = require('@parameter1/base-cms-marko-web-theme-monorail/middleware/i18n');
+const newsletterState = require('@parameter1/base-cms-marko-web-theme-monorail/middleware/newsletter-state');
 
 const companySearchHandler = require('./company-search');
 const document = require('./components/document');
@@ -13,10 +15,9 @@ const components = require('./components');
 const fragments = require('./fragments');
 const sharedRoutes = require('./routes');
 const paginated = require('./middleware/paginated');
-const newsletterState = require('./middleware/newsletter-state');
 const billboardState = require('./middleware/billboard-state');
 const oembedHandler = require('./oembed-handler');
-const omedaConfig = require('./config/omeda');
+const idxRouteTemplates = require('./templates/user');
 const redirectHandler = require('./redirect-handler');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
@@ -54,8 +55,7 @@ module.exports = (options = {}) => {
       app.use(paginated());
 
       // i18n
-      const i18n = v => v;
-      set(app.locals, 'i18n', options.i18n || i18n);
+      i18n(app);
 
       // Use paginated middleware
       app.use(htmlSitemapPagination());
@@ -66,15 +66,20 @@ module.exports = (options = {}) => {
       // Use billboardState middleware
       app.use(billboardState());
 
-      // Use Omeda middleware
-      app.use(omedaGraphQL({
-        uri: 'https://graphql.omeda.parameter1.com/',
+      // Setup IdentityX + Omeda
+      const idxConfig = getAsObject(options, 'siteConfig.identityX');
+      const omedaConfig = getAsObject(options, 'siteConfig.omeda');
+      omedaIdentityX(app, {
         brandKey: omedaConfig.brandKey,
         clientKey: omedaConfig.clientKey,
         appId: omedaConfig.appId,
         inputId: omedaConfig.inputId,
-      }));
-
+        rapidIdentProductId: get(omedaConfig, 'rapidIdentification.productId'),
+        omedaPromoCodeDefault: omedaConfig.promoCodeDefault,
+        omedaPromoCodeCookieName: omedaConfig.promoCodeCookieName,
+        idxConfig,
+        idxRouteTemplates,
+      });
       // Setup GAM.
       const gamConfig = get(options, 'siteConfig.gam');
       set(app.locals, 'GAM', gamConfig);

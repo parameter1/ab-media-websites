@@ -15,8 +15,7 @@ $ const displayPublishedDate = ["company", "contact", "whitepaper"].includes(typ
 $ const displayReadNext = showReadNextBlock && ["article"].includes(type);
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
 $ const displayComments = ["contact"].includes(type) ? false : true;
-<!-- $ const displayNewsletterSignup = ["contact"].includes(type) ? false : true; -->
-$ const displayNewsletterSignup = false;
+$ const newsletterConfig = site.getAsObject('newsletter.signupBannerLarge');
 $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type);
 
 <global-content-wrapper-layout
@@ -25,10 +24,6 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
   page-node=pageNode
   ...rest
 >
-  <@section|{ aliases }| modifiers=["premium-partners"]>
-    <global-premium-partners-block />
-  </@section>
-
   <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
     <global-leaderboard-ad-block
       position="content_page"
@@ -177,11 +172,12 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
             </if>
           </for>
         </if>
-        <!-- remove this when reworking newsletter signup -->
-        <global-newsletter-signup-banner-static-block />
-        <if(displayNewsletterSignup)>
-          <theme-newsletter-signup-banner-block />
+        <if(!newsletterConfig.disabled)>
+          <identity-x-newsletter-form-inline />
         </if>
+        <else>
+          <theme-newsletter-signup-banner-external-block config-name="signupBannerStatic" />
+        </else>
 
         <if(displaySocialShare)>
           <marko-web-social-sharing

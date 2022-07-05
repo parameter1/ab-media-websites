@@ -1,56 +1,40 @@
 const baseConfig = {
-  action: 'https://athleticbusiness.dragonforms.com/loading.do',
   hiddenInputs: [
     { name: 'omedasite', value: 'aqua_pref' },
   ],
 };
 
 const defaults = {
-  name: 'NOT_SET',
-  description: 'NOT_SET',
-  defaultNewsletter: {
-    deploymentTypeId: 0,
-    name: 'NOT_SET',
-    eventCategory: 'NOT_SET',
-  },
-  newsletters: [
-    {
-      deploymentTypeId: 0,
-      name: 'NOT_SET',
-      description: 'NOT_SET',
-      eventCategory: 'NOT_SET',
-    },
-  ],
-  demographic: {
-    id: 0,
-    label: 'Your primary role?',
-    values: [
-      { id: 0, label: 'NOT_SET' },
-    ],
-  },
+  disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
+  name: 'Your Industry Connection',
+  description: 'Join other industry pros who get pertinent, fast-reading nationwide stories delivered twice a week to their inbox with AQUA Today.',
 };
 
 module.exports = {
-  // uses inline omeda form
-  signupBanner: {
-    ...defaults,
-    imagePath: 'static/newsletter-pushdown/aqua-full.png',
-  },
   pushdown: {
     ...defaults,
-    imagePath: 'static/newsletter-pushdown/aqua-half.png',
-    description: 'NOT_SET',
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-half.png',
   },
-
-  // links off to seperate omeda dragonform
+  signupBanner: {
+    ...defaults,
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
+  },
   signupBannerLarge: {
-    ...baseConfig,
+    ...defaults,
     name: 'Newsletter for Pool and Spa Professionals',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
+    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
   },
   signupFooter: {
     ...baseConfig,
     name: 'Newsletter for Pool and Spa Professionals',
+    action: 'https://athleticbusiness.dragonforms.com/loading.do',
+    description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
+  },
+  signupBannerStatic: {
+    ...baseConfig,
+    name: 'Newsletter for Pool and Spa Professionals',
+    action: 'https://athleticbusiness.dragonforms.com/loading.do',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
   },
 };

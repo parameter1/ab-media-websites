@@ -2,7 +2,8 @@ $ const { config } = out.global;
 
 $ const type = "profile";
 $ const title = "User profile";
-$ const description = `Complete your ${config.siteName()} user profile`;
+$ const description = `${config.siteName()} User Profile`;
+$ const callToAction = 'To complete your profile, please fill out the required fields & select your email subscriptions.'
 
 <marko-web-default-page-layout type=type title=title description=description>
   <@head>
@@ -12,25 +13,9 @@ $ const description = `Complete your ${config.siteName()} user profile`;
   </@head>
   <@page>
     <marko-web-page-wrapper>
-      <@section|{ aliases }| modifiers=["first"]>
-        <theme-gam-define-display-ad
-          name="leaderboard"
-          position="static_page"
-          aliases=aliases
-          modifiers=["inter-block"]
-        />
-      </@section>
       <@section>
         <h1 class="page-wrapper__title">${description}</h1>
-        <marko-web-identity-x-form-profile />
-      </@section>
-      <@section|{ aliases }|>
-        <theme-gam-define-display-ad
-          name="rotation"
-          position="static_page"
-          aliases=aliases
-          modifiers=["inter-block"]
-        />
+        <marko-web-identity-x-form-profile call-to-action=callToAction />
       </@section>
     </marko-web-page-wrapper>
   </@page>

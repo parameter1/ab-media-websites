@@ -1,11 +1,10 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
-const magazine = require('@parameter1/package-theme-monorail-magazine/routes');
+const magazine = require('@parameter1/base-cms-marko-web-theme-monorail-magazine/routes');
 const omedaNewsletters = require('@parameter1/base-cms-marko-web-omeda/routes/omeda-newsletters');
 const renderBlock = require('@parameter1/base-cms-marko-web-theme-monorail/routes/render-block');
 const searchTemplate = require('../templates/search');
 const digitalEdition = require('./digital-edition');
 const feed = require('./feed');
-const identityX = require('./identity-x');
 const nativeX = require('./native-x');
 const printContent = require('./print-content');
 const publicFiles = require('./public-files');
@@ -17,9 +16,6 @@ module.exports = (app, siteConfig) => {
 
   // Feed
   feed(app);
-
-  // IdentityX (user routing and app context)
-  identityX(app);
 
   // Magazine Routes
   magazine(app);
