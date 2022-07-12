@@ -63,6 +63,7 @@ module.exports = {
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/wood-floor-business/', target: '_blank' },
     { provider: 'youtube', href: 'https://www.youtube.com/c/WoodFloorBusiness', target: '_blank' },
     { provider: 'twitter', href: 'https://twitter.com/WFBusinessMag', target: '_blank' },
+    { provider: 'tiktok', href: 'https://www.tiktok.com/@woodfloorbusiness', target: '_blank' },
   ],
   podcastLinks: [],
   gtm: {
