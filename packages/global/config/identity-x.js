@@ -28,6 +28,7 @@ module.exports = ({
     'countryCode',
     'postalCode',
   ],
+  booleanQuestionsLabel = 'Choose your subscriptions:',
   omedaGraphQLProp = '$omeda',
 } = {}) => {
   const config = new IdentityXConfiguration({
@@ -37,6 +38,7 @@ module.exports = ({
     defaultCountryCode,
     requiredServerFields,
     requiredClientFields,
+    booleanQuestionsLabel,
     onHookError: (e) => {
       if (process.env.NODE_ENV === 'development') {
         log('ERROR IN IDENTITY-X HOOK', e);
