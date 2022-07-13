@@ -291,6 +291,15 @@ label {
       text-transform: none;
     }
   }
+  &--login,
+  &--authenticate,
+  &--profile,
+  &--register {
+    .page-wrapper__section:only-child {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
 }
 
 .newsletter-signup-banner--footer {
