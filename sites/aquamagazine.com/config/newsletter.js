@@ -13,17 +13,17 @@ const defaults = {
 module.exports = {
   pushdown: {
     ...defaults,
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-half.png',
+    imagePath: 'files/base/abmedia/all/image/static/newsletter-signup/aqua-signup-half.png',
   },
   signupBanner: {
     ...defaults,
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
+    imagePath: 'files/base/abmedia/all/image/static/newsletter-signup/aqua-signup-full.png',
   },
   signupBannerLarge: {
     ...defaults,
     name: 'Newsletter for Pool and Spa Professionals',
     description: 'Get industry news, insights, and new product information delivered straight to your inbox.',
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
+    imagePath: 'files/base/abmedia/all/image/static/newsletter-signup/aqua-signup-full.png',
   },
   signupFooter: {
     ...baseConfig,

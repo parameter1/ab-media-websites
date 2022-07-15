@@ -13,15 +13,15 @@ const defaults = {
 module.exports = {
   pushdown: {
     ...defaults,
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-half.png',
+    imagePath: 'files/base/abmedia/all/image/static/newsletter-signup/ab-signup-half.png',
   },
   signupBanner: {
     ...defaults,
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
+    imagePath: 'files/base/abmedia/all/image/static/newsletter-signup/ab-signup-full.png',
   },
   signupBannerLarge: {
     ...defaults,
-    imagePath: 'files/base/p1/sandbox/image/static/newsletter-phone-full.png',
+    imagePath: 'files/base/abmedia/all/image/static/newsletter-signup/ab-signup-full.png',
   },
   signupFooter: {
     ...baseConfig,
