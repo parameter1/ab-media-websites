@@ -40,7 +40,7 @@ $ const navigation = {
       reg-enabled=input.regEnabled
       has-user=input.hasUser
     />
-    <if(!newsletterConfig.disabled)>
+    <if(showIdxNewsletterSignup)>
       <marko-web-browser-component name="IdentityXNewsletterToggleButton" ssr=true />
     </if>
   </default-theme-site-navbar>
