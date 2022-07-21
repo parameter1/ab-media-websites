@@ -7,7 +7,7 @@ const baseConfig = {
 const defaults = {
   disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
   name: 'Your Industry Connection',
-  description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
+  description: 'Join other industry pros who get pertinent, fast-reading nationwide stories delivered daily to their inbox with AB Today.',
 };
 
 module.exports = {
@@ -27,12 +27,12 @@ module.exports = {
     ...baseConfig,
     name: 'Sign Up for AB Today!',
     action: 'https://athleticbusiness.dragonforms.com/loading.do',
-    description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
+    description: 'Join other industry pros who get pertinent, fast-reading nationwide stories delivered daily to their inbox with AB Today.',
   },
   signupBannerStatic: {
     ...baseConfig,
     name: 'Sign Up for AB Today!',
     action: 'https://athleticbusiness.dragonforms.com/loading.do',
-    description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
+    description: 'Join other industry pros who get pertinent, fast-reading nationwide stories delivered daily to their inbox with AB Today.',
   },
 };
