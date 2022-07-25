@@ -55,6 +55,14 @@ $ const { site } = out.global;
   </@section>
 
   <@section>
+    <marko-web-identity-x-context|{ hasUser }|>
+      <if(!hasUser)>
+        <identity-x-newsletter-form-inline />
+      </if>
+    </marko-web-identity-x-context>
+  </@section>
+
+  <@section>
     <div role="region" aria-label="Most Popular Stories">
       <theme-client-side-most-popular-block />
     </div>
