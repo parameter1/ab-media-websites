@@ -98,6 +98,10 @@ fragment ContentPageFragment on Content {
   }
   ... on ContentCompany {
     email
+    salesRegion
+    linesCarried: customAttribute(input: {
+      path: "linesCarried"
+    })
     websiteSchedules {
       section {
         id
