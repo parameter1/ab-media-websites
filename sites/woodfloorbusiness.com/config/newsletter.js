@@ -5,7 +5,6 @@ const baseConfig = {
 };
 
 const defaults = {
-  disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
   name: 'Your Industry Connection',
   description: 'Join other industry professionals in the wood flooring industry to provide the latest news, information and insight delivered to your inbox twice a week.',
 };
