@@ -5,7 +5,6 @@ const baseConfig = {
 };
 
 const defaults = {
-  disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
   name: 'Your Industry Connection',
   description: 'Join other industry pros who get pertinent, fast-reading nationwide stories delivered twice a week to their inbox with AQUA Today.',
 };
